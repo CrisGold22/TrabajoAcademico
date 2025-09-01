@@ -1,0 +1,16 @@
+pe\edu\pucp\inf30\softprog\modelo\Estado.class
+pe\edu\pucp\inf30\softprog\modelo\Persona.class
+pe\edu\pucp\inf30\softprog\modelo\DetallePedido.class
+pe\edu\pucp\inf30\softprog\modelo\CategoriaProducto.class
+pe\edu\pucp\inf30\softprog\modelo\Entrega.class
+pe\edu\pucp\inf30\softprog\modelo\TipoDocumento.class
+pe\edu\pucp\inf30\softprog\modelo\LineaPedido.class
+pe\edu\pucp\inf30\softprog\modelo\CarritoDeCompras.class
+pe\edu\pucp\inf30\softprog\modelo\ReglaPrecioVolumen.class
+pe\edu\pucp\inf30\softprog\modelo\ComprobantePago.class
+pe\edu\pucp\inf30\softprog\modelo\Producto.class
+pe\edu\pucp\inf30\softprog\modelo\Cliente.class
+pe\edu\pucp\inf30\softprog\modelo\Pedido.class
+pe\edu\pucp\inf30\softprog\modelo\Inventario.class
+pe\edu\pucp\inf30\softprog\modelo\Administrador.class
+pe\edu\pucp\inf30\softprog\modelo\DescuentoCliente.class
