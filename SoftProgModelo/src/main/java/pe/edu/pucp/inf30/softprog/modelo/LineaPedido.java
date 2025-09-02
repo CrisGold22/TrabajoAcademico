@@ -10,6 +10,7 @@ package pe.edu.pucp.inf30.softprog.modelo;
  */
 public class LineaPedido {
     private long id;
+    private Producto producto;
     private Integer cantidad;
     private double precioUnitarioAplicado;
     private Integer descuento;
@@ -19,12 +20,13 @@ public class LineaPedido {
         
     }
 
-    public LineaPedido(long id, Integer cantidad, double precioUnitarioAplicado, Integer descuento, Integer totalLinea) {
+    public LineaPedido(Producto producto, long id, Integer cantidad, double precioUnitarioAplicado, Integer descuento, Integer totalLinea) {
         this.id = id;
         this.cantidad = cantidad;
         this.precioUnitarioAplicado = precioUnitarioAplicado;
         this.descuento = descuento;
         this.totalLinea = totalLinea;
+        this.producto = producto;
     }
 
     public long getId() {
@@ -66,6 +68,13 @@ public class LineaPedido {
     public void setTotalLinea(Integer totalLinea) {
         this.totalLinea = totalLinea;
     }
-    
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
     
 }

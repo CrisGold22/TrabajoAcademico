@@ -10,8 +10,8 @@ import java.util.Date;
  *
  * @author Cristhian Horacio
  */
-public class Pedido {
-    private long idPedido;
+public class OrdenCompra {
+    private long idOrdenCompra;
     private Date fechaCreacion;
     private Date fechaEntraga;
     private Estado estado;
@@ -19,12 +19,12 @@ public class Pedido {
     private double impuestos;
     private double total;
     
-    public Pedido(){
+    public OrdenCompra(){
         
     }
 
-    public Pedido(long idPedido, Date fechaCreacion, Date fechaEntraga, Estado estado, double descuentoTotal, double impuestos, double total) {
-        this.idPedido = idPedido;
+    public OrdenCompra(long idPedido, Date fechaCreacion, Date fechaEntraga, Estado estado, double descuentoTotal, double impuestos, double total) {
+        this.idOrdenCompra = idPedido;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntraga = fechaEntraga;
         this.estado = estado;
@@ -34,11 +34,11 @@ public class Pedido {
     }
 
     public long getIdPedido() {
-        return idPedido;
+        return idOrdenCompra;
     }
 
     public void setIdPedido(long idPedido) {
-        this.idPedido = idPedido;
+        this.idOrdenCompra = idPedido;
     }
 
     public Date getFechaCreacion() {

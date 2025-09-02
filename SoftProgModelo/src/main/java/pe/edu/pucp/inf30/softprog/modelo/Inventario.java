@@ -4,25 +4,27 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo;
 
+import java.util.Date;
+import java.util.Map;
+
 /**
  *
  * @author Cristhian Horacio
  */
 public class Inventario {
     private long idPedido;
-    private Producto producto;
-    private Integer cantidadDisponible;
-    private Integer cantidadReservada;
-    
-    public Inventario(){
-        
+    private Map<Producto, Integer> productosDisponibles;
+    private Map<Producto, Integer> productosReservados;
+    private Date fechaActualizacion;
+
+    public Inventario() {
     }
 
-    public Inventario(long idPedido, Producto producto, Integer cantidadDisponible, Integer cantidadReservada) {
+    public Inventario(long idPedido, Map<Producto, Integer> productosDisponibles, Map<Producto, Integer> productosReservados, Date fechaActualizacion) {
         this.idPedido = idPedido;
-        this.producto = producto;
-        this.cantidadDisponible = cantidadDisponible;
-        this.cantidadReservada = cantidadReservada;
+        this.productosDisponibles = productosDisponibles;
+        this.productosReservados = productosReservados;
+        this.fechaActualizacion = fechaActualizacion;
     }
 
     public long getIdPedido() {
@@ -33,29 +35,29 @@ public class Inventario {
         this.idPedido = idPedido;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public Map<Producto, Integer> getProductosDisponibles() {
+        return productosDisponibles;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setProductosDisponibles(Map<Producto, Integer> productosDisponibles) {
+        this.productosDisponibles = productosDisponibles;
     }
 
-    public Integer getCantidadDisponible() {
-        return cantidadDisponible;
+    public Map<Producto, Integer> getProductosReservados() {
+        return productosReservados;
     }
 
-    public void setCantidadDisponible(Integer cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
+    public void setProductosReservados(Map<Producto, Integer> productosReservados) {
+        this.productosReservados = productosReservados;
     }
 
-    public Integer getCantidadReservada() {
-        return cantidadReservada;
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
     }
 
-    public void setCantidadReservada(Integer cantidadReservada) {
-        this.cantidadReservada = cantidadReservada;
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
-    
+
     
 }

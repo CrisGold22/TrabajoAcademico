@@ -14,7 +14,6 @@ public class Producto {
     private String Descripcion;
     private double precio;
     private int stock;
-    private static int cantidadProducto = 0;
 
     public Producto(){
         
@@ -66,14 +65,6 @@ public class Producto {
 
     public void setStock(int stock) {
         this.stock = stock;
-    }
-
-    public static int getCantidadProducto() {
-        return cantidadProducto;
-    }
-
-    public static void setCantidadProducto(int cantidadProducto) {
-        Producto.cantidadProducto = cantidadProducto;
     }
     
     

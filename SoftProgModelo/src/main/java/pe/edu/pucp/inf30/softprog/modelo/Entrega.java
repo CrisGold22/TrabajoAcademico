@@ -11,8 +11,8 @@ import java.util.Date;
  * @author Cristhian Horacio
  */
 public class Entrega {
-    private long id;
-    private Pedido pedido;
+    private long idEntrega;
+    private OrdenCompra pedido;
     private Date fechaEnvio;
     private String transportista;
     private String estadoEnvio;
@@ -21,27 +21,27 @@ public class Entrega {
         
     }
 
-    public Entrega(long id, Pedido pedido, Date fechaEnvio, String transportista, String estadoEnvio) {
-        this.id = id;
+    public Entrega(long id, OrdenCompra pedido, Date fechaEnvio, String transportista, String estadoEnvio) {
+        this.idEntrega = id;
         this.pedido = pedido;
         this.fechaEnvio = fechaEnvio;
         this.transportista = transportista;
         this.estadoEnvio = estadoEnvio;
     }
 
-    public long getId() {
-        return id;
+    public long getIdEntrega() {
+        return idEntrega;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdEntrega(long id) {
+        this.idEntrega = id;
     }
 
-    public Pedido getPedido() {
+    public OrdenCompra getPedido() {
         return pedido;
     }
 
-    public void setPedido(Pedido pedido) {
+    public void setPedido(OrdenCompra pedido) {
         this.pedido = pedido;
     }
 

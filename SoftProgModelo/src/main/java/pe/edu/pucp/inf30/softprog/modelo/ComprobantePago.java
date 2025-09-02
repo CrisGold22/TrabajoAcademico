@@ -12,14 +12,15 @@ import java.util.Date;
  */
 public class ComprobantePago {
     private String idComprobante;
-    private Pedido pedido;
+    private OrdenCompra pedido;
     private Date fechaEmision;
+    private double monto;
     
     public ComprobantePago(){
         
     }
 
-    public ComprobantePago(String idComprobante, Pedido pedido, Date fechaEmision) {
+    public ComprobantePago(String idComprobante, OrdenCompra pedido, Date fechaEmision) {
         this.idComprobante = idComprobante;
         this.pedido = pedido;
         this.fechaEmision = fechaEmision;
@@ -33,11 +34,11 @@ public class ComprobantePago {
         this.idComprobante = idComprobante;
     }
 
-    public Pedido getPedido() {
+    public OrdenCompra getPedido() {
         return pedido;
     }
 
-    public void setPedido(Pedido pedido) {
+    public void setPedido(OrdenCompra pedido) {
         this.pedido = pedido;
     }
 
@@ -47,5 +48,13 @@ public class ComprobantePago {
 
     public void setFechaEmision(Date fechaEmision) {
         this.fechaEmision = fechaEmision;
+    }
+    
+    public double getMonto(){
+        return monto;
+    }
+    
+    public void setMonto(double monto){
+        this.monto = monto;
     }
 }

@@ -13,6 +13,7 @@ public class Cliente extends Persona {
     private char activo;
     private boolean esRegistrado;
     private double monto;
+    private String direccion;
     
     public Cliente(){
         
@@ -20,11 +21,12 @@ public class Cliente extends Persona {
     
     public Cliente(Integer id, String nombre, String primerApellido, String segundoApellido, 
             Integer numeroTelefono, String correo, String contrasena, TipoDocumento documento,
-            char activo, boolean esRegistrado, double monto){
+            char activo, boolean esRegistrado, double monto, String direccion){
         super(id, nombre, primerApellido, segundoApellido, numeroTelefono, correo, contrasena, documento);
         this.activo = activo;
         this.esRegistrado = esRegistrado;
         this.monto = monto;
+        this.direccion = direccion;
     }
     
     
@@ -52,4 +54,11 @@ public class Cliente extends Persona {
         this.monto = monto;
     }
     
+    public String getDireccion(){
+        return direccion;
+    }
+    
+    public void setDireccion(String direccion){
+        this.direccion = direccion;
+    }
 }
