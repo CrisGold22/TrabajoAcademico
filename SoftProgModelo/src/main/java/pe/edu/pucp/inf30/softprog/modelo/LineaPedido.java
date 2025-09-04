@@ -9,31 +9,29 @@ package pe.edu.pucp.inf30.softprog.modelo;
  * @author Cristhian Horacio
  */
 public class LineaPedido {
-    private long id;
+    private int id;
     private Producto producto;
     private Integer cantidad;
     private double precioUnitarioAplicado;
-    private Integer descuento;
-    private Integer totalLinea;
+    private double totalLinea;
     
     public LineaPedido(){
         
     }
 
-    public LineaPedido(Producto producto, long id, Integer cantidad, double precioUnitarioAplicado, Integer descuento, Integer totalLinea) {
+    public LineaPedido(Producto producto, int id, Integer cantidad, double precioUnitarioAplicado, double totalLinea) {
         this.id = id;
         this.cantidad = cantidad;
         this.precioUnitarioAplicado = precioUnitarioAplicado;
-        this.descuento = descuento;
         this.totalLinea = totalLinea;
         this.producto = producto;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,19 +51,11 @@ public class LineaPedido {
         this.precioUnitarioAplicado = precioUnitarioAplicado;
     }
 
-    public Integer getDescuento() {
-        return descuento;
-    }
-
-    public void setDescuento(Integer descuento) {
-        this.descuento = descuento;
-    }
-
-    public Integer getTotalLinea() {
+    public double getTotalLinea() {
         return totalLinea;
     }
 
-    public void setTotalLinea(Integer totalLinea) {
+    public void setTotalLinea(double totalLinea) {
         this.totalLinea = totalLinea;
     }
 

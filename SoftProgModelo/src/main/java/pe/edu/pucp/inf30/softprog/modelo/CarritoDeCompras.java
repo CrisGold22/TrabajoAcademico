@@ -11,24 +11,26 @@ import java.util.ArrayList;
  * @author Cristhian Horacio
  */
 public class CarritoDeCompras {
-    private ArrayList<DetallePedido> productos;
+    private ArrayList<DetalleOrdenCompra> productos;
     private double total;
+    private EstadoCarrito estado;
     
     public CarritoDeCompras(){
-        productos = new ArrayList<DetallePedido>();
+        productos = new ArrayList<DetalleOrdenCompra>();
         total = 0;
     }
 
-    public CarritoDeCompras(ArrayList<DetallePedido> productos, double total) {
+    public CarritoDeCompras(ArrayList<DetalleOrdenCompra> productos, double total, EstadoCarrito estado) {
         this.productos = productos;
         this.total = total;
+        this.estado = estado;
     }
 
-    public ArrayList<DetallePedido> getProductos() {
+    public ArrayList<DetalleOrdenCompra> getProductos() {
         return productos;
     }
 
-    public void setProductos(ArrayList<DetallePedido> productos) {
+    public void setProductos(ArrayList<DetalleOrdenCompra> productos) {
         this.productos = productos;
     }
 

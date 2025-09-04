@@ -8,15 +8,15 @@ package pe.edu.pucp.inf30.softprog.modelo;
  *
  * @author Cristhian Horacio
  */
-public class DetallePedido {
+public class DetalleOrdenCompra {
     private int cantidadSolicitada;
     private double subTotal;
     
-    public DetallePedido(){
+    public DetalleOrdenCompra(){
         
     }
 
-    public DetallePedido(int cantidadSolicitada, double subTotal) {
+    public DetalleOrdenCompra(int cantidadSolicitada, double subTotal) {
         this.cantidadSolicitada = cantidadSolicitada;
         this.subTotal = subTotal;
     }

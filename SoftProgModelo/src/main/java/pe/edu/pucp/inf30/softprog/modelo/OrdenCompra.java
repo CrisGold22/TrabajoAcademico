@@ -14,16 +14,18 @@ public class OrdenCompra {
     private long idOrdenCompra;
     private Date fechaCreacion;
     private Date fechaEntraga;
-    private Estado estado;
+    private EstadoOrdenCompra estado;
     private double descuentoTotal;
     private double impuestos;
     private double total;
+//    private EstadoOrdenCompra estado;
     
     public OrdenCompra(){
         
     }
 
-    public OrdenCompra(long idPedido, Date fechaCreacion, Date fechaEntraga, Estado estado, double descuentoTotal, double impuestos, double total) {
+    public OrdenCompra(long idPedido, Date fechaCreacion, Date fechaEntraga, 
+                double descuentoTotal, double impuestos, double total, EstadoOrdenCompra estado) {
         this.idOrdenCompra = idPedido;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntraga = fechaEntraga;
@@ -31,6 +33,7 @@ public class OrdenCompra {
         this.descuentoTotal = descuentoTotal;
         this.impuestos = impuestos;
         this.total = total;
+//        this.estado = estado;
     }
 
     public long getIdPedido() {
@@ -57,11 +60,11 @@ public class OrdenCompra {
         this.fechaEntraga = fechaEntraga;
     }
 
-    public Estado getEstado() {
+    public EstadoOrdenCompra getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(EstadoOrdenCompra estado) {
         this.estado = estado;
     }
 
@@ -87,6 +90,14 @@ public class OrdenCompra {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public long getIdOrdenCompra() {
+        return idOrdenCompra;
+    }
+
+    public void setIdOrdenCompra(long idOrdenCompra) {
+        this.idOrdenCompra = idOrdenCompra;
     }
     
     

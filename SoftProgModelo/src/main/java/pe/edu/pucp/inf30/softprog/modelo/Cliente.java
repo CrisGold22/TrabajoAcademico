@@ -10,7 +10,6 @@ package pe.edu.pucp.inf30.softprog.modelo;
  */
 public class Cliente extends Persona {
 
-    private char activo;
     private boolean esRegistrado;
     private double monto;
     private String direccion;
@@ -21,21 +20,11 @@ public class Cliente extends Persona {
     
     public Cliente(Integer id, String nombre, String primerApellido, String segundoApellido, 
             Integer numeroTelefono, String correo, String contrasena, TipoDocumento documento,
-            char activo, boolean esRegistrado, double monto, String direccion){
+            boolean esRegistrado, double monto, String direccion){
         super(id, nombre, primerApellido, segundoApellido, numeroTelefono, correo, contrasena, documento);
-        this.activo = activo;
         this.esRegistrado = esRegistrado;
         this.monto = monto;
         this.direccion = direccion;
-    }
-    
-    
-    public char getActivo() {
-        return activo;
-    }
-
-    public void setActivo(char activo) {
-        this.activo = activo;
     }
 
     public boolean isEsRegistrado() {

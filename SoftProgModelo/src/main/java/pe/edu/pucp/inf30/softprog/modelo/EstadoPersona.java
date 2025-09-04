@@ -8,6 +8,6 @@ package pe.edu.pucp.inf30.softprog.modelo;
  *
  * @author Cristhian Horacio
  */
-public enum Estado {  
-    NUEVO, CONFIRMADO, FACTURADO, CANCELADO
+public enum EstadoPersona {
+    ACTIVO, INACTIVO, PENDIENTE_VERFICACION, SUSPENDIDO, DESACTIVADO, BLOQUEADO
 }

@@ -17,6 +17,7 @@ public class Persona {
     private String correo;
     private String contrasena;
     private TipoDocumento numDocumento;
+    private EstadoPersona estado;
     
     public Persona(){
         
@@ -96,5 +97,14 @@ public class Persona {
     public void setNumDocumento(TipoDocumento numDocumento) {
         this.numDocumento = numDocumento;
     }
+
+    public EstadoPersona getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoPersona estado) {
+        this.estado = estado;
+    }
+    
     
 }
