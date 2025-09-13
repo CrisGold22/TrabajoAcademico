@@ -34,7 +34,7 @@
     <module>SoftProgDAO</module>
         
     <module>SoftProgDBManager</module>
-      
+    <module>SoftProgPruebas</module>
   </modules>
           
   
