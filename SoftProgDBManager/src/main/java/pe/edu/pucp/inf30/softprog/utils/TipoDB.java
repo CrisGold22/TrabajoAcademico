@@ -9,5 +9,5 @@ package pe.edu.pucp.inf30.softprog.utils;
  * @author Cristhian Horacio
  */
 public enum TipoDB {
-    MySQL, MSSQL
+    MySQL, MSSQL, Db2
 }
