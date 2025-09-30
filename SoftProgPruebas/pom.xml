@@ -14,6 +14,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>SoftProgDAO</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>pe.edu.pucp.inf30.softprog</groupId>
+                    <artifactId>SoftProgModelo</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
