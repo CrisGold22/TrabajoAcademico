@@ -29,6 +29,7 @@ public class DBFactoryProvider {
             switch (tipo) {
                 case MySQL -> factory = new MySQLDBManagerFactory();
                 case MSSQL -> factory = new MSSQLDBManagerFactory();
+                case Db2 -> factory = new Db2DBManagerFactory();
                 default -> throw new IllegalArgumentException("Tipo de DB no "
                         + "soportado: " + tipo);
             }

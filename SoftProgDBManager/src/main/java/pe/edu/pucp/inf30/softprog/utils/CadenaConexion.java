@@ -65,6 +65,10 @@ public class CadenaConexion {
                         + "allowPublicKeyRetrieval=true", servidor, puerto, 
                         schema);
             }
+            case Db2 -> { 
+                return String.format("jdbc:db2://%s:%d/%s", servidor, puerto, 
+                        schema);
+            }
             default -> throw new UnsupportedOperationException("Tipo DB no "
                     + "soportado: " + tipoDB);
         }
