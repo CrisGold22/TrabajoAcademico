@@ -5,38 +5,44 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.pago;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.daoimpl.pago.LineaComprobantePagoDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.pago.LineaComprobantePagoBO;
-
+import pe.edu.pucp.inf30.softprog.dao.pago.LineaComprobantePagoDAO;
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaComprobantePagoBoImpl implements LineaComprobantePagoBO{
+public class LineaComprobantePagoBOImpl implements LineaComprobantePagoBO{
+    private final LineaComprobantePagoDAO lineaComprobantePagoDAO;
+    
+    public LineaComprobantePagoBOImpl(){
+        lineaComprobantePagoDAO = new LineaComprobantePagoDAOImpl();
+    }
 
     @Override
     public List<LineaComprobantePagoDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.lineaComprobantePagoDAO.leerTodos();
     }
 
     @Override
     public void insertar(LineaComprobantePagoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaComprobantePagoDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(LineaComprobantePagoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaComprobantePagoDAO.actualizar(modelo);
     }
 
     @Override
     public LineaComprobantePagoDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.lineaComprobantePagoDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaComprobantePagoDAO.eliminar(id);
     }
     
 }

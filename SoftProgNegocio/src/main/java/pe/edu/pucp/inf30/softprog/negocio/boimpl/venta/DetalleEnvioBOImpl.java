@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.venta.DetalleEnvioDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.DetalleEnvioDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvioDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.DetalleEnvioBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.venta.DetalleEnvioBO;
  * @author Cristhian Horacio
  */
 public class DetalleEnvioBOImpl implements DetalleEnvioBO{
-
+    private final DetalleEnvioDAO detalleEnvioDAO;
+    
+    public DetalleEnvioBOImpl(){
+        detalleEnvioDAO = new DetalleEnvioDAOImpl();
+    }
+    
     @Override
     public List<DetalleEnvioDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.detalleEnvioDAO.leerTodos();
     }
 
     @Override
     public void insertar(DetalleEnvioDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.detalleEnvioDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(DetalleEnvioDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.detalleEnvioDAO.actualizar(modelo);
     }
 
     @Override
     public DetalleEnvioDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.detalleEnvioDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.detalleEnvioDAO.eliminar(id);
     }
     
 }

@@ -41,17 +41,10 @@
             <artifactId>SoftProgDBManager</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>pe.edu.pucp.inf30.softprog</groupId>
             <artifactId>SoftProgModelo</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.ibm.db2</groupId>
-            <artifactId>jcc</artifactId>
-            <version>11.5.8.0</version>
         </dependency>
     </dependencies>
 

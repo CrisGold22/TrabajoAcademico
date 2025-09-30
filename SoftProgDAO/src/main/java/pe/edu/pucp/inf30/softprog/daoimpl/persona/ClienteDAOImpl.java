@@ -21,7 +21,15 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, ClienteDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{call insertarCliente(?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_persona_id", modelo.getId());
+        cmd.setDouble("p_linea_credito", modelo.getLineaCredito());
+        cmd.setString("p_categoria_id", modelo.getCategoriaCliente());
+        
+        return cmd;
     }
 
     @Override
@@ -75,6 +83,10 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
                 return this.mapearModelo(rs);
             }           
         });
+    }
+
+    public ClienteDTO obtenerPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

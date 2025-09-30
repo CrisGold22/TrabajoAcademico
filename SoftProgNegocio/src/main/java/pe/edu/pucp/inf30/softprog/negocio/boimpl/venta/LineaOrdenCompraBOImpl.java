@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaOrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.LineaOrdenCompraBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.venta.LineaOrdenCompraBO;
  * @author Cristhian Horacio
  */
 public class LineaOrdenCompraBOImpl implements LineaOrdenCompraBO{
-
+    private final LineaOrdenCompraDAO lineaOrdenCompraDAO;
+    
+    public LineaOrdenCompraBOImpl(){
+        lineaOrdenCompraDAO = new LineaOrdenCompraDAOImpl();
+    }
+    
     @Override
     public List<LineaOrdenCompraDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.lineaOrdenCompraDAO.leerTodos();
     }
 
     @Override
     public void insertar(LineaOrdenCompraDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaOrdenCompraDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(LineaOrdenCompraDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaOrdenCompraDAO.actualizar(modelo);
     }
 
     @Override
     public LineaOrdenCompraDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.lineaOrdenCompraDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaOrdenCompraDAO.eliminar(id);
     }
     
 }

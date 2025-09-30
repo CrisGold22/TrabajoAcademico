@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.persona;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
  * @author Cristhian Horacio
  */
 public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
-
+    private final CuentaUsuarioDAO cuenta;
+    
+    public CuentaUsuarioBOImpl(){
+        cuenta = new CuentaUsuarioDAOImpl();
+    }
+    
     @Override
     public List<CuentaUsuarioDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.cuenta.leerTodos();
     }
 
     @Override
     public void insertar(CuentaUsuarioDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.cuenta.crear(modelo);
     }
 
     @Override
     public void actualizar(CuentaUsuarioDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.cuenta.actualizar(modelo);
     }
 
     @Override
     public CuentaUsuarioDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.cuenta.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.cuenta.eliminar(id);
     }
     
 }

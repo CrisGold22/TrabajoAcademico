@@ -2,7 +2,6 @@ package pe.edu.pucp.inf30.softprogpruebas;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.naming.spi.DirObjectFactory;
 import pe.edu.pucp.inf30.softprog.dbmanager.*;
 
 /**

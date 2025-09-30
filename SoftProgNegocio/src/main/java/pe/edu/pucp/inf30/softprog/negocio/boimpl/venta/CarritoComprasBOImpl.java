@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.venta.CarritoComprasDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.CarritoComprasDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.CarritoComprasBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.venta.CarritoComprasBO;
  * @author Cristhian Horacio
  */
 public class CarritoComprasBOImpl implements CarritoComprasBO{
-
+    private final CarritoComprasDAO carritoCompras;
+    
+    public CarritoComprasBOImpl(){
+        carritoCompras = new CarritoComprasDAOImpl();
+    }
+    
     @Override
-    public List<CarritoComprasDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<CarritoComprasDTO> listar() {  
+       return this.carritoCompras.leerTodos();
     }
 
     @Override
     public void insertar(CarritoComprasDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.carritoCompras.crear(modelo);
     }
 
     @Override
     public void actualizar(CarritoComprasDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.carritoCompras.actualizar(modelo);
     }
 
     @Override
     public CarritoComprasDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.carritoCompras.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.carritoCompras.eliminar(id);
     }
     
 }
