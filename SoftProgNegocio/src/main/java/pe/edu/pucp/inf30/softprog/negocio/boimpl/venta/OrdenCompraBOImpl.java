@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.OrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompraDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.OrdenCompraBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.venta.OrdenCompraBO;
  * @author Cristhian Horacio
  */
 public class OrdenCompraBOImpl implements OrdenCompraBO{
-
+    private final OrdenCompraDAO ordenCompraDAO;
+    
+    public OrdenCompraBOImpl(){
+        ordenCompraDAO = new OrdenCompraDAOImpl();
+    }
+    
     @Override
     public List<OrdenCompraDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.ordenCompraDAO.leerTodos();
     }
 
     @Override
     public void insertar(OrdenCompraDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.ordenCompraDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(OrdenCompraDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.ordenCompraDAO.actualizar(modelo);
     }
 
     @Override
     public OrdenCompraDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.ordenCompraDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.ordenCompraDAO.eliminar(id);
     }
     
 }

@@ -47,5 +47,9 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
     protected CategoriaProductoDTO mapearModelo(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public CategoriaProductoDTO obtenerPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

@@ -47,5 +47,9 @@ public class ComprobantePagoDAOImpl extends BaseDAO<ComprobantePagoDTO> implemen
     protected ComprobantePagoDTO mapearModelo(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public ComprobantePagoDTO obtenerPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

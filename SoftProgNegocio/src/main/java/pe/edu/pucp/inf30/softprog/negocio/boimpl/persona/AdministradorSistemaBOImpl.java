@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.persona;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.persona.AdministradorSistemaDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.AdministradorSistemaDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistemaDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.AdministradorSistemaBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.persona.AdministradorSistemaBO;
  * @author Cristhian Horacio
  */
 public class AdministradorSistemaBOImpl implements AdministradorSistemaBO{
-
+    private final AdministradorSistemaDAO administrador;
+    
+    public AdministradorSistemaBOImpl(){
+        administrador = new AdministradorSistemaDAOImpl();
+    }
+    
     @Override
     public List<AdministradorSistemaDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.administrador.leerTodos();
     }
 
     @Override
     public void insertar(AdministradorSistemaDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.administrador.crear(modelo);
     }
 
     @Override
     public void actualizar(AdministradorSistemaDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.administrador.actualizar(modelo);
     }
 
     @Override
     public AdministradorSistemaDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.administrador.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.administrador.eliminar(id);
     }
     
 }

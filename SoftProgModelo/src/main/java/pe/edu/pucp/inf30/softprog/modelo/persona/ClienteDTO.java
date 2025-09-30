@@ -90,5 +90,17 @@ public class ClienteDTO extends PersonaDTO{
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
     
-    
+    public String getCategoriaCliente(){
+        String cadena = "";
+        
+        switch(this.categoria){
+            case CATERING -> cadena = "CATERING";
+            case REVENDEDOR -> cadena = "REVENDEDOR";
+            case RESTAURANTE -> cadena = "RESTAURANTE";
+            case HOTEL -> cadena = "HOTEL";
+            case GOBIERNO -> cadena = "GOBIERNO";
+            case DISTRIBUIDOR -> cadena = "DISTRIBUIDOR";
+        }
+        return cadena;
+    }
 }

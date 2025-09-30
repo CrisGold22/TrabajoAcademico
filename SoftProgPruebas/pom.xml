@@ -12,18 +12,24 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>SoftProgModelo</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>SoftProgDAO</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>pe.edu.pucp.inf30.softprog</groupId>
+                    <artifactId>SoftProgModelo</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>SoftProgDBManager</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>pe.edu.pucp.inf30.softprog</groupId>
+            <artifactId>SoftProgModelo</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <properties>

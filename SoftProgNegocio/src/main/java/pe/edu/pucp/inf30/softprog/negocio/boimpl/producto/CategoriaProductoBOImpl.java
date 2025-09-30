@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.producto;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.producto.CategoriaProductoDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProductoDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
  * @author Cristhian Horacio
  */
 public class CategoriaProductoBOImpl implements CategoriaProductoBO {
-
+    private final CategoriaProductoDAO categoriaProductoDAO;
+    
+    public CategoriaProductoBOImpl(){
+        categoriaProductoDAO = new CategoriaProductoDAOImpl();
+    }
+    
     @Override
     public List<CategoriaProductoDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.categoriaProductoDAO.leerTodos();
     }
 
     @Override
     public void insertar(CategoriaProductoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.categoriaProductoDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(CategoriaProductoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.categoriaProductoDAO.actualizar(modelo);
     }
 
     @Override
     public CategoriaProductoDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.categoriaProductoDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.categoriaProductoDAO.eliminar(id);
     }
     
 }

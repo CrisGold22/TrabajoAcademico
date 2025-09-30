@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.producto;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.producto.ProductoDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.producto.ProductoDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.ProductoBO;
 
@@ -13,30 +15,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.producto.ProductoBO;
  * @author Cristhian Horacio
  */
 public class ProductoBOImpl implements ProductoBO{
-
+    private final ProductoDAO productoDAO;
+    
+    public ProductoBOImpl(){
+        productoDAO = new ProductoDAOImpl();
+    }
+    
     @Override
     public List<ProductoDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.productoDAO.leerTodos();
     }
 
     @Override
     public void insertar(ProductoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.productoDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(ProductoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.productoDAO.actualizar(modelo);
     }
 
     @Override
     public ProductoDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.productoDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.productoDAO.eliminar(id);
     }
     
 }

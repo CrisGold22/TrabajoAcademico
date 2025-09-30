@@ -47,5 +47,9 @@ public class OrdenCompraDAOImpl extends BaseDAO<OrdenCompraDTO> implements Orden
     protected OrdenCompraDTO mapearModelo(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public OrdenCompraDTO obtenerPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

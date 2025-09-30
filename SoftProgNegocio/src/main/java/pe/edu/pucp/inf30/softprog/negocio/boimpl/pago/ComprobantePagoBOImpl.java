@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.pago;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.pago.ComprobantePagoDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.pago.ComprobantePagoDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.pago.ComprobantePagoDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.pago.ComprobantePagoBO;
 
@@ -14,29 +16,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.pago.ComprobantePagoBO;
  */
 public class ComprobantePagoBOImpl implements ComprobantePagoBO{
 
+    private final ComprobantePagoDAO comprobantePagoDAO;
+    
+    public ComprobantePagoBOImpl(){
+        comprobantePagoDAO = new ComprobantePagoDAOImpl();
+    }
+    
     @Override
     public List<ComprobantePagoDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.comprobantePagoDAO.leerTodos();
     }
 
     @Override
     public void insertar(ComprobantePagoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.comprobantePagoDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(ComprobantePagoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.comprobantePagoDAO.actualizar(modelo);
     }
 
     @Override
     public ComprobantePagoDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.comprobantePagoDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.comprobantePagoDAO.eliminar(id);
     }
     
 }

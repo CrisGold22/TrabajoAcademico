@@ -47,5 +47,9 @@ public class CarritoComprasDAOImpl extends BaseDAO<CarritoComprasDTO> implements
     protected CarritoComprasDTO mapearModelo(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public CarritoComprasDTO obtenerPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

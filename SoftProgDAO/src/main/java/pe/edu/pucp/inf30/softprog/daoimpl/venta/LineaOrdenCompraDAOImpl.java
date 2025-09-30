@@ -47,5 +47,9 @@ public class LineaOrdenCompraDAOImpl extends BaseDAO<LineaOrdenCompraDTO> implem
     protected LineaOrdenCompraDTO mapearModelo(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public LineaOrdenCompraDTO obtenerPorId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

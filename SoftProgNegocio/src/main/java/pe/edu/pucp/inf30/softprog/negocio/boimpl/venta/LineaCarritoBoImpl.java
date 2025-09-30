@@ -5,6 +5,8 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.dao.venta.LineaCarritoDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaCarritoDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarritoDTO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.LineaCarritoBO;
 
@@ -12,31 +14,35 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.venta.LineaCarritoBO;
  *
  * @author Cristhian Horacio
  */
-public class LineaCarritoBoImpl implements LineaCarritoBO {
-
+public class LineaCarritoBOImpl implements LineaCarritoBO {
+    private final LineaCarritoDAO lineaCarritoDAO;
+    
+    public LineaCarritoBOImpl(){
+        lineaCarritoDAO = new LineaCarritoDAOImpl();
+    }
     @Override
     public List<LineaCarritoDTO> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.lineaCarritoDAO.leerTodos();
     }
 
     @Override
     public void insertar(LineaCarritoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaCarritoDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(LineaCarritoDTO modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaCarritoDAO.actualizar(modelo);
     }
 
     @Override
     public LineaCarritoDTO obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.lineaCarritoDAO.leer(id);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.lineaCarritoDAO.eliminar(id);
     }
     
 }
