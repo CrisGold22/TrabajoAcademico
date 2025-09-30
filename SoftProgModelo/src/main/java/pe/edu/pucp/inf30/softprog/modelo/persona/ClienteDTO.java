@@ -4,14 +4,16 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
+import java.util.Date;
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.CategoriaCliente;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class ClienteDTO extends RegistroDTO{
+public class ClienteDTO extends PersonaDTO{
     private double lineaCredito;
     private CategoriaCliente categoria;
     private CuentaUsuarioDTO cuentaUsuario;
@@ -30,8 +32,8 @@ public class ClienteDTO extends RegistroDTO{
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro, int id, boolean activo) {
-        super(id, activo);
+    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+        super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
         this.cuentaUsuario = cuentaUsuario;
@@ -39,6 +41,15 @@ public class ClienteDTO extends RegistroDTO{
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
+    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+        super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
+        this.lineaCredito = lineaCredito;
+        this.categoria = categoria;
+        this.cuentaUsuario = cuentaUsuario;
+        this.numeroPedidosHistorico = numeroPedidosHistorico;
+        this.numeroPedidosMensualPro = numeroPedidosMensualPro;
+    }
+    
     public double getLineaCredito() {
         return lineaCredito;
     }

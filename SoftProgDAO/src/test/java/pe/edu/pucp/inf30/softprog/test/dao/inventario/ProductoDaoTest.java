@@ -14,52 +14,28 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
-import pe.edu.pucp.inf30.softprog.dao.inventario.ProductoDAO;
-import pe.edu.pucp.inf30.softprog.dao.inventario.PrecioVolumenProductoDAO;
-import pe.edu.pucp.inf30.softprog.daoimpl.inventario.ProductoDAOImpl;
-import pe.edu.pucp.inf30.softprog.daoimpl.inventario.PrecioVolumenProductoDAOImpl;
-import pe.edu.pucp.inf30.softprogmodelo.inventario.Producto;
-import pe.edu.pucp.inf30.softprogmodelo.inventario.PrecioVolumenProducto;
-import pe.edu.pucp.inf30.softprogmodelo.inventario.UnidadMedida;
+
+
+import pe.edu.pucp.inf30.softprog.dao.producto.ProductoDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.producto.ProductoDAOImpl;
+import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ProductoDaoTest implements PersistibleProbable {
     private int testId;
-    private int testPrecioVolumenId;
     private final int idIncorrecto = 99999;
-    
-    @BeforeAll
-    public void inicializar() {
-        // Crear un PrecioVolumenProducto de prueba
-        PrecioVolumenProductoDAO precioVolumenDao = new PrecioVolumenProductoDAOImpl();
-        PrecioVolumenProducto precioVolumen = new PrecioVolumenProducto();
-        precioVolumen.setCantidad(100);
-        precioVolumen.setPrecioVolumen(85.00);
-        precioVolumen.setUnidadMedida(UnidadMedida.CAJA);
-        precioVolumen.setActivo(true);
-        // Nota: producto será null inicialmente, se establecerá después
-        
-        this.testPrecioVolumenId = precioVolumenDao.crear(precioVolumen);
-    }
-    
-    @AfterAll
-    public void limpiar() {
-        PrecioVolumenProductoDAOImpl precioVolumenDao = new PrecioVolumenProductoDAOImpl();
-        precioVolumenDao.eliminar(testPrecioVolumenId);
-    }
-    
+   
     @Test
     @Order(1)
     @Override
     public void debeCrear() {
         ProductoDAO productoDao = new ProductoDAOImpl();
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setNombre("Producto de Prueba");
         producto.setDescripcion("Descripcion de prueba para el producto");
         producto.setPrecioUnitario(99.99);
-        producto.setPrecioVolumen(new PrecioVolumenProductoDAOImpl().leer(this.testPrecioVolumenId));
         producto.setStockDisponible(50);
         producto.setStockMinimo(10);
         producto.setStockMaximo(100);
@@ -74,12 +50,11 @@ public class ProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeActualizarSiIdExiste() {
         ProductoDAO productoDao = new ProductoDAOImpl();
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setId(this.testId);
         producto.setNombre("Producto de Prueba Modificado");
         producto.setDescripcion("Descripcion modificada del producto de prueba");
         producto.setPrecioUnitario(149.99);
-        producto.setPrecioVolumen(new PrecioVolumenProductoDAOImpl().leer(this.testPrecioVolumenId));
         producto.setStockDisponible(25);
         producto.setStockMinimo(5);
         producto.setStockMaximo(75);
@@ -88,7 +63,7 @@ public class ProductoDaoTest implements PersistibleProbable {
         boolean modifico = productoDao.actualizar(producto);
         assertTrue(modifico);
         
-        Producto productoModificado = productoDao.leer(this.testId);
+        ProductoDTO productoModificado = productoDao.leer(this.testId);
         assertEquals("Producto de Prueba Modificado", productoModificado.getNombre());
         assertEquals("Descripcion modificada del producto de prueba", productoModificado.getDescripcion());
         assertEquals(149.99, productoModificado.getPrecioUnitario());
@@ -96,7 +71,6 @@ public class ProductoDaoTest implements PersistibleProbable {
         assertEquals(5, productoModificado.getStockMinimo());
         assertEquals(75, productoModificado.getStockMaximo());
         assertFalse(productoModificado.isActivo());
-        assertNotNull(productoModificado.getPrecioVolumen());
     }
     
     @Test
@@ -104,12 +78,11 @@ public class ProductoDaoTest implements PersistibleProbable {
     @Override
     public void noDebeActualizarSiIdNoExiste() {
         ProductoDAO productoDao = new ProductoDAOImpl();
-        Producto producto = new Producto();
+        ProductoDTO producto = new ProductoDTO();
         producto.setId(this.idIncorrecto);
         producto.setNombre("Producto Inexistente");
         producto.setDescripcion("Este producto no debería actualizarse");
         producto.setPrecioUnitario(999.99);
-        producto.setPrecioVolumen(new PrecioVolumenProductoDAOImpl().leer(this.testPrecioVolumenId));
         producto.setStockDisponible(0);
         producto.setStockMinimo(0);
         producto.setStockMaximo(0);
@@ -133,7 +106,7 @@ public class ProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerSiIdExiste() {
         ProductoDAO productoDao = new ProductoDAOImpl();
-        Producto producto = productoDao.leer(this.testId);
+        ProductoDTO producto = productoDao.leer(this.testId);
         assertNotNull(producto);
         assertEquals(this.testId, producto.getId());
         assertNotNull(producto.getNombre());
@@ -146,7 +119,7 @@ public class ProductoDaoTest implements PersistibleProbable {
     @Override
     public void noDebeLeerSiIdNoExiste() {
         ProductoDAO productoDao = new ProductoDAOImpl();
-        Producto producto = productoDao.leer(this.idIncorrecto);
+        ProductoDTO producto = productoDao.leer(this.idIncorrecto);
         assertNull(producto);
     }
     
@@ -155,7 +128,7 @@ public class ProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerTodos() {
         ProductoDAO productoDao = new ProductoDAOImpl();
-        List<Producto> productos = productoDao.leerTodos();
+        List<ProductoDTO> productos = productoDao.leerTodos();
         
         assertNotNull(productos);
         assertFalse(productos.isEmpty());
@@ -175,7 +148,7 @@ public class ProductoDaoTest implements PersistibleProbable {
         assertTrue(elimino);
         
         // Verificar que el producto ya no existe
-        Producto productoEliminado = productoDao.leer(this.testId);
+        ProductoDTO productoEliminado = productoDao.leer(this.testId);
         assertNull(productoEliminado);
     }
 }

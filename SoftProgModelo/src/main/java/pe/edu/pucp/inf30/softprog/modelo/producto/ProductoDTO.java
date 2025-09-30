@@ -5,6 +5,7 @@
 package pe.edu.pucp.inf30.softprog.modelo.producto;
 
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.utils.UnidadMedida;
 
 /**
  *
@@ -15,7 +16,8 @@ public class ProductoDTO extends RegistroDTO{
     private String SKU;
     private String descripcion;
     private double precioUnitario;
-    private PrecioAlMayorDTO precioAlMayor;
+    private double precioAlMayor;
+    private UnidadMedida medidaAlMayor;
     private int stockDisponible;
     private int stockMinimo;
     private int stockMaximo;
@@ -24,24 +26,26 @@ public class ProductoDTO extends RegistroDTO{
         
     }
 
-    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, PrecioAlMayorDTO precioAlMayor, int stockDisponible, int stockMinimo, int stockMaximo) {
+    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo) {
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
         this.precioAlMayor = precioAlMayor;
+        this.medidaAlMayor = medidaAlMayor;
         this.stockDisponible = stockDisponible;
         this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
     }
 
-    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, PrecioAlMayorDTO precioAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int id, boolean activo) {
+    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
         this.precioAlMayor = precioAlMayor;
+        this.medidaAlMayor = medidaAlMayor;
         this.stockDisponible = stockDisponible;
         this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
@@ -79,12 +83,20 @@ public class ProductoDTO extends RegistroDTO{
         this.precioUnitario = precioUnitario;
     }
 
-    public PrecioAlMayorDTO getPrecioAlMayor() {
+    public double getPrecioAlMayor() {
         return precioAlMayor;
     }
 
-    public void setPrecioAlMayor(PrecioAlMayorDTO precioAlMayor) {
+    public void setPrecioAlMayor(double precioAlMayor) {
         this.precioAlMayor = precioAlMayor;
+    }
+
+    public UnidadMedida getMedidaAlMayor() {
+        return medidaAlMayor;
+    }
+
+    public void setMedidaAlMayor(UnidadMedida medidaAlMayor) {
+        this.medidaAlMayor = medidaAlMayor;
     }
 
     public int getStockDisponible() {

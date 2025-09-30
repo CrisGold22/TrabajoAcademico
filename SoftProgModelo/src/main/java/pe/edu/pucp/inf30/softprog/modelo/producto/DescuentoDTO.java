@@ -4,33 +4,31 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.producto;
 
-import pe.edu.pucp.inf30.softprog.modelo.producto.utils.MedidaAlMayor;
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class PrecioAlMayorDTO extends RegistroDTO{
+public class DescuentoDTO extends RegistroDTO{
     private double precioPorVolumen;
     private ProductoDTO producto;
-    private MedidaAlMayor medidaAlMayor;
-    
-    public PrecioAlMayorDTO(){
-        
-    }
+    private int cantidadMax;
+    private int cantidadMin;
 
-    public PrecioAlMayorDTO(double precioPorVolumen, ProductoDTO producto, MedidaAlMayor medidaAlMayor) {
+    public DescuentoDTO(double precioPorVolumen, ProductoDTO producto, int cantidadMax, int cantidadMin) {
         this.precioPorVolumen = precioPorVolumen;
         this.producto = producto;
-        this.medidaAlMayor = medidaAlMayor;
+        this.cantidadMax = cantidadMax;
+        this.cantidadMin = cantidadMin;
     }
 
-    public PrecioAlMayorDTO(double precioPorVolumen, ProductoDTO producto, MedidaAlMayor medidaAlMayor, int id, boolean activo) {
+    public DescuentoDTO(double precioPorVolumen, ProductoDTO producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
         super(id, activo);
         this.precioPorVolumen = precioPorVolumen;
         this.producto = producto;
-        this.medidaAlMayor = medidaAlMayor;
+        this.cantidadMax = cantidadMax;
+        this.cantidadMin = cantidadMin;
     }
 
     public double getPrecioPorVolumen() {
@@ -49,12 +47,20 @@ public class PrecioAlMayorDTO extends RegistroDTO{
         this.producto = producto;
     }
 
-    public MedidaAlMayor getMedidaAlMayor() {
-        return medidaAlMayor;
+    public int getCantidadMax() {
+        return cantidadMax;
     }
 
-    public void setMedidaAlMayor(MedidaAlMayor medidaAlMayor) {
-        this.medidaAlMayor = medidaAlMayor;
+    public void setCantidadMax(int cantidadMax) {
+        this.cantidadMax = cantidadMax;
+    }
+
+    public int getCantidadMin() {
+        return cantidadMin;
+    }
+
+    public void setCantidadMin(int cantidadMin) {
+        this.cantidadMin = cantidadMin;
     }
     
     
