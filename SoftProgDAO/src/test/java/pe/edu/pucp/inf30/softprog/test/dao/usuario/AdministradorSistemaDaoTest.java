@@ -15,15 +15,17 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
-import pe.edu.pucp.inf30.softprog.dao.usuario.AdministradorSistemaDAO;
-import pe.edu.pucp.inf30.softprog.dao.usuario.CuentaUsuarioDAO;
-import pe.edu.pucp.inf30.softprog.daoimpl.usuario.AdministradorSistemaDAOImpl;
-import pe.edu.pucp.inf30.softprog.daoimpl.usuario.CuentaUsuarioDAOImpl;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.AdministradorSistema;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.Cargo;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.CuentaUsuario;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.Genero;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.Jerarquia;
+
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.dao.persona.AdministradorSistemaDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.AdministradorSistemaDAOImpl;
+import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
+import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistemaDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Cargo;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Jerarquia;
+
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -36,7 +38,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @BeforeAll
     public void inicializar() {
         CuentaUsuarioDAO cuentaUsuarioDao = new CuentaUsuarioDAOImpl();
-        CuentaUsuario cuentaUsuario = new CuentaUsuario();
+        CuentaUsuarioDTO cuentaUsuario = new CuentaUsuarioDTO();
         cuentaUsuario.setUsername("admin_prueba");
         cuentaUsuario.setPassword("admin123");
         
@@ -54,7 +56,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @Override
     public void debeCrear() {
         AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-        AdministradorSistema administrador = new AdministradorSistema();
+        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
         
         // Datos de Persona (herencia)
         administrador.setDni("12345678");
@@ -82,7 +84,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @Override
     public void debeActualizarSiIdExiste() {
         AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-        AdministradorSistema administrador = new AdministradorSistema();
+        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
         
         administrador.setId(this.testId);
         
@@ -97,7 +99,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
         administrador.setTelefono(123456789);
         
         // Datos específicos de AdministradorSistema modificados
-        administrador.setCargo(Cargo.GESTOR_PRODUCTO);
+        administrador.setCargo(Cargo.GESTOR_PRODUCTOS);
         administrador.setSueldo(4200.00);
         administrador.setRango(Jerarquia.PARCIAL);
         administrador.setCuentaUsuario(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
@@ -106,7 +108,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
         boolean modifico = administradorDao.actualizar(administrador);
         assertTrue(modifico);
         
-        AdministradorSistema administradorModificado = administradorDao.leer(this.testId);
+        AdministradorSistemaDTO administradorModificado = administradorDao.leer(this.testId);
         assertEquals("87654321", administradorModificado.getDni());
         assertEquals("Ana María", administradorModificado.getNombre());
         assertEquals("González", administradorModificado.getApellidoPaterno());
@@ -115,7 +117,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
         assertEquals(new GregorianCalendar(1985, 
                 Calendar.JUNE, 25).getTime(), administradorModificado.getFechaNacimiento());
         assertEquals(123456789, administradorModificado.getTelefono());
-        assertEquals(Cargo.GESTOR_PRODUCTO, administradorModificado.getCargo());
+        assertEquals(Cargo.GESTOR_PRODUCTOS, administradorModificado.getCargo());
         assertEquals(4200.00, administradorModificado.getSueldo());
         assertEquals(Jerarquia.PARCIAL, administradorModificado.getRango());
         assertFalse(administradorModificado.isActivo());
@@ -127,7 +129,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @Override
     public void noDebeActualizarSiIdNoExiste() {
         AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-        AdministradorSistema administrador = new AdministradorSistema();
+        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
         
         administrador.setId(this.idIncorrecto);
         administrador.setDni("99999999");
@@ -162,7 +164,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerSiIdExiste() {
         AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-        AdministradorSistema administrador = administradorDao.leer(this.testId);
+        AdministradorSistemaDTO administrador = administradorDao.leer(this.testId);
         assertNotNull(administrador);
         assertEquals(this.testId, administrador.getId());
         assertNotNull(administrador.getDni());
@@ -178,7 +180,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @Override
     public void noDebeLeerSiIdNoExiste() {
         AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-        AdministradorSistema administrador = administradorDao.leer(this.idIncorrecto);
+        AdministradorSistemaDTO administrador = administradorDao.leer(this.idIncorrecto);
         assertNull(administrador);
     }
     
@@ -187,7 +189,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerTodos() {
         AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-        List<AdministradorSistema> administradores = administradorDao.leerTodos();
+        List<AdministradorSistemaDTO> administradores = administradorDao.leerTodos();
         
         assertNotNull(administradores);
         assertFalse(administradores.isEmpty());
@@ -207,7 +209,7 @@ public class AdministradorSistemaDaoTest implements PersistibleProbable {
         assertTrue(elimino);
         
         // Verificar que el administrador ya no existe
-        AdministradorSistema administradorEliminado = administradorDao.leer(this.testId);
+        AdministradorSistemaDTO administradorEliminado = administradorDao.leer(this.testId);
         assertNull(administradorEliminado);
     }
 }

@@ -12,10 +12,11 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
-import pe.edu.pucp.inf30.softprog.dao.inventario.CategoriaProductoDAO;
-import pe.edu.pucp.inf30.softprog.daoimpl.inventario.CategoriaProductoDAOImpl;
-import pe.edu.pucp.inf30.softprogmodelo.inventario.CategoriaProducto;
-import pe.edu.pucp.inf30.softprogmodelo.inventario.TipoCategoria;
+
+import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.producto.CategoriaProductoDAOImpl;
+import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.utils.TipoCategoria;
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -29,7 +30,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeCrear() {
         CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-        CategoriaProducto categoriaProducto = new CategoriaProducto();
+        CategoriaProductoDTO categoriaProducto = new CategoriaProductoDTO();
         categoriaProducto.setNombre(TipoCategoria.ELECTRONICA); // Asumiendo que existe este valor en el enum
         categoriaProducto.setDescripcion("Categoria de productos electronicos para pruebas");
         categoriaProducto.setActivo(true);
@@ -43,7 +44,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeActualizarSiIdExiste() {
         CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-        CategoriaProducto categoriaProducto = new CategoriaProducto();
+        CategoriaProductoDTO categoriaProducto = new CategoriaProductoDTO();
         categoriaProducto.setId(this.testId);
         categoriaProducto.setNombre(TipoCategoria.ROPA); // Asumiendo que existe este valor en el enum
         categoriaProducto.setDescripcion("Categoria de ropa y accesorios modificada para pruebas");
@@ -52,7 +53,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
         boolean modifico = categoriaProductoDao.actualizar(categoriaProducto);
         assertTrue(modifico);
         
-        CategoriaProducto categoriaModificada = categoriaProductoDao.leer(this.testId);
+        CategoriaProductoDTO categoriaModificada = categoriaProductoDao.leer(this.testId);
         assertEquals(TipoCategoria.ROPA, categoriaModificada.getNombre());
         assertEquals("Categoria de ropa y accesorios modificada para pruebas", categoriaModificada.getDescripcion());
         assertFalse(categoriaModificada.isActivo());
@@ -63,7 +64,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
     @Override
     public void noDebeActualizarSiIdNoExiste() {
         CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-        CategoriaProducto categoriaProducto = new CategoriaProducto();
+        CategoriaProductoDTO categoriaProducto = new CategoriaProductoDTO();
         categoriaProducto.setId(this.idIncorrecto);
         categoriaProducto.setNombre(TipoCategoria.HOGAR); // Asumiendo que existe este valor en el enum
         categoriaProducto.setDescripcion("Esta categoria no debería actualizarse");
@@ -87,7 +88,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerSiIdExiste() {
         CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-        CategoriaProducto categoriaProducto = categoriaProductoDao.leer(this.testId);
+        CategoriaProductoDTO categoriaProducto = categoriaProductoDao.leer(this.testId);
         assertNotNull(categoriaProducto);
         assertEquals(this.testId, categoriaProducto.getId());
         assertNotNull(categoriaProducto.getNombre());
@@ -98,7 +99,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
     @Override
     public void noDebeLeerSiIdNoExiste() {
         CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-        CategoriaProducto categoriaProducto = categoriaProductoDao.leer(this.idIncorrecto);
+        CategoriaProductoDTO categoriaProducto = categoriaProductoDao.leer(this.idIncorrecto);
         assertNull(categoriaProducto);
     }
     
@@ -107,7 +108,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerTodos() {
         CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-        List<CategoriaProducto> categorias = categoriaProductoDao.leerTodos();
+        List<CategoriaProductoDTO> categorias = categoriaProductoDao.leerTodos();
         
         assertNotNull(categorias);
         assertFalse(categorias.isEmpty());
@@ -127,7 +128,7 @@ public class CategoriaProductoDaoTest implements PersistibleProbable {
         assertTrue(elimino);
         
         // Verificar que la categoria ya no existe
-        CategoriaProducto categoriaEliminada = categoriaProductoDao.leer(this.testId);
+        CategoriaProductoDTO categoriaEliminada = categoriaProductoDao.leer(this.testId);
         assertNull(categoriaEliminada);
     }
 }

@@ -15,14 +15,17 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
-import pe.edu.pucp.inf30.softprog.dao.usuario.ClienteDAO;
-import pe.edu.pucp.inf30.softprog.dao.usuario.CuentaUsuarioDAO;
-import pe.edu.pucp.inf30.softprog.daoimpl.usuario.ClienteDAOImpl;
-import pe.edu.pucp.inf30.softprog.daoimpl.usuario.CuentaUsuarioDAOImpl;
-import pe.edu.pucp.inf30.softprogmodelo.promociones.CategoriaCliente;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.Cliente;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.CuentaUsuario;
-import pe.edu.pucp.inf30.softprogmodelo.usuario.Genero;
+
+
+import pe.edu.pucp.inf30.softprog.dao.persona.ClienteDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.ClienteDAOImpl;
+import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.CategoriaCliente;
+import pe.edu.pucp.inf30.softprog.modelo.persona.ClienteDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
+
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -35,7 +38,7 @@ public class ClienteDaoTest implements PersistibleProbable {
     @BeforeAll
     public void inicializar() {
         CuentaUsuarioDAO cuentaUsuarioDao = new CuentaUsuarioDAOImpl();
-        CuentaUsuario cuentaUsuario = new CuentaUsuario();
+        CuentaUsuarioDTO cuentaUsuario = new CuentaUsuarioDTO();
         cuentaUsuario.setUsername("cliente_prueba");
         cuentaUsuario.setPassword("password123");
         
@@ -53,7 +56,7 @@ public class ClienteDaoTest implements PersistibleProbable {
     @Override
     public void debeCrear() {
         ClienteDAO clienteDao = new ClienteDAOImpl();
-        Cliente cliente = new Cliente();
+        ClienteDTO cliente = new ClienteDTO();
         
         // Datos de Persona (herencia)
         cliente.setDni("12345678");
@@ -68,7 +71,7 @@ public class ClienteDaoTest implements PersistibleProbable {
         // Datos específicos de Cliente
         cliente.setLineaCredito(5000.00);
         cliente.setCategoria(CategoriaCliente.DISTRIBUIDOR);
-        cliente.setCuenta(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
+        cliente.setCuentaUsuario(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
         cliente.setActivo(true);
         
         this.testId = clienteDao.crear(cliente);
@@ -80,7 +83,7 @@ public class ClienteDaoTest implements PersistibleProbable {
     @Override
     public void debeActualizarSiIdExiste() {
         ClienteDAO clienteDao = new ClienteDAOImpl();
-        Cliente cliente = new Cliente();
+        ClienteDTO cliente = new ClienteDTO();
         
         cliente.setId(this.testId);
         
@@ -97,13 +100,13 @@ public class ClienteDaoTest implements PersistibleProbable {
         // Datos específicos de Cliente modificados
         cliente.setLineaCredito(7500.00);
         cliente.setCategoria(CategoriaCliente.RESTAURANTE);
-        cliente.setCuenta(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
+        cliente.setCuentaUsuario(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
         cliente.setActivo(false);
         
         boolean modifico = clienteDao.actualizar(cliente);
         assertTrue(modifico);
         
-        Cliente clienteModificado = clienteDao.leer(this.testId);
+        ClienteDTO clienteModificado = clienteDao.leer(this.testId);
         assertEquals("87654321", clienteModificado.getDni());
         assertEquals("María Elena", clienteModificado.getNombre());
         assertEquals("López", clienteModificado.getApellidoPaterno());
@@ -115,7 +118,7 @@ public class ClienteDaoTest implements PersistibleProbable {
         assertEquals(7500.00, clienteModificado.getLineaCredito());
         assertEquals(CategoriaCliente.RESTAURANTE, clienteModificado.getCategoria());
         assertFalse(clienteModificado.isActivo());
-        assertNotNull(clienteModificado.getCuenta());
+        assertNotNull(clienteModificado.getCuentaUsuario());
     }
     
     @Test
@@ -123,7 +126,7 @@ public class ClienteDaoTest implements PersistibleProbable {
     @Override
     public void noDebeActualizarSiIdNoExiste() {
         ClienteDAO clienteDao = new ClienteDAOImpl();
-        Cliente cliente = new Cliente();
+        ClienteDTO cliente = new ClienteDTO();
         
         cliente.setId(this.idIncorrecto);
         cliente.setDni("99999999");
@@ -136,7 +139,7 @@ public class ClienteDaoTest implements PersistibleProbable {
         cliente.setTelefono(999999999);
         cliente.setLineaCredito(0.00);
         cliente.setCategoria(CategoriaCliente.GOBIERNO);
-        cliente.setCuenta(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
+        cliente.setCuentaUsuario(new CuentaUsuarioDAOImpl().leer(this.testCuentaUsuarioId));
         cliente.setActivo(true);
         
         boolean modifico = clienteDao.actualizar(cliente);
@@ -157,13 +160,13 @@ public class ClienteDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerSiIdExiste() {
         ClienteDAO clienteDao = new ClienteDAOImpl();
-        Cliente cliente = clienteDao.leer(this.testId);
+        ClienteDTO cliente = clienteDao.leer(this.testId);
         assertNotNull(cliente);
         assertEquals(this.testId, cliente.getId());
         assertNotNull(cliente.getDni());
         assertNotNull(cliente.getNombre());
         assertNotNull(cliente.getCategoria());
-        assertNotNull(cliente.getCuenta());
+        assertNotNull(cliente.getCuentaUsuario());
     }
     
     @Test
@@ -171,7 +174,7 @@ public class ClienteDaoTest implements PersistibleProbable {
     @Override
     public void noDebeLeerSiIdNoExiste() {
         ClienteDAO clienteDao = new ClienteDAOImpl();
-        Cliente cliente = clienteDao.leer(this.idIncorrecto);
+        ClienteDTO cliente = clienteDao.leer(this.idIncorrecto);
         assertNull(cliente);
     }
     
@@ -180,7 +183,7 @@ public class ClienteDaoTest implements PersistibleProbable {
     @Override
     public void debeLeerTodos() {
         ClienteDAO clienteDao = new ClienteDAOImpl();
-        List<Cliente> clientes = clienteDao.leerTodos();
+        List<ClienteDTO> clientes = clienteDao.leerTodos();
         
         assertNotNull(clientes);
         assertFalse(clientes.isEmpty());
@@ -200,7 +203,7 @@ public class ClienteDaoTest implements PersistibleProbable {
         assertTrue(elimino);
         
         // Verificar que el cliente ya no existe
-        Cliente clienteEliminado = clienteDao.leer(this.testId);
+        ClienteDTO clienteEliminado = clienteDao.leer(this.testId);
         assertNull(clienteEliminado);
     }
 }

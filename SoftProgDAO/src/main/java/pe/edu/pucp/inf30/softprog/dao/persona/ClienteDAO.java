@@ -2,12 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.inf30.softprog.modelo.producto.utils;
+package pe.edu.pucp.inf30.softprog.dao.persona;
+
+import pe.edu.pucp.inf30.softprog.dao.Persistible;
+import pe.edu.pucp.inf30.softprog.modelo.persona.ClienteDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public enum MedidaAlMayor {
-    CUARTO_DE_DOCENA, MEDIA_DOCENA, DOCENA
+public interface ClienteDAO extends Persistible<ClienteDTO, Integer>{
+    
 }

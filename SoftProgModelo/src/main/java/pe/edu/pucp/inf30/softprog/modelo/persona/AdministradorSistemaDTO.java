@@ -4,15 +4,17 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
+import java.util.Date;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Cargo;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Jerarquia;
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class AdministradorSistemaDTO extends RegistroDTO{
+public class AdministradorSistemaDTO extends PersonaDTO{
     private Cargo cargo;
     private double sueldo;
     private Jerarquia rango;
@@ -29,8 +31,16 @@ public class AdministradorSistemaDTO extends RegistroDTO{
         this.cuentaUsuario = cuentaUsuario;
     }
 
-    public AdministradorSistemaDTO(Cargo cargo, double sueldo, Jerarquia rango, CuentaUsuarioDTO cuentaUsuario, int id, boolean activo) {
-        super(id, activo);
+    public AdministradorSistemaDTO(Cargo cargo, double sueldo, Jerarquia rango, CuentaUsuarioDTO cuentaUsuario, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+        super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
+        this.cargo = cargo;
+        this.sueldo = sueldo;
+        this.rango = rango;
+        this.cuentaUsuario = cuentaUsuario;
+    }
+
+    public AdministradorSistemaDTO(Cargo cargo, double sueldo, Jerarquia rango, CuentaUsuarioDTO cuentaUsuario, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+        super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.cargo = cargo;
         this.sueldo = sueldo;
         this.rango = rango;
