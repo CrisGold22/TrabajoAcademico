@@ -9,8 +9,11 @@ import org.junit.jupiter.api.Test;
  */
 public class AppTest {
 
+    /**
+     * Rigorous Test :-)
+     */
     @Test
-    public void holamundo(){
-        System.out.println("hola mundo");
+    public void shouldAnswerWithTrue() {
+        assertTrue(true);
     }
 }
