@@ -51,10 +51,35 @@
             <artifactId>jcc</artifactId>
             <version>11.5.8.0</version>
         </dependency>
+    
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+    
     </dependencies>
 
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>pe.edu.pucp.inf30.softprogpruebas.SoftProgPruebas</exec.mainClass>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
 </project>
