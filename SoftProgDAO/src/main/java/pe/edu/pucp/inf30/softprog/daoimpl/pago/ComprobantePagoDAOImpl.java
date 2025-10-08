@@ -103,7 +103,6 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         ComprobantePagoDTO comprobante = new ComprobantePagoDTO();
         
         comprobante.setId(rs.getInt("idComprobante"));
-//        comprobante.setLineasComprobantes(comprobanteDAO.leerTodos());
         comprobante.setFechaEmision(rs.getTimestamp("fechaEmision"));
         comprobante.setRUC(rs.getInt("RUC"));
         comprobante.setTotalSinImpuestos(rs.getDouble("totalSinImpuestos"));

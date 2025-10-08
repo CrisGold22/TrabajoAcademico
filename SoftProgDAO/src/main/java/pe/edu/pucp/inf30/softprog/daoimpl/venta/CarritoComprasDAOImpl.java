@@ -11,13 +11,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.venta.CarritoComprasDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CarritoComprasDAOImpl extends BaseDAO<CarritoComprasDTO> implements CarritoComprasDAO  {
+public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoComprasDTO> implements CarritoComprasDAO  {
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CarritoComprasDTO modelo) throws SQLException {
@@ -29,7 +30,7 @@ public class CarritoComprasDAOImpl extends BaseDAO<CarritoComprasDTO> implements
         cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
-//        cmd.setInt("p_cliente_idCliente", modelo.get);
+        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
         
         return cmd;
     }
@@ -44,7 +45,7 @@ public class CarritoComprasDAOImpl extends BaseDAO<CarritoComprasDTO> implements
         cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
-//        cmd.setInt("p_cliente_idCliente", modelo.get);
+        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
         
         return cmd;
     }

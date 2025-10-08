@@ -10,15 +10,18 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaCarritoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarritoDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaCarritoDAOImpl extends BaseDAO<LineaCarritoDTO> implements LineaCarritoDAO {
+public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> implements LineaCarritoDAO {
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaCarritoDTO modelo) throws SQLException {
@@ -105,6 +108,37 @@ public class LineaCarritoDAOImpl extends BaseDAO<LineaCarritoDTO> implements Lin
 
     public LineaCarritoDTO obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    protected PreparedStatement comandoListarPorIdCarrito(Connection conn, int id) throws SQLException{
+        String sql = "{sdfsdf}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        cmd.setInt("pachec", id);
+        
+        return cmd;
+    }
+    
+    @Override
+    public List<LineaCarritoDTO> listarPorIdCarrito(int id) {
+        return ejecutarComando(conn -> listarPorIdCarrito(id, conn));
+    }
+
+    @Override
+    public List<LineaCarritoDTO> listarPorIdCarrito(int id, Connection conn) {
+        try(PreparedStatement cmd = this.comandoListarPorIdCarrito(conn, id)){
+            ResultSet rs = cmd.executeQuery();
+            
+            List<LineaCarritoDTO> modelos = new ArrayList<>();
+            while(rs.next()){
+                modelos.add(this.mapearModelo(rs));
+            }
+            
+            return modelos;
+        } catch (SQLException ex) {
+            System.err.println("Error SQL: " + ex.getMessage());
+            throw new RuntimeException(ex);
+        }
     }
     
 }

@@ -135,9 +135,5 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
             throw new RuntimeException(ex);
         }
     }
-    
-    public void pacheco(){
         
-    }
-    
 }

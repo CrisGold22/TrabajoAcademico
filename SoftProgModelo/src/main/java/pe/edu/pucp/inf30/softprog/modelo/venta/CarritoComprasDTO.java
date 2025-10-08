@@ -5,6 +5,7 @@
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
 import java.util.ArrayList;
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoCarrito;
@@ -15,27 +16,27 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoCarrito;
  */
 public class CarritoComprasDTO extends RegistroDTO {
 
-    private ArrayList<ProductoDTO> productos;
+    private List<LineaCarritoDTO> lineasCarrito;
     private double totalParcial;
     private double totalConDescuento;
     private EstadoCarrito estado;
     private int idCliente;
 
     public CarritoComprasDTO() {
-
+        lineasCarrito = new ArrayList<>();
     }
 
-    public CarritoComprasDTO(ArrayList<ProductoDTO> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente) {
-        this.productos = productos;
+    public CarritoComprasDTO(ArrayList<LineaCarritoDTO> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente) {
+        this.lineasCarrito = productos;
         this.totalParcial = totalParcial;
         this.totalConDescuento = totalConDescuento;
         this.estado = estado;
         this.idCliente = idCliente;
     }
 
-    public CarritoComprasDTO(ArrayList<ProductoDTO> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente, int id, boolean activo) {
+    public CarritoComprasDTO(ArrayList<LineaCarritoDTO> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente, int id, boolean activo) {
         super(id, activo);
-        this.productos = productos;
+        this.lineasCarrito = productos;
         this.totalParcial = totalParcial;
         this.totalConDescuento = totalConDescuento;
         this.estado = estado;
@@ -44,12 +45,12 @@ public class CarritoComprasDTO extends RegistroDTO {
 
     
 
-    public ArrayList<ProductoDTO> getProductos() {
-        return productos;
+    public List<LineaCarritoDTO> getLineasCarritos() {
+        return lineasCarrito;
     }
 
-    public void setProductos(ArrayList<ProductoDTO> productos) {
-        this.productos = productos;
+    public void setLineasCarrito(List<LineaCarritoDTO> productos) {
+        this.lineasCarrito = productos;
     }
 
     public double getTotalParcial() {

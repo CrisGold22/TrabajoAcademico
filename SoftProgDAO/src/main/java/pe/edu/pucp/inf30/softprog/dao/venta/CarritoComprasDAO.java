@@ -5,12 +5,13 @@
 package pe.edu.pucp.inf30.softprog.dao.venta;
 
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
+import pe.edu.pucp.inf30.softprog.dao.PersistibleTransaccional;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface CarritoComprasDAO extends Persistible<CarritoComprasDTO, Integer> {
+public interface CarritoComprasDAO extends PersistibleTransaccional<CarritoComprasDTO, Integer> {
     
 }

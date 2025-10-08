@@ -9,15 +9,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaOrdenCompraDAOImpl extends BaseDAO<LineaOrdenCompraDTO> implements LineaOrdenCompraDAO {
+public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenCompraDTO> implements LineaOrdenCompraDAO {
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaOrdenCompraDTO modelo) throws SQLException {
@@ -101,9 +104,37 @@ public class LineaOrdenCompraDAOImpl extends BaseDAO<LineaOrdenCompraDTO> implem
         
         return linea;
     }
+    
+    protected PreparedStatement comandoListarPorIdOrdenCompra(Connection conn, int id) throws SQLException{
+        String sql = "{sdfsdf}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        cmd.setInt("pachec", id);
+        
+        return cmd;
+    }
 
-    public LineaOrdenCompraDTO obtenerPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Override
+    public List<LineaOrdenCompraDTO> listarPorIdOrdenCompra(int id) {
+        return ejecutarComando(conn -> listarPorIdOrdenCompra(conn, id));
+    }
+    
+
+    @Override
+    public List<LineaOrdenCompraDTO> listarPorIdOrdenCompra(Connection conn, int id) {
+        try(PreparedStatement cmd = this.comandoListarPorIdOrdenCompra(conn, id)){
+            ResultSet rs = cmd.executeQuery();
+            
+            List<LineaOrdenCompraDTO> modelos = new ArrayList<>();
+            while(rs.next()){
+                modelos.add(this.mapearModelo(rs));
+            }
+            
+            return modelos;
+        } catch (SQLException ex) {
+            System.err.println("Error SQL: " + ex.getMessage());
+            throw new RuntimeException(ex);
+        }
     }
     
 }

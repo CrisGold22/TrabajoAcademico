@@ -12,13 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompraDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class OrdenCompraDAOImpl extends BaseDAO<OrdenCompraDTO> implements OrdenCompraDAO {
+public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> implements OrdenCompraDAO {
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, OrdenCompraDTO modelo) throws SQLException {
@@ -93,11 +94,18 @@ public class OrdenCompraDAOImpl extends BaseDAO<OrdenCompraDTO> implements Orden
 
     @Override
     protected OrdenCompraDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        OrdenCompraDTO orden = new OrdenCompraDTO();
+        
+        orden.setId(rs.getInt("IdPedido"));
+        orden.setFechaCreacion(rs.getDate("FechaCreacion"));
+        orden.setTotalParcial(rs.getDouble("total_parcial"));
+        orden.setTotalFinal(rs.getDouble("total_final"));
+        orden.setDescuentoTotal(rs.getDouble("descuentoTotal"));
+        orden.setEstadoString(rs.getString("Estado"));
+        orden.setIdDetalleEnvio(rs.getInt("DetalleDeEnvio_id_DetalleEnvio"));
+        orden.setActivoInt(rs.getInt("Activo"));
+        
+        return orden;
     }
 
-    public OrdenCompraDTO obtenerPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }

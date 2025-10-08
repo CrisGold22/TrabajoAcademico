@@ -5,12 +5,14 @@
 package pe.edu.pucp.inf30.softprog.dao.venta;
 
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
+import pe.edu.pucp.inf30.softprog.dao.PersistibleTransaccional;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompraDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface OrdenCompraDAO extends Persistible<OrdenCompraDTO, Integer>{
+public interface OrdenCompraDAO extends PersistibleTransaccional<OrdenCompraDTO, Integer>{
     
 }
