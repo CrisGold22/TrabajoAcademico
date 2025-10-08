@@ -28,7 +28,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
         cmd.setInt("p_idCategoriaProducto", modelo.getId());
         cmd.setString("p_NombreCategoria", modelo.getNombreString());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
-//        cmd.setInt("p_Catalogo", modelo.getIdCatalogo());
+        cmd.setInt("p_Catalogo_idCatalogo", modelo.getIdCategoriaPadre());
         cmd.setInt("p_Activo", modelo.getActivo());
         
         return cmd;
@@ -44,7 +44,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
         cmd.setInt("p_idCategoriaProducto", modelo.getId());
         cmd.setString("p_NombreCategoria", modelo.getNombreString());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
-//        cmd.setInt("p_Catalogo", modelo.getIdCatalogo());
+        cmd.setInt("p_Catalogo_idCatalogo", modelo.getIdCategoriaPadre());
         cmd.setInt("p_Activo", modelo.getActivo());
         
         return cmd;
@@ -89,12 +89,9 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
         categoria.setNombreString(rs.getString("NombreCategoria"));
         categoria.setDescripcion(rs.getString("Descripcion"));
         categoria.setActivoInt(rs.getInt("Activo"));
+        categoria.setIdCategoriaPadre(rs.getInt("Catalogo_idCatalogo"));
         
         return categoria;
-    }
-
-    public CategoriaProductoDTO obtenerPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

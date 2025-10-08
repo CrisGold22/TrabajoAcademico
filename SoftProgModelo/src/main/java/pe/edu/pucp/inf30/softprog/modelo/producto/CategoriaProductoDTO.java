@@ -15,22 +15,25 @@ public class CategoriaProductoDTO extends RegistroDTO {
 
     private TipoCategoria nombre;
     private String descripcion;
+    private int idCategoriaPadre;
 
     public CategoriaProductoDTO() {
 
     }
 
-    public CategoriaProductoDTO(TipoCategoria nombre, String descripcion) {
+    public CategoriaProductoDTO(TipoCategoria nombre, String descripcion, int idCategoriaPadre) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.idCategoriaPadre = idCategoriaPadre;
     }
 
-    public CategoriaProductoDTO(TipoCategoria nombre, String descripcion, int id, boolean activo) {
+    public CategoriaProductoDTO(TipoCategoria nombre, String descripcion, int idCategoriaPadre, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.idCategoriaPadre = idCategoriaPadre;
     }
-
+    
     public TipoCategoria getNombre() {
         return nombre;
     }
@@ -88,5 +91,15 @@ public class CategoriaProductoDTO extends RegistroDTO {
                 this.nombre = TipoCategoria.ROPA;
         }
     }
+
+    public int getIdCategoriaPadre() {
+        return idCategoriaPadre;
+    }
+
+    public void setIdCategoriaPadre(int idCategoriaPadre) {
+        this.idCategoriaPadre = idCategoriaPadre;
+    }
+    
+    
 
 }
