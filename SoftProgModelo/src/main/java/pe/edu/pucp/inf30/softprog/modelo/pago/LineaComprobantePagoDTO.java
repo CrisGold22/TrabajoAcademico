@@ -15,24 +15,27 @@ public class LineaComprobantePagoDTO extends RegistroDTO{
     private int codigo;
     private int cantidad;
     private double subTotal;
+    private int idComprobantePago;
     
     public LineaComprobantePagoDTO(){
         
     }
 
-    public LineaComprobantePagoDTO(double montoPagado, int codigo, int cantidad, double subTotal) {
+    public LineaComprobantePagoDTO(double montoPagado, int codigo, int cantidad, double subTotal, int idComprobantePago) {
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.subTotal = subTotal;
+        this.idComprobantePago = idComprobantePago;
     }
 
-    public LineaComprobantePagoDTO(double montoPagado, int codigo, int cantidad, double subTotal, int id, boolean activo) {
+    public LineaComprobantePagoDTO(double montoPagado, int codigo, int cantidad, double subTotal, int idComprobantePago, int id, boolean activo) {
         super(id, activo);
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.subTotal = subTotal;
+        this.idComprobantePago = idComprobantePago;
     }
 
     public double getMontoPagado() {
@@ -65,6 +68,14 @@ public class LineaComprobantePagoDTO extends RegistroDTO{
 
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
+    }
+
+    public int getIdComprobantePago() {
+        return idComprobantePago;
+    }
+
+    public void setIdComprobantePago(int idComprobantePago) {
+        this.idComprobantePago = idComprobantePago;
     }
     
     

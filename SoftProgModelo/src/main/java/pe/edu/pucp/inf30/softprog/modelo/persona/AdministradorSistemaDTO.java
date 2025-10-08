@@ -14,14 +14,15 @@ import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
  *
  * @author Cristhian Horacio
  */
-public class AdministradorSistemaDTO extends PersonaDTO{
+public class AdministradorSistemaDTO extends PersonaDTO {
+
     private Cargo cargo;
     private double sueldo;
     private Jerarquia rango;
     private CuentaUsuarioDTO cuentaUsuario;
-    
-    public AdministradorSistemaDTO(){
-        
+
+    public AdministradorSistemaDTO() {
+
     }
 
     public AdministradorSistemaDTO(Cargo cargo, double sueldo, Jerarquia rango, CuentaUsuarioDTO cuentaUsuario) {
@@ -78,7 +79,53 @@ public class AdministradorSistemaDTO extends PersonaDTO{
     public void setCuentaUsuario(CuentaUsuarioDTO cuentaUsuario) {
         this.cuentaUsuario = cuentaUsuario;
     }
-    
-    
-    
+
+    public String getCargoString() {
+        String cadena = "";
+
+        switch (this.cargo) {
+            case ADMINISTRADOR ->
+                cadena = "ADMINISTRADOR";
+            case GESTOR_PEDIDOS ->
+                cadena = "GESTOR_PEDIDOS";
+            case GESTOR_PRODUCTOS ->
+                cadena = "GESTOR_PRODUCTOS";
+        }
+
+        return cadena;
+    }
+
+    public String getRangoString() {
+        String cadena = "";
+
+        switch (this.rango) {
+            case COMPLETO ->
+                cadena = "COMPLETO";
+            case PARCIAL ->
+                cadena = "PARCIAL";
+        }
+
+        return cadena;
+    }
+
+    public void setCargoString(String cargo) {
+        switch (cargo) {
+            case "ADMINISTRADOR" ->
+                this.cargo = Cargo.ADMINISTRADOR;
+            case "GESTOR_PEDIDOS" ->
+                this.cargo = Cargo.GESTOR_PEDIDOS;
+            case "GESTOR_PRODUCTOS" ->
+                this.cargo = Cargo.GESTOR_PRODUCTOS;
+        }
+    }
+
+    public void setRangoString(String rango) {
+        switch (rango) {
+            case "COMPLETO" ->
+                this.rango = Jerarquia.COMPLETO;
+            case "PARCIAL" ->
+                this.rango = Jerarquia.PARCIAL;
+        }
+    }
+
 }

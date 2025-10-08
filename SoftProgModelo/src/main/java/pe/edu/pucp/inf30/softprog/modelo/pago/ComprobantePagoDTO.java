@@ -6,6 +6,8 @@ package pe.edu.pucp.inf30.softprog.modelo.pago;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 import pe.edu.pucp.inf30.softprog.modelo.pago.utils.MetodoPago;
 
@@ -14,19 +16,20 @@ import pe.edu.pucp.inf30.softprog.modelo.pago.utils.MetodoPago;
  * @author Cristhian Horacio
  */
 public class ComprobantePagoDTO extends RegistroDTO{
-    private ArrayList<LineaComprobantePagoDTO> lineasComprobantes;
-    private LocalDate fechaEmision;
+    private List<LineaComprobantePagoDTO> lineasComprobantes;
+    private Date fechaEmision;
     private int RUC;
     private double totalSinImpuestos;
     private double impuestos;
     private double totalFinal;
     private MetodoPago metodoPago;
+    private int idOrdenCompra;
     
     public ComprobantePagoDTO(){
-        
+        lineasComprobantes = new ArrayList<>();
     }
 
-    public ComprobantePagoDTO(ArrayList<LineaComprobantePagoDTO> lineasComprobantes, LocalDate fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago) {
+    public ComprobantePagoDTO(ArrayList<LineaComprobantePagoDTO> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra) {
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
         this.RUC = RUC;
@@ -34,9 +37,10 @@ public class ComprobantePagoDTO extends RegistroDTO{
         this.impuestos = impuestos;
         this.totalFinal = totalFinal;
         this.metodoPago = metodoPago;
+        this.idOrdenCompra = idOrdenCompra;
     }
 
-    public ComprobantePagoDTO(ArrayList<LineaComprobantePagoDTO> lineasComprobantes, LocalDate fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int id, boolean activo) {
+    public ComprobantePagoDTO(ArrayList<LineaComprobantePagoDTO> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra, int id, boolean activo) {
         super(id, activo);
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
@@ -45,21 +49,24 @@ public class ComprobantePagoDTO extends RegistroDTO{
         this.impuestos = impuestos;
         this.totalFinal = totalFinal;
         this.metodoPago = metodoPago;
+        this.idOrdenCompra = idOrdenCompra;
     }
 
-    public ArrayList<LineaComprobantePagoDTO> getLineasComprobantes() {
+    
+
+    public List<LineaComprobantePagoDTO> getLineasComprobantes() {
         return lineasComprobantes;
     }
 
-    public void setLineasComprobantes(ArrayList<LineaComprobantePagoDTO> lineasComprobantes) {
+    public void setLineasComprobantes(List<LineaComprobantePagoDTO> lineasComprobantes) {
         this.lineasComprobantes = lineasComprobantes;
     }
 
-    public LocalDate getFechaEmision() {
+    public Date getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(LocalDate fechaEmision) {
+    public void setFechaEmision(Date fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 
@@ -103,5 +110,30 @@ public class ComprobantePagoDTO extends RegistroDTO{
         this.metodoPago = metodoPago;
     }
     
+    public String getMetodoString(){
+        String cadena = "";
+        
+        switch(this.metodoPago){
+            case CONTRA_ENTREGA -> cadena = "CONTRA_ENTREGA";
+            case VIRTUAL -> cadena = "VIRTUAL";
+        }
+        
+        return cadena;
+    }
+    
+    public void setMetodoString(String metodo) {
+        switch (metodo) {
+            case "CONTRA_ENTREGA" -> this.metodoPago = MetodoPago.CONTRA_ENTREGA;
+            case "VIRTUAL" -> this.metodoPago = MetodoPago.VIRTUAL;
+        }
+    }
+
+    public int getIdOrdenCompra() {
+        return idOrdenCompra;
+    }
+
+    public void setIdOrdenCompra(int idOrdenCompra) {
+        this.idOrdenCompra = idOrdenCompra;
+    }
     
 }

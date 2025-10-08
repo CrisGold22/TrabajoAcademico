@@ -11,7 +11,8 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.utils.UnidadMedida;
  *
  * @author Cristhian Horacio
  */
-public class ProductoDTO extends RegistroDTO{
+public class ProductoDTO extends RegistroDTO {
+
     private String nombre;
     private String SKU;
     private String descripcion;
@@ -21,12 +22,13 @@ public class ProductoDTO extends RegistroDTO{
     private int stockDisponible;
     private int stockMinimo;
     private int stockMaximo;
+    private int idCategoria;
     
-    public ProductoDTO(){
-        
+    public ProductoDTO() {
+
     }
 
-    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo) {
+    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria) {
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
@@ -36,9 +38,10 @@ public class ProductoDTO extends RegistroDTO{
         this.stockDisponible = stockDisponible;
         this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
+        this.idCategoria = idCategoria;
     }
 
-    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int id, boolean activo) {
+    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.SKU = SKU;
@@ -49,7 +52,10 @@ public class ProductoDTO extends RegistroDTO{
         this.stockDisponible = stockDisponible;
         this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
+        this.idCategoria = idCategoria;
     }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -122,7 +128,59 @@ public class ProductoDTO extends RegistroDTO{
     public void setStockMaximo(int stockMaximo) {
         this.stockMaximo = stockMaximo;
     }
-    
-    
+
+    public String getMedidaAlMayorString() {
+        String cadena = "";
+
+        switch (this.medidaAlMayor) {
+            case BOTELLA ->
+                cadena = "BOTELLA";
+            case CAJA ->
+                cadena = "CAJA";
+            case GALON ->
+                cadena = "GALON";
+            case KILOGRAMO ->
+                cadena = "KILOGRAMO";
+            case LITRO ->
+                cadena = "LITRO";
+            case PACK ->
+                cadena = "PACK";
+            case PAQUETE ->
+                cadena = "PAQUETE";
+            case SACO ->
+                cadena = "SACO";
+        }
+        return cadena;
+    }
+
+    public void setMedidaAlMayorString(String medida) {
+        switch (medida) {
+            case "BOTELLA" ->
+                this.medidaAlMayor = UnidadMedida.BOTELLA;
+            case "CAJA" ->
+                this.medidaAlMayor = UnidadMedida.CAJA;
+            case "GALON" ->
+                this.medidaAlMayor = UnidadMedida.GALON;
+            case "KILOGRAMO" ->
+                this.medidaAlMayor = UnidadMedida.KILOGRAMO;
+            case "LITRO" ->
+                this.medidaAlMayor = UnidadMedida.LITRO;
+            case "PACK" ->
+                this.medidaAlMayor = UnidadMedida.PACK;
+            case "PAQUETE" ->
+                this.medidaAlMayor = UnidadMedida.PAQUETE;
+            case "SACO" ->
+                this.medidaAlMayor = UnidadMedida.SACO;
+        }
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
     
 }

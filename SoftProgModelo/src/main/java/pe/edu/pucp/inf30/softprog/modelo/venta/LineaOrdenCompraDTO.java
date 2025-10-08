@@ -14,25 +14,37 @@ public class LineaOrdenCompraDTO extends RegistroDTO{
     private double montoPagado;
     private int codigo;
     private int cantidad;
+    private double precioUnitario;
     private double subTotal;
+    private int idProducto;
+    private int idOrdenCompra;
+    private int idCarrito;
     
     public LineaOrdenCompraDTO(){
         
     }
 
-    public LineaOrdenCompraDTO(double montoPagado, int codigo, int cantidad, double subTotal) {
+    public LineaOrdenCompraDTO(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito) {
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
         this.subTotal = subTotal;
+        this.idProducto = idProducto;
+        this.idOrdenCompra = idOrdenCompra;
+        this.idCarrito = idCarrito;
     }
 
-    public LineaOrdenCompraDTO(double montoPagado, int codigo, int cantidad, double subTotal, int id, boolean activo) {
+    public LineaOrdenCompraDTO(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito, int id, boolean activo) {
         super(id, activo);
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
         this.subTotal = subTotal;
+        this.idProducto = idProducto;
+        this.idOrdenCompra = idOrdenCompra;
+        this.idCarrito = idCarrito;
     }
 
     public double getMontoPagado() {
@@ -65,6 +77,38 @@ public class LineaOrdenCompraDTO extends RegistroDTO{
 
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
+    }
+
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(double precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public int getIdOrdenCompra() {
+        return idOrdenCompra;
+    }
+
+    public void setIdOrdenCompra(int idOrdenCompra) {
+        this.idOrdenCompra = idOrdenCompra;
+    }
+
+    public int getIdCarrito() {
+        return idCarrito;
+    }
+
+    public void setIdCarrito(int idCarrito) {
+        this.idCarrito = idCarrito;
     }
     
     

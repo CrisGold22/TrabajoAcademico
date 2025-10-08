@@ -92,5 +92,15 @@ public class OrdenCompraDTO extends RegistroDTO {
         this.estado = estado;
     }
     
-    
+    public String getEstadoString() {
+        return switch (this.estado) {
+            case PAGADO         -> "PAGADO";
+            case EN_PREPARACION -> "EN_PREPARACION";
+            case ENVIADO        -> "ENVIADO";
+            case ENTREGADO      -> "ENTREGADO";
+            case CANCELADO      -> "CANCELADO";
+            case REEMBOLSADO    -> "REEMBOLSADO";
+            case EXPIRADO       -> "EXPIRADO";
+        };
+    }
 }

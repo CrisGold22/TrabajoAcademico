@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.daoimpl.producto;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,32 +21,76 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CategoriaProductoDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL insertarCategoriaProducto(?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCategoriaProducto", modelo.getId());
+        cmd.setString("p_NombreCategoria", modelo.getNombreString());
+        cmd.setString("p_Descripcion", modelo.getDescripcion());
+//        cmd.setInt("p_Catalogo", modelo.getIdCatalogo());
+        cmd.setInt("p_Activo", modelo.getActivo());
+        
+        return cmd;
+        
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, CategoriaProductoDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL modificarCategoriaProducto(?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCategoriaProducto", modelo.getId());
+        cmd.setString("p_NombreCategoria", modelo.getNombreString());
+        cmd.setString("p_Descripcion", modelo.getDescripcion());
+//        cmd.setInt("p_Catalogo", modelo.getIdCatalogo());
+        cmd.setInt("p_Activo", modelo.getActivo());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL eliiminarCategoriaProducto(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCategoriaProducto", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL buscarCategoriaProductoPorId(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCategoriaProducto", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL listarCategoriaProductos()}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        return cmd;
     }
 
     @Override
     protected CategoriaProductoDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        CategoriaProductoDTO categoria = new CategoriaProductoDTO();
+        
+        categoria.setId(rs.getInt("idCategoriaProducto"));
+        categoria.setNombreString(rs.getString("NombreCategoria"));
+        categoria.setDescripcion(rs.getString("Descripcion"));
+        categoria.setActivoInt(rs.getInt("Activo"));
+        
+        return categoria;
     }
 
     public CategoriaProductoDTO obtenerPorId(int id) {

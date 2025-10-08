@@ -11,12 +11,13 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.utils.TipoCategoria;
  *
  * @author Cristhian Horacio
  */
-public class CategoriaProductoDTO extends RegistroDTO{
+public class CategoriaProductoDTO extends RegistroDTO {
+
     private TipoCategoria nombre;
     private String descripcion;
-    
-    public CategoriaProductoDTO(){
-        
+
+    public CategoriaProductoDTO() {
+
     }
 
     public CategoriaProductoDTO(TipoCategoria nombre, String descripcion) {
@@ -45,6 +46,47 @@ public class CategoriaProductoDTO extends RegistroDTO{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
+
+    public String getNombreString() {
+        String cadena = "";
+
+        switch (this.nombre) {
+            case ABARROTES ->
+                cadena = "ABARROTES";
+            case BEBIDAS ->
+                cadena = "BEBIDAS";
+            case CUIDADO_PERSONAL ->
+                cadena = "CUIDADO_PERSONA";
+            case ELECTRONICA ->
+                cadena = "ELECTRONICA";
+            case HOGAR ->
+                cadena = "HOGAR";
+            case LIMPIEZA ->
+                cadena = "LIMPIEZA";
+            case ROPA ->
+                cadena = "ROPA";
+        }
+
+        return cadena;
+    }
+
+    public void setNombreString(String nombre) {
+        switch (nombre) {
+            case "ABARROTES" ->
+                this.nombre = TipoCategoria.ABARROTES;
+            case "BEBIDAS" ->
+                this.nombre = TipoCategoria.BEBIDAS;
+            case "CUIDADO_PERSONAL" ->
+                this.nombre = TipoCategoria.CUIDADO_PERSONAL;
+            case "ELECTRONICA" ->
+                this.nombre = TipoCategoria.ELECTRONICA;
+            case "HOGAR" ->
+                this.nombre = TipoCategoria.HOGAR;
+            case "LIMPIEZA" ->
+                this.nombre = TipoCategoria.LIMPIEZA;
+            case "ROPA" ->
+                this.nombre = TipoCategoria.ROPA;
+        }
+    }
+
 }

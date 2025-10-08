@@ -4,7 +4,9 @@
  */
 package pe.edu.pucp.inf30.softprog.daoimpl.venta;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,32 +22,85 @@ public class LineaCarritoDAOImpl extends BaseDAO<LineaCarritoDTO> implements Lin
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaCarritoDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_id_DetalleEnvio", modelo.getId());
+        cmd.setInt("p_cantidad", modelo.getCantidad());
+        cmd.setDouble("p_precioVolumen", modelo.getPrecioVolumen());
+        cmd.setDouble("p_subTotal", modelo.getSubTotal());
+        cmd.setInt("p_Producto_ID_Producto1", modelo.getIdProducto());
+        cmd.setInt("p_CarritoDeCompras_Productos", modelo.getIdCarritoCompras());
+        cmd.setInt("p_activo", modelo.getActivo());
+        cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, LineaCarritoDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_id_DetalleEnvio", modelo.getId());
+        cmd.setInt("p_cantidad", modelo.getCantidad());
+        cmd.setDouble("p_precioVolumen", modelo.getPrecioVolumen());
+        cmd.setDouble("p_subTotal", modelo.getSubTotal());
+        cmd.setInt("p_Producto_ID_Producto1", modelo.getIdProducto());
+        cmd.setInt("p_CarritoDeCompras_Productos", modelo.getIdCarritoCompras());
+        cmd.setInt("p_activo", modelo.getActivo());
+        cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL eliminarLineaCarrito(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_id_DetalleEnvio", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL buscarLineaCarritoPorId(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_id_DetalleEnvio", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL listarLineasCarrito(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        
+        return cmd;
     }
 
     @Override
     protected LineaCarritoDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        LineaCarritoDTO linea = new LineaCarritoDTO();
+        
+        linea.setId(rs.getInt("idLineaCarrito"));
+        linea.setCantidad(rs.getInt("cantidad"));
+        linea.setPrecioVolumen(rs.getDouble("precioVolumen"));
+        linea.setSubTotal(rs.getDouble("subTotal"));
+        linea.setIdProducto(rs.getInt("Producto_ID_Producto"));
+        linea.setIdCarritoCompras(rs.getInt("CarritoDeCompras_Productos"));
+        linea.setActivoInt(rs.getInt("activo"));
+        
+        return linea;
     }
 
     public LineaCarritoDTO obtenerPorId(int id) {

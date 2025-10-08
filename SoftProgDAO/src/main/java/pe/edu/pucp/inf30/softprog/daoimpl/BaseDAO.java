@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.daoimpl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,36 +51,63 @@ public abstract class BaseDAO<T> implements Persistible<T, Integer> {
         }
     }
     
-    @Override
-    public Integer crear(T modelo) {
-        return ejecutarComando(conn -> {
-            try (PreparedStatement cmd = comandoCrear(conn, modelo)) {
-                if (cmd.executeUpdate() == 0) {
-                    return null;
-                }
-                try (ResultSet rs = cmd.getGeneratedKeys()) {
-                    return rs.next() ? rs.getInt(1) : null;
+    protected Integer ejecutarComandoCrear(Connection conn, T modelo) {
+        try (PreparedStatement cmd = this.comandoCrear(conn, modelo)) {
+            if (cmd.executeUpdate() == 0) {
+                return null;
+            }
+
+            if (cmd instanceof CallableStatement callableCmd) {
+                return callableCmd.getInt("p_id");
+            }
+
+            try (ResultSet rs = cmd.getGeneratedKeys()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
                 }
             }
-        });
+
+            return null;
+        } 
+        catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected boolean ejecutarComandoActualizar(Connection conn, T modelo) {
+        try (PreparedStatement cmd = this.comandoActualizar(conn, modelo)) {
+            return cmd.executeUpdate() > 0;
+        }
+        catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+    
+    protected boolean ejecutarComandoEliminar(Connection conn, Integer id) {
+        try (PreparedStatement cmd = this.comandoEliminar(conn, id)) {
+            return cmd.executeUpdate() > 0;
+        }
+        catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+    
+    @Override
+    public Integer crear(T modelo) {
+        return ejecutarComando(conn -> ejecutarComandoCrear(conn, modelo));
     }
     
     @Override
     public boolean actualizar(T modelo) {
-        return ejecutarComando(conn -> {
-            try (PreparedStatement cmd = this.comandoActualizar(conn, modelo)) {
-                return cmd.executeUpdate() > 0;
-            }
-        });
+        return ejecutarComando(conn -> ejecutarComandoActualizar(conn, modelo));
     }
     
     @Override
     public boolean eliminar(Integer id) {
-        return ejecutarComando(conn -> {
-            try (PreparedStatement cmd = this.comandoEliminar(conn, id)) {
-                return cmd.executeUpdate() > 0;
-            }
-        });
+        return ejecutarComando(conn -> ejecutarComandoEliminar(conn, id));
     }
     
     @Override

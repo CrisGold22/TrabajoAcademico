@@ -13,21 +13,22 @@ import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
  *
  * @author Cristhian Horacio
  */
-public class ClienteDTO extends PersonaDTO{
+public class ClienteDTO extends PersonaDTO {
+
     private double lineaCredito;
     private CategoriaCliente categoria;
-    private CuentaUsuarioDTO cuentaUsuario;
+//    private CuentaUsuarioDTO cuentaUsuario;
     private int numeroPedidosHistorico;
     private int numeroPedidosMensualPro;
-    
-    public ClienteDTO(){
-        
+
+    public ClienteDTO() {
+
     }
 
     public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro) {
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
-        this.cuentaUsuario = cuentaUsuario;
+//        this.cuentaUsuario = cuentaUsuario;
         this.numeroPedidosHistorico = numeroPedidosHistorico;
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
@@ -36,7 +37,7 @@ public class ClienteDTO extends PersonaDTO{
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
-        this.cuentaUsuario = cuentaUsuario;
+//        this.cuentaUsuario = cuentaUsuario;
         this.numeroPedidosHistorico = numeroPedidosHistorico;
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
@@ -45,11 +46,11 @@ public class ClienteDTO extends PersonaDTO{
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
-        this.cuentaUsuario = cuentaUsuario;
+//        this.cuentaUsuario = cuentaUsuario;
         this.numeroPedidosHistorico = numeroPedidosHistorico;
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
-    
+
     public double getLineaCredito() {
         return lineaCredito;
     }
@@ -66,13 +67,13 @@ public class ClienteDTO extends PersonaDTO{
         this.categoria = categoria;
     }
 
-    public CuentaUsuarioDTO getCuentaUsuario() {
-        return cuentaUsuario;
-    }
-
-    public void setCuentaUsuario(CuentaUsuarioDTO cuentaUsuario) {
-        this.cuentaUsuario = cuentaUsuario;
-    }
+//    public CuentaUsuarioDTO getCuentaUsuario() {
+//        return cuentaUsuario;
+//    }
+//
+//    public void setCuentaUsuario(CuentaUsuarioDTO cuentaUsuario) {
+//        this.cuentaUsuario = cuentaUsuario;
+//    }
 
     public int getNumeroPedidosHistorico() {
         return numeroPedidosHistorico;
@@ -89,18 +90,42 @@ public class ClienteDTO extends PersonaDTO{
     public void setNumeroPedidosMensualPro(int numeroPedidosMensualPro) {
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
-    
-    public String getCategoriaCliente(){
+
+    public String getCategoriaCliente() {
         String cadena = "";
-        
-        switch(this.categoria){
-            case CATERING -> cadena = "CATERING";
-            case REVENDEDOR -> cadena = "REVENDEDOR";
-            case RESTAURANTE -> cadena = "RESTAURANTE";
-            case HOTEL -> cadena = "HOTEL";
-            case GOBIERNO -> cadena = "GOBIERNO";
-            case DISTRIBUIDOR -> cadena = "DISTRIBUIDOR";
+
+        switch (this.categoria) {
+            case CATERING ->
+                cadena = "CATERING";
+            case REVENDEDOR ->
+                cadena = "REVENDEDOR";
+            case RESTAURANTE ->
+                cadena = "RESTAURANTE";
+            case HOTEL ->
+                cadena = "HOTEL";
+            case GOBIERNO ->
+                cadena = "GOBIERNO";
+            case DISTRIBUIDOR ->
+                cadena = "DISTRIBUIDOR";
         }
         return cadena;
     }
+
+    public void setCategoriaCliente(String categoria) {
+        switch (categoria) {
+            case "CATERING" ->
+                this.categoria = CategoriaCliente.CATERING;
+            case "REVENDEDOR" ->
+                this.categoria = CategoriaCliente.REVENDEDOR;
+            case "RESTAURANTE" ->
+                this.categoria = CategoriaCliente.RESTAURANTE;
+            case "HOTEL" ->
+                this.categoria = CategoriaCliente.HOTEL;
+            case "GOBIERNO" ->
+                this.categoria = CategoriaCliente.GOBIERNO;
+            case "DISTRIBUIDOR" ->
+                this.categoria = CategoriaCliente.DISTRIBUIDOR;
+        }
+    }
+
 }

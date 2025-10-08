@@ -13,20 +13,23 @@ import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 public class CuentaUsuarioDTO extends RegistroDTO{
     private String username;
     private String password;
+    private int idUsuario;
     
     public CuentaUsuarioDTO(){
         
     }
 
-    public CuentaUsuarioDTO(String username, String password) {
+    public CuentaUsuarioDTO(String username, String password, int idUsuario) {
         this.username = username;
         this.password = password;
+        this.idUsuario = idUsuario;
     }
 
-    public CuentaUsuarioDTO(String username, String password, int id, boolean activo) {
+    public CuentaUsuarioDTO(String username, String password, int id, boolean activo, int idUsuario) {
         super(id, activo);
         this.username = username;
         this.password = password;
+        this.idUsuario = idUsuario;
     }
 
     public String getUsername() {
@@ -44,5 +47,14 @@ public class CuentaUsuarioDTO extends RegistroDTO{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
     
 }

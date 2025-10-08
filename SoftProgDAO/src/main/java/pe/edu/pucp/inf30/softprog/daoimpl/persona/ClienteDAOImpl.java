@@ -6,10 +6,12 @@ package pe.edu.pucp.inf30.softprog.daoimpl.persona;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.persona.ClienteDAO;
+import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.persona.ClienteDTO;
 
@@ -21,40 +23,101 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, ClienteDTO modelo) throws SQLException {
-        String sql = "{call insertarCliente(?, ?, ?)}";
+        String sql = "{call insertarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_persona_id", modelo.getId());
-        cmd.setDouble("p_linea_credito", modelo.getLineaCredito());
-        cmd.setString("p_categoria_id", modelo.getCategoriaCliente());
+        cmd.setInt("p_idCliente", modelo.getId());
+        cmd.setDouble("p_lineaCredito", modelo.getLineaCredito());
+        cmd.setString("p_Categoria", modelo.getCategoriaCliente());
+        cmd.setInt("p_numeroDePedido_Historico", modelo.getNumeroPedidosHistorico());
+        cmd.setInt("p_numeroDePedido_MensualPro", modelo.getNumeroPedidosMensualPro());
+        cmd.setString("p_dni", modelo.getDni());
+        cmd.setString("p_nombre", modelo.getNombre());
+        cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
+        cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
+        cmd.setString("p_genero", modelo.getGeneroString());
+        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setInt("p_telefono", modelo.getTelefono());
+        cmd.setInt("p_Activo", modelo.getActivo());
         
         return cmd;
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, ClienteDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{call actualizarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCliente", modelo.getId());
+        cmd.setDouble("p_lineaCredito", modelo.getLineaCredito());
+        cmd.setString("p_Categoria", modelo.getCategoriaCliente());
+        cmd.setInt("p_numeroDePedido_Historico", modelo.getNumeroPedidosHistorico());
+        cmd.setInt("p_numeroDePedido_MensualPro", modelo.getNumeroPedidosMensualPro());
+        cmd.setString("p_dni", modelo.getDni());
+        cmd.setString("p_nombre", modelo.getNombre());
+        cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
+        cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
+        cmd.setString("p_genero", modelo.getGeneroString());
+        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setInt("p_telefono", modelo.getTelefono());
+        cmd.setInt("p_Activo", modelo.getActivo());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{call eliminarCliente(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCliente", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{call buscarCliente(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCliente", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{call listarClientes()}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+  
+        
+        return cmd;
     }
 
     @Override
     protected ClienteDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ClienteDTO cliente = new ClienteDTO();
+        
+        cliente.setId(rs.getInt("idCliente"));
+        cliente.setCategoriaCliente(rs.getString("Categoria"));
+        cliente.setNumeroPedidosHistorico(rs.getInt("numeroDePedido_Historico"));
+        cliente.setNumeroPedidosMensualPro(rs.getInt("numeroDePedido_MensualPro"));
+        cliente.setDni(rs.getString("dni"));
+        cliente.setNombre(rs.getString("nombre"));
+        cliente.setApellidoPaterno(rs.getString("apellidoPaterno"));
+        cliente.setApellidoMaterno(rs.getString("apellidoMaterno"));
+        cliente.setGeneroString(rs.getString("genero"));
+        cliente.setFechaNacimiento(rs.getDate("fechaNacimiento"));
+        cliente.setTelefono(rs.getInt("telefono"));
+        cliente.setActivoInt(rs.getInt("Activo"));
+        cliente.setLineaCredito(rs.getDouble("lineaCredito"));
+        
+        return cliente;
     }
 
     protected PreparedStatement comandoBuscarPorDni(Connection conn, String dni) 

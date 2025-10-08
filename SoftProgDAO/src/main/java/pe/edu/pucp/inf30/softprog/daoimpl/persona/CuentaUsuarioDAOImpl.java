@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.daoimpl.persona;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,32 +21,74 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CuentaUsuarioDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{insertarCuentaUsuario(?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCuentaUsuario", modelo.getId());
+        cmd.setString("p_userName", modelo.getUsername());
+        cmd.setString("p_password", modelo.getPassword());
+        cmd.setInt("p_idUsuario", modelo.getIdUsuario());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, CuentaUsuarioDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{modificarCuentaUsuario(?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCuentaUsuario", modelo.getId());
+        cmd.setString("p_userName", modelo.getUsername());
+        cmd.setString("p_password", modelo.getPassword());
+        cmd.setInt("p_idUsuario", modelo.getIdUsuario());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{eliminarCuentaUsuario(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCuentaUsuario", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{buscarCuentaUsuario(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idCuentaUsuario", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{listarCuentaUsuarios()}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        
+        return cmd;
     }
 
     @Override
     protected CuentaUsuarioDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        CuentaUsuarioDTO cuenta = new CuentaUsuarioDTO();
+        
+        cuenta.setId(rs.getInt("idCuentaUsuario"));
+        cuenta.setUsername(rs.getString("userName"));
+        cuenta.setPassword(rs.getString("password"));
+        cuenta.setIdUsuario(rs.getInt("idUsuario"));
+        
+        return cuenta;
     }
 
     public CuentaUsuarioDTO obtenerPorId(int id) {
