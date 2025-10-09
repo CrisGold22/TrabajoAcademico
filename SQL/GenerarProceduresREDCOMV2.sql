@@ -444,20 +444,6 @@ BEGIN
     OPEN c;
 END;
 
--- Filtro: Lineas de carrito por ID de carrito
-CREATE OR REPLACE PROCEDURE listarLineasCarritoPorIdCarrito (
-    IN p_Id_CarritoDeCompras INT
-)
-LANGUAGE SQL
-DYNAMIC RESULT SETS 1
-BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT *
-      FROM "LineaCarrito"
-     WHERE "CarritoDeCompras_Productos" = p_Id_CarritoDeCompras;
-    OPEN c;
-END;
-
 -- =====================================================================
 -- LINEACARRITO
 -- =====================================================================
@@ -528,17 +514,17 @@ BEGIN
     OPEN c;
 END;
 
--- Filtro: Lineas de carrito de compras por Id_CarritoDeCompras
+-- Filtro: Lineas de carrito por ID de carrito
 CREATE OR REPLACE PROCEDURE listarLineasCarritoPorIdCarrito (
-    IN p_idCarrito INT
+    IN p_Id_CarritoDeCompras INT
 )
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
     DECLARE c CURSOR WITH RETURN TO CALLER FOR
     SELECT *
-      FROM "CarritoDeCompras"
-     WHERE "Id_CarritoDeCompras" = p_idCarrito;
+      FROM "LineaCarrito"
+     WHERE "CarritoDeCompras_Productos" = p_Id_CarritoDeCompras;
     OPEN c;
 END;
 
@@ -670,18 +656,6 @@ LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
     DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "OrdenCompra";
-    OPEN c;
-END;
-
--- Filtro: Lineas de orden por IdPedido
-CREATE OR REPLACE PROCEDURE listarLineasOrdenCompraPorIdOrden (
-    IN p_IdPedido INT
-)
-LANGUAGE SQL
-DYNAMIC RESULT SETS 1
-BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "LineaOrdenCompra" WHERE "OrdenCompra_IdPedido" = p_IdPedido;
     OPEN c;
 END;
 
@@ -912,17 +886,15 @@ BEGIN
     OPEN c;
 END;
 
--- Filtro: Lineas de orden de compra por idOrdenCompra (IdPedido)
-CREATE OR REPLACE PROCEDURE listarLineasOrdenCompraPorIdOrdenCompra (
-    IN p_idOrdenCompra INT
+-- Filtro: Lineas de orden por IdPedido
+CREATE OR REPLACE PROCEDURE listarLineasOrdenCompraPorIdOrden (
+    IN p_IdPedido INT
 )
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
     DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT *
-      FROM "OrdenCompra"
-     WHERE "IdPedido" = p_idOrdenCompra;
+    SELECT * FROM "LineaOrdenCompra" WHERE "OrdenCompra_IdPedido" = p_IdPedido;
     OPEN c;
 END;
 
