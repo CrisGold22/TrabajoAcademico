@@ -741,6 +741,7 @@ END;
 CREATE OR REPLACE PROCEDURE insertarLineaComprobantePago (
     IN p_idLineaComprobantePago      INT,
     IN p_montoPagado                 DOUBLE,
+    IN P_montoImpuesto               DOUBLE,
     IN p_activo                      SMALLINT,
     IN p_ComprobantePago_idComprobante INT,
     IN p_codigo                      INT,
@@ -750,7 +751,7 @@ CREATE OR REPLACE PROCEDURE insertarLineaComprobantePago (
 LANGUAGE SQL
 BEGIN
     INSERT INTO "LineaComprobantePago" (
-        "idLineaComprobantePago","montoPagado","activo",
+        "idLineaComprobantePago","montoPagado","montoImpuesto","activo",
         "ComprobantePago_idComprobante","codigo","cantidad","subtotal"
     ) VALUES (
         p_idLineaComprobantePago,p_montoPagado,p_activo,
@@ -761,6 +762,7 @@ END;
 CREATE OR REPLACE PROCEDURE modificarLineaComprobantePago (
     IN p_idLineaComprobantePago      INT,
     IN p_montoPagado                 DOUBLE,
+    IN p_montoImpuesto               DOUBLE,    
     IN p_activo                      SMALLINT,
     IN p_ComprobantePago_idComprobante INT,
     IN p_codigo                      INT,
@@ -771,6 +773,7 @@ LANGUAGE SQL
 BEGIN
     UPDATE "LineaComprobantePago"
        SET "montoPagado"                 = p_montoPagado,
+           "montoImpuesto"               = p_montoImpuesto,
            "activo"                      = p_activo,
            "ComprobantePago_idComprobante" = p_ComprobantePago_idComprobante,
            "codigo"                      = p_codigo,

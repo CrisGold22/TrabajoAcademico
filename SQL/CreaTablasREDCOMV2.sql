@@ -143,7 +143,8 @@ CREATE TABLE "ComprobantePago" (
 
 CREATE TABLE "LineaComprobantePago" (
   "idLineaComprobantePago"      INT NOT NULL,
-  "montoPagado"                 DOUBLE,     -- CAMBIO: agregado como DOUBLE
+  "montoPagado"                 VARCHAR(45),
+  "montoImpuesto"               DOUBLE,     -- CAMBIO: agregado como DOUBLE
   "activo"                      SMALLINT,
   "ComprobantePago_idComprobante" INT,      -- CAMBIO: VARCHAR -> INT
   "codigo"                      INT,

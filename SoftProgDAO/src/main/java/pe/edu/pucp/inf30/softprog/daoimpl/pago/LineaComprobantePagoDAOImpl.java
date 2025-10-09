@@ -33,6 +33,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
         
         cmd.setInt("p_idLineaComprobantePago", modelo.getId());
         cmd.setDouble("p_montoPagado", modelo.getMontoPagado());
+        cmd.setDouble("p_montoImpuesto", modelo.getMontoImpuesto());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_ComprobantePago_idComprobante", modelo.getIdComprobantePago());
         cmd.setInt("p_codigo", modelo.getCodigo());
@@ -50,6 +51,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
         
         cmd.setInt("p_idLineaComprobantePago", modelo.getId());
         cmd.setDouble("p_montoPagado", modelo.getMontoPagado());
+        cmd.setDouble("p_montoImpuesto", modelo.getMontoImpuesto());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_ComprobantePago_idComprobante", modelo.getIdComprobantePago());
         cmd.setInt("p_codigo", modelo.getCodigo());
@@ -96,6 +98,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
         
         linea.setId(rs.getInt("idLineaComprobantePago"));
         linea.setMontoPagado(rs.getDouble("montoPagado"));
+        linea.setMontoImpuesto(rs.getDouble("montoImpuesto"));
         linea.setActivoInt(rs.getInt("activo"));
         linea.setIdComprobantePago(rs.getInt("ComprobantePago_idComprobante"));
         linea.setCodigo(rs.getInt("codigo"));
