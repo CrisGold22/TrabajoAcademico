@@ -17,7 +17,6 @@ public class ClienteDTO extends PersonaDTO {
 
     private double lineaCredito;
     private CategoriaCliente categoria;
-//    private CuentaUsuarioDTO cuentaUsuario;
     private int numeroPedidosHistorico;
     private int numeroPedidosMensualPro;
 
@@ -25,7 +24,7 @@ public class ClienteDTO extends PersonaDTO {
 
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro) {
+    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro) {
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
 //        this.cuentaUsuario = cuentaUsuario;
@@ -33,7 +32,7 @@ public class ClienteDTO extends PersonaDTO {
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
@@ -42,7 +41,7 @@ public class ClienteDTO extends PersonaDTO {
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, CuentaUsuarioDTO cuentaUsuario, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;

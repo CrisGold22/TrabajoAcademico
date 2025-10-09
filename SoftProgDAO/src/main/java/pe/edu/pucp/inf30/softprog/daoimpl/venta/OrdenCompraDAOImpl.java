@@ -23,7 +23,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, OrdenCompraDTO modelo) throws SQLException {
-        String sql = "{CALL insertarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -33,9 +33,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
         cmd.setDouble("p_total_final", modelo.getTotalFinal());
         cmd.setDouble("p_descuentoTotal", modelo.getDescuentoTotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
-//        cmd.setString("p_DetalleDeOrdenCompra_id_Detalle", modelo.);
-//        cmd.setString("p_DetalleDeEnvio_id_DetalleEnvio", modelo.);
-//        cmd.setInt("p_LineaComprobantePago_idLineaComprobantePago", modelo.get);
+        cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getIdDetalleEnvio());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
@@ -43,7 +41,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, OrdenCompraDTO modelo) throws SQLException {
-        String sql = "{CALL actualizarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL actualizarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -53,9 +51,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
         cmd.setDouble("p_total_final", modelo.getTotalFinal());
         cmd.setDouble("p_descuentoTotal", modelo.getDescuentoTotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
-//        cmd.setString("p_DetalleDeOrdenCompra_id_Detalle", modelo.);
-//        cmd.setString("p_DetalleDeEnvio_id_DetalleEnvio", modelo.);
-//        cmd.setInt("p_LineaComprobantePago_idLineaComprobantePago", modelo.get);
+        cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getIdDetalleEnvio());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;

@@ -1,5 +1,5 @@
-CREATE SCHEMA DB2REDCOM;
-SET CURRENT SCHEMA DB2REDCOM;
+CREATE SCHEMA REDCOM_DB2;
+SET CURRENT SCHEMA REDCOM_DB2;
 
 -- ============================================================
 -- Tablas principales
@@ -9,24 +9,24 @@ CREATE TABLE "CategoriaProducto" (
   "idCategoriaProducto" INT NOT NULL,
   "NombreCategoria"     VARCHAR(45),
   "Descripcion"         VARCHAR(45),
-  "Catalogo_idCatalogo" INT,
+  "Catalogo_idCatalogo" INT,     -- La FK a Catalogo sigue omitida porque no existe tabla Catalogo
   "Activo"              SMALLINT,
   PRIMARY KEY ("idCategoriaProducto")
 );
 
 CREATE TABLE "Producto" (
-  "ID_Producto"                         INT NOT NULL,
-  "Nombre"                              VARCHAR(45),
-  "SKU"                                 VARCHAR(45),
-  "Descripcion"                         VARCHAR(45),
-  "precioRegular"                       DOUBLE,
-  "precioAlMayor"                       DOUBLE,
-  "UnidadDeMedida"                      VARCHAR(45),
-  "StockDisponible"                     INT,
-  "StockMinimo"                         VARCHAR(45),
-  "StockMaximo"                         VARCHAR(45),
-  "Activo"                              SMALLINT,
-  "CategoriaProducto_idCategoriaProducto" INT,
+  "ID_Producto"                            INT NOT NULL,
+  "Nombre"                                 VARCHAR(45),
+  "SKU"                                    VARCHAR(45),
+  "Descripcion"                            VARCHAR(45),
+  "precioRegular"                          DOUBLE,
+  "precioAlMayor"                          DOUBLE,
+  "UnidadDeMedida"                         VARCHAR(45),
+  "StockDisponible"                        INT,
+  "StockMinimo"                            INT,           -- CAMBIO: antes VARCHAR(45)
+  "StockMaximo"                            INT,           -- CAMBIO: antes VARCHAR(45)
+  "Activo"                                 SMALLINT,
+  "CategoriaProducto_idCategoriaProducto"  INT,
   PRIMARY KEY ("ID_Producto")
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE "cliente" (
   "fechaNacimiento"           DATE,
   "telefono"                  INT,
   "Activo"                    SMALLINT,
-  "idCliente"                 SMALLINT NOT NULL,
+  "idCliente"                 INT NOT NULL,  -- CAMBIO: SMALLINT -> INT
   PRIMARY KEY ("idCliente")
 );
 
@@ -64,11 +64,11 @@ CREATE TABLE "Administrador" (
 );
 
 CREATE TABLE "CuentaUsuario" (
-  "idCuentaUsuario"        INT NOT NULL,
-  "userName"               VARCHAR(45),
-  "password"               VARCHAR(45),
-  "Administrador_idAdministrador" INT,
-  "cliente_idCliente"      SMALLINT,
+  "idCuentaUsuario"          INT NOT NULL,
+  "userName"                 VARCHAR(45),
+  "password"                 VARCHAR(45),
+  "Administrador_idAdministrador" INT NULL,  -- CAMBIO: pueden ser NULL e INTEGER
+  "cliente_idCliente"        INT NULL,       -- CAMBIO: SMALLINT -> INT y permite NULL
   PRIMARY KEY ("idCuentaUsuario")
 );
 
@@ -77,19 +77,19 @@ CREATE TABLE "CarritoDeCompras" (
   "Total_Parcial"       DOUBLE,
   "Estado"              VARCHAR(45),
   "total_con_descuento" DOUBLE,
-  "cliente_idCliente"   SMALLINT,
+  "cliente_idCliente"   INT,                  -- CAMBIO por idCliente INT
   PRIMARY KEY ("Id_CarritoDeCompras")
 );
 
 CREATE TABLE "LineaCarrito" (
-  "idLineaCarrito"            INT NOT NULL,
-  "cantidad"                  INT,
-  "precioVolumen"             DOUBLE,
-  "subTotal"                  DOUBLE,
-  "Producto_ID_Producto1"     INT,
-  "CarritoDeCompras_Productos" INT,
-  "activo"                    SMALLINT,
-  "Producto_ID_Producto"      INT,
+  "idLineaCarrito"              INT NOT NULL,
+  "cantidad"                    INT,
+  "precioVolumen"               DOUBLE,
+  "subTotal"                    DOUBLE,
+  "Producto_ID_Producto1"       INT,
+  "CarritoDeCompras_Productos"  INT,
+  "activo"                      SMALLINT,
+  "Producto_ID_Producto"        INT,
   PRIMARY KEY ("idLineaCarrito")
 );
 
@@ -103,42 +103,52 @@ CREATE TABLE "Descuento" (
   PRIMARY KEY ("idReglaPrecioVolumen")
 );
 
+CREATE TABLE "DetalleDeEnvio" (
+  "id_DetalleEnvio" INT NOT NULL,   -- CAMBIO: antes VARCHAR(45)
+  "descripcion"     VARCHAR(45),
+  "Direccion"       VARCHAR(100),   -- NUEVO
+  "Distrito"        VARCHAR(60),    -- NUEVO
+  "fechaEntrega"    DATE,
+  "horarioEntrega"  DATE,
+  PRIMARY KEY ("id_DetalleEnvio")
+);
+
 CREATE TABLE "OrdenCompra" (
-  "IdPedido"                                INT NOT NULL,
-  "FechaCreacion"                           DATE,
-  "total_parcial"                           DOUBLE,
-  "total_final"                             DOUBLE,
-  "descuentoTotal"                          DOUBLE,
-  "Estado"                                  VARCHAR(45),
-  "DetalleDeOrdenCompra_id_Detalle"         VARCHAR(45),
-  "DetalleDeEnvio_id_DetalleEnvio"          VARCHAR(45),
-  "LineaComprobantePago_idLineaComprobantePago" INT,
-  "Activo"                                  SMALLINT,
+  "IdPedido"                INT NOT NULL,
+  "FechaCreacion"           DATE,
+  "total_parcial"           DOUBLE,
+  "total_final"             DOUBLE,
+  "descuentoTotal"          DOUBLE,
+  "Estado"                  VARCHAR(45),
+  -- ELIMINADO: "DetalleDeOrdenCompra_id_Detalle"
+  "DetalleDeEnvio_id_DetalleEnvio" INT,  -- CAMBIO: a INT
+  -- ELIMINADO: "LineaComprobantePago_idLineaComprobantePago"
+  "Activo"                  SMALLINT,
   PRIMARY KEY ("IdPedido")
 );
 
 CREATE TABLE "ComprobantePago" (
-  "idComprobante"          VARCHAR(45) NOT NULL,
-  "fechaEmision"           DATE,
-  "RUC"                    INT,
-  "totalSinImpuestos"      DOUBLE,
-  "Impuesto"               VARCHAR(45),
-  "totalFinal"             DOUBLE,
-  "metodoPago"             VARCHAR(45),
-  "subTotal"               DOUBLE,
-  "activo"                 SMALLINT,
-  "OrdenCompra_IdPedido"   INT,
+  "idComprobante"       INT NOT NULL,   -- AJUSTE: INT para compatibilidad de FK pedida en consideraciones
+  "fechaEmision"        DATE,
+  "RUC"                 INT,
+  "totalSinImpuestos"   DOUBLE,
+  "Impuesto"            DOUBLE,         -- CAMBIO: antes VARCHAR(45)
+  "totalFinal"          DOUBLE,
+  "metodoPago"          VARCHAR(45),
+  "subTotal"            DOUBLE,
+  "activo"              SMALLINT,
+  "OrdenCompra_IdPedido" INT,
   PRIMARY KEY ("idComprobante")
 );
 
 CREATE TABLE "LineaComprobantePago" (
-  "idLineaComprobantePago" INT NOT NULL,
-  "montoPagado"            VARCHAR(45),
-  "activo"                 SMALLINT,
-  "ComprobantePago_idComprobante" VARCHAR(45),
-  "codigo"                 INT,
-  "cantidad"               INT,
-  "subtotal"               DOUBLE,
+  "idLineaComprobantePago"      INT NOT NULL,
+  "montoPagado"                 DOUBLE,     -- CAMBIO: agregado como DOUBLE
+  "activo"                      SMALLINT,
+  "ComprobantePago_idComprobante" INT,      -- CAMBIO: VARCHAR -> INT
+  "codigo"                      INT,
+  "cantidad"                    INT,
+  "subtotal"                    DOUBLE,
   PRIMARY KEY ("idLineaComprobantePago")
 );
 
@@ -154,14 +164,6 @@ CREATE TABLE "LineaOrdenCompra" (
   PRIMARY KEY ("idLineaOrdenCompra")
 );
 
-CREATE TABLE "DetalleDeEnvio" (
-  "id_DetalleEnvio" VARCHAR(45) NOT NULL,
-  "descripcion"     VARCHAR(45),
-  "fechaEntrega"    DATE,
-  "horarioEntrega"  DATE,
-  PRIMARY KEY ("id_DetalleEnvio")
-);
-
 CREATE TABLE "CategoriaProducto_has_CategoriaProducto" (
   "CategoriaProducto_idCategoriaProducto"  INT NOT NULL,
   "CategoriaProducto_idCategoriaProducto1" INT NOT NULL,
@@ -169,7 +171,7 @@ CREATE TABLE "CategoriaProducto_has_CategoriaProducto" (
 );
 
 -- ============================================================
--- Indices
+-- Indices (ajustados a los cambios)
 -- ============================================================
 
 CREATE INDEX "fk_Producto_CategoriaProducto1_idx"
@@ -196,9 +198,7 @@ CREATE INDEX "fk_LineaProducto_CarritoDeCompras1_idx"
 CREATE INDEX "fk_Descuento_Producto1_idx"
   ON "Descuento" ("Producto_ID_Producto");
 
-CREATE INDEX "fk_OrdenCompra_DetalleDeOrdenCompra1_idx"
-  ON "OrdenCompra" ("DetalleDeOrdenCompra_id_Detalle");
-
+-- ELIMINADO: fk_OrdenCompra_DetalleDeOrdenCompra1_idx
 CREATE INDEX "fk_OrdenCompra_DetalleDeEnvio1_idx"
   ON "OrdenCompra" ("DetalleDeEnvio_id_DetalleEnvio");
 
@@ -218,7 +218,7 @@ CREATE INDEX "fk_CategoriaProducto_has_CategoriaProducto1_idx"
   ON "CategoriaProducto_has_CategoriaProducto" ("CategoriaProducto_idCategoriaProducto");
 
 -- ============================================================
--- Claves foraneas (se omiten solo las que apuntan a tablas inexistentes)
+-- Claves foraneas (solo a tablas existentes)
 -- ============================================================
 
 ALTER TABLE "Producto"

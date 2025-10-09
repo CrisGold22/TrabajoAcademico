@@ -111,10 +111,10 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
     }
     
     protected PreparedStatement comandoListarPorIdComprobante(Connection conn, int id) throws SQLException{
-        String sql = "{sdfsdf}";
+        String sql = "{CALL listarLineasComprobantePagoPorIdComprobante(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("pachec", id);
+        cmd.setInt("p_idComprobante", id);
         
         return cmd;
     }

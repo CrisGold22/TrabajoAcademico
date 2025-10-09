@@ -111,10 +111,10 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
     }
     
     protected PreparedStatement comandoListarPorIdCarrito(Connection conn, int id) throws SQLException{
-        String sql = "{sdfsdf}";
+        String sql = "{CALL listarLineasCarritoPorIdCarrito(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("pachec", id);
+        cmd.setInt("p_idCarrito", id);
         
         return cmd;
     }

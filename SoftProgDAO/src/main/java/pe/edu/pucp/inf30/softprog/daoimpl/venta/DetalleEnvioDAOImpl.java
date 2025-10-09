@@ -22,7 +22,7 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvioDTO> implements Det
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, DetalleEnvioDTO modelo) throws SQLException {
-        String sql = "{CALL insertarDetalleDeEnvio(?, ?, ?, ?)}";
+        String sql = "{CALL insertarDetalleDeEnvio(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -30,13 +30,15 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvioDTO> implements Det
         cmd.setString("p_descripcion", modelo.getDescripcion());
         cmd.setDate("p_fechaEntrega", (Date) modelo.getFechaEntrega());
         cmd.setDate("p_horarioEntrega", (Date) modelo.getHorarioEntrega());
+        cmd.setString("p_Direccion", modelo.getDireccion());
+        cmd.setString("P_Distrito", modelo.getDistritoString());
         
         return cmd;
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, DetalleEnvioDTO modelo) throws SQLException {
-        String sql = "{CALL actualizarDetalleDeEnvio(?, ?, ?, ?)}";
+        String sql = "{CALL actualizarDetalleDeEnvio(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -44,6 +46,8 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvioDTO> implements Det
         cmd.setString("p_descripcion", modelo.getDescripcion());
         cmd.setDate("p_fechaEntrega", (Date) modelo.getFechaEntrega());
         cmd.setDate("p_horarioEntrega", (Date) modelo.getHorarioEntrega());
+        cmd.setString("p_Direccion", modelo.getDireccion());
+        cmd.setString("P_Distrito", modelo.getDistritoString());
         
         return cmd;
     }

@@ -13,24 +13,28 @@ import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 public class CuentaUsuarioDTO extends RegistroDTO{
     private String username;
     private String password;
-    private int idUsuario;
+    private int idCliente;
+    private int idAdministrador;
     
     public CuentaUsuarioDTO(){
         
     }
 
-    public CuentaUsuarioDTO(String username, String password, int idUsuario) {
+    public CuentaUsuarioDTO(String username, String password, int idCliente, int idAdministrador) {
         this.username = username;
         this.password = password;
-        this.idUsuario = idUsuario;
+        this.idCliente = idCliente;
+        this.idAdministrador = idAdministrador;
     }
 
-    public CuentaUsuarioDTO(String username, String password, int id, boolean activo, int idUsuario) {
+    public CuentaUsuarioDTO(String username, String password, int idCliente, int idAdministrador, int id, boolean activo) {
         super(id, activo);
         this.username = username;
         this.password = password;
-        this.idUsuario = idUsuario;
+        this.idCliente = idCliente;
+        this.idAdministrador = idAdministrador;
     }
+
 
     public String getUsername() {
         return username;
@@ -48,13 +52,20 @@ public class CuentaUsuarioDTO extends RegistroDTO{
         this.password = password;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
-    
+
+    public int getIdAdministrador() {
+        return idAdministrador;
+    }
+
+    public void setIdAdministrador(int idAdministrador) {
+        this.idAdministrador = idAdministrador;
+    }
     
 }

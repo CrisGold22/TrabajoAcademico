@@ -33,8 +33,8 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
         cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdOrdenCompra());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdCarrito());
+        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
+        cmd.setInt("p_CarritoDeCompras_Id", modelo.getIdCarrito());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
@@ -51,8 +51,8 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
         cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdOrdenCompra());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdCarrito());
+        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
+        cmd.setInt("p_CarritoDeCompras_Id", modelo.getIdCarrito());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
@@ -106,10 +106,10 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
     }
     
     protected PreparedStatement comandoListarPorIdOrdenCompra(Connection conn, int id) throws SQLException{
-        String sql = "{sdfsdf}";
+        String sql = "{CALL listarLineasOrdenCompraPorIdOrdenCompra(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("pachec", id);
+        cmd.setInt("p_idOrdenCompra", id);
         
         return cmd;
     }

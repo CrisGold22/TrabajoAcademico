@@ -28,7 +28,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
         cmd.setInt("p_idCuentaUsuario", modelo.getId());
         cmd.setString("p_userName", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
-        cmd.setInt("p_idUsuario", modelo.getIdUsuario());
+        cmd.setInt("p_Administrador_idAdministrador", modelo.getIdAdministrador());
+        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
         
         return cmd;
     }
@@ -42,7 +43,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
         cmd.setInt("p_idCuentaUsuario", modelo.getId());
         cmd.setString("p_userName", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
-        cmd.setInt("p_idUsuario", modelo.getIdUsuario());
+        cmd.setInt("p_Administrador_idAdministrador", modelo.getIdAdministrador());
+        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
         
         return cmd;
     }
@@ -86,7 +88,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
         cuenta.setId(rs.getInt("idCuentaUsuario"));
         cuenta.setUsername(rs.getString("userName"));
         cuenta.setPassword(rs.getString("password"));
-        cuenta.setIdUsuario(rs.getInt("idUsuario"));
+        cuenta.setIdCliente(rs.getInt("Cliente_idCliente"));
+        cuenta.setIdAdministrador(rs.getInt("Administrador_idAdministrador"));
         
         return cuenta;
     }
