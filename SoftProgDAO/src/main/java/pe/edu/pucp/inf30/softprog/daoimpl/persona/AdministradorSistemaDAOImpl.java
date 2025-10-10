@@ -4,7 +4,9 @@
  */
 package pe.edu.pucp.inf30.softprog.daoimpl.persona;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,36 +22,96 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistemaDTO
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, AdministradorSistemaDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL insertarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idAdministrador", modelo.getId());
+        cmd.setString("p_cargo", modelo.getCargoString());
+        cmd.setString("p_rango", modelo.getRangoString());
+        cmd.setString("p_dni", modelo.getDni());
+        cmd.setString("p_nombre", modelo.getNombre());
+        cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
+        cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
+        cmd.setString("p_genero", modelo.getGeneroString());
+        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setInt("p_telefono", modelo.getTelefono());
+        cmd.setDouble("p_Sueldo", modelo.getSueldo());
+        cmd.setInt("p_Activo", modelo.getActivo());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, AdministradorSistemaDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL modificarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idAdministrador", modelo.getId());
+        cmd.setString("p_cargo", modelo.getCargoString());
+        cmd.setString("p_rango", modelo.getRangoString());
+        cmd.setString("p_dni", modelo.getDni());
+        cmd.setString("p_nombre", modelo.getNombre());
+        cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
+        cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
+        cmd.setString("p_genero", modelo.getGeneroString());
+        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setInt("p_telefono", modelo.getTelefono());
+        cmd.setDouble("p_Sueldo", modelo.getSueldo());
+        cmd.setInt("p_Activo", modelo.getActivo());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL eliminarAdministrador(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idAdministrador", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL buscarAdministradorPorId(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_idAdministrador", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "{CALL leerAdministradores()}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        return cmd;
     }
 
     @Override
     protected AdministradorSistemaDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public AdministradorSistemaDTO obtenerPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
+        
+        administrador.setId(rs.getInt("idAdministrador"));
+        administrador.setRangoString(rs.getString("rango"));
+        administrador.setCargoString(rs.getString("cargo"));
+        administrador.setDni(rs.getString("dni"));
+        administrador.setNombre(rs.getString("nombre"));
+        administrador.setApellidoPaterno(rs.getString("apellidoPaterno"));
+        administrador.setApellidoMaterno(rs.getString("apellidoMaterno"));
+        administrador.setGeneroString(rs.getString("genero"));
+        administrador.setFechaNacimiento(rs.getDate("fechaNacimiento"));
+        administrador.setTelefono(rs.getInt("telefono"));
+        administrador.setSueldo(rs.getDouble("Sueldo"));
+        administrador.setActivoInt(rs.getInt("activo"));
+        
+        return administrador;
     }
     
 }

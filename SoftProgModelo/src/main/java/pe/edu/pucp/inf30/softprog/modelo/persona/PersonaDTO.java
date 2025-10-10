@@ -7,11 +7,13 @@ package pe.edu.pucp.inf30.softprog.modelo.persona;
 import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 import java.util.Date;
+
 /**
  *
  * @author Cristhian Horacio
  */
-public class PersonaDTO extends RegistroDTO{
+public class PersonaDTO extends RegistroDTO {
+
     private String dni;
     private String nombre;
     private String apellidoPaterno;
@@ -19,9 +21,9 @@ public class PersonaDTO extends RegistroDTO{
     private Genero genero;
     private Date fechaNacimiento;
     private int telefono;
-    
-    public PersonaDTO(){
-        
+
+    public PersonaDTO() {
+
     }
 
     public PersonaDTO(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
@@ -100,6 +102,31 @@ public class PersonaDTO extends RegistroDTO{
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
-    
+
+    public String getGeneroString() {
+        String cadena = "";
+
+        switch (this.genero) {
+            case HOMBRE ->
+                cadena = "HOMBRE";
+            case MUJER ->
+                cadena = "MUJER";
+            case NO_ESPECIFICADO ->
+                cadena = "NO_ESPECIFICADO";
+        }
+
+        return cadena;
+    }
+
+    public void setGeneroString(String genero) {
+        switch (genero) {
+            case "HOMBRE" ->
+                this.genero = Genero.HOMBRE;
+            case "MUJER" ->
+                this.genero = Genero.MUJER;
+            case "NO_ESPECIFICADO" ->
+                this.genero = Genero.NO_ESPECIFICADO;
+        }
+    }
+
 }

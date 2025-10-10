@@ -4,48 +4,94 @@
  */
 package pe.edu.pucp.inf30.softprog.daoimpl.venta;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.venta.CarritoComprasDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CarritoComprasDAOImpl extends BaseDAO<CarritoComprasDTO> implements CarritoComprasDAO  {
+public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoComprasDTO> implements CarritoComprasDAO  {
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CarritoComprasDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?)";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_Id_CarritoDeCompras", modelo.getId());
+        cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
+        cmd.setString("p_Estado", modelo.getEstadoString());
+        cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
+        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, CarritoComprasDTO modelo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "CALL modificarCarritoDeCompras(?, ?, ?, ?, ?)";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_Id_CarritoDeCompras", modelo.getId());
+        cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
+        cmd.setString("p_Estado", modelo.getEstadoString());
+        cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
+        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "CALL eliminarCarritoDeCompras(?)";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_Id_CarritoDeCompras", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "CALL buscarCarritoDeComprasPorId(?)";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setInt("p_Id_CarritoDeCompras", id);
+        
+        return cmd;
     }
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "CALL listarCarritosDeCompras()";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        return cmd;
     }
 
     @Override
     protected CarritoComprasDTO mapearModelo(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        CarritoComprasDTO carrito = new CarritoComprasDTO();
+        
+        carrito.setId(rs.getInt("Id_CarritoDeCompras"));
+        carrito.setTotalParcial(rs.getDouble("Total_Parcial"));
+        carrito.setEstadoString(rs.getString("Estado"));
+        carrito.setTotalConDescuento(rs.getDouble("total_con_descuento"));
+        carrito.setIdCliente(rs.getInt("cliente_idCliente"));
+        
+        return carrito;
     }
 
     public CarritoComprasDTO obtenerPorId(int id) {

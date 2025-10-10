@@ -12,7 +12,8 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
  * @author Cristhian Horacio
  */
 public class LineaCarritoDTO extends RegistroDTO{
-    private ProductoDTO producto;
+    private int idProducto;
+    private int idCarritoCompras;
     private int cantidad;
     private double precioVolumen;
     private double subTotal;
@@ -21,27 +22,29 @@ public class LineaCarritoDTO extends RegistroDTO{
         
     }
 
-    public LineaCarritoDTO(ProductoDTO producto, int cantidad, double precioVolumen, double subTotal) {
-        this.producto = producto;
+    public LineaCarritoDTO(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal) {
+        this.idProducto = idProducto;
+        this.idCarritoCompras = idCarritoCompras;
         this.cantidad = cantidad;
         this.precioVolumen = precioVolumen;
         this.subTotal = subTotal;
     }
 
-    public LineaCarritoDTO(ProductoDTO producto, int cantidad, double precioVolumen, double subTotal, int id, boolean activo) {
+    public LineaCarritoDTO(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal, int id, boolean activo) {
         super(id, activo);
-        this.producto = producto;
+        this.idProducto = idProducto;
+        this.idCarritoCompras = idCarritoCompras;
         this.cantidad = cantidad;
         this.precioVolumen = precioVolumen;
         this.subTotal = subTotal;
     }
 
-    public ProductoDTO getProducto() {
-        return producto;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setProducto(ProductoDTO producto) {
-        this.producto = producto;
+    public void setIdProducto(int producto) {
+        this.idProducto = producto;
     }
 
     public int getCantidad() {
@@ -66,6 +69,14 @@ public class LineaCarritoDTO extends RegistroDTO{
 
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
+    }
+
+    public int getIdCarritoCompras() {
+        return idCarritoCompras;
+    }
+
+    public void setIdCarritoCompras(int idCarritoCompras) {
+        this.idCarritoCompras = idCarritoCompras;
     }
     
     

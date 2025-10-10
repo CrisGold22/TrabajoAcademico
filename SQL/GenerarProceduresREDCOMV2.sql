@@ -1,4 +1,4 @@
-SET CURRENT SCHEMA DB2REDCOM;
+SET CURRENT SCHEMA REDCOM_DB2;
 
 -- =====================================================================
 -- CATEGORIAPRODUCTO
@@ -55,8 +55,7 @@ CREATE OR REPLACE PROCEDURE listarCategoriaProductos ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "CategoriaProducto";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "CategoriaProducto";
     OPEN c;
 END;
 
@@ -72,8 +71,8 @@ CREATE OR REPLACE PROCEDURE insertarProducto (
     IN p_precioAlMayor                         DOUBLE,
     IN p_UnidadDeMedida                        VARCHAR(45),
     IN p_StockDisponible                       INT,
-    IN p_StockMinimo                           VARCHAR(45),
-    IN p_StockMaximo                           VARCHAR(45),
+    IN p_StockMinimo                           INT,
+    IN p_StockMaximo                           INT,
     IN p_Activo                                SMALLINT,
     IN p_CategoriaProducto_idCategoriaProducto INT
 )
@@ -99,8 +98,8 @@ CREATE OR REPLACE PROCEDURE modificarProducto (
     IN p_precioAlMayor                         DOUBLE,
     IN p_UnidadDeMedida                        VARCHAR(45),
     IN p_StockDisponible                       INT,
-    IN p_StockMinimo                           VARCHAR(45),
-    IN p_StockMaximo                           VARCHAR(45),
+    IN p_StockMinimo                           INT,
+    IN p_StockMaximo                           INT,
     IN p_Activo                                SMALLINT,
     IN p_CategoriaProducto_idCategoriaProducto INT
 )
@@ -140,8 +139,7 @@ CREATE OR REPLACE PROCEDURE listarProductos ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "Producto";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "Producto";
     OPEN c;
 END;
 
@@ -158,7 +156,7 @@ END;
 -- CLIENTE
 -- =====================================================================
 CREATE OR REPLACE PROCEDURE insertarCliente (
-    IN p_idCliente                 SMALLINT,
+    IN p_idCliente                 INT,
     IN p_lineaCredito              DOUBLE,
     IN p_Categoria                 VARCHAR(45),
     IN p_numeroDePedido_Historico  INT,
@@ -184,7 +182,7 @@ BEGIN
 END;
 
 CREATE OR REPLACE PROCEDURE modificarCliente (
-    IN p_idCliente                 SMALLINT,
+    IN p_idCliente                 INT,
     IN p_lineaCredito              DOUBLE,
     IN p_Categoria                 VARCHAR(45),
     IN p_numeroDePedido_Historico  INT,
@@ -216,18 +214,17 @@ BEGIN
      WHERE "idCliente" = p_idCliente;
 END;
 
-CREATE OR REPLACE PROCEDURE eliminarCliente (IN p_idCliente SMALLINT)
+CREATE OR REPLACE PROCEDURE eliminarCliente (IN p_idCliente INT)
 LANGUAGE SQL
 BEGIN
     DELETE FROM "cliente" WHERE "idCliente" = p_idCliente;
 END;
 
-CREATE OR REPLACE PROCEDURE buscarClientePorId (IN p_idCliente SMALLINT)
+CREATE OR REPLACE PROCEDURE buscarClientePorId (IN p_idCliente INT)
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "cliente" WHERE "idCliente" = p_idCliente;
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "cliente" WHERE "idCliente" = p_idCliente;
     OPEN c;
 END;
 
@@ -235,8 +232,7 @@ CREATE OR REPLACE PROCEDURE listarClientes ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "cliente";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "cliente";
     OPEN c;
 END;
 
@@ -244,8 +240,7 @@ CREATE OR REPLACE PROCEDURE buscarClientePorDni (IN p_dni VARCHAR(45))
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "cliente" WHERE "dni" = p_dni;
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "cliente" WHERE "dni" = p_dni;
     OPEN c;
 END;
 
@@ -327,8 +322,7 @@ CREATE OR REPLACE PROCEDURE listarAdministradores ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "Administrador";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "Administrador";
     OPEN c;
 END;
 
@@ -340,7 +334,7 @@ CREATE OR REPLACE PROCEDURE insertarCuentaUsuario (
     IN p_userName                    VARCHAR(45),
     IN p_password                    VARCHAR(45),
     IN p_Administrador_idAdministrador INT,
-    IN p_cliente_idCliente           SMALLINT
+    IN p_cliente_idCliente           INT
 )
 LANGUAGE SQL
 BEGIN
@@ -356,15 +350,15 @@ CREATE OR REPLACE PROCEDURE modificarCuentaUsuario (
     IN p_userName                    VARCHAR(45),
     IN p_password                    VARCHAR(45),
     IN p_Administrador_idAdministrador INT,
-    IN p_cliente_idCliente           SMALLINT
+    IN p_cliente_idCliente           INT
 )
 LANGUAGE SQL
 BEGIN
     UPDATE "CuentaUsuario"
-       SET "userName"                  = p_userName,
-           "password"                  = p_password,
-           "Administrador_idAdministrador" = p_Administrador_idAdministrador,
-           "cliente_idCliente"         = p_cliente_idCliente
+       SET "userName"                     = p_userName,
+           "password"                     = p_password,
+           "Administrador_idAdministrador"= p_Administrador_idAdministrador,
+           "cliente_idCliente"            = p_cliente_idCliente
      WHERE "idCuentaUsuario" = p_idCuentaUsuario;
 END;
 
@@ -387,8 +381,7 @@ CREATE OR REPLACE PROCEDURE listarCuentaUsuarios ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "CuentaUsuario";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "CuentaUsuario";
     OPEN c;
 END;
 
@@ -400,7 +393,7 @@ CREATE OR REPLACE PROCEDURE insertarCarritoDeCompras (
     IN p_Total_Parcial       DOUBLE,
     IN p_Estado              VARCHAR(45),
     IN p_total_con_descuento DOUBLE,
-    IN p_cliente_idCliente   SMALLINT
+    IN p_cliente_idCliente   INT
 )
 LANGUAGE SQL
 BEGIN
@@ -416,7 +409,7 @@ CREATE OR REPLACE PROCEDURE modificarCarritoDeCompras (
     IN p_Total_Parcial       DOUBLE,
     IN p_Estado              VARCHAR(45),
     IN p_total_con_descuento DOUBLE,
-    IN p_cliente_idCliente   SMALLINT
+    IN p_cliente_idCliente   INT
 )
 LANGUAGE SQL
 BEGIN
@@ -447,8 +440,7 @@ CREATE OR REPLACE PROCEDURE listarCarritosDeCompras ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "CarritoDeCompras";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "CarritoDeCompras";
     OPEN c;
 END;
 
@@ -518,8 +510,21 @@ CREATE OR REPLACE PROCEDURE listarLineasCarrito ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "LineaCarrito";
+    OPEN c;
+END;
+
+-- Filtro: Lineas de carrito por ID de carrito
+CREATE OR REPLACE PROCEDURE listarLineasCarritoPorIdCarrito (
+    IN p_Id_CarritoDeCompras INT
+)
+LANGUAGE SQL
+DYNAMIC RESULT SETS 1
+BEGIN
     DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "LineaCarrito";
+    SELECT *
+      FROM "LineaCarrito"
+     WHERE "CarritoDeCompras_Productos" = p_Id_CarritoDeCompras;
     OPEN c;
 END;
 
@@ -581,8 +586,7 @@ CREATE OR REPLACE PROCEDURE listarDescuentos ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "Descuento";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "Descuento";
     OPEN c;
 END;
 
@@ -590,41 +594,35 @@ END;
 -- ORDENCOMPRA
 -- =====================================================================
 CREATE OR REPLACE PROCEDURE insertarOrdenCompra (
-    IN p_IdPedido                                INT,
-    IN p_FechaCreacion                           DATE,
-    IN p_total_parcial                           DOUBLE,
-    IN p_total_final                             DOUBLE,
-    IN p_descuentoTotal                          DOUBLE,
-    IN p_Estado                                  VARCHAR(45),
-    IN p_DetalleDeOrdenCompra_id_Detalle         VARCHAR(45),
-    IN p_DetalleDeEnvio_id_DetalleEnvio          VARCHAR(45),
-    IN p_LineaComprobantePago_idLineaComprobantePago INT,
-    IN p_Activo                                  SMALLINT
+    IN p_IdPedido                 INT,
+    IN p_FechaCreacion            DATE,
+    IN p_total_parcial            DOUBLE,
+    IN p_total_final              DOUBLE,
+    IN p_descuentoTotal           DOUBLE,
+    IN p_Estado                   VARCHAR(45),
+    IN p_DetalleDeEnvio_id_DetalleEnvio INT,
+    IN p_Activo                   SMALLINT
 )
 LANGUAGE SQL
 BEGIN
     INSERT INTO "OrdenCompra" (
         "IdPedido","FechaCreacion","total_parcial","total_final","descuentoTotal","Estado",
-        "DetalleDeOrdenCompra_id_Detalle","DetalleDeEnvio_id_DetalleEnvio",
-        "LineaComprobantePago_idLineaComprobantePago","Activo"
+        "DetalleDeEnvio_id_DetalleEnvio","Activo"
     ) VALUES (
         p_IdPedido,p_FechaCreacion,p_total_parcial,p_total_final,p_descuentoTotal,p_Estado,
-        p_DetalleDeOrdenCompra_id_Detalle,p_DetalleDeEnvio_id_DetalleEnvio,
-        p_LineaComprobantePago_idLineaComprobantePago,p_Activo
+        p_DetalleDeEnvio_id_DetalleEnvio,p_Activo
     );
 END;
 
 CREATE OR REPLACE PROCEDURE modificarOrdenCompra (
-    IN p_IdPedido                                INT,
-    IN p_FechaCreacion                           DATE,
-    IN p_total_parcial                           DOUBLE,
-    IN p_total_final                             DOUBLE,
-    IN p_descuentoTotal                          DOUBLE,
-    IN p_Estado                                  VARCHAR(45),
-    IN p_DetalleDeOrdenCompra_id_Detalle         VARCHAR(45),
-    IN p_DetalleDeEnvio_id_DetalleEnvio          VARCHAR(45),
-    IN p_LineaComprobantePago_idLineaComprobantePago INT,
-    IN p_Activo                                  SMALLINT
+    IN p_IdPedido                 INT,
+    IN p_FechaCreacion            DATE,
+    IN p_total_parcial            DOUBLE,
+    IN p_total_final              DOUBLE,
+    IN p_descuentoTotal           DOUBLE,
+    IN p_Estado                   VARCHAR(45),
+    IN p_DetalleDeEnvio_id_DetalleEnvio INT,
+    IN p_Activo                   SMALLINT
 )
 LANGUAGE SQL
 BEGIN
@@ -634,9 +632,7 @@ BEGIN
            "total_final"   = p_total_final,
            "descuentoTotal"= p_descuentoTotal,
            "Estado"        = p_Estado,
-           "DetalleDeOrdenCompra_id_Detalle" = p_DetalleDeOrdenCompra_id_Detalle,
-           "DetalleDeEnvio_id_DetalleEnvio"  = p_DetalleDeEnvio_id_DetalleEnvio,
-           "LineaComprobantePago_idLineaComprobantePago" = p_LineaComprobantePago_idLineaComprobantePago,
+           "DetalleDeEnvio_id_DetalleEnvio" = p_DetalleDeEnvio_id_DetalleEnvio,
            "Activo"        = p_Activo
      WHERE "IdPedido" = p_IdPedido;
 END;
@@ -651,8 +647,7 @@ CREATE OR REPLACE PROCEDURE buscarOrdenCompraPorId (IN p_IdPedido INT)
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "OrdenCompra" WHERE "IdPedido" = p_IdPedido;
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "OrdenCompra" WHERE "IdPedido" = p_IdPedido;
     OPEN c;
 END;
 
@@ -660,8 +655,7 @@ CREATE OR REPLACE PROCEDURE listarOrdenesCompra ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "OrdenCompra";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "OrdenCompra";
     OPEN c;
 END;
 
@@ -669,11 +663,11 @@ END;
 -- COMPROBANTEPAGO
 -- =====================================================================
 CREATE OR REPLACE PROCEDURE insertarComprobantePago (
-    IN p_idComprobante        VARCHAR(45),
+    IN p_idComprobante        INT,
     IN p_fechaEmision         DATE,
     IN p_RUC                  INT,
     IN p_totalSinImpuestos    DOUBLE,
-    IN p_Impuesto             VARCHAR(45),
+    IN p_Impuesto             DOUBLE,
     IN p_totalFinal           DOUBLE,
     IN p_metodoPago           VARCHAR(45),
     IN p_subTotal             DOUBLE,
@@ -692,11 +686,11 @@ BEGIN
 END;
 
 CREATE OR REPLACE PROCEDURE modificarComprobantePago (
-    IN p_idComprobante        VARCHAR(45),
+    IN p_idComprobante        INT,
     IN p_fechaEmision         DATE,
     IN p_RUC                  INT,
     IN p_totalSinImpuestos    DOUBLE,
-    IN p_Impuesto             VARCHAR(45),
+    IN p_Impuesto             DOUBLE,
     IN p_totalFinal           DOUBLE,
     IN p_metodoPago           VARCHAR(45),
     IN p_subTotal             DOUBLE,
@@ -718,13 +712,13 @@ BEGIN
      WHERE "idComprobante"        = p_idComprobante;
 END;
 
-CREATE OR REPLACE PROCEDURE eliminarComprobantePago (IN p_idComprobante VARCHAR(45))
+CREATE OR REPLACE PROCEDURE eliminarComprobantePago (IN p_idComprobante INT)
 LANGUAGE SQL
 BEGIN
     DELETE FROM "ComprobantePago" WHERE "idComprobante" = p_idComprobante;
 END;
 
-CREATE OR REPLACE PROCEDURE buscarComprobantePagoPorId (IN p_idComprobante VARCHAR(45))
+CREATE OR REPLACE PROCEDURE buscarComprobantePagoPorId (IN p_idComprobante INT)
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
@@ -737,8 +731,7 @@ CREATE OR REPLACE PROCEDURE listarComprobantesPago ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "ComprobantePago";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "ComprobantePago";
     OPEN c;
 END;
 
@@ -746,44 +739,47 @@ END;
 -- LINEACOMPROBANTEPAGO
 -- =====================================================================
 CREATE OR REPLACE PROCEDURE insertarLineaComprobantePago (
-    IN p_idLineaComprobantePago     INT,
-    IN p_montoPagado                VARCHAR(45),
-    IN p_activo                     SMALLINT,
-    IN p_ComprobantePago_idComprobante VARCHAR(45),
-    IN p_codigo                     INT,
-    IN p_cantidad                   INT,
-    IN p_subtotal                   DOUBLE
+    IN p_idLineaComprobantePago      INT,
+    IN p_montoPagado                 DOUBLE,
+    IN P_montoImpuesto               DOUBLE,
+    IN p_activo                      SMALLINT,
+    IN p_ComprobantePago_idComprobante INT,
+    IN p_codigo                      INT,
+    IN p_cantidad                    INT,
+    IN p_subtotal                    DOUBLE
 )
 LANGUAGE SQL
 BEGIN
     INSERT INTO "LineaComprobantePago" (
-        "idLineaComprobantePago","montoPagado","activo","ComprobantePago_idComprobante",
-        "codigo","cantidad","subtotal"
+        "idLineaComprobantePago","montoPagado","montoImpuesto","activo",
+        "ComprobantePago_idComprobante","codigo","cantidad","subtotal"
     ) VALUES (
-        p_idLineaComprobantePago,p_montoPagado,p_activo,p_ComprobantePago_idComprobante,
-        p_codigo,p_cantidad,p_subtotal
+        p_idLineaComprobantePago,p_montoPagado,p_activo,
+        p_ComprobantePago_idComprobante,p_codigo,p_cantidad,p_subtotal
     );
 END;
 
 CREATE OR REPLACE PROCEDURE modificarLineaComprobantePago (
-    IN p_idLineaComprobantePago     INT,
-    IN p_montoPagado                VARCHAR(45),
-    IN p_activo                     SMALLINT,
-    IN p_ComprobantePago_idComprobante VARCHAR(45),
-    IN p_codigo                     INT,
-    IN p_cantidad                   INT,
-    IN p_subtotal                   DOUBLE
+    IN p_idLineaComprobantePago      INT,
+    IN p_montoPagado                 DOUBLE,
+    IN p_montoImpuesto               DOUBLE,    
+    IN p_activo                      SMALLINT,
+    IN p_ComprobantePago_idComprobante INT,
+    IN p_codigo                      INT,
+    IN p_cantidad                    INT,
+    IN p_subtotal                    DOUBLE
 )
 LANGUAGE SQL
 BEGIN
     UPDATE "LineaComprobantePago"
-       SET "montoPagado"                = p_montoPagado,
-           "activo"                     = p_activo,
+       SET "montoPagado"                 = p_montoPagado,
+           "montoImpuesto"               = p_montoImpuesto,
+           "activo"                      = p_activo,
            "ComprobantePago_idComprobante" = p_ComprobantePago_idComprobante,
-           "codigo"                     = p_codigo,
-           "cantidad"                   = p_cantidad,
-           "subtotal"                   = p_subtotal
-     WHERE "idLineaComprobantePago"     = p_idLineaComprobantePago;
+           "codigo"                      = p_codigo,
+           "cantidad"                    = p_cantidad,
+           "subtotal"                    = p_subtotal
+     WHERE "idLineaComprobantePago"      = p_idLineaComprobantePago;
 END;
 
 CREATE OR REPLACE PROCEDURE eliminarLineaComprobantePago (IN p_idLineaComprobantePago INT)
@@ -805,8 +801,21 @@ CREATE OR REPLACE PROCEDURE listarLineasComprobantePago ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "LineaComprobantePago";
+    OPEN c;
+END;
+
+-- Filtro: Lineas de comprobante por idComprobante
+CREATE OR REPLACE PROCEDURE listarLineasComprobantePagoPorIdComprobante (
+    IN p_idComprobante INT
+)
+LANGUAGE SQL
+DYNAMIC RESULT SETS 1
+BEGIN
     DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "LineaComprobantePago";
+    SELECT *
+      FROM "LineaComprobantePago"
+     WHERE "ComprobantePago_idComprobante" = p_idComprobante;
     OPEN c;
 END;
 
@@ -876,8 +885,19 @@ CREATE OR REPLACE PROCEDURE listarLineasOrdenCompra ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "LineaOrdenCompra";
+    OPEN c;
+END;
+
+-- Filtro: Lineas de orden por IdPedido
+CREATE OR REPLACE PROCEDURE listarLineasOrdenCompraPorIdOrden (
+    IN p_IdPedido INT
+)
+LANGUAGE SQL
+DYNAMIC RESULT SETS 1
+BEGIN
     DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "LineaOrdenCompra";
+    SELECT * FROM "LineaOrdenCompra" WHERE "OrdenCompra_IdPedido" = p_IdPedido;
     OPEN c;
 END;
 
@@ -885,20 +905,27 @@ END;
 -- DETALLEDEENVIO
 -- =====================================================================
 CREATE OR REPLACE PROCEDURE insertarDetalleDeEnvio (
-    IN p_id_DetalleEnvio VARCHAR(45),
+    IN p_id_DetalleEnvio INT,
     IN p_descripcion     VARCHAR(45),
+    IN p_Direccion       VARCHAR(100),
+    IN p_Distrito        VARCHAR(60),
     IN p_fechaEntrega    DATE,
     IN p_horarioEntrega  DATE
 )
 LANGUAGE SQL
 BEGIN
-    INSERT INTO "DetalleDeEnvio" ("id_DetalleEnvio","descripcion","fechaEntrega","horarioEntrega")
-    VALUES (p_id_DetalleEnvio,p_descripcion,p_fechaEntrega,p_horarioEntrega);
+    INSERT INTO "DetalleDeEnvio" (
+        "id_DetalleEnvio","descripcion","Direccion","Distrito","fechaEntrega","horarioEntrega"
+    ) VALUES (
+        p_id_DetalleEnvio,p_descripcion,p_Direccion,p_Distrito,p_fechaEntrega,p_horarioEntrega
+    );
 END;
 
 CREATE OR REPLACE PROCEDURE modificarDetalleDeEnvio (
-    IN p_id_DetalleEnvio VARCHAR(45),
+    IN p_id_DetalleEnvio INT,
     IN p_descripcion     VARCHAR(45),
+    IN p_Direccion       VARCHAR(100),
+    IN p_Distrito        VARCHAR(60),
     IN p_fechaEntrega    DATE,
     IN p_horarioEntrega  DATE
 )
@@ -906,23 +933,24 @@ LANGUAGE SQL
 BEGIN
     UPDATE "DetalleDeEnvio"
        SET "descripcion"    = p_descripcion,
+           "Direccion"      = p_Direccion,
+           "Distrito"       = p_Distrito,
            "fechaEntrega"   = p_fechaEntrega,
            "horarioEntrega" = p_horarioEntrega
      WHERE "id_DetalleEnvio" = p_id_DetalleEnvio;
 END;
 
-CREATE OR REPLACE PROCEDURE eliminarDetalleDeEnvio (IN p_id_DetalleEnvio VARCHAR(45))
+CREATE OR REPLACE PROCEDURE eliminarDetalleDeEnvio (IN p_id_DetalleEnvio INT)
 LANGUAGE SQL
 BEGIN
     DELETE FROM "DetalleDeEnvio" WHERE "id_DetalleEnvio" = p_id_DetalleEnvio;
 END;
 
-CREATE OR REPLACE PROCEDURE buscarDetalleDeEnvioPorId (IN p_id_DetalleEnvio VARCHAR(45))
+CREATE OR REPLACE PROCEDURE buscarDetalleDeEnvioPorId (IN p_id_DetalleEnvio INT)
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "DetalleDeEnvio" WHERE "id_DetalleEnvio" = p_id_DetalleEnvio;
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "DetalleDeEnvio" WHERE "id_DetalleEnvio" = p_id_DetalleEnvio;
     OPEN c;
 END;
 
@@ -930,13 +958,12 @@ CREATE OR REPLACE PROCEDURE listarDetallesDeEnvio ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "DetalleDeEnvio";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "DetalleDeEnvio";
     OPEN c;
 END;
 
 -- =====================================================================
--- CATEGORIAPRODUCTO_HAS_CATEGORIAPRODUCTO (tabla puente)
+-- CATEGORIAPRODUCTO_HAS_CATEGORIAPRODUCTO
 -- =====================================================================
 CREATE OR REPLACE PROCEDURE insertarRelacionCategoriaProducto (
     IN p_idCategoriaProducto  INT,
@@ -981,7 +1008,6 @@ CREATE OR REPLACE PROCEDURE listarRelacionesCategoriaProducto ()
 LANGUAGE SQL
 DYNAMIC RESULT SETS 1
 BEGIN
-    DECLARE c CURSOR WITH RETURN TO CALLER FOR
-    SELECT * FROM "CategoriaProducto_has_CategoriaProducto";
+    DECLARE c CURSOR WITH RETURN TO CALLER FOR SELECT * FROM "CategoriaProducto_has_CategoriaProducto";
     OPEN c;
 END;

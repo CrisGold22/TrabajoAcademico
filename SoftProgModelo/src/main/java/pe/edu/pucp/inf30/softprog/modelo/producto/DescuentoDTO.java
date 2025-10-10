@@ -12,21 +12,25 @@ import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
  */
 public class DescuentoDTO extends RegistroDTO{
     private double precioPorVolumen;
-    private ProductoDTO producto;
+    private int idProducto;
     private int cantidadMax;
     private int cantidadMin;
 
-    public DescuentoDTO(double precioPorVolumen, ProductoDTO producto, int cantidadMax, int cantidadMin) {
+    public DescuentoDTO(){
+        
+    }
+    
+    public DescuentoDTO(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin) {
         this.precioPorVolumen = precioPorVolumen;
-        this.producto = producto;
+        this.idProducto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
     }
 
-    public DescuentoDTO(double precioPorVolumen, ProductoDTO producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
+    public DescuentoDTO(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
         super(id, activo);
         this.precioPorVolumen = precioPorVolumen;
-        this.producto = producto;
+        this.idProducto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
     }
@@ -39,12 +43,12 @@ public class DescuentoDTO extends RegistroDTO{
         this.precioPorVolumen = precioPorVolumen;
     }
 
-    public ProductoDTO getProducto() {
-        return producto;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setProducto(ProductoDTO producto) {
-        this.producto = producto;
+    public void setIdProducto(int producto) {
+        this.idProducto = producto;
     }
 
     public int getCantidadMax() {

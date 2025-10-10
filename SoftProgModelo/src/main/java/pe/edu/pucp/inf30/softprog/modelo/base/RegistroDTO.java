@@ -37,5 +37,16 @@ public class RegistroDTO {
         this.activo = activo;
     }
     
+    public int getActivo(){
+        return this.activo ? 1 : 0;
+    }
     
+    public void setActivoInt(int activo){
+        if(activo == 1){
+            this.activo = true;
+        }
+        else{
+            this.activo = false;
+        }
+    }
 }
