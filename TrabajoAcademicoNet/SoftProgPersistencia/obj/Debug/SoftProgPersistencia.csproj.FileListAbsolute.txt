@@ -1,0 +1,2 @@
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgPersistencia\obj\Debug\SoftProgPersistencia.csproj.AssemblyReference.cache
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgPersistencia\obj\Debug\SoftProgPersistencia.csproj.CoreCompileInputs.cache

@@ -1,0 +1,6 @@
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgModelo\bin\Debug\SoftProgModelo.dll
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgModelo\bin\Debug\SoftProgModelo.pdb
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgModelo\obj\Debug\SoftProgModelo.csproj.AssemblyReference.cache
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgModelo\obj\Debug\SoftProgModelo.csproj.CoreCompileInputs.cache
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgModelo\obj\Debug\SoftProgModelo.dll
+C:\Users\chris\Downloads\TrabajoAcademicoNet\TrabajoAcademicoNet\SoftProgModelo\obj\Debug\SoftProgModelo.pdb

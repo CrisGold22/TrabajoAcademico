@@ -1,0 +1,479 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\venta\\ordencompraboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\venta\\ordencompraboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\venta\\lineaordencompraboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\venta\\lineaordencompraboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\venta\\lineacarritoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\venta\\lineacarritoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\venta\\detalleenvioboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\venta\\detalleenvioboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\venta\\carritocomprasboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\venta\\carritocomprasboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\producto\\productoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\producto\\productoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\producto\\descuentoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\producto\\descuentoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\producto\\categoriaproductoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\producto\\categoriaproductoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\persona\\cuentausuarioboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\persona\\cuentausuarioboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\persona\\clienteboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\persona\\clienteboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\persona\\administradorsistemaboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\persona\\administradorsistemaboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\pago\\lineacomprobantepagoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\pago\\lineacomprobantepagoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negocioboimpl\\pago\\comprobantepagoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negocioboimpl\\pago\\comprobantepagoboimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\persona\\icuentausuariobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\persona\\icuentausuariobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\pago\\ilineacomprobantepagobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\pago\\ilineacomprobantepagobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\pago\\icomprobantepagobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\pago\\icomprobantepagobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\igestionable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\igestionable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\venta\\iordencomprabo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\venta\\iordencomprabo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\venta\\ilineacarritobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\venta\\ilineacarritobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\venta\\idetalleenviobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\venta\\idetalleenviobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\venta\\icarritocomprasbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\venta\\icarritocomprasbo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\productos\\iproductobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\productos\\iproductobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\productos\\idescuentobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\productos\\idescuentobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\productos\\icategoriaproductobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\productos\\icategoriaproductobo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\persona\\iclientebo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\persona\\iclientebo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprognegocio\\negociobo\\persona\\iadministradorsistemabo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B971A9C-A4A7-4B39-AF92-E5326495179C}|SoftProgNegocio\\SoftProgNegocio.csproj|solutionrelative:softprognegocio\\negociobo\\persona\\iadministradorsistemabo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B30098E-F6B1-48F8-B3F2-76DA3959CD17}|SoftProgPersistencia\\SoftProgPersistencia.csproj|c:\\users\\chris\\downloads\\trabajoacademiconet\\trabajoacademiconet\\softprogpersistencia\\dao\\ipersistible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B30098E-F6B1-48F8-B3F2-76DA3959CD17}|SoftProgPersistencia\\SoftProgPersistencia.csproj|solutionrelative:softprogpersistencia\\dao\\ipersistible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 266,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrdenCompraBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\OrdenCompraBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Venta\\OrdenCompraBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\OrdenCompraBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Venta\\OrdenCompraBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:19:02.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LineaOrdenCompraBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaOrdenCompraBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaOrdenCompraBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaOrdenCompraBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaOrdenCompraBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:18:20.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LineaCarritoBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaCarritoBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaCarritoBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaCarritoBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Venta\\LineaCarritoBOImpl.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:18:06.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DetalleEnvioBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\DetalleEnvioBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Venta\\DetalleEnvioBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\DetalleEnvioBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Venta\\DetalleEnvioBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:17:50.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CarritoComprasBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\CarritoComprasBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Venta\\CarritoComprasBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Venta\\CarritoComprasBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Venta\\CarritoComprasBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:17:33.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductoBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Producto\\ProductoBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Producto\\ProductoBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Producto\\ProductoBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Producto\\ProductoBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:17:19.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DescuentoBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Producto\\DescuentoBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Producto\\DescuentoBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Producto\\DescuentoBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Producto\\DescuentoBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:17:05.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CategoriaProductoBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Producto\\CategoriaProductoBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Producto\\CategoriaProductoBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Producto\\CategoriaProductoBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Producto\\CategoriaProductoBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:16:50.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CuentaUsuarioBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Persona\\CuentaUsuarioBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Persona\\CuentaUsuarioBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Persona\\CuentaUsuarioBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Persona\\CuentaUsuarioBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:16:26.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClienteBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Persona\\ClienteBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Persona\\ClienteBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Persona\\ClienteBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Persona\\ClienteBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:16:08.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdministradorSistemaBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Persona\\AdministradorSistemaBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Persona\\AdministradorSistemaBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Persona\\AdministradorSistemaBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Persona\\AdministradorSistemaBOImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:15:52.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IGestionable.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\IGestionable.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\IGestionable.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\IGestionable.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\IGestionable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:14:37.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IOrdenCompraBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\IOrdenCompraBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Venta\\IOrdenCompraBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\IOrdenCompraBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Venta\\IOrdenCompraBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:14:32.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IComprobantePagoBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Pago\\IComprobantePagoBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Pago\\IComprobantePagoBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Pago\\IComprobantePagoBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Pago\\IComprobantePagoBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:06.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ILineaComprobantePagoBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Pago\\ILineaComprobantePagoBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Pago\\ILineaComprobantePagoBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Pago\\ILineaComprobantePagoBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Pago\\ILineaComprobantePagoBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:26.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ICuentaUsuarioBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Persona\\ICuentaUsuarioBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Persona\\ICuentaUsuarioBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Persona\\ICuentaUsuarioBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Persona\\ICuentaUsuarioBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:44.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ComprobantePagoBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Pago\\ComprobantePagoBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Pago\\ComprobantePagoBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Pago\\ComprobantePagoBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Pago\\ComprobantePagoBOImpl.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T00:55:12.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LineaComprobantePagoBOImpl.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Pago\\LineaComprobantePagoBOImpl.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBOImpl\\Pago\\LineaComprobantePagoBOImpl.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBOImpl\\Pago\\LineaComprobantePagoBOImpl.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBOImpl\\Pago\\LineaComprobantePagoBOImpl.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:11:48.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ILineaCarritoBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\ILineaCarritoBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Venta\\ILineaCarritoBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\ILineaCarritoBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Venta\\ILineaCarritoBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:14:22.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IDetalleEnvioBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\IDetalleEnvioBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Venta\\IDetalleEnvioBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\IDetalleEnvioBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Venta\\IDetalleEnvioBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:14:15.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ICarritoComprasBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\ICarritoComprasBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Venta\\ICarritoComprasBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Venta\\ICarritoComprasBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Venta\\ICarritoComprasBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:14:10.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IProductoBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Productos\\IProductoBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Productos\\IProductoBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Productos\\IProductoBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Productos\\IProductoBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:14:04.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IDescuentoBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Productos\\IDescuentoBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Productos\\IDescuentoBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Productos\\IDescuentoBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Productos\\IDescuentoBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:57.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ICategoriaProductoBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Productos\\ICategoriaProductoBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Productos\\ICategoriaProductoBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Productos\\ICategoriaProductoBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Productos\\ICategoriaProductoBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:50.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IClienteBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Persona\\IClienteBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Persona\\IClienteBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Persona\\IClienteBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Persona\\IClienteBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:39.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IAdministradorSistemaBO.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Persona\\IAdministradorSistemaBO.cs",
+              "RelativeDocumentMoniker": "SoftProgNegocio\\NegocioBO\\Persona\\IAdministradorSistemaBO.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgNegocio\\NegocioBO\\Persona\\IAdministradorSistemaBO.cs",
+              "RelativeToolTip": "SoftProgNegocio\\NegocioBO\\Persona\\IAdministradorSistemaBO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:13:33.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IPersistible.cs",
+              "DocumentMoniker": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgPersistencia\\DAO\\IPersistible.cs",
+              "RelativeDocumentMoniker": "SoftProgPersistencia\\DAO\\IPersistible.cs",
+              "ToolTip": "C:\\Users\\chris\\Downloads\\TrabajoAcademicoNet\\TrabajoAcademicoNet\\SoftProgPersistencia\\DAO\\IPersistible.cs",
+              "RelativeToolTip": "SoftProgPersistencia\\DAO\\IPersistible.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T01:06:07.52Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
