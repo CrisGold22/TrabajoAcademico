@@ -72,6 +72,12 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         
+        pruebaConexionConBaseDeDatos();
+        pruebasConDatos();
+        
+    }
+    
+    public static void pruebaConexionConBaseDeDatos() throws SQLException, ClassNotFoundException{
         DBManager dbManager = DBFactoryProvider.getManager(); 
         try(Connection connection = dbManager.getConnection()){
             if (connection != null && !connection.isClosed()) {
@@ -83,7 +89,9 @@ public class SoftProgPruebas {
         catch(SQLException e){
             System.err.println("Error al conectar a la base de datos: " + e.getMessage());
         }
-        
+    }
+    
+    public static void pruebasConDatos(){
         System.out.println();
         
         System.out.println("=====================================");
@@ -108,10 +116,10 @@ public class SoftProgPruebas {
         detalle.setDireccion("Av. Donde vive Galileo");
         
         detalleEnvioBO.insertar(detalle);
-        System.out.println("Se inserto el detalle de envio de id " + detalle.getId() + "creado exitosamente");
+        System.out.println("Se inserto el detalle de envio de id " + detalle.getId() + " creado exitosamente");
         detalle.setDescripcion("hola :)");
         detalleEnvioBO.actualizar(detalle);
-        System.out.println("Se actualizo el detalle de envio de id " + detalle.getId() + "creado exitosamente");
+        System.out.println("Se actualizo el detalle de envio de id " + detalle.getId() + " creado exitosamente");
         DetalleEnvio detalle2 = detalleEnvioBO.obtener(1);
         System.out.println("Detalle de envio se llamo al backend de manera correcta\n");
         
@@ -514,12 +522,10 @@ public class SoftProgPruebas {
         System.out.println("-----> Ejecucion de procedures de Cliente FINALIZADO \n");
 
         // 13. DetalleEnvio
-        detalleEnvioBO.eliminar(2);
+        detalleEnvioBO.eliminar(1);
         System.out.println("El detalle de envio seleccionado se elimino correctamente");
         System.out.println("-----> Ejecucion de procedures de Detalle de envio FINALIZADO \n");
         
         System.out.println("Testeo del proyecto de persistancia, negocio, dbManagner y Modelo FINALIZADO :)");
-        
-        
     }
 }

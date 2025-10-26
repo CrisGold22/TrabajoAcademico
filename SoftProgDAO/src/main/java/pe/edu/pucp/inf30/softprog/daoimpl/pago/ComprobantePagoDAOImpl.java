@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.pago.ComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.pago.ComprobantePago;
@@ -30,7 +31,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, ComprobantePago modelo) throws SQLException {
-        String sql = "{CALL insertarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -44,6 +45,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         cmd.setDouble("p_subTotal", modelo.getTotalSinImpuestos());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
@@ -81,7 +83,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        String sql = "{CALL buscarComprobantePago(?)}";
+        String sql = "{CALL buscarComprobantePagoPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -108,7 +110,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         comprobante.setTotalSinImpuestos(rs.getDouble("totalSinImpuestos"));
         comprobante.setImpuestos(rs.getDouble("Impuesto"));
         comprobante.setTotalFinal(rs.getDouble("totalFinal"));
-        comprobante.setMetodoString(rs.getString("medotoPago"));
+        comprobante.setMetodoString(rs.getString("metodoPago"));
         comprobante.setActivoInt(rs.getInt("activo"));
         comprobante.setIdOrdenCompra(rs.getInt("OrdenCompra_IdPedido"));
         

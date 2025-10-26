@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,7 +28,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaComprobantePago modelo) throws SQLException {
-        String sql = "{CALL insertarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -39,6 +40,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
         cmd.setInt("p_codigo", modelo.getCodigo());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }

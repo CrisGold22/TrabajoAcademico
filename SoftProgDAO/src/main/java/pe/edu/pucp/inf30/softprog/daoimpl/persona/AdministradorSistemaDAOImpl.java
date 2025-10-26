@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.persona.AdministradorSistemaDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistema;
@@ -22,7 +23,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, AdministradorSistema modelo) throws SQLException {
-        String sql = "{CALL insertarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -38,6 +39,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setDouble("p_Sueldo", modelo.getSueldo());
         cmd.setInt("p_Activo", modelo.getActivo());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.venta.CarritoComprasDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
@@ -22,7 +23,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CarritoCompras modelo) throws SQLException {
-        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?)";
+        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -31,6 +32,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
         cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }

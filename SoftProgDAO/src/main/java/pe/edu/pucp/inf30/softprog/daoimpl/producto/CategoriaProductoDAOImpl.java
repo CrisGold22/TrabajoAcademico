@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
@@ -21,7 +22,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CategoriaProducto modelo) throws SQLException {
-        String sql = "{CALL insertarCategoriaProducto(?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarCategoriaProducto(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -30,6 +31,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         cmd.setString("p_Descripcion", modelo.getDescripcion());
         cmd.setInt("p_Catalogo_idCatalogo", modelo.getIdCategoriaPadre());
         cmd.setInt("p_Activo", modelo.getActivo());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
         

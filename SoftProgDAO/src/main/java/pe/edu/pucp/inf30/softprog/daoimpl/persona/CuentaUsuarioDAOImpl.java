@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
@@ -21,7 +22,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CuentaUsuario modelo) throws SQLException {
-        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -30,6 +31,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
         cmd.setString("p_password", modelo.getPassword());
         cmd.setInt("p_Administrador_idAdministrador", modelo.getIdAdministrador());
         cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }

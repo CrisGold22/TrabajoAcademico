@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.producto.DescuentoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.producto.Descuento;
@@ -21,7 +22,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, Descuento modelo) throws SQLException {
-        String sql = "{CALL insertarDescuento(?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarDescuento(?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -31,6 +32,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
         cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
         cmd.setInt("p_Activo", modelo.getActivo());
         cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
