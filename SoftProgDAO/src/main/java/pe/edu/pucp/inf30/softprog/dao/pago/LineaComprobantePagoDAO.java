@@ -8,13 +8,13 @@ import java.sql.Connection;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
 import pe.edu.pucp.inf30.softprog.dao.PersistibleTransaccional;
-import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface LineaComprobantePagoDAO extends PersistibleTransaccional<LineaComprobantePagoDTO, Integer> {
-    List<LineaComprobantePagoDTO> listarPorIdComprobante(Connection conn, int id);
-    List<LineaComprobantePagoDTO> listarPorIdComprobante(int id);
+public interface LineaComprobantePagoDAO extends PersistibleTransaccional<LineaComprobantePago, Integer> {
+    List<LineaComprobantePago> listarPorIdComprobante(Connection conn, int id);
+    List<LineaComprobantePago> listarPorIdComprobante(int id);
 }

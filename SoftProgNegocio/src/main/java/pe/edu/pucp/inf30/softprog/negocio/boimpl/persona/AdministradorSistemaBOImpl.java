@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.persona;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.persona.AdministradorSistemaDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.AdministradorSistemaDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistemaDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistema;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.AdministradorSistemaBO;
 
 /**
@@ -22,22 +22,22 @@ public class AdministradorSistemaBOImpl implements AdministradorSistemaBO{
     }
     
     @Override
-    public List<AdministradorSistemaDTO> listar() {
+    public List<AdministradorSistema> listar() {
         return this.administrador.leerTodos();
     }
 
     @Override
-    public void insertar(AdministradorSistemaDTO modelo) {
+    public void insertar(AdministradorSistema modelo) {
         this.administrador.crear(modelo);
     }
 
     @Override
-    public void actualizar(AdministradorSistemaDTO modelo) {
+    public void actualizar(AdministradorSistema modelo) {
         this.administrador.actualizar(modelo);
     }
 
     @Override
-    public AdministradorSistemaDTO obtener(int id) {
+    public AdministradorSistema obtener(int id) {
         return this.administrador.leer(id);
     }
 

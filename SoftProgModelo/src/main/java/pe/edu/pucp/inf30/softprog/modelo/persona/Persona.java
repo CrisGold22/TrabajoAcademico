@@ -4,7 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Cristhian Horacio
  */
-public class PersonaDTO extends RegistroDTO {
+public class Persona extends Registro {
 
     private String dni;
     private String nombre;
@@ -22,11 +22,11 @@ public class PersonaDTO extends RegistroDTO {
     private Date fechaNacimiento;
     private int telefono;
 
-    public PersonaDTO() {
+    public Persona() {
 
     }
 
-    public PersonaDTO(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public Persona(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -36,7 +36,7 @@ public class PersonaDTO extends RegistroDTO {
         this.telefono = telefono;
     }
 
-    public PersonaDTO(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public Persona(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
         super(id, activo);
         this.dni = dni;
         this.nombre = nombre;

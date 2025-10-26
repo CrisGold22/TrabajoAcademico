@@ -13,16 +13,16 @@ import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> implements OrdenCompraDAO {
+public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra> implements OrdenCompraDAO {
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, OrdenCompraDTO modelo) throws SQLException {
+    protected PreparedStatement comandoCrear(Connection conn, OrdenCompra modelo) throws SQLException {
         String sql = "{CALL insertarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -34,14 +34,14 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
         cmd.setDouble("p_descuentoTotal", modelo.getDescuentoTotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getIdDetalleEnvio());
-        cmd.setInt("p_activo", modelo.getActivo());
+        cmd.setInt("p_Activo", modelo.getActivo());
         
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, OrdenCompraDTO modelo) throws SQLException {
-        String sql = "{CALL actualizarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, OrdenCompra modelo) throws SQLException {
+        String sql = "{CALL modificarOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -52,7 +52,7 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
         cmd.setDouble("p_descuentoTotal", modelo.getDescuentoTotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getIdDetalleEnvio());
-        cmd.setInt("p_activo", modelo.getActivo());
+        cmd.setInt("p_Activo", modelo.getActivo());
         
         return cmd;
     }
@@ -89,8 +89,8 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompraDTO> imp
     }
 
     @Override
-    protected OrdenCompraDTO mapearModelo(ResultSet rs) throws SQLException {
-        OrdenCompraDTO orden = new OrdenCompraDTO();
+    protected OrdenCompra mapearModelo(ResultSet rs) throws SQLException {
+        OrdenCompra orden = new OrdenCompra();
         
         orden.setId(rs.getInt("IdPedido"));
         orden.setFechaCreacion(rs.getDate("FechaCreacion"));

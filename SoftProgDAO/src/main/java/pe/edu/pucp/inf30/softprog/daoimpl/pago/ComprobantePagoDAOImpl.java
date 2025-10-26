@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.pago.ComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.pago.ComprobantePagoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.ComprobantePago;
 import java.util.Date;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -19,17 +19,17 @@ import java.util.HashSet;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.pago.LineaComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePagoDTO> implements ComprobantePagoDAO{
+public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago> implements ComprobantePagoDAO{
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, ComprobantePagoDTO modelo) throws SQLException {
+    protected PreparedStatement comandoCrear(Connection conn, ComprobantePago modelo) throws SQLException {
         String sql = "{CALL insertarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -49,7 +49,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, ComprobantePagoDTO modelo) throws SQLException {
+    protected PreparedStatement comandoActualizar(Connection conn, ComprobantePago modelo) throws SQLException {
         String sql = "{CALL modificarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -99,8 +99,8 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
     }
 
     @Override
-    protected ComprobantePagoDTO mapearModelo(ResultSet rs) throws SQLException {
-        ComprobantePagoDTO comprobante = new ComprobantePagoDTO();
+    protected ComprobantePago mapearModelo(ResultSet rs) throws SQLException {
+        ComprobantePago comprobante = new ComprobantePago();
         
         comprobante.setId(rs.getInt("idComprobante"));
         comprobante.setFechaEmision(rs.getTimestamp("fechaEmision"));

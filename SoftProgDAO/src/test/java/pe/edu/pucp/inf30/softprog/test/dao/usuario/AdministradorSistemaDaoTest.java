@@ -16,12 +16,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 import pe.edu.pucp.inf30.softprog.dao.persona.AdministradorSistemaDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.AdministradorSistemaDAOImpl;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistemaDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistema;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Cargo;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Jerarquia;
@@ -38,7 +38,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @BeforeAll
 //    public void inicializar() {
 //        CuentaUsuarioDAO cuentaUsuarioDao = new CuentaUsuarioDAOImpl();
-//        CuentaUsuarioDTO cuentaUsuario = new CuentaUsuarioDTO();
+//        CuentaUsuario cuentaUsuario = new CuentaUsuario();
 //        cuentaUsuario.setUsername("admin_prueba");
 //        cuentaUsuario.setPassword("admin123");
 //        
@@ -56,7 +56,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeCrear() {
 //        AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-//        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
+//        AdministradorSistema administrador = new AdministradorSistema();
 //        
 //        // Datos de Persona (herencia)
 //        administrador.setDni("12345678");
@@ -84,7 +84,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeActualizarSiIdExiste() {
 //        AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-//        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
+//        AdministradorSistema administrador = new AdministradorSistema();
 //        
 //        administrador.setId(this.testId);
 //        
@@ -108,7 +108,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        boolean modifico = administradorDao.actualizar(administrador);
 //        assertTrue(modifico);
 //        
-//        AdministradorSistemaDTO administradorModificado = administradorDao.leer(this.testId);
+//        AdministradorSistema administradorModificado = administradorDao.leer(this.testId);
 //        assertEquals("87654321", administradorModificado.getDni());
 //        assertEquals("Ana María", administradorModificado.getNombre());
 //        assertEquals("González", administradorModificado.getApellidoPaterno());
@@ -129,7 +129,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeActualizarSiIdNoExiste() {
 //        AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-//        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
+//        AdministradorSistema administrador = new AdministradorSistema();
 //        
 //        administrador.setId(this.idIncorrecto);
 //        administrador.setDni("99999999");
@@ -164,7 +164,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeLeerSiIdExiste() {
 //        AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-//        AdministradorSistemaDTO administrador = administradorDao.leer(this.testId);
+//        AdministradorSistema administrador = administradorDao.leer(this.testId);
 //        assertNotNull(administrador);
 //        assertEquals(this.testId, administrador.getId());
 //        assertNotNull(administrador.getDni());
@@ -180,7 +180,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeLeerSiIdNoExiste() {
 //        AdministradorSistemaDAO administradorDao = new AdministradorSistemaDAOImpl();
-//        AdministradorSistemaDTO administrador = administradorDao.leer(this.idIncorrecto);
+//        AdministradorSistema administrador = administradorDao.leer(this.idIncorrecto);
 //        assertNull(administrador);
 //    }
 //    
@@ -209,7 +209,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        assertTrue(elimino);
 //        
 //        // Verificar que el administrador ya no existe
-//        AdministradorSistemaDTO administradorEliminado = administradorDao.leer(this.testId);
+//        AdministradorSistema administradorEliminado = administradorDao.leer(this.testId);
 //        assertNull(administradorEliminado);
 //    }
 //}

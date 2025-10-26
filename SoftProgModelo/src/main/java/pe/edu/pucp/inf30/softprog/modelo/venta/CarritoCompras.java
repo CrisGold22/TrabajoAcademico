@@ -6,27 +6,27 @@ package pe.edu.pucp.inf30.softprog.modelo.venta;
 
 import java.util.ArrayList;
 import java.util.List;
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
-import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoCarrito;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CarritoComprasDTO extends RegistroDTO {
+public class CarritoCompras extends Registro {
 
-    private List<LineaCarritoDTO> lineasCarrito;
+    private List<LineaCarrito> lineasCarrito;
     private double totalParcial;
     private double totalConDescuento;
     private EstadoCarrito estado;
     private int idCliente;
 
-    public CarritoComprasDTO() {
+    public CarritoCompras() {
         lineasCarrito = new ArrayList<>();
     }
 
-    public CarritoComprasDTO(ArrayList<LineaCarritoDTO> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente) {
+    public CarritoCompras(ArrayList<LineaCarrito> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente) {
         this.lineasCarrito = productos;
         this.totalParcial = totalParcial;
         this.totalConDescuento = totalConDescuento;
@@ -34,7 +34,7 @@ public class CarritoComprasDTO extends RegistroDTO {
         this.idCliente = idCliente;
     }
 
-    public CarritoComprasDTO(ArrayList<LineaCarritoDTO> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente, int id, boolean activo) {
+    public CarritoCompras(ArrayList<LineaCarrito> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente, int id, boolean activo) {
         super(id, activo);
         this.lineasCarrito = productos;
         this.totalParcial = totalParcial;
@@ -45,11 +45,11 @@ public class CarritoComprasDTO extends RegistroDTO {
 
     
 
-    public List<LineaCarritoDTO> getLineasCarritos() {
+    public List<LineaCarrito> getLineasCarritos() {
         return lineasCarrito;
     }
 
-    public void setLineasCarrito(List<LineaCarritoDTO> productos) {
+    public void setLineasCarrito(List<LineaCarrito> productos) {
         this.lineasCarrito = productos;
     }
 

@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.persona;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.persona.ClienteDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.ClienteDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.persona.ClienteDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.ClienteBO;
 
 /**
@@ -22,22 +22,22 @@ public class ClienteBOImpl implements ClienteBO{
     }
     
     @Override
-    public List<ClienteDTO> listar() {
+    public List<Cliente> listar() {
         return this.clienteDAO.leerTodos();
     }
 
     @Override
-    public void insertar(ClienteDTO modelo) {
+    public void insertar(Cliente modelo) {
         this.clienteDAO.crear(modelo);
     }
 
     @Override
-    public void actualizar(ClienteDTO modelo) {
+    public void actualizar(Cliente modelo) {
         this.clienteDAO.actualizar(modelo);
     }
 
     @Override
-    public ClienteDTO obtener(int id) {
+    public Cliente obtener(int id) {
         return this.clienteDAO.leer(id);
     }
 
@@ -47,7 +47,7 @@ public class ClienteBOImpl implements ClienteBO{
     }
 
     @Override
-    public ClienteDTO buscarPorDNI(String dni) {
+    public Cliente buscarPorDNI(String dni) {
         return this.clienteDAO.buscarPorDNI(dni);
     }
     

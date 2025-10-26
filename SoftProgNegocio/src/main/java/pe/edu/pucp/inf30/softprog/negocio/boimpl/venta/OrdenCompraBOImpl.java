@@ -16,8 +16,8 @@ import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaOrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.OrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBFactoryProvider;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBManager;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
+import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.OrdenCompraBO;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.pago.ComprobantePagoBOImpl;
 
@@ -35,12 +35,12 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     }
     
     @Override
-    public List<OrdenCompraDTO> listar() {
+    public List<OrdenCompra> listar() {
         return this.ordenCompraDAO.leerTodos();
     }
 
     @Override
-    public void insertar(OrdenCompraDTO modelo) {
+    public void insertar(OrdenCompra modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
         
         try(Connection conn = dbManager.getConnection()){
@@ -50,7 +50,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
                 int idOrden = this.ordenCompraDAO.crear(modelo, conn);
                 modelo.setId(idOrden);
                 
-                for(LineaOrdenCompraDTO linea : modelo.getLineasOrden()){
+                for(LineaOrdenCompra linea : modelo.getLineasOrden()){
                     linea.setIdOrdenCompra(idOrden);
                     lineaOrdenCompraDAO.crear(linea, conn);
                 }
@@ -67,7 +67,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     }
 
     @Override
-    public void actualizar(OrdenCompraDTO modelo) {
+    public void actualizar(OrdenCompra modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
         
         try(Connection conn = dbManager.getConnection()){
@@ -75,7 +75,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
             
             try{
                 ordenCompraDAO.actualizar(modelo, conn);
-                for(LineaOrdenCompraDTO linea : modelo.getLineasOrden()){
+                for(LineaOrdenCompra linea : modelo.getLineasOrden()){
                     if(linea.getId() == 0){
                         linea.setIdOrdenCompra(modelo.getId());
                         lineaOrdenCompraDAO.crear(linea, conn);
@@ -97,10 +97,10 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     }
 
     @Override
-    public OrdenCompraDTO obtener(int id) {
-        OrdenCompraDTO orden = ordenCompraDAO.leer(id);
+    public OrdenCompra obtener(int id) {
+        OrdenCompra orden = ordenCompraDAO.leer(id);
         if(orden == null) return null;
-        List<LineaOrdenCompraDTO> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(id);
+        List<LineaOrdenCompra> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(id);
         orden.setLineasOrden(lineas);
         return orden;
     }
@@ -113,8 +113,8 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
             conn.setAutoCommit(false);
             
             try{
-                List<LineaOrdenCompraDTO> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(conn, id);
-                for(LineaOrdenCompraDTO linea : lineas){
+                List<LineaOrdenCompra> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(conn, id);
+                for(LineaOrdenCompra linea : lineas){
                     if(linea.getIdOrdenCompra() == id){
                         lineaOrdenCompraDAO.eliminar(linea.getId(), conn);
                     }

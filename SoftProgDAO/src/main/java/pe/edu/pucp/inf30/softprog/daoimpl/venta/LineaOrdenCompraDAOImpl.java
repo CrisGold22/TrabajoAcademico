@@ -14,16 +14,16 @@ import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenCompraDTO> implements LineaOrdenCompraDAO {
+public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenCompra> implements LineaOrdenCompraDAO {
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, LineaOrdenCompraDTO modelo) throws SQLException {
+    protected PreparedStatement comandoCrear(Connection conn, LineaOrdenCompra modelo) throws SQLException {
         String sql = "{CALL insertarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -41,8 +41,8 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, LineaOrdenCompraDTO modelo) throws SQLException {
-        String sql = "{CALL actualizarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, LineaOrdenCompra modelo) throws SQLException {
+        String sql = "{CALL modificarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -90,8 +90,8 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
     }
 
     @Override
-    protected LineaOrdenCompraDTO mapearModelo(ResultSet rs) throws SQLException {
-        LineaOrdenCompraDTO linea = new LineaOrdenCompraDTO();
+    protected LineaOrdenCompra mapearModelo(ResultSet rs) throws SQLException {
+        LineaOrdenCompra linea = new LineaOrdenCompra();
         
         linea.setId(rs.getInt("idLineaOrdenCompra"));
         linea.setCantidad(rs.getInt("cantidad"));
@@ -106,7 +106,7 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
     }
     
     protected PreparedStatement comandoListarPorIdOrdenCompra(Connection conn, int id) throws SQLException{
-        String sql = "{CALL listarLineasOrdenCompraPorIdOrdenCompra(?)}";
+        String sql = "{CALL listarLineasOrdenCompraPorIdOrden(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setInt("p_idOrdenCompra", id);
@@ -115,17 +115,17 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
     }
 
     @Override
-    public List<LineaOrdenCompraDTO> listarPorIdOrdenCompra(int id) {
+    public List<LineaOrdenCompra> listarPorIdOrdenCompra(int id) {
         return ejecutarComando(conn -> listarPorIdOrdenCompra(conn, id));
     }
     
 
     @Override
-    public List<LineaOrdenCompraDTO> listarPorIdOrdenCompra(Connection conn, int id) {
+    public List<LineaOrdenCompra> listarPorIdOrdenCompra(Connection conn, int id) {
         try(PreparedStatement cmd = this.comandoListarPorIdOrdenCompra(conn, id)){
             ResultSet rs = cmd.executeQuery();
             
-            List<LineaOrdenCompraDTO> modelos = new ArrayList<>();
+            List<LineaOrdenCompra> modelos = new ArrayList<>();
             while(rs.next()){
                 modelos.add(this.mapearModelo(rs));
             }

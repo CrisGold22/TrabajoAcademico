@@ -11,17 +11,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements CuentaUsuarioDAO{
+public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements CuentaUsuarioDAO{
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, CuentaUsuarioDTO modelo) throws SQLException {
-        String sql = "{insertarCuentaUsuario(?, ?, ?, ?)}";
+    protected PreparedStatement comandoCrear(Connection conn, CuentaUsuario modelo) throws SQLException {
+        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -35,8 +35,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, CuentaUsuarioDTO modelo) throws SQLException {
-        String sql = "{modificarCuentaUsuario(?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, CuentaUsuario modelo) throws SQLException {
+        String sql = "{CALL modificarCuentaUsuario(?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -51,7 +51,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        String sql = "{eliminarCuentaUsuario(?)}";
+        String sql = "{CALL eliminarCuentaUsuario(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -62,7 +62,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        String sql = "{buscarCuentaUsuario(?)}";
+        String sql = "{CALL buscarCuentaUsuarioPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -73,7 +73,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        String sql = "{listarCuentaUsuarios()}";
+        String sql = "{CALL listarCuentaUsuarios()}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -82,8 +82,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
     }
 
     @Override
-    protected CuentaUsuarioDTO mapearModelo(ResultSet rs) throws SQLException {
-        CuentaUsuarioDTO cuenta = new CuentaUsuarioDTO();
+    protected CuentaUsuario mapearModelo(ResultSet rs) throws SQLException {
+        CuentaUsuario cuenta = new CuentaUsuario();
         
         cuenta.setId(rs.getInt("idCuentaUsuario"));
         cuenta.setUsername(rs.getString("userName"));
@@ -94,7 +94,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuarioDTO> implements C
         return cuenta;
     }
 
-    public CuentaUsuarioDTO obtenerPorId(int id) {
+    public CuentaUsuario obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

@@ -10,20 +10,21 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.persona.ClienteDAO;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.persona.ClienteDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
+public class ClienteDAOImpl extends BaseDAO<Cliente> implements ClienteDAO{
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, ClienteDTO modelo) throws SQLException {
-        String sql = "{call insertarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoCrear(Connection conn, Cliente modelo) throws SQLException {
+        String sql = "{call insertarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -40,13 +41,14 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
         cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setInt("p_Activo", modelo.getActivo());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, ClienteDTO modelo) throws SQLException {
-        String sql = "{call actualizarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, Cliente modelo) throws SQLException {
+        String sql = "{call modificarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -80,7 +82,7 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        String sql = "{call buscarCliente(?)}";
+        String sql = "{call buscarClientePorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -100,8 +102,8 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
     }
 
     @Override
-    protected ClienteDTO mapearModelo(ResultSet rs) throws SQLException {
-        ClienteDTO cliente = new ClienteDTO();
+    protected Cliente mapearModelo(ResultSet rs) throws SQLException {
+        Cliente cliente = new Cliente();
         
         cliente.setId(rs.getInt("idCliente"));
         cliente.setCategoriaCliente(rs.getString("Categoria"));
@@ -132,7 +134,7 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
     }
     
     @Override
-    public ClienteDTO buscarPorDNI(String dni) {
+    public Cliente buscarPorDNI(String dni) {
         return ejecutarComando(conn -> {
             try (PreparedStatement cmd = this.comandoBuscarPorDni(conn, dni)){
                 ResultSet rs = cmd.executeQuery();
@@ -148,7 +150,7 @@ public class ClienteDAOImpl extends BaseDAO<ClienteDTO> implements ClienteDAO{
         });
     }
 
-    public ClienteDTO obtenerPorId(int id) {
+    public Cliente obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

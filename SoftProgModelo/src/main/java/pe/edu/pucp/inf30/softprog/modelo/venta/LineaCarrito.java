@@ -4,25 +4,25 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
-import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaCarritoDTO extends RegistroDTO{
+public class LineaCarrito extends Registro{
     private int idProducto;
     private int idCarritoCompras;
     private int cantidad;
     private double precioVolumen;
     private double subTotal;
     
-    public LineaCarritoDTO(){
+    public LineaCarrito(){
         
     }
 
-    public LineaCarritoDTO(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal) {
+    public LineaCarrito(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal) {
         this.idProducto = idProducto;
         this.idCarritoCompras = idCarritoCompras;
         this.cantidad = cantidad;
@@ -30,7 +30,7 @@ public class LineaCarritoDTO extends RegistroDTO{
         this.subTotal = subTotal;
     }
 
-    public LineaCarritoDTO(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal, int id, boolean activo) {
+    public LineaCarrito(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal, int id, boolean activo) {
         super(id, activo);
         this.idProducto = idProducto;
         this.idCarritoCompras = idCarritoCompras;

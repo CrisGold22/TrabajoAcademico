@@ -12,16 +12,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.persona.AdministradorSistemaDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistemaDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistema;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistemaDTO> implements AdministradorSistemaDAO {
+public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> implements AdministradorSistemaDAO {
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, AdministradorSistemaDTO modelo) throws SQLException {
+    protected PreparedStatement comandoCrear(Connection conn, AdministradorSistema modelo) throws SQLException {
         String sql = "{CALL insertarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -43,7 +43,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistemaDTO
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, AdministradorSistemaDTO modelo) throws SQLException {
+    protected PreparedStatement comandoActualizar(Connection conn, AdministradorSistema modelo) throws SQLException {
         String sql = "{CALL modificarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -95,8 +95,8 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistemaDTO
     }
 
     @Override
-    protected AdministradorSistemaDTO mapearModelo(ResultSet rs) throws SQLException {
-        AdministradorSistemaDTO administrador = new AdministradorSistemaDTO();
+    protected AdministradorSistema mapearModelo(ResultSet rs) throws SQLException {
+        AdministradorSistema administrador = new AdministradorSistema();
         
         administrador.setId(rs.getInt("idAdministrador"));
         administrador.setRangoString(rs.getString("rango"));

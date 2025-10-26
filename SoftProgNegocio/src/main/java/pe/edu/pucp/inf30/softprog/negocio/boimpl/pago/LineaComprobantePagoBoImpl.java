@@ -6,7 +6,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.pago;
 
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.daoimpl.pago.LineaComprobantePagoDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
 import pe.edu.pucp.inf30.softprog.negocio.bo.pago.LineaComprobantePagoBO;
 import pe.edu.pucp.inf30.softprog.dao.pago.LineaComprobantePagoDAO;
 /**
@@ -21,22 +21,22 @@ public class LineaComprobantePagoBOImpl implements LineaComprobantePagoBO{
     }
 
     @Override
-    public List<LineaComprobantePagoDTO> listar() {
+    public List<LineaComprobantePago> listar() {
         return this.lineaComprobantePagoDAO.leerTodos();
     }
 
     @Override
-    public void insertar(LineaComprobantePagoDTO modelo) {
+    public void insertar(LineaComprobantePago modelo) {
         this.lineaComprobantePagoDAO.crear(modelo);
     }
 
     @Override
-    public void actualizar(LineaComprobantePagoDTO modelo) {
+    public void actualizar(LineaComprobantePago modelo) {
         this.lineaComprobantePagoDAO.actualizar(modelo);
     }
 
     @Override
-    public LineaComprobantePagoDTO obtener(int id) {
+    public LineaComprobantePago obtener(int id) {
         return this.lineaComprobantePagoDAO.leer(id);
     }
 

@@ -4,14 +4,14 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.producto;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.producto.utils.UnidadMedida;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class ProductoDTO extends RegistroDTO {
+public class Producto extends Registro {
 
     private String nombre;
     private String SKU;
@@ -24,11 +24,11 @@ public class ProductoDTO extends RegistroDTO {
     private int stockMaximo;
     private int idCategoria;
     
-    public ProductoDTO() {
+    public Producto() {
 
     }
 
-    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria) {
+    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria) {
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
@@ -41,7 +41,7 @@ public class ProductoDTO extends RegistroDTO {
         this.idCategoria = idCategoria;
     }
 
-    public ProductoDTO(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria, int id, boolean activo) {
+    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.SKU = SKU;

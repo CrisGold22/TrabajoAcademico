@@ -4,30 +4,30 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CuentaUsuarioDTO extends RegistroDTO{
+public class CuentaUsuario extends Registro{
     private String username;
     private String password;
     private int idCliente;
     private int idAdministrador;
     
-    public CuentaUsuarioDTO(){
+    public CuentaUsuario(){
         
     }
 
-    public CuentaUsuarioDTO(String username, String password, int idCliente, int idAdministrador) {
+    public CuentaUsuario(String username, String password, int idCliente, int idAdministrador) {
         this.username = username;
         this.password = password;
         this.idCliente = idCliente;
         this.idAdministrador = idAdministrador;
     }
 
-    public CuentaUsuarioDTO(String username, String password, int idCliente, int idAdministrador, int id, boolean activo) {
+    public CuentaUsuario(String username, String password, int idCliente, int idAdministrador, int id, boolean activo) {
         super(id, activo);
         this.username = username;
         this.password = password;

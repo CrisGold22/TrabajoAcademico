@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.DetalleEnvioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.DetalleEnvioDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvio;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.DetalleEnvioBO;
 
 /**
@@ -22,22 +22,22 @@ public class DetalleEnvioBOImpl implements DetalleEnvioBO{
     }
     
     @Override
-    public List<DetalleEnvioDTO> listar() {
+    public List<DetalleEnvio> listar() {
         return this.detalleEnvioDAO.leerTodos();
     }
 
     @Override
-    public void insertar(DetalleEnvioDTO modelo) {
+    public void insertar(DetalleEnvio modelo) {
         this.detalleEnvioDAO.crear(modelo);
     }
 
     @Override
-    public void actualizar(DetalleEnvioDTO modelo) {
+    public void actualizar(DetalleEnvio modelo) {
         this.detalleEnvioDAO.actualizar(modelo);
     }
 
     @Override
-    public DetalleEnvioDTO obtener(int id) {
+    public DetalleEnvio obtener(int id) {
         return this.detalleEnvioDAO.leer(id);
     }
 

@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.producto;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.producto.CategoriaProductoDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
 
 /**
@@ -22,22 +22,22 @@ public class CategoriaProductoBOImpl implements CategoriaProductoBO {
     }
     
     @Override
-    public List<CategoriaProductoDTO> listar() {
+    public List<CategoriaProducto> listar() {
         return this.categoriaProductoDAO.leerTodos();
     }
 
     @Override
-    public void insertar(CategoriaProductoDTO modelo) {
+    public void insertar(CategoriaProducto modelo) {
         this.categoriaProductoDAO.crear(modelo);
     }
 
     @Override
-    public void actualizar(CategoriaProductoDTO modelo) {
+    public void actualizar(CategoriaProducto modelo) {
         this.categoriaProductoDAO.actualizar(modelo);
     }
 
     @Override
-    public CategoriaProductoDTO obtener(int id) {
+    public CategoriaProducto obtener(int id) {
         return this.categoriaProductoDAO.leer(id);
     }
 

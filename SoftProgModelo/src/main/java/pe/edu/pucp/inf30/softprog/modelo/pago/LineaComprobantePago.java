@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.pago;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaComprobantePagoDTO extends RegistroDTO{
+public class LineaComprobantePago extends Registro{
     private double montoPagado;
     private int codigo;
     private int cantidad;
@@ -18,11 +18,11 @@ public class LineaComprobantePagoDTO extends RegistroDTO{
     private double montoImpuesto;
     private int idComprobantePago;
     
-    public LineaComprobantePagoDTO(){
+    public LineaComprobantePago(){
         
     }
 
-    public LineaComprobantePagoDTO(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, int idComprobantePago) {
+    public LineaComprobantePago(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, int idComprobantePago) {
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
@@ -31,7 +31,7 @@ public class LineaComprobantePagoDTO extends RegistroDTO{
         this.idComprobantePago = idComprobantePago;
     }
 
-    public LineaComprobantePagoDTO(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, int idComprobantePago, int id, boolean activo) {
+    public LineaComprobantePago(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, int idComprobantePago, int id, boolean activo) {
         super(id, activo);
         this.montoPagado = montoPagado;
         this.codigo = codigo;

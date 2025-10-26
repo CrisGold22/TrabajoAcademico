@@ -4,30 +4,30 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.producto;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class DescuentoDTO extends RegistroDTO{
+public class Descuento extends Registro{
     private double precioPorVolumen;
     private int idProducto;
     private int cantidadMax;
     private int cantidadMin;
 
-    public DescuentoDTO(){
+    public Descuento(){
         
     }
     
-    public DescuentoDTO(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin) {
+    public Descuento(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin) {
         this.precioPorVolumen = precioPorVolumen;
         this.idProducto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
     }
 
-    public DescuentoDTO(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
+    public Descuento(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
         super(id, activo);
         this.precioPorVolumen = precioPorVolumen;
         this.idProducto = producto;

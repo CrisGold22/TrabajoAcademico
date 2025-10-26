@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.negocio.bo.persona;
 
-import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface CuentaUsuarioBO extends Gestionable<CuentaUsuarioDTO> {
+public interface CuentaUsuarioBO extends Gestionable<CuentaUsuario> {
     
 }

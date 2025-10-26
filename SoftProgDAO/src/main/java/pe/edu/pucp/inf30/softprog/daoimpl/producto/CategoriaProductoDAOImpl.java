@@ -11,16 +11,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> implements CategoriaProductoDAO{
+public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> implements CategoriaProductoDAO{
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, CategoriaProductoDTO modelo) throws SQLException {
+    protected PreparedStatement comandoCrear(Connection conn, CategoriaProducto modelo) throws SQLException {
         String sql = "{CALL insertarCategoriaProducto(?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -36,7 +36,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, CategoriaProductoDTO modelo) throws SQLException {
+    protected PreparedStatement comandoActualizar(Connection conn, CategoriaProducto modelo) throws SQLException {
         String sql = "{CALL modificarCategoriaProducto(?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -52,7 +52,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
 
     @Override
     protected PreparedStatement comandoEliminar(Connection conn, Integer id) throws SQLException {
-        String sql = "{CALL eliiminarCategoriaProducto(?)}";
+        String sql = "{CALL eliminarCategoriaProducto(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -82,8 +82,8 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProductoDTO> impl
     }
 
     @Override
-    protected CategoriaProductoDTO mapearModelo(ResultSet rs) throws SQLException {
-        CategoriaProductoDTO categoria = new CategoriaProductoDTO();
+    protected CategoriaProducto mapearModelo(ResultSet rs) throws SQLException {
+        CategoriaProducto categoria = new CategoriaProducto();
         
         categoria.setId(rs.getInt("idCategoriaProducto"));
         categoria.setNombreString(rs.getString("NombreCategoria"));

@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.negocio.bo.venta;
 
-import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvio;
 import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface DetalleEnvioBO extends Gestionable<DetalleEnvioDTO> {
+public interface DetalleEnvioBO extends Gestionable<DetalleEnvio> {
     
 }

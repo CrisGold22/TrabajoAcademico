@@ -18,7 +18,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import pe.edu.pucp.inf30.softprog.dao.producto.ProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.producto.ProductoDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 
 //@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -32,7 +32,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeCrear() {
 //        ProductoDAO productoDao = new ProductoDAOImpl();
-//        ProductoDTO producto = new ProductoDTO();
+//        Producto producto = new Producto();
 //        producto.setNombre("Producto de Prueba");
 //        producto.setDescripcion("Descripcion de prueba para el producto");
 //        producto.setPrecioUnitario(99.99);
@@ -50,7 +50,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeActualizarSiIdExiste() {
 //        ProductoDAO productoDao = new ProductoDAOImpl();
-//        ProductoDTO producto = new ProductoDTO();
+//        Producto producto = new Producto();
 //        producto.setId(this.testId);
 //        producto.setNombre("Producto de Prueba Modificado");
 //        producto.setDescripcion("Descripcion modificada del producto de prueba");
@@ -63,7 +63,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        boolean modifico = productoDao.actualizar(producto);
 //        assertTrue(modifico);
 //        
-//        ProductoDTO productoModificado = productoDao.leer(this.testId);
+//        Producto productoModificado = productoDao.leer(this.testId);
 //        assertEquals("Producto de Prueba Modificado", productoModificado.getNombre());
 //        assertEquals("Descripcion modificada del producto de prueba", productoModificado.getDescripcion());
 //        assertEquals(149.99, productoModificado.getPrecioUnitario());
@@ -78,7 +78,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeActualizarSiIdNoExiste() {
 //        ProductoDAO productoDao = new ProductoDAOImpl();
-//        ProductoDTO producto = new ProductoDTO();
+//        Producto producto = new Producto();
 //        producto.setId(this.idIncorrecto);
 //        producto.setNombre("Producto Inexistente");
 //        producto.setDescripcion("Este producto no debería actualizarse");
@@ -106,7 +106,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeLeerSiIdExiste() {
 //        ProductoDAO productoDao = new ProductoDAOImpl();
-//        ProductoDTO producto = productoDao.leer(this.testId);
+//        Producto producto = productoDao.leer(this.testId);
 //        assertNotNull(producto);
 //        assertEquals(this.testId, producto.getId());
 //        assertNotNull(producto.getNombre());
@@ -119,7 +119,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeLeerSiIdNoExiste() {
 //        ProductoDAO productoDao = new ProductoDAOImpl();
-//        ProductoDTO producto = productoDao.leer(this.idIncorrecto);
+//        Producto producto = productoDao.leer(this.idIncorrecto);
 //        assertNull(producto);
 //    }
 //    
@@ -148,7 +148,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        assertTrue(elimino);
 //        
 //        // Verificar que el producto ya no existe
-//        ProductoDTO productoEliminado = productoDao.leer(this.testId);
+//        Producto productoEliminado = productoDao.leer(this.testId);
 //        assertNull(productoEliminado);
 //    }
 //}
