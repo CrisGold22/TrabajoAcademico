@@ -90,7 +90,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        String sql = "{CALL leerAdministradores()}";
+        String sql = "{CALL listarAdministradores()}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         return cmd;

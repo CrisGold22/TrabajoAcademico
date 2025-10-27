@@ -94,7 +94,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        String sql = "{CALL listarComprobantePago()}";
+        String sql = "{CALL listarComprobantesPago()}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         return cmd;
