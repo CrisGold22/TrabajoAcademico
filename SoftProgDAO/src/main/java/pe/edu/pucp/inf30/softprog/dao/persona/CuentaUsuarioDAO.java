@@ -12,5 +12,5 @@ import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
  * @author Cristhian Horacio
  */
 public interface CuentaUsuarioDAO extends Persistible<CuentaUsuario, Integer> {
-    
+    boolean login(String email, String password);
 }

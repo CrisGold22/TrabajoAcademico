@@ -45,5 +45,8 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
     public void eliminar(int id) {
         this.cuenta.eliminar(id);
     }
-    
+    @Override
+    public boolean login(String email, String password){
+        return this.cuenta.login(email, password);
+    }
 }
