@@ -99,5 +99,21 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     public CuentaUsuario obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
+    protected PreparedStatement comandoLogin (Connection conn, String email, String password )throws SQLException{
+        String sql = "{CALL loginUsuario(?,?)}";
+        CallableStatement cmd = conn.prepareCall(sql);
+        cmd.setString("p_email", email);
+        cmd.setString("p_password", password);
+        cmd.registerOutParameter("p_valido", Types.BOOLEAN);
+        
+        return cmd;
+    }
+    @Override
+    public boolean login(String email, String password) {
+        CuentaUsuarioDAOImpl cuentaUsuarioLog = new CuentaUsuarioDAOImpl();
+        return cuentaUsuarioLog.login(email, password);
+    }
     
 }
