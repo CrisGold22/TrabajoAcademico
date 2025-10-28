@@ -5,12 +5,12 @@
 package pe.edu.pucp.inf30.softprog.dao.producto;
 
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
-import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface CategoriaProductoDAO extends Persistible<CategoriaProductoDTO, Integer> {
+public interface CategoriaProductoDAO extends Persistible<CategoriaProducto, Integer> {
     
 }

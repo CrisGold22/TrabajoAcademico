@@ -8,15 +8,15 @@ package pe.edu.pucp.inf30.softprog.modelo.base;
  *
  * @author Cristhian Horacio
  */
-public class RegistroDTO { 
+public class Registro { 
     private int id;
     private boolean activo;
     
-    public RegistroDTO(){
+    public Registro(){
         
     }
 
-    public RegistroDTO(int id, boolean activo) {
+    public Registro(int id, boolean activo) {
         this.id = id;
         this.activo = activo;
     }

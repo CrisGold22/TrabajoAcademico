@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.negocio.bo.venta;
 
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface LineaOrdenCompraBO extends Gestionable<LineaOrdenCompraDTO> {
+public interface LineaOrdenCompraBO extends Gestionable<LineaOrdenCompra> {
     
 }

@@ -4,30 +4,30 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.producto;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.producto.utils.TipoCategoria;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CategoriaProductoDTO extends RegistroDTO {
+public class CategoriaProducto extends Registro {
 
     private TipoCategoria nombre;
     private String descripcion;
     private int idCategoriaPadre;
 
-    public CategoriaProductoDTO() {
+    public CategoriaProducto() {
 
     }
 
-    public CategoriaProductoDTO(TipoCategoria nombre, String descripcion, int idCategoriaPadre) {
+    public CategoriaProducto(TipoCategoria nombre, String descripcion, int idCategoriaPadre) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.idCategoriaPadre = idCategoriaPadre;
     }
 
-    public CategoriaProductoDTO(TipoCategoria nombre, String descripcion, int idCategoriaPadre, int id, boolean activo) {
+    public CategoriaProducto(TipoCategoria nombre, String descripcion, int idCategoriaPadre, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.descripcion = descripcion;

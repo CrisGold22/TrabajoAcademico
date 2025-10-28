@@ -5,12 +5,12 @@
 package pe.edu.pucp.inf30.softprog.dao.persona;
 
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
-import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistemaDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.AdministradorSistema;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface AdministradorSistemaDAO extends Persistible<AdministradorSistemaDTO, Integer>{
+public interface AdministradorSistemaDAO extends Persistible<AdministradorSistema, Integer>{
     
 }

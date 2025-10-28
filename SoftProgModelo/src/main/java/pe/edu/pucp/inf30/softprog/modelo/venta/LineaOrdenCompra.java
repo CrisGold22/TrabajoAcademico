@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaOrdenCompraDTO extends RegistroDTO{
+public class LineaOrdenCompra extends Registro{
     private double montoPagado;
     private int codigo;
     private int cantidad;
@@ -20,11 +20,11 @@ public class LineaOrdenCompraDTO extends RegistroDTO{
     private int idOrdenCompra;
     private int idCarrito;
     
-    public LineaOrdenCompraDTO(){
+    public LineaOrdenCompra(){
         
     }
 
-    public LineaOrdenCompraDTO(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito) {
+    public LineaOrdenCompra(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito) {
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
@@ -35,7 +35,7 @@ public class LineaOrdenCompraDTO extends RegistroDTO{
         this.idCarrito = idCarrito;
     }
 
-    public LineaOrdenCompraDTO(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito, int id, boolean activo) {
+    public LineaOrdenCompra(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito, int id, boolean activo) {
         super(id, activo);
         this.montoPagado = montoPagado;
         this.codigo = codigo;

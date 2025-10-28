@@ -5,14 +5,14 @@
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
 import java.util.Date;
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.Distrito;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class DetalleEnvioDTO extends RegistroDTO {
+public class DetalleEnvio extends Registro {
 
     private String descripcion;
     private Date fechaEntrega;
@@ -20,11 +20,11 @@ public class DetalleEnvioDTO extends RegistroDTO {
     private String direccion;
     private Distrito distrito;
 
-    public DetalleEnvioDTO() {
+    public DetalleEnvio() {
 
     }
 
-    public DetalleEnvioDTO(String descripcion, Date fechaEntrega, Date horarioEntrega, String direccion, Distrito distrito) {
+    public DetalleEnvio(String descripcion, Date fechaEntrega, Date horarioEntrega, String direccion, Distrito distrito) {
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
         this.horarioEntrega = horarioEntrega;
@@ -32,7 +32,7 @@ public class DetalleEnvioDTO extends RegistroDTO {
         this.distrito = distrito;
     }
 
-    public DetalleEnvioDTO(String descripcion, Date fechaEntrega, Date horarioEntrega, String direccion, Distrito distrito, int id, boolean activo) {
+    public DetalleEnvio(String descripcion, Date fechaEntrega, Date horarioEntrega, String direccion, Distrito distrito, int id, boolean activo) {
         super(id, activo);
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;

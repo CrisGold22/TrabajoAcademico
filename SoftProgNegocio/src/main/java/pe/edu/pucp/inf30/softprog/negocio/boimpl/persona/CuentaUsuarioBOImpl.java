@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.persona;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
 
 /**
@@ -22,22 +22,22 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
     }
     
     @Override
-    public List<CuentaUsuarioDTO> listar() {
+    public List<CuentaUsuario> listar() {
         return this.cuenta.leerTodos();
     }
 
     @Override
-    public void insertar(CuentaUsuarioDTO modelo) {
+    public void insertar(CuentaUsuario modelo) {
         this.cuenta.crear(modelo);
     }
 
     @Override
-    public void actualizar(CuentaUsuarioDTO modelo) {
+    public void actualizar(CuentaUsuario modelo) {
         this.cuenta.actualizar(modelo);
     }
 
     @Override
-    public CuentaUsuarioDTO obtener(int id) {
+    public CuentaUsuario obtener(int id) {
         return this.cuenta.leer(id);
     }
 
@@ -45,5 +45,8 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
     public void eliminar(int id) {
         this.cuenta.eliminar(id);
     }
-    
+    @Override
+    public boolean login(String email, String password){
+        return this.cuenta.login(email, password);
+    }
 }

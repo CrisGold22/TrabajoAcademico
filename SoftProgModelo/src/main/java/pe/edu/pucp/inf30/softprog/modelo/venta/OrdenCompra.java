@@ -7,16 +7,16 @@ package pe.edu.pucp.inf30.softprog.modelo.venta;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoOrdenCompra;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class OrdenCompraDTO extends RegistroDTO {
+public class OrdenCompra extends Registro {
 
-    private List<LineaOrdenCompraDTO> lineasOrden;
+    private List<LineaOrdenCompra> lineasOrden;
     private Date fechaCreacion;
     private double totalParcial;
     private double totalFinal;
@@ -24,11 +24,11 @@ public class OrdenCompraDTO extends RegistroDTO {
     private int idDetalleEnvio;
     private EstadoOrdenCompra estado;
 
-    public OrdenCompraDTO() {
+    public OrdenCompra() {
         lineasOrden = new ArrayList<>();
     }
 
-    public OrdenCompraDTO(ArrayList<LineaOrdenCompraDTO> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, int idDetalleEnvio, EstadoOrdenCompra estado) {
+    public OrdenCompra(ArrayList<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, int idDetalleEnvio, EstadoOrdenCompra estado) {
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
@@ -38,7 +38,7 @@ public class OrdenCompraDTO extends RegistroDTO {
         this.estado = estado;
     }
 
-    public OrdenCompraDTO(ArrayList<LineaOrdenCompraDTO> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, int idDetalleEnvio, EstadoOrdenCompra estado, int id, boolean activo) {
+    public OrdenCompra(ArrayList<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, int idDetalleEnvio, EstadoOrdenCompra estado, int id, boolean activo) {
         super(id, activo);
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
@@ -49,11 +49,11 @@ public class OrdenCompraDTO extends RegistroDTO {
         this.estado = estado;
     }
 
-    public List<LineaOrdenCompraDTO> getLineasOrden() {
+    public List<LineaOrdenCompra> getLineasOrden() {
         return lineasOrden;
     }
 
-    public void setLineasOrden(List<LineaOrdenCompraDTO> lineasOrden) {
+    public void setLineasOrden(List<LineaOrdenCompra> lineasOrden) {
         this.lineasOrden = lineasOrden;
     }
 

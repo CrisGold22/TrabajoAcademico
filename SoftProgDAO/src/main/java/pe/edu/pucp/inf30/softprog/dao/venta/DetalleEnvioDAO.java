@@ -5,12 +5,12 @@
 package pe.edu.pucp.inf30.softprog.dao.venta;
 
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
-import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvio;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface DetalleEnvioDAO extends Persistible<DetalleEnvioDTO, Integer> {
+public interface DetalleEnvioDAO extends Persistible<DetalleEnvio, Integer> {
     
 }

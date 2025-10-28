@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.negocio.bo.producto;
 
-import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface ProductoBO extends Gestionable<ProductoDTO> {
+public interface ProductoBO extends Gestionable<Producto> {
     
 }

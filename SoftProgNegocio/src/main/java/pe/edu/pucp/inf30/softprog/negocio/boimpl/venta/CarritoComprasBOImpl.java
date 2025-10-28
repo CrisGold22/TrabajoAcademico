@@ -15,8 +15,8 @@ import pe.edu.pucp.inf30.softprog.daoimpl.venta.CarritoComprasDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaCarritoDAOImpl;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBFactoryProvider;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBManager;
-import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarritoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarrito;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.CarritoComprasBO;
 
 /**
@@ -33,12 +33,12 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
     }
     
     @Override
-    public List<CarritoComprasDTO> listar() {  
+    public List<CarritoCompras> listar() {  
        return this.carritoCompras.leerTodos();
     }
 
     @Override
-    public void insertar(CarritoComprasDTO modelo) {
+    public void insertar(CarritoCompras modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
         
         try(Connection conn = dbManager.getConnection()){
@@ -48,7 +48,7 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
                 int idOrden = this.carritoCompras.crear(modelo, conn);
                 modelo.setId(idOrden);
                 
-                for(LineaCarritoDTO linea : modelo.getLineasCarritos()){
+                for(LineaCarrito linea : modelo.getLineasCarritos()){
                     linea.setIdCarritoCompras(idOrden);
                     lineaCarrito.crear(linea, conn);
                 }
@@ -65,7 +65,7 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
     }
 
     @Override
-    public void actualizar(CarritoComprasDTO modelo) {
+    public void actualizar(CarritoCompras modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
         
         try(Connection conn = dbManager.getConnection()){
@@ -74,7 +74,7 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
             try{
                 carritoCompras.actualizar(modelo, conn);
                 
-                for(LineaCarritoDTO linea : modelo.getLineasCarritos()){
+                for(LineaCarrito linea : modelo.getLineasCarritos()){
                     if(linea.getId() == 0){
                         linea.setIdCarritoCompras(modelo.getId());
                         lineaCarrito.crear(linea, conn);
@@ -96,10 +96,10 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
     }
 
     @Override
-    public CarritoComprasDTO obtener(int id) {
-        CarritoComprasDTO carrito = carritoCompras.leer(id);
+    public CarritoCompras obtener(int id) {
+        CarritoCompras carrito = carritoCompras.leer(id);
         if(carrito == null) return null;
-        List<LineaCarritoDTO> lineas = lineaCarrito.listarPorIdCarrito(id);
+        List<LineaCarrito> lineas = lineaCarrito.listarPorIdCarrito(id);
         carrito.setLineasCarrito(lineas);
         return carrito;
     }
@@ -112,8 +112,8 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
             conn.setAutoCommit(false);
             
             try{
-                List<LineaCarritoDTO> lineas = lineaCarrito.listarPorIdCarrito(id, conn);
-                for(LineaCarritoDTO linea : lineas){
+                List<LineaCarrito> lineas = lineaCarrito.listarPorIdCarrito(id, conn);
+                for(LineaCarrito linea : lineas){
                     if(linea.getIdCarritoCompras()== id){
                         lineaCarrito.eliminar(linea.getId(), conn);
                     }

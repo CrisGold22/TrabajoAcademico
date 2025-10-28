@@ -22,8 +22,8 @@ import pe.edu.pucp.inf30.softprog.daoimpl.persona.ClienteDAOImpl;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.CategoriaCliente;
-import pe.edu.pucp.inf30.softprog.modelo.persona.ClienteDTO;
-import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuarioDTO;
+import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
@@ -38,7 +38,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @BeforeAll
 //    public void inicializar() {
 //        CuentaUsuarioDAO cuentaUsuarioDao = new CuentaUsuarioDAOImpl();
-//        CuentaUsuarioDTO cuentaUsuario = new CuentaUsuarioDTO();
+//        CuentaUsuario cuentaUsuario = new CuentaUsuario();
 //        cuentaUsuario.setUsername("cliente_prueba");
 //        cuentaUsuario.setPassword("password123");
 //        
@@ -56,7 +56,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeCrear() {
 //        ClienteDAO clienteDao = new ClienteDAOImpl();
-//        ClienteDTO cliente = new ClienteDTO();
+//        Cliente cliente = new Cliente();
 //        
 //        // Datos de Persona (herencia)
 //        cliente.setDni("12345678");
@@ -83,7 +83,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeActualizarSiIdExiste() {
 //        ClienteDAO clienteDao = new ClienteDAOImpl();
-//        ClienteDTO cliente = new ClienteDTO();
+//        Cliente cliente = new Cliente();
 //        
 //        cliente.setId(this.testId);
 //        
@@ -106,7 +106,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        boolean modifico = clienteDao.actualizar(cliente);
 //        assertTrue(modifico);
 //        
-//        ClienteDTO clienteModificado = clienteDao.leer(this.testId);
+//        Cliente clienteModificado = clienteDao.leer(this.testId);
 //        assertEquals("87654321", clienteModificado.getDni());
 //        assertEquals("María Elena", clienteModificado.getNombre());
 //        assertEquals("López", clienteModificado.getApellidoPaterno());
@@ -126,7 +126,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeActualizarSiIdNoExiste() {
 //        ClienteDAO clienteDao = new ClienteDAOImpl();
-//        ClienteDTO cliente = new ClienteDTO();
+//        Cliente cliente = new Cliente();
 //        
 //        cliente.setId(this.idIncorrecto);
 //        cliente.setDni("99999999");
@@ -160,7 +160,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeLeerSiIdExiste() {
 //        ClienteDAO clienteDao = new ClienteDAOImpl();
-//        ClienteDTO cliente = clienteDao.leer(this.testId);
+//        Cliente cliente = clienteDao.leer(this.testId);
 //        assertNotNull(cliente);
 //        assertEquals(this.testId, cliente.getId());
 //        assertNotNull(cliente.getDni());
@@ -174,7 +174,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeLeerSiIdNoExiste() {
 //        ClienteDAO clienteDao = new ClienteDAOImpl();
-//        ClienteDTO cliente = clienteDao.leer(this.idIncorrecto);
+//        Cliente cliente = clienteDao.leer(this.idIncorrecto);
 //        assertNull(cliente);
 //    }
 //    
@@ -203,7 +203,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        assertTrue(elimino);
 //        
 //        // Verificar que el cliente ya no existe
-//        ClienteDTO clienteEliminado = clienteDao.leer(this.testId);
+//        Cliente clienteEliminado = clienteDao.leer(this.testId);
 //        assertNull(clienteEliminado);
 //    }
 //}

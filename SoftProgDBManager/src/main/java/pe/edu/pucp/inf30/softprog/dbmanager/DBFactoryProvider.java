@@ -16,7 +16,7 @@ public class DBFactoryProvider {
 
     public static synchronized DBManager getManager() {
         if (instancia == null) {
-            ResourceBundle properties = ResourceBundle.getBundle("jdbc");
+            ResourceBundle properties = ResourceBundle.getBundle("db");
 
             String host = properties.getString("db.host");
             int puerto = Integer.parseInt(properties.getString("db.puerto"));

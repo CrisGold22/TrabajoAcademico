@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.negocio.bo.venta;
 
-import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
 import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface CarritoComprasBO extends Gestionable<CarritoComprasDTO>{
+public interface CarritoComprasBO extends Gestionable<CarritoCompras>{
     
 }

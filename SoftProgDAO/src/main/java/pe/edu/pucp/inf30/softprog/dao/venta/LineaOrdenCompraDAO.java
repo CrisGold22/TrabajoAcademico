@@ -8,13 +8,13 @@ import java.sql.Connection;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
 import pe.edu.pucp.inf30.softprog.dao.PersistibleTransaccional;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface LineaOrdenCompraDAO extends PersistibleTransaccional<LineaOrdenCompraDTO, Integer> {
-    List<LineaOrdenCompraDTO> listarPorIdOrdenCompra(int id);
-    List<LineaOrdenCompraDTO> listarPorIdOrdenCompra(Connection conn, int id);
+public interface LineaOrdenCompraDAO extends PersistibleTransaccional<LineaOrdenCompra, Integer> {
+    List<LineaOrdenCompra> listarPorIdOrdenCompra(int id);
+    List<LineaOrdenCompra> listarPorIdOrdenCompra(Connection conn, int id);
 }

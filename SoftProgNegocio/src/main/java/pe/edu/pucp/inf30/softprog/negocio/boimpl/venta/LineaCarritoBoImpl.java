@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaCarritoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaCarritoDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarritoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarrito;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.LineaCarritoBO;
 
 /**
@@ -21,22 +21,22 @@ public class LineaCarritoBOImpl implements LineaCarritoBO {
         lineaCarritoDAO = new LineaCarritoDAOImpl();
     }
     @Override
-    public List<LineaCarritoDTO> listar() {
+    public List<LineaCarrito> listar() {
         return this.lineaCarritoDAO.leerTodos();
     }
 
     @Override
-    public void insertar(LineaCarritoDTO modelo) {
+    public void insertar(LineaCarrito modelo) {
         this.lineaCarritoDAO.crear(modelo);
     }
 
     @Override
-    public void actualizar(LineaCarritoDTO modelo) {
+    public void actualizar(LineaCarrito modelo) {
         this.lineaCarritoDAO.actualizar(modelo);
     }
 
     @Override
-    public LineaCarritoDTO obtener(int id) {
+    public LineaCarrito obtener(int id) {
         return this.lineaCarritoDAO.leer(id);
     }
 

@@ -4,13 +4,13 @@
  */
 package pe.edu.pucp.inf30.softprog.negocio.bo.pago;
 
-import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
 import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public interface LineaComprobantePagoBO extends Gestionable<LineaComprobantePagoDTO> {
+public interface LineaComprobantePagoBO extends Gestionable<LineaComprobantePago> {
     
 }

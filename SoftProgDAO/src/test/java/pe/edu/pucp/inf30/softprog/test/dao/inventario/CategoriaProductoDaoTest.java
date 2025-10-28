@@ -15,7 +15,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.producto.CategoriaProductoDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
 import pe.edu.pucp.inf30.softprog.modelo.producto.utils.TipoCategoria;
 import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 
@@ -30,7 +30,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeCrear() {
 //        CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-//        CategoriaProductoDTO categoriaProducto = new CategoriaProductoDTO();
+//        CategoriaProducto categoriaProducto = new CategoriaProducto();
 //        categoriaProducto.setNombre(TipoCategoria.ELECTRONICA); // Asumiendo que existe este valor en el enum
 //        categoriaProducto.setDescripcion("Categoria de productos electronicos para pruebas");
 //        categoriaProducto.setActivo(true);
@@ -44,7 +44,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeActualizarSiIdExiste() {
 //        CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-//        CategoriaProductoDTO categoriaProducto = new CategoriaProductoDTO();
+//        CategoriaProducto categoriaProducto = new CategoriaProducto();
 //        categoriaProducto.setId(this.testId);
 //        categoriaProducto.setNombre(TipoCategoria.ROPA); // Asumiendo que existe este valor en el enum
 //        categoriaProducto.setDescripcion("Categoria de ropa y accesorios modificada para pruebas");
@@ -53,7 +53,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        boolean modifico = categoriaProductoDao.actualizar(categoriaProducto);
 //        assertTrue(modifico);
 //        
-//        CategoriaProductoDTO categoriaModificada = categoriaProductoDao.leer(this.testId);
+//        CategoriaProducto categoriaModificada = categoriaProductoDao.leer(this.testId);
 //        assertEquals(TipoCategoria.ROPA, categoriaModificada.getNombre());
 //        assertEquals("Categoria de ropa y accesorios modificada para pruebas", categoriaModificada.getDescripcion());
 //        assertFalse(categoriaModificada.isActivo());
@@ -64,7 +64,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeActualizarSiIdNoExiste() {
 //        CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-//        CategoriaProductoDTO categoriaProducto = new CategoriaProductoDTO();
+//        CategoriaProducto categoriaProducto = new CategoriaProducto();
 //        categoriaProducto.setId(this.idIncorrecto);
 //        categoriaProducto.setNombre(TipoCategoria.HOGAR); // Asumiendo que existe este valor en el enum
 //        categoriaProducto.setDescripcion("Esta categoria no debería actualizarse");
@@ -88,7 +88,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void debeLeerSiIdExiste() {
 //        CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-//        CategoriaProductoDTO categoriaProducto = categoriaProductoDao.leer(this.testId);
+//        CategoriaProducto categoriaProducto = categoriaProductoDao.leer(this.testId);
 //        assertNotNull(categoriaProducto);
 //        assertEquals(this.testId, categoriaProducto.getId());
 //        assertNotNull(categoriaProducto.getNombre());
@@ -99,7 +99,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //    @Override
 //    public void noDebeLeerSiIdNoExiste() {
 //        CategoriaProductoDAO categoriaProductoDao = new CategoriaProductoDAOImpl();
-//        CategoriaProductoDTO categoriaProducto = categoriaProductoDao.leer(this.idIncorrecto);
+//        CategoriaProducto categoriaProducto = categoriaProductoDao.leer(this.idIncorrecto);
 //        assertNull(categoriaProducto);
 //    }
 //    
@@ -128,7 +128,7 @@ import pe.edu.pucp.inf30.softprog.test.dao.PersistibleProbable;
 //        assertTrue(elimino);
 //        
 //        // Verificar que la categoria ya no existe
-//        CategoriaProductoDTO categoriaEliminada = categoriaProductoDao.leer(this.testId);
+//        CategoriaProducto categoriaEliminada = categoriaProductoDao.leer(this.testId);
 //        assertNull(categoriaEliminada);
 //    }
 //}

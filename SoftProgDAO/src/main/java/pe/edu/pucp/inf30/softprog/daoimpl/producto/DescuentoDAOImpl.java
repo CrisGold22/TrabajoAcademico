@@ -9,19 +9,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.producto.DescuentoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.producto.DescuentoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Descuento;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class DescuentoDAOImpl extends BaseDAO<DescuentoDTO> implements DescuentoDAO{
+public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO{
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, DescuentoDTO modelo) throws SQLException {
-        String sql = "{CALL insertarDescuento(?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoCrear(Connection conn, Descuento modelo) throws SQLException {
+        String sql = "{CALL insertarDescuento(?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -31,13 +32,14 @@ public class DescuentoDAOImpl extends BaseDAO<DescuentoDTO> implements Descuento
         cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
         cmd.setInt("p_Activo", modelo.getActivo());
         cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, DescuentoDTO modelo) throws SQLException {
-        String sql = "{CALL actualizarDescuento(?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, Descuento modelo) throws SQLException {
+        String sql = "{CALL modificarDescuento(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -83,8 +85,8 @@ public class DescuentoDAOImpl extends BaseDAO<DescuentoDTO> implements Descuento
     }
 
     @Override
-    protected DescuentoDTO mapearModelo(ResultSet rs) throws SQLException {
-        DescuentoDTO descuento = new DescuentoDTO();
+    protected Descuento mapearModelo(ResultSet rs) throws SQLException {
+        Descuento descuento = new Descuento();
         
         descuento.setId(rs.getInt("idReglaPrecioVolumen"));
         descuento.setPrecioPorVolumen(rs.getDouble("precioPorVolumen"));
@@ -96,7 +98,7 @@ public class DescuentoDAOImpl extends BaseDAO<DescuentoDTO> implements Descuento
         return descuento;
     }
 
-    public DescuentoDTO obtenerPorId(int id) {
+    public Descuento obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

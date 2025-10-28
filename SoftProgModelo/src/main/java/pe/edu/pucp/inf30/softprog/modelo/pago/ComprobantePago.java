@@ -8,15 +8,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.pago.utils.MetodoPago;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class ComprobantePagoDTO extends RegistroDTO{
-    private List<LineaComprobantePagoDTO> lineasComprobantes;
+public class ComprobantePago extends Registro{
+    private List<LineaComprobantePago> lineasComprobantes;
     private Date fechaEmision;
     private int RUC;
     private double totalSinImpuestos;
@@ -25,11 +25,11 @@ public class ComprobantePagoDTO extends RegistroDTO{
     private MetodoPago metodoPago;
     private int idOrdenCompra;
     
-    public ComprobantePagoDTO(){
+    public ComprobantePago(){
         lineasComprobantes = new ArrayList<>();
     }
 
-    public ComprobantePagoDTO(ArrayList<LineaComprobantePagoDTO> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra) {
+    public ComprobantePago(ArrayList<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra) {
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
         this.RUC = RUC;
@@ -40,7 +40,7 @@ public class ComprobantePagoDTO extends RegistroDTO{
         this.idOrdenCompra = idOrdenCompra;
     }
 
-    public ComprobantePagoDTO(ArrayList<LineaComprobantePagoDTO> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra, int id, boolean activo) {
+    public ComprobantePago(ArrayList<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra, int id, boolean activo) {
         super(id, activo);
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
@@ -54,11 +54,11 @@ public class ComprobantePagoDTO extends RegistroDTO{
 
     
 
-    public List<LineaComprobantePagoDTO> getLineasComprobantes() {
+    public List<LineaComprobantePago> getLineasComprobantes() {
         return lineasComprobantes;
     }
 
-    public void setLineasComprobantes(List<LineaComprobantePagoDTO> lineasComprobantes) {
+    public void setLineasComprobantes(List<LineaComprobantePago> lineasComprobantes) {
         this.lineasComprobantes = lineasComprobantes;
     }
 

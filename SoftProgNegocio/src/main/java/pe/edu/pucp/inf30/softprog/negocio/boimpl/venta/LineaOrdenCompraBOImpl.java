@@ -7,7 +7,7 @@ package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaOrdenCompraDAOImpl;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.LineaOrdenCompraBO;
 
 /**
@@ -22,22 +22,22 @@ public class LineaOrdenCompraBOImpl implements LineaOrdenCompraBO{
     }
     
     @Override
-    public List<LineaOrdenCompraDTO> listar() {
+    public List<LineaOrdenCompra> listar() {
         return this.lineaOrdenCompraDAO.leerTodos();
     }
 
     @Override
-    public void insertar(LineaOrdenCompraDTO modelo) {
+    public void insertar(LineaOrdenCompra modelo) {
         this.lineaOrdenCompraDAO.crear(modelo);
     }
 
     @Override
-    public void actualizar(LineaOrdenCompraDTO modelo) {
+    public void actualizar(LineaOrdenCompra modelo) {
         this.lineaOrdenCompraDAO.actualizar(modelo);
     }
 
     @Override
-    public LineaOrdenCompraDTO obtener(int id) {
+    public LineaOrdenCompra obtener(int id) {
         return this.lineaOrdenCompraDAO.leer(id);
     }
 

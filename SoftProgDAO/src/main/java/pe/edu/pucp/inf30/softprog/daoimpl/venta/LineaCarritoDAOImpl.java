@@ -10,26 +10,27 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaCarritoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarritoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarrito;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> implements LineaCarritoDAO {
+public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarrito> implements LineaCarritoDAO {
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, LineaCarritoDTO modelo) throws SQLException {
-        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoCrear(Connection conn, LineaCarrito modelo) throws SQLException {
+        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_id_DetalleEnvio", modelo.getId());
+        cmd.setInt("p_idLineaCarrito", modelo.getId());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_precioVolumen", modelo.getPrecioVolumen());
         cmd.setDouble("p_subTotal", modelo.getSubTotal());
@@ -37,17 +38,18 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
         cmd.setInt("p_CarritoDeCompras_Productos", modelo.getIdCarritoCompras());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, LineaCarritoDTO modelo) throws SQLException {
-        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, LineaCarrito modelo) throws SQLException {
+        String sql = "{CALL modificarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_id_DetalleEnvio", modelo.getId());
+        cmd.setInt("p_idLineaCarrito", modelo.getId());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_precioVolumen", modelo.getPrecioVolumen());
         cmd.setDouble("p_subTotal", modelo.getSubTotal());
@@ -65,7 +67,7 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_id_DetalleEnvio", id);
+        cmd.setInt("p_idLineaCarrito", id);
         
         return cmd;
     }
@@ -76,7 +78,7 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_id_DetalleEnvio", id);
+        cmd.setInt("p_idLineaCarrito", id);
         
         return cmd;
     }
@@ -92,8 +94,8 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
     }
 
     @Override
-    protected LineaCarritoDTO mapearModelo(ResultSet rs) throws SQLException {
-        LineaCarritoDTO linea = new LineaCarritoDTO();
+    protected LineaCarrito mapearModelo(ResultSet rs) throws SQLException {
+        LineaCarrito linea = new LineaCarrito();
         
         linea.setId(rs.getInt("idLineaCarrito"));
         linea.setCantidad(rs.getInt("cantidad"));
@@ -106,7 +108,7 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
         return linea;
     }
 
-    public LineaCarritoDTO obtenerPorId(int id) {
+    public LineaCarrito obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
@@ -120,16 +122,16 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarritoDTO> i
     }
     
     @Override
-    public List<LineaCarritoDTO> listarPorIdCarrito(int id) {
+    public List<LineaCarrito> listarPorIdCarrito(int id) {
         return ejecutarComando(conn -> listarPorIdCarrito(id, conn));
     }
 
     @Override
-    public List<LineaCarritoDTO> listarPorIdCarrito(int id, Connection conn) {
+    public List<LineaCarrito> listarPorIdCarrito(int id, Connection conn) {
         try(PreparedStatement cmd = this.comandoListarPorIdCarrito(conn, id)){
             ResultSet rs = cmd.executeQuery();
             
-            List<LineaCarritoDTO> modelos = new ArrayList<>();
+            List<LineaCarrito> modelos = new ArrayList<>();
             while(rs.next()){
                 modelos.add(this.mapearModelo(rs));
             }

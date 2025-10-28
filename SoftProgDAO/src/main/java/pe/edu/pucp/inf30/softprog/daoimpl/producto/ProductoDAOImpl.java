@@ -9,19 +9,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.producto.ProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.producto.ProductoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class ProductoDAOImpl extends BaseDAO<ProductoDTO> implements ProductoDAO {
+public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, ProductoDTO modelo) throws SQLException {
-        String sql = "{CALL insertarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoCrear(Connection conn, Producto modelo) throws SQLException {
+        String sql = "{CALL insertarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -37,13 +38,14 @@ public class ProductoDAOImpl extends BaseDAO<ProductoDTO> implements ProductoDAO
         cmd.setInt("p_StockMinimo", modelo.getStockMinimo());
         cmd.setInt("p_Activo", modelo.getActivo());
         cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getIdCategoria());
-
+        cmd.registerOutParameter("p_id", Types.INTEGER);
+        
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, ProductoDTO modelo) throws SQLException {
-        String sql = "{CALL actualizarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, Producto modelo) throws SQLException {
+        String sql = "{CALL modificarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -95,8 +97,8 @@ public class ProductoDAOImpl extends BaseDAO<ProductoDTO> implements ProductoDAO
     }
 
     @Override
-    protected ProductoDTO mapearModelo(ResultSet rs) throws SQLException {
-        ProductoDTO producto = new ProductoDTO();
+    protected Producto mapearModelo(ResultSet rs) throws SQLException {
+        Producto producto = new Producto();
         
         producto.setId(rs.getInt("ID_Producto"));
         producto.setNombre(rs.getString("Nombre"));
@@ -104,7 +106,7 @@ public class ProductoDAOImpl extends BaseDAO<ProductoDTO> implements ProductoDAO
         producto.setDescripcion(rs.getString("Descripcion"));
         producto.setPrecioAlMayor(rs.getDouble("precioAlMayor"));
         producto.setPrecioUnitario(rs.getDouble("precioRegular"));
-        producto.setMedidaAlMayorString(rs.getString("UnidadMedida"));
+        producto.setMedidaAlMayorString(rs.getString("UnidadDeMedida"));
         producto.setStockDisponible(rs.getInt("StockDisponible"));
         producto.setStockMaximo(rs.getInt("StockMaximo"));
         producto.setStockMinimo(rs.getInt("StockMinimo"));
@@ -114,7 +116,7 @@ public class ProductoDAOImpl extends BaseDAO<ProductoDTO> implements ProductoDAO
         return producto;
     }
 
-    public ProductoDTO obtenerPorId(int id) {
+    public Producto obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

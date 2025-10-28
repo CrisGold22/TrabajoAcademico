@@ -15,8 +15,8 @@ import pe.edu.pucp.inf30.softprog.daoimpl.pago.ComprobantePagoDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.pago.LineaComprobantePagoDAOImpl;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBFactoryProvider;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBManager;
-import pe.edu.pucp.inf30.softprog.modelo.pago.ComprobantePagoDTO;
-import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.ComprobantePago;
+import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
 import pe.edu.pucp.inf30.softprog.negocio.bo.pago.ComprobantePagoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.pago.LineaComprobantePagoBO;
 
@@ -35,12 +35,12 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
     }
     
     @Override
-    public List<ComprobantePagoDTO> listar() {
+    public List<ComprobantePago> listar() {
         return this.comprobantePagoDAO.leerTodos();
     }
 
     @Override
-    public void insertar(ComprobantePagoDTO modelo) {
+    public void insertar(ComprobantePago modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection()) {
             conn.setAutoCommit(false);
@@ -48,7 +48,7 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
             try {
                 int idOrden = this.comprobantePagoDAO.crear(modelo, conn);
                 modelo.setId(idOrden);
-                for (LineaComprobantePagoDTO linea : modelo.getLineasComprobantes()) {
+                for (LineaComprobantePago linea : modelo.getLineasComprobantes()) {
                     linea.setIdComprobantePago(idOrden);
                     lineaComprobantePagoDAO.crear(linea, conn);
                 }
@@ -65,14 +65,14 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
     }
 
     @Override
-    public void actualizar(ComprobantePagoDTO modelo) {
+    public void actualizar(ComprobantePago modelo) {
        DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection()) {
             conn.setAutoCommit(false);
 
             try {
                 comprobantePagoDAO.actualizar(modelo, conn);
-                for (LineaComprobantePagoDTO linea : modelo.getLineasComprobantes()) {
+                for (LineaComprobantePago linea : modelo.getLineasComprobantes()) {
                     if(linea.getId() == 0){
                         linea.setIdComprobantePago(modelo.getId());
                         lineaComprobantePagoDAO.crear(linea, conn);
@@ -94,10 +94,10 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
     }
 
     @Override
-    public ComprobantePagoDTO obtener(int id) {
-        ComprobantePagoDTO comprobante = comprobantePagoDAO.leer(id);
+    public ComprobantePago obtener(int id) {
+        ComprobantePago comprobante = comprobantePagoDAO.leer(id);
         if(comprobante == null) return null;
-        List<LineaComprobantePagoDTO> lineas = lineaComprobantePagoDAO.listarPorIdComprobante(id);
+        List<LineaComprobantePago> lineas = lineaComprobantePagoDAO.listarPorIdComprobante(id);
         comprobante.setLineasComprobantes(lineas);
         return comprobante; 
     }
@@ -110,8 +110,8 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
             conn.setAutoCommit(false);
             
             try{
-                List<LineaComprobantePagoDTO> lineas = lineaComprobantePagoDAO.listarPorIdComprobante(conn, id);
-                for(LineaComprobantePagoDTO linea : lineas){
+                List<LineaComprobantePago> lineas = lineaComprobantePagoDAO.listarPorIdComprobante(conn, id);
+                for(LineaComprobantePago linea : lineas){
                     if(linea.getIdComprobantePago() == id){
                         lineaComprobantePagoDAO.eliminar(linea.getId(), conn);
                     }

@@ -9,20 +9,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.venta.CarritoComprasDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoComprasDTO;
+import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoComprasDTO> implements CarritoComprasDAO  {
+public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> implements CarritoComprasDAO  {
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, CarritoComprasDTO modelo) throws SQLException {
-        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?)";
+    protected PreparedStatement comandoCrear(Connection conn, CarritoCompras modelo) throws SQLException {
+        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -31,12 +32,13 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoComprasDT
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
         cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, CarritoComprasDTO modelo) throws SQLException {
+    protected PreparedStatement comandoActualizar(Connection conn, CarritoCompras modelo) throws SQLException {
         String sql = "CALL modificarCarritoDeCompras(?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
@@ -82,8 +84,8 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoComprasDT
     }
 
     @Override
-    protected CarritoComprasDTO mapearModelo(ResultSet rs) throws SQLException {
-        CarritoComprasDTO carrito = new CarritoComprasDTO();
+    protected CarritoCompras mapearModelo(ResultSet rs) throws SQLException {
+        CarritoCompras carrito = new CarritoCompras();
         
         carrito.setId(rs.getInt("Id_CarritoDeCompras"));
         carrito.setTotalParcial(rs.getDouble("Total_Parcial"));
@@ -94,7 +96,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoComprasDT
         return carrito;
     }
 
-    public CarritoComprasDTO obtenerPorId(int id) {
+    public CarritoCompras obtenerPorId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

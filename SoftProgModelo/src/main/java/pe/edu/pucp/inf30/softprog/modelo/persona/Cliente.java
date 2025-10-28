@@ -5,7 +5,7 @@
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
 import java.util.Date;
-import pe.edu.pucp.inf30.softprog.modelo.base.RegistroDTO;
+import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.CategoriaCliente;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 
@@ -13,18 +13,18 @@ import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
  *
  * @author Cristhian Horacio
  */
-public class ClienteDTO extends PersonaDTO {
+public class Cliente extends Persona {
 
     private double lineaCredito;
     private CategoriaCliente categoria;
     private int numeroPedidosHistorico;
     private int numeroPedidosMensualPro;
 
-    public ClienteDTO() {
+    public Cliente() {
 
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro) {
+    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro) {
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
 //        this.cuentaUsuario = cuentaUsuario;
@@ -32,7 +32,7 @@ public class ClienteDTO extends PersonaDTO {
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
@@ -41,7 +41,7 @@ public class ClienteDTO extends PersonaDTO {
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
-    public ClienteDTO(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;

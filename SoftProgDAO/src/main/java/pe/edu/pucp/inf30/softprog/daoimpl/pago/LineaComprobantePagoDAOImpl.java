@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,18 +17,18 @@ import java.util.logging.Logger;
 import pe.edu.pucp.inf30.softprog.dao.pago.LineaComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
-import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePagoDTO;
-import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompraDTO;
+import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 
 /**
  *
  * @author Cristhian Horacio
  */
-public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaComprobantePagoDTO> implements LineaComprobantePagoDAO{
+public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaComprobantePago> implements LineaComprobantePagoDAO{
 
     @Override
-    protected PreparedStatement comandoCrear(Connection conn, LineaComprobantePagoDTO modelo) throws SQLException {
-        String sql = "{CALL insertarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoCrear(Connection conn, LineaComprobantePago modelo) throws SQLException {
+        String sql = "{CALL insertarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -39,13 +40,14 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
         cmd.setInt("p_codigo", modelo.getCodigo());
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
     }
 
     @Override
-    protected PreparedStatement comandoActualizar(Connection conn, LineaComprobantePagoDTO modelo) throws SQLException {
-        String sql = "{CALL modificarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?)}";
+    protected PreparedStatement comandoActualizar(Connection conn, LineaComprobantePago modelo) throws SQLException {
+        String sql = "{CALL modificarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -74,7 +76,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
 
     @Override
     protected PreparedStatement comandoLeer(Connection conn, Integer id) throws SQLException {
-        String sql = "{CALL buscarLineaComprobantePago(?)}";
+        String sql = "{CALL buscarLineaComprobantePagoPorId(?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -85,7 +87,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
 
     @Override
     protected PreparedStatement comandoLeerTodos(Connection conn) throws SQLException {
-        String sql = "{CALL listarLineaComprobantePago()}";
+        String sql = "{CALL listarLineasComprobantePago()}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -93,8 +95,8 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
     }
 
     @Override
-    protected LineaComprobantePagoDTO mapearModelo(ResultSet rs) throws SQLException {
-        LineaComprobantePagoDTO linea = new LineaComprobantePagoDTO();
+    protected LineaComprobantePago mapearModelo(ResultSet rs) throws SQLException {
+        LineaComprobantePago linea = new LineaComprobantePago();
         
         linea.setId(rs.getInt("idLineaComprobantePago"));
         linea.setMontoPagado(rs.getDouble("montoPagado"));
@@ -109,7 +111,7 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
     }
 
     @Override
-    public List<LineaComprobantePagoDTO> listarPorIdComprobante(int id){
+    public List<LineaComprobantePago> listarPorIdComprobante(int id){
         return ejecutarComando(conn -> listarPorIdComprobante(conn, id));
     }
     
@@ -123,11 +125,11 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
     }
     
     @Override
-    public List<LineaComprobantePagoDTO> listarPorIdComprobante(Connection conn, int id) {
+    public List<LineaComprobantePago> listarPorIdComprobante(Connection conn, int id) {
         try(PreparedStatement cmd = this.comandoListarPorIdComprobante(conn, id)){
             ResultSet rs = cmd.executeQuery();
             
-            List<LineaComprobantePagoDTO> modelos = new ArrayList<>();
+            List<LineaComprobantePago> modelos = new ArrayList<>();
             while(rs.next()){
                 modelos.add(this.mapearModelo(rs));
             }
