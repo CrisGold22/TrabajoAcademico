@@ -110,6 +110,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
         
         return cmd;
     }
+    
     @Override
     public boolean login(String email, String password) {
         CuentaUsuarioDAOImpl cuentaUsuarioLog = new CuentaUsuarioDAOImpl();
