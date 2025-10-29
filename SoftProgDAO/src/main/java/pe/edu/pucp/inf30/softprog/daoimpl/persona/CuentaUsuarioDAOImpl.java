@@ -101,8 +101,9 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     }
 
     
-    protected PreparedStatement comandoLogin (Connection conn, String email, String password )throws SQLException{
-        String sql = "{CALL loginUsuario(?,?)}";
+    protected PreparedStatement comandoLogin (Connection conn, String email, 
+            String password )throws SQLException{
+        String sql = "{CALL loginUsuario(?,?,?)}";
         CallableStatement cmd = conn.prepareCall(sql);
         cmd.setString("p_email", email);
         cmd.setString("p_password", password);
@@ -113,8 +114,19 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     
     @Override
     public boolean login(String email, String password) {
-        CuentaUsuarioDAOImpl cuentaUsuarioLog = new CuentaUsuarioDAOImpl();
-        return cuentaUsuarioLog.login(email, password);
+        return ejecutarComando(conn ->{
+            try (PreparedStatement cmd = this.comandoLogin(conn, email, password)){
+                if (cmd instanceof CallableStatement callableCmd){
+                    callableCmd.execute();
+                    boolean valido = callableCmd.getBoolean("p_valido");
+                    if(!valido){
+                        System.err.println("No se encontro el registro con" 
+                        + "email: " + email + ", password");
+                    }
+                    return valido;
+                }
+                return false;
+            }
+        });
     }
-    
 }
