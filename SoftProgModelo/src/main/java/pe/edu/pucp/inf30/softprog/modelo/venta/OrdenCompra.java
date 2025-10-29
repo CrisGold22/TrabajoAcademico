@@ -22,6 +22,7 @@ public class OrdenCompra extends Registro {
     private double totalFinal;
     private double descuentoTotal;
     private int idDetalleEnvio;
+    private int idCliente;
     private EstadoOrdenCompra estado;
 
     public OrdenCompra() {
@@ -141,6 +142,14 @@ public class OrdenCompra extends Registro {
 
     public void setIdDetalleEnvio(int idDetalleEnvio) {
         this.idDetalleEnvio = idDetalleEnvio;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
 }

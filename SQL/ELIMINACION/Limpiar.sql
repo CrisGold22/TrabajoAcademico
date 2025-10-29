@@ -1,0 +1,40 @@
+USE REDCOM;
+
+SET SQL_SAFE_UPDATES = 0;
+
+
+-- BORRADO DE TABLAS
+
+DELETE  FROM LineaComprobantePago;
+DELETE FROM ComprobantePago;
+DELETE FROM LineaOrdenCompra;
+DELETE FROM LineaCarrito;
+DELETE FROM Descuento;
+DELETE FROM OrdenCompra;
+DELETE FROM CarritoDeCompras;
+DELETE FROM Producto;
+DELETE FROM CategoriaProducto;
+DELETE FROM CuentaUsuario;
+DELETE FROM Administrador;
+DELETE FROM cliente;
+DELETE FROM DetalleDeEnvio;
+DELETE FROM CategoriaProducto_has_CategoriaProducto;
+
+-- REINICIAR AUTO_INCREMENT
+
+ALTER TABLE CategoriaProducto AUTO_INCREMENT = 1;
+ALTER TABLE Producto AUTO_INCREMENT = 1;
+ALTER TABLE cliente AUTO_INCREMENT = 1;
+ALTER TABLE Administrador AUTO_INCREMENT = 1;
+ALTER TABLE CuentaUsuario AUTO_INCREMENT = 1;
+ALTER TABLE CarritoDeCompras AUTO_INCREMENT = 1;
+ALTER TABLE LineaCarrito AUTO_INCREMENT = 1;
+ALTER TABLE Descuento AUTO_INCREMENT = 1;
+ALTER TABLE DetalleDeEnvio AUTO_INCREMENT = 1;
+ALTER TABLE OrdenCompra AUTO_INCREMENT = 1;
+ALTER TABLE ComprobantePago AUTO_INCREMENT = 1;
+ALTER TABLE LineaComprobantePago AUTO_INCREMENT = 1;
+ALTER TABLE LineaOrdenCompra AUTO_INCREMENT = 1;
+ALTER TABLE CategoriaProducto_has_CategoriaProducto AUTO_INCREMENT = 1;
+
+

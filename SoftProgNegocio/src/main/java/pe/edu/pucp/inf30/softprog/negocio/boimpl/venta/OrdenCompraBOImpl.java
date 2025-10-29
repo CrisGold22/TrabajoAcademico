@@ -5,6 +5,7 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -133,6 +134,16 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(OrdenCompraBOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public List<OrdenCompra> consultarPedidoPorFechas(Integer id, Date fecha1, Date fecha2) {
+        return this.ordenCompraDAO.consultarPedidoPorFechas(id, fecha1, fecha2);
+    }
+
+    @Override
+    public List<OrdenCompra> consultarOrdenCompraPorIdCliente(Integer id) {
+        return this.ordenCompraDAO.consultarOrdenCompraPorIdCliente(id);
     }
     
 }

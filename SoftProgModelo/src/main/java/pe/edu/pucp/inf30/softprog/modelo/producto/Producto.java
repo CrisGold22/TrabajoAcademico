@@ -23,6 +23,7 @@ public class Producto extends Registro {
     private int stockMinimo;
     private int stockMaximo;
     private int idCategoria;
+    private String marca;
     
     public Producto() {
 
@@ -182,5 +183,14 @@ public class Producto extends Registro {
         this.idCategoria = idCategoria;
     }
 
+
+    public String getMarca() {
+        return marca;
+    }
+
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
     
 }
