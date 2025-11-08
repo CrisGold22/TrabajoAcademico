@@ -49,7 +49,7 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
                 modelo.setId(idOrden);
                 
                 for(LineaCarrito linea : modelo.getLineasCarritos()){
-                    linea.setIdCarritoCompras(idOrden);
+                    linea.setCarritoCompras(modelo);
                     lineaCarrito.crear(linea, conn);
                 }
                 
@@ -76,7 +76,7 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
                 
                 for(LineaCarrito linea : modelo.getLineasCarritos()){
                     if(linea.getId() == 0){
-                        linea.setIdCarritoCompras(modelo.getId());
+                        linea.setCarritoCompras(modelo);
                         lineaCarrito.crear(linea, conn);
                     }
                     else{
@@ -114,7 +114,7 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
             try{
                 List<LineaCarrito> lineas = lineaCarrito.listarPorIdCarrito(id, conn);
                 for(LineaCarrito linea : lineas){
-                    if(linea.getIdCarritoCompras()== id){
+                    if(linea.getCarritoCompras().getId() == id){
                         lineaCarrito.eliminar(linea.getId(), conn);
                     }
                 }

@@ -98,7 +98,7 @@ public class SoftProgPruebas {
         categoria.setActivo(true);
         categoria.setDescripcion("Una categoria");
         categoria.setIdCategoriaPadre(0);
-        categoria.setNombre(TipoCategoria.HOGAR);
+        categoria.setNombre("Hogar");
         
         categoriaBO.insertar(categoria);
         System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
@@ -125,7 +125,7 @@ public class SoftProgPruebas {
         producto.setStockDisponible(10);
         producto.setStockMaximo(50);
         producto.setStockMinimo(2);
-        producto.setIdCategoria(1);
+        producto.setCategoria(categoria);
         producto.setMarca("APPLE");
         
         productoBO.insertar(producto);
@@ -154,7 +154,7 @@ public class SoftProgPruebas {
         descuento.setPrecioPorVolumen(2000);
         descuento.setCantidadMax(200);
         descuento.setCantidadMin(20);
-        descuento.setIdProducto(1);
+        descuento.setProducto(producto);
         
         descuentoBO.insertar(descuento);
         
@@ -287,8 +287,8 @@ public class SoftProgPruebas {
         cuenta.setActivo(true);
         cuenta.setUsername("CrisGold");
         cuenta.setPassword("Killzone2003");
-        cuenta.setIdAdministrador(1);
-        cuenta.setIdCliente(1);
+        cuenta.setAdministrador(admin);
+        cuenta.setCliente(cliente);
         
         cuentaBO.insertar(cuenta);
         System.out.println("Se inserto la cuenta de id " + cuenta.getId() + " creado exitosamente");
@@ -312,7 +312,7 @@ public class SoftProgPruebas {
         carrito.setEstado(EstadoCarrito.PENDIENTE);
         carrito.setTotalParcial(100);
         carrito.setTotalConDescuento(80);
-        carrito.setIdCliente(1);
+        carrito.setCliente(cliente);
         
         CarritoComprasDAOImpl carritoDAO = new CarritoComprasDAOImpl();
         carritoDAO.crear(carrito);
@@ -337,7 +337,7 @@ public class SoftProgPruebas {
         categoria.setActivo(true);
         categoria.setDescripcion("Una categoria");
         categoria.setIdCategoriaPadre(0);
-        categoria.setNombre(TipoCategoria.HOGAR);
+        categoria.setNombre("Hogar");
         
         categoriaBO.insertar(categoria);
         System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
@@ -368,7 +368,7 @@ public class SoftProgPruebas {
         producto.setStockDisponible(10);
         producto.setStockMaximo(50);
         producto.setStockMinimo(2);
-        producto.setIdCategoria(1);
+        producto.setCategoria(categoria);
         producto.setMarca("Apple");
         
         productoBO.insertar(producto);
@@ -394,7 +394,7 @@ public class SoftProgPruebas {
         descuento.setPrecioPorVolumen(2000);
         descuento.setCantidadMax(200);
         descuento.setCantidadMin(20);
-        descuento.setIdProducto(1);
+        descuento.setProducto(producto);
         
         descuentoBO.insertar(descuento);
         System.out.println("Se inserto el descuento de id " + descuento.getId() + " creado exitosamente");
@@ -419,8 +419,8 @@ public class SoftProgPruebas {
         lineaCarrito.setActivo(true);
         lineaCarrito.setCantidad(2000);
         lineaCarrito.setPrecioVolumen(200);
-        lineaCarrito.setIdCarritoCompras(1);
-        lineaCarrito.setIdProducto(1);
+        lineaCarrito.setCarritoCompras(carrito);
+        lineaCarrito.setProducto(producto);
         lineaCarrito.setSubTotal(2000);
         
         lineaCarritoBO.insertar(lineaCarrito);
@@ -451,8 +451,8 @@ public class SoftProgPruebas {
         ordenCompra.setTotalParcial(100);
         ordenCompra.setDescuentoTotal(200);
         ordenCompra.setEstado(EstadoOrdenCompra.ENVIADO);
-        ordenCompra.setIdDetalleEnvio(1);
-        ordenCompra.setIdCliente(cliente.getId());
+        ordenCompra.setDetalleEnvio(detalle);
+        ordenCompra.setCliente(cliente);
         
         ordenCompraDAO.crear(ordenCompra);
         System.out.println("Se inserto la orden de compra de id " + ordenCompra.getId() + " creado exitosamente");
@@ -476,9 +476,9 @@ public class SoftProgPruebas {
         lineaOrdenCompra.setCantidad(10);
         lineaOrdenCompra.setPrecioUnitario(200);
         lineaOrdenCompra.setSubTotal(200);
-        lineaOrdenCompra.setIdProducto(producto.getId());
-        lineaOrdenCompra.setIdOrdenCompra(ordenCompra.getId());
-        lineaOrdenCompra.setIdCarrito(carrito.getId());
+        lineaOrdenCompra.setProducto(producto);
+        lineaOrdenCompra.setOrdenCompra(ordenCompra);
+        lineaOrdenCompra.setCarritoCompras(carrito);
         
         lineaOrdenCompraBO.insertar(lineaOrdenCompra);
         System.out.println("Se inserto la orden de compra de id " + lineaOrdenCompra.getId() + " creado exitosamente");
@@ -507,7 +507,7 @@ public class SoftProgPruebas {
         comprobantePago.setTotalFinal(2000);
         comprobantePago.setImpuestos(1000);
         comprobantePago.setMetodoPago(MetodoPago.VIRTUAL);
-        comprobantePago.setIdOrdenCompra(1);
+        comprobantePago.setOrdenCompra(ordenCompra);
         
         comprobantePagoDAO.crear(comprobantePago);
         System.out.println("Se inserto el comprobante de pago de id " + comprobantePago.getId() + " creado exitosamente");
@@ -533,7 +533,7 @@ public class SoftProgPruebas {
         lineaComprobante.setActivo(true);
         lineaComprobante.setMontoImpuesto(2000);
         lineaComprobante.setMontoPagado(2000);
-        lineaComprobante.setIdComprobantePago(1);
+        lineaComprobante.setComprobantePago(comprobantePago);
         lineaComprobante.setCodigo(20216635);
         lineaComprobante.setCantidad(10);
         lineaComprobante.setSubTotal(1000);

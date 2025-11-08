@@ -13,7 +13,7 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.utils.TipoCategoria;
  */
 public class CategoriaProducto extends Registro {
 
-    private TipoCategoria nombre;
+    private String nombre;
     private String descripcion;
     private int idCategoriaPadre;
 
@@ -21,24 +21,11 @@ public class CategoriaProducto extends Registro {
 
     }
 
-    public CategoriaProducto(TipoCategoria nombre, String descripcion, int idCategoriaPadre) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.idCategoriaPadre = idCategoriaPadre;
-    }
-
-    public CategoriaProducto(TipoCategoria nombre, String descripcion, int idCategoriaPadre, int id, boolean activo) {
-        super(id, activo);
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.idCategoriaPadre = idCategoriaPadre;
-    }
-    
-    public TipoCategoria getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(TipoCategoria nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -50,48 +37,6 @@ public class CategoriaProducto extends Registro {
         this.descripcion = descripcion;
     }
 
-    public String getNombreString() {
-        String cadena = "";
-
-        switch (this.nombre) {
-            case ABARROTES ->
-                cadena = "ABARROTES";
-            case BEBIDAS ->
-                cadena = "BEBIDAS";
-            case CUIDADO_PERSONAL ->
-                cadena = "CUIDADO_PERSONA";
-            case ELECTRONICA ->
-                cadena = "ELECTRONICA";
-            case HOGAR ->
-                cadena = "HOGAR";
-            case LIMPIEZA ->
-                cadena = "LIMPIEZA";
-            case ROPA ->
-                cadena = "ROPA";
-        }
-
-        return cadena;
-    }
-
-    public void setNombreString(String nombre) {
-        switch (nombre) {
-            case "ABARROTES" ->
-                this.nombre = TipoCategoria.ABARROTES;
-            case "BEBIDAS" ->
-                this.nombre = TipoCategoria.BEBIDAS;
-            case "CUIDADO_PERSONAL" ->
-                this.nombre = TipoCategoria.CUIDADO_PERSONAL;
-            case "ELECTRONICA" ->
-                this.nombre = TipoCategoria.ELECTRONICA;
-            case "HOGAR" ->
-                this.nombre = TipoCategoria.HOGAR;
-            case "LIMPIEZA" ->
-                this.nombre = TipoCategoria.LIMPIEZA;
-            case "ROPA" ->
-                this.nombre = TipoCategoria.ROPA;
-        }
-    }
-
     public int getIdCategoriaPadre() {
         return idCategoriaPadre;
     }
@@ -99,6 +44,7 @@ public class CategoriaProducto extends Registro {
     public void setIdCategoriaPadre(int idCategoriaPadre) {
         this.idCategoriaPadre = idCategoriaPadre;
     }
+
     
     
 

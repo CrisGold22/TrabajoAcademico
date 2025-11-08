@@ -52,7 +52,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
                 modelo.setId(idOrden);
                 
                 for(LineaOrdenCompra linea : modelo.getLineasOrden()){
-                    linea.setIdOrdenCompra(idOrden);
+                    linea.setOrdenCompra(modelo);
                     lineaOrdenCompraDAO.crear(linea, conn);
                 }
                 
@@ -78,7 +78,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
                 ordenCompraDAO.actualizar(modelo, conn);
                 for(LineaOrdenCompra linea : modelo.getLineasOrden()){
                     if(linea.getId() == 0){
-                        linea.setIdOrdenCompra(modelo.getId());
+                        linea.setOrdenCompra(modelo);
                         lineaOrdenCompraDAO.crear(linea, conn);
                     }
                     else{
@@ -116,7 +116,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
             try{
                 List<LineaOrdenCompra> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(conn, id);
                 for(LineaOrdenCompra linea : lineas){
-                    if(linea.getIdOrdenCompra() == id){
+                    if(linea.getOrdenCompra().getId() == id){
                         lineaOrdenCompraDAO.eliminar(linea.getId(), conn);
                     }
                 }

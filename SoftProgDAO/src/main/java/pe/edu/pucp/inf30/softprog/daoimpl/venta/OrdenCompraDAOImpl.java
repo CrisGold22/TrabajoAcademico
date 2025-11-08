@@ -16,6 +16,7 @@ import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.ClienteDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 
 /**
@@ -36,9 +37,9 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra> implem
         cmd.setDouble("p_total_final", modelo.getTotalFinal());
         cmd.setDouble("p_descuentoTotal", modelo.getDescuentoTotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
-        cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getIdDetalleEnvio());
+        cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getDetalleEnvio().getId());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_Cliente", modelo.getIdCliente());
+        cmd.setInt("p_Cliente", modelo.getCliente().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -56,9 +57,9 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra> implem
         cmd.setDouble("p_total_final", modelo.getTotalFinal());
         cmd.setDouble("p_descuentoTotal", modelo.getDescuentoTotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
-        cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getIdDetalleEnvio());
+        cmd.setInt("p_DetalleDeEnvio_id_DetalleEnvio", modelo.getDetalleEnvio().getId());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_Cliente", modelo.getIdCliente());
+        cmd.setInt("p_Cliente", modelo.getCliente().getId());
         
         return cmd;
     }
@@ -104,9 +105,9 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra> implem
         orden.setTotalFinal(rs.getDouble("total_final"));
         orden.setDescuentoTotal(rs.getDouble("descuentoTotal"));
         orden.setEstadoString(rs.getString("Estado"));
-        orden.setIdDetalleEnvio(rs.getInt("DetalleDeEnvio_id_DetalleEnvio"));
+        orden.setDetalleEnvio(new DetalleEnvioDAOImpl().leer(rs.getInt("DetalleDeEnvio_id_DetalleEnvio")));
         orden.setActivoInt(rs.getInt("Activo"));
-        orden.setIdCliente(rs.getInt("cliente_idCliente"));
+        orden.setCliente(new ClienteDAOImpl().leer(rs.getInt("cliente_idCliente")));
         
         return orden;
     }

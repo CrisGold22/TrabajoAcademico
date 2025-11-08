@@ -31,7 +31,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
         cmd.setInt("p_cantidadMax", modelo.getCantidadMax());
         cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -48,7 +48,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
         cmd.setInt("p_cantidadMax", modelo.getCantidadMax());
         cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
+        cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
         
         return cmd;
     }
@@ -93,7 +93,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
         descuento.setCantidadMax(rs.getInt("cantidadMax"));
         descuento.setCantidadMin(rs.getInt("cantidadMin"));
         descuento.setActivoInt(rs.getInt("Activo"));
-        descuento.setIdProducto(rs.getInt("Producto_ID_Producto"));
+        descuento.setProducto(new ProductoDAOImpl().leer(rs.getInt("Producto_ID_Producto")));
         
         return descuento;
     }

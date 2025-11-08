@@ -15,6 +15,7 @@ import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.producto.ProductoDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 
 /**
@@ -33,9 +34,9 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
-        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
-        cmd.setInt("p_CarritoDeCompras_Id", modelo.getIdCarrito());
+        cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
+        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
+        cmd.setInt("p_CarritoDeCompras_Id", modelo.getCarritoCompras().getId());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
@@ -52,9 +53,9 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         cmd.setInt("p_cantidad", modelo.getCantidad());
         cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
-        cmd.setInt("p_Producto_ID_Producto", modelo.getIdProducto());
-        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
-        cmd.setInt("p_CarritoDeCompras_Id", modelo.getIdCarrito());
+        cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
+        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
+        cmd.setInt("p_CarritoDeCompras_Id", modelo.getCarritoCompras().getId());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
@@ -99,9 +100,9 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         linea.setCantidad(rs.getInt("cantidad"));
         linea.setPrecioUnitario(rs.getDouble("precioUnitario"));
         linea.setSubTotal(rs.getDouble("subtotal"));
-        linea.setIdProducto(rs.getInt("Producto_ID_Producto"));
-        linea.setIdOrdenCompra(rs.getInt("OrdenCompra_IdPedido"));
-        linea.setIdCarrito(rs.getInt("CarritoDeCompras_Id"));
+        linea.setProducto(new ProductoDAOImpl().leer(rs.getInt("Producto_ID_Producto")));
+        linea.setOrdenCompra(new OrdenCompraDAOImpl().leer(rs.getInt("OrdenCompra_IdPedido")));
+        linea.setCarritoCompras(new CarritoComprasDAOImpl().leer(rs.getInt("CarritoDeCompras_Id")));
         linea.setActivoInt(rs.getInt("activo"));
         
         return linea;

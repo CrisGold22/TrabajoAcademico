@@ -5,6 +5,7 @@
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 
 /**
  *
@@ -16,35 +17,35 @@ public class LineaOrdenCompra extends Registro{
     private int cantidad;
     private double precioUnitario;
     private double subTotal;
-    private int idProducto;
-    private int idOrdenCompra;
-    private int idCarrito;
+    private Producto producto;
+    private OrdenCompra ordenCompra;
+    private CarritoCompras carritoCompras;
     
     public LineaOrdenCompra(){
         
     }
 
-    public LineaOrdenCompra(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito) {
+    public LineaOrdenCompra(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, Producto producto, OrdenCompra ordenCompra, CarritoCompras carritoCompras) {
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.subTotal = subTotal;
-        this.idProducto = idProducto;
-        this.idOrdenCompra = idOrdenCompra;
-        this.idCarrito = idCarrito;
+        this.producto = producto;
+        this.ordenCompra = ordenCompra;
+        this.carritoCompras = carritoCompras;
     }
 
-    public LineaOrdenCompra(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, int idProducto, int idOrdenCompra, int idCarrito, int id, boolean activo) {
+    public LineaOrdenCompra(double montoPagado, int codigo, int cantidad, double precioUnitario, double subTotal, Producto producto, OrdenCompra ordenCompra, CarritoCompras carritoCompras, int id, boolean activo) {
         super(id, activo);
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.subTotal = subTotal;
-        this.idProducto = idProducto;
-        this.idOrdenCompra = idOrdenCompra;
-        this.idCarrito = idCarrito;
+        this.producto = producto;
+        this.ordenCompra = ordenCompra;
+        this.carritoCompras = carritoCompras;
     }
 
     public double getMontoPagado() {
@@ -87,29 +88,31 @@ public class LineaOrdenCompra extends Registro{
         this.precioUnitario = precioUnitario;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public int getIdOrdenCompra() {
-        return idOrdenCompra;
+    public OrdenCompra getOrdenCompra() {
+        return ordenCompra;
     }
 
-    public void setIdOrdenCompra(int idOrdenCompra) {
-        this.idOrdenCompra = idOrdenCompra;
+    public void setOrdenCompra(OrdenCompra ordenCompra) {
+        this.ordenCompra = ordenCompra;
     }
 
-    public int getIdCarrito() {
-        return idCarrito;
+    public CarritoCompras getCarritoCompras() {
+        return carritoCompras;
     }
 
-    public void setIdCarrito(int idCarrito) {
-        this.idCarrito = idCarrito;
+    public void setCarritoCompras(CarritoCompras carritoCompras) {
+        this.carritoCompras = carritoCompras;
     }
+
+    
     
     
 }

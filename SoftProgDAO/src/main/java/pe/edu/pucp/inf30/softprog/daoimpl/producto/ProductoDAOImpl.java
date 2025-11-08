@@ -39,7 +39,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         cmd.setInt("p_StockMaximo", modelo.getStockMaximo());
         cmd.setInt("p_StockMinimo", modelo.getStockMinimo());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getIdCategoria());
+        cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getCategoria().getId());
         cmd.setString("p_MarcaProducto", modelo.getMarca());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
@@ -63,7 +63,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         cmd.setInt("p_StockMaximo", modelo.getStockMaximo());
         cmd.setInt("p_StockMinimo", modelo.getStockMinimo());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getIdCategoria());
+        cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getCategoria().getId());
         cmd.setString("p_MarcaProducto", modelo.getMarca());
         
         return cmd;
@@ -115,7 +115,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         producto.setStockMaximo(rs.getInt("StockMaximo"));
         producto.setStockMinimo(rs.getInt("StockMinimo"));
         producto.setActivoInt(rs.getInt("Activo"));
-        producto.setIdCategoria(rs.getInt("CategoriaProducto_idCategoriaProducto"));
+        producto.setCategoria(new CategoriaProductoDAOImpl().leer(rs.getInt("CategoriaProducto_idCategoriaProducto")));
         producto.setMarca(rs.getString("Marca"));
         
         return producto;

@@ -12,25 +12,25 @@ import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
  */
 public class Descuento extends Registro{
     private double precioPorVolumen;
-    private int idProducto;
+    private Producto producto;
     private int cantidadMax;
     private int cantidadMin;
 
     public Descuento(){
         
     }
-    
-    public Descuento(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin) {
+
+    public Descuento(double precioPorVolumen, Producto producto, int cantidadMax, int cantidadMin) {
         this.precioPorVolumen = precioPorVolumen;
-        this.idProducto = producto;
+        this.producto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
     }
 
-    public Descuento(double precioPorVolumen, int producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
+    public Descuento(double precioPorVolumen, Producto producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
         super(id, activo);
         this.precioPorVolumen = precioPorVolumen;
-        this.idProducto = producto;
+        this.producto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
     }
@@ -43,12 +43,12 @@ public class Descuento extends Registro{
         this.precioPorVolumen = precioPorVolumen;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setIdProducto(int producto) {
-        this.idProducto = producto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public int getCantidadMax() {
@@ -66,7 +66,6 @@ public class Descuento extends Registro{
     public void setCantidadMin(int cantidadMin) {
         this.cantidadMin = cantidadMin;
     }
-    
-    
+   
     
 }

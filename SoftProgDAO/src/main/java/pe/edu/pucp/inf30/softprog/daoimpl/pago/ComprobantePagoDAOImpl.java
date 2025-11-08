@@ -20,8 +20,10 @@ import java.util.HashSet;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.pago.LineaComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.OrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.pago.LineaComprobantePago;
 import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
+import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 
 /**
  *
@@ -44,7 +46,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         cmd.setString("p_metodoPago", modelo.getMetodoString());
         cmd.setDouble("p_subTotal", modelo.getTotalSinImpuestos());
         cmd.setInt("p_activo", modelo.getActivo());
-        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
+        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -65,7 +67,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         cmd.setString("p_metodoPago", modelo.getMetodoString());
         cmd.setDouble("p_subTotal", modelo.getTotalSinImpuestos());
         cmd.setInt("p_activo", modelo.getActivo());
-        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getIdOrdenCompra());
+        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
         
         return cmd;
     }
@@ -112,7 +114,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         comprobante.setTotalFinal(rs.getDouble("totalFinal"));
         comprobante.setMetodoString(rs.getString("metodoPago"));
         comprobante.setActivoInt(rs.getInt("activo"));
-        comprobante.setIdOrdenCompra(rs.getInt("OrdenCompra_IdPedido"));
+        comprobante.setOrdenCompra(new OrdenCompraDAOImpl().leer(rs.getInt("OrdenCompra_IdPedido")));
         
         return comprobante;
     }

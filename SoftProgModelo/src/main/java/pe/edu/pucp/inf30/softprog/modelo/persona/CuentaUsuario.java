@@ -13,29 +13,30 @@ import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 public class CuentaUsuario extends Registro{
     private String username;
     private String password;
-    private int idCliente;
-    private int idAdministrador;
+    private Cliente cliente;
+    private AdministradorSistema administrador;
     
     public CuentaUsuario(){
         
     }
 
-    public CuentaUsuario(String username, String password, int idCliente, int idAdministrador) {
+    public CuentaUsuario(String username, String password, Cliente cliente, AdministradorSistema administrador) {
         this.username = username;
         this.password = password;
-        this.idCliente = idCliente;
-        this.idAdministrador = idAdministrador;
+        this.cliente = cliente;
+        this.administrador = administrador;
     }
 
-    public CuentaUsuario(String username, String password, int idCliente, int idAdministrador, int id, boolean activo) {
+    public CuentaUsuario(String username, String password, Cliente cliente, AdministradorSistema administrador, int id, boolean activo) {
         super(id, activo);
         this.username = username;
         this.password = password;
-        this.idCliente = idCliente;
-        this.idAdministrador = idAdministrador;
+        this.cliente = cliente;
+        this.administrador = administrador;
     }
 
-
+    
+    
     public String getUsername() {
         return username;
     }
@@ -52,20 +53,22 @@ public class CuentaUsuario extends Registro{
         this.password = password;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public int getIdAdministrador() {
-        return idAdministrador;
+    public AdministradorSistema getAdministrador() {
+        return administrador;
     }
 
-    public void setIdAdministrador(int idAdministrador) {
-        this.idAdministrador = idAdministrador;
+    public void setAdministrador(AdministradorSistema administrador) {
+        this.administrador = administrador;
     }
+
+    
     
 }

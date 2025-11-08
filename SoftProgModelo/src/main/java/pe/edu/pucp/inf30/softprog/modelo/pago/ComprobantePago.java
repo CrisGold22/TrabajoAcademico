@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.pago.utils.MetodoPago;
+import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 
 /**
  *
@@ -23,13 +24,13 @@ public class ComprobantePago extends Registro{
     private double impuestos;
     private double totalFinal;
     private MetodoPago metodoPago;
-    private int idOrdenCompra;
+    private OrdenCompra ordenCompra;
     
     public ComprobantePago(){
         lineasComprobantes = new ArrayList<>();
     }
 
-    public ComprobantePago(ArrayList<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra) {
+    public ComprobantePago(List<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, OrdenCompra ordenCompra) {
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
         this.RUC = RUC;
@@ -37,10 +38,10 @@ public class ComprobantePago extends Registro{
         this.impuestos = impuestos;
         this.totalFinal = totalFinal;
         this.metodoPago = metodoPago;
-        this.idOrdenCompra = idOrdenCompra;
+        this.ordenCompra = ordenCompra;
     }
 
-    public ComprobantePago(ArrayList<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, int idOrdenCompra, int id, boolean activo) {
+    public ComprobantePago(List<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, OrdenCompra ordenCompra, int id, boolean activo) {
         super(id, activo);
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
@@ -49,9 +50,9 @@ public class ComprobantePago extends Registro{
         this.impuestos = impuestos;
         this.totalFinal = totalFinal;
         this.metodoPago = metodoPago;
-        this.idOrdenCompra = idOrdenCompra;
+        this.ordenCompra = ordenCompra;
     }
-
+    
     
 
     public List<LineaComprobantePago> getLineasComprobantes() {
@@ -128,12 +129,12 @@ public class ComprobantePago extends Registro{
         }
     }
 
-    public int getIdOrdenCompra() {
-        return idOrdenCompra;
+    public OrdenCompra getOrdenCompra() {
+        return ordenCompra;
     }
 
-    public void setIdOrdenCompra(int idOrdenCompra) {
-        this.idOrdenCompra = idOrdenCompra;
+    public void setOrdenCompra(OrdenCompra ordenCompra) {
+        this.ordenCompra = ordenCompra;
     }
     
 }

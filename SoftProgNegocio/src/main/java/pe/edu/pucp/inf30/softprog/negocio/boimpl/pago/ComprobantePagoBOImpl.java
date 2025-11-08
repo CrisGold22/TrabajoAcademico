@@ -49,7 +49,7 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
                 int idOrden = this.comprobantePagoDAO.crear(modelo, conn);
                 modelo.setId(idOrden);
                 for (LineaComprobantePago linea : modelo.getLineasComprobantes()) {
-                    linea.setIdComprobantePago(idOrden);
+                    linea.setComprobantePago(modelo);
                     lineaComprobantePagoDAO.crear(linea, conn);
                 }
                 
@@ -74,7 +74,7 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
                 comprobantePagoDAO.actualizar(modelo, conn);
                 for (LineaComprobantePago linea : modelo.getLineasComprobantes()) {
                     if(linea.getId() == 0){
-                        linea.setIdComprobantePago(modelo.getId());
+                        linea.setComprobantePago(modelo);
                         lineaComprobantePagoDAO.crear(linea, conn);
                     }
                     else{
@@ -112,7 +112,7 @@ public class ComprobantePagoBOImpl implements ComprobantePagoBO{
             try{
                 List<LineaComprobantePago> lineas = lineaComprobantePagoDAO.listarPorIdComprobante(conn, id);
                 for(LineaComprobantePago linea : lineas){
-                    if(linea.getIdComprobantePago() == id){
+                    if(linea.getComprobantePago().getId() == id){
                         lineaComprobantePagoDAO.eliminar(linea.getId(), conn);
                     }
                 }

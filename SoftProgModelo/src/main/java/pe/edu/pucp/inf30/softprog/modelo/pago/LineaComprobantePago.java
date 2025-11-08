@@ -16,29 +16,29 @@ public class LineaComprobantePago extends Registro{
     private int cantidad;
     private double subTotal;
     private double montoImpuesto;
-    private int idComprobantePago;
+    private ComprobantePago comprobantePago;
     
     public LineaComprobantePago(){
         
     }
 
-    public LineaComprobantePago(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, int idComprobantePago) {
+    public LineaComprobantePago(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, ComprobantePago comprobantePago) {
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.subTotal = subTotal;
         this.montoImpuesto = montoImpuesto;
-        this.idComprobantePago = idComprobantePago;
+        this.comprobantePago = comprobantePago;
     }
 
-    public LineaComprobantePago(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, int idComprobantePago, int id, boolean activo) {
+    public LineaComprobantePago(double montoPagado, int codigo, int cantidad, double subTotal, double montoImpuesto, ComprobantePago comprobantePago, int id, boolean activo) {
         super(id, activo);
         this.montoPagado = montoPagado;
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.subTotal = subTotal;
         this.montoImpuesto = montoImpuesto;
-        this.idComprobantePago = idComprobantePago;
+        this.comprobantePago = comprobantePago;
     }
     
     public double getMontoPagado() {
@@ -73,12 +73,12 @@ public class LineaComprobantePago extends Registro{
         this.subTotal = subTotal;
     }
 
-    public int getIdComprobantePago() {
-        return idComprobantePago;
+    public ComprobantePago getComprobantePago() {
+        return comprobantePago;
     }
 
-    public void setIdComprobantePago(int idComprobantePago) {
-        this.idComprobantePago = idComprobantePago;
+    public void setComprobantePago(ComprobantePago comprobantePago) {
+        this.comprobantePago = comprobantePago;
     }
 
     public double getMontoImpuesto() {
