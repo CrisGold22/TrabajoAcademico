@@ -1,4 +1,26 @@
+-- Cambiar al esquema
 USE REDCOM;
+
+-- Desactivar comprobaciones de claves foráneas
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS administrador;
+DROP TABLE IF EXISTS carritodecompras;
+DROP TABLE IF EXISTS categoriaproducto;
+DROP TABLE IF EXISTS categoriaproducto_has_categoriaproducto;
+DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS comprobantepago;
+DROP TABLE IF EXISTS cuentausuario;
+DROP TABLE IF EXISTS descuento;
+DROP TABLE IF EXISTS detalledeenvio;
+DROP TABLE IF EXISTS lineacarrito;
+DROP TABLE IF EXISTS lineacomprobantepago;
+DROP TABLE IF EXISTS lineaordencompra;
+DROP TABLE IF EXISTS ordencompra;
+DROP TABLE IF EXISTS producto;
+
+-- Reactivar comprobaciones de claves foráneas
+SET FOREIGN_KEY_CHECKS = 1;
 
 
 CREATE TABLE if not exists CategoriaProducto (

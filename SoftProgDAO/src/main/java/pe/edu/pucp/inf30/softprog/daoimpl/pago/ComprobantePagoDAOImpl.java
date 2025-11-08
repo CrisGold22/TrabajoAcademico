@@ -33,7 +33,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, ComprobantePago modelo) throws SQLException {
-        String sql = "{CALL insertarComprobantesPago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
