@@ -1,0 +1,986 @@
+﻿html, body {
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.gfg {
+    height: 50px;
+    width: 50px;
+}
+
+.mynav {
+    color: #fff;
+}
+
+    .mynav li a {
+        color: #fff;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        border-radius: 5px;
+        padding: 8px 5px;
+    }
+
+        .mynav li a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .mynav li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .mynav li a i {
+            width: 25px;
+            text-align: center;
+        }
+
+.notification-badge {
+    background-color: rgba(255, 255, 255, 0.7);
+    float: right;
+    color: #222;
+    font-size: 14px;
+    padding: 0px 8px;
+    border-radius: 2px;
+}
+
+.table table tbody tr td a,
+.table table tbody tr td span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.table table > tbody > tr > td > span {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.table table > tbody > tr > td:first-child > a,
+.table table > tbody > tr > td:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.table table > tbody > tr > td:last-child > a,
+.table table > tbody > tr > td:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.table table > tbody > tr > td > a:hover,
+.table table > tbody > tr > td > span:hover,
+.table table > tbody > tr > td > a:focus,
+.table table > tbody > tr > td > span:focus {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.bg-rojo {
+    background-color: #DE2C2C !important;
+    color: white !important;
+}
+
+.btn-icone {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    padding: 0; /* Sin espacio interno */
+    margin: 0;
+    cursor: pointer; /* Muestra el puntero al pasar */
+    color: inherit; /* Usa el color del texto del contenedor */
+}
+
+    .btn-icone:hover {
+        opacity: 0.7; /* Efecto visual al pasar el mouse */
+    }
+
+.btn-blanco {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    border: 2px solid #ffffff; /* Borde blanco */
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrado del texto */
+    cursor: pointer; /* Cursor tipo mano */
+    transition: all 0.3s ease; /* Animación suave */
+    margin-right: 10px;
+}
+
+    .btn-blanco:hover {
+        background-color: #f1f1f1; /* Un gris claro al pasar el mouse */
+        border-color: #ccc; /* Borde gris al pasar el mouse */
+    }
+
+.contenedor-fondo {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* toda la altura de la pantalla */
+    background-image: url('../images/8c21ddf0e64cc642abe50bec59603213c630e24c.png');
+    background-size: cover; /* hace que la imagen cubra todo el fondo */
+    background-position: center; /* centra la imagen */
+    background-repeat: no-repeat;
+}
+
+/* El contenido encima de la imagen */
+.contenido-encima {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    align-items: center; /* centra verticalmente */
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+}
+
+.login-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-control-custom {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+    .form-control-custom:focus {
+        outline: none;
+        border-color: #DE2C2C;
+        background-color: white;
+    }
+
+    .form-control-custom::placeholder {
+        color: #aaa;
+    }
+
+.btn-signin {
+    width: 100%;
+    padding: 14px;
+    background-color: #DE2C2C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+    .btn-signin:hover {
+        background-color: #c22626;
+    }
+
+.forgot-password {
+    display: inline-block;
+    margin-top: 15px;
+    color: #333;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    .forgot-password:hover {
+        color: #DE2C2C;
+    }
+
+.welcome-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+    .welcome-modal.show {
+        display: flex;
+    }
+
+.welcome-content {
+    background-color: white;
+    padding: 50px 60px;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+}
+
+    .welcome-content h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .welcome-content p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #666;
+    }
+
+.btn-accept {
+    padding: 12px 40px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+    .btn-accept:hover {
+        background-color: #555;
+    }
+
+.input-filled {
+    color: #DE2C2C !important;
+}
+
+.password-filled {
+    letter-spacing: 2px;
+}
+
+/* Contenedor sin fondo para registro */
+.contenedor-sin-fondo {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.contenido-centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Card de registro */
+.registration-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    min-height: 600px;
+}
+
+/* Indicador de pasos */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 40px; 
+}
+
+
+.step {
+    width: 33.33%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-line {
+    flex: 1;
+    height: 3px;
+    background-color: #ccc;
+    position: relative;
+    top: -15px;
+    margin: 0 10px;
+    z-index: 1;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 2;
+    position: relative;
+}
+
+    .step-circle.active {
+        background-color: #dc3545; /* color rojo activo */
+        color: white;
+    }
+.step.completed .step-circle {
+    background-color: #28a745;
+    color: white;
+}
+
+.step-label {
+    margin-top: 8px;
+    font-size: 0.9em;
+    display: block;
+    text-align: center;
+}
+
+.step.active .step-label {
+    color: #DE2C2C;
+    font-weight: 600;
+}
+
+/* Pasos del formulario */
+.form-step {
+    display: none;
+}
+
+    .form-step.active {
+        display: block;
+        animation: fadeIn 0.3s;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Grupos de formulario */
+.form-group-custom {
+    margin-bottom: 20px;
+}
+
+.form-label-custom {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-control-registro {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+    .form-control-registro:focus {
+        outline: none;
+        border-color: #DE2C2C;
+        background-color: white;
+    }
+
+    .form-control-registro.filled {
+        color: #333;
+        background-color: white;
+    }
+
+/* Input con icono */
+.input-with-icon {
+    position: relative;
+}
+
+    .input-with-icon .icon-right {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #aaa;
+        pointer-events: none;
+    }
+
+    .input-with-icon input {
+        padding-right: 40px;
+    }
+
+.eye-icon {
+    cursor: pointer !important;
+    pointer-events: all !important;
+}
+
+/* Botones de navegación */
+.btn-step {
+    width: 48%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-anterior,
+.btn-siguiente,
+.btn-registrar {
+    background-color: #DE2C2C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 14px;
+}
+
+    .btn-anterior:hover,
+    .btn-siguiente:hover,
+    .btn-registrar:hover {
+        background-color: #c22626;
+    }
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Checkbox personalizado */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .checkbox-container input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .checkbox-container label {
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .checkbox-container a {
+        color: #DE2C2C;
+        text-decoration: underline;
+    }
+
+        .checkbox-container a:hover {
+            color: #c22626;
+        }
+
+/* Modal de éxito */
+.success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+    .success-modal.show {
+        display: flex;
+    }
+
+.success-modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+    .close-modal:hover {
+        color: #333;
+    }
+
+.success-modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.success-modal-content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Select */
+select.form-control-registro {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Estados de validación */
+.form-control-registro.error {
+    border-color: #dc3545;
+}
+
+.form-control-registro.success {
+    border-color: #28a745;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .registration-card {
+        padding: 30px 20px;
+    }
+
+    .step-label {
+        font-size: 10px;
+    }
+
+    .step-circle {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    .btn-step {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .success-modal-content {
+        padding: 30px 20px;
+        margin: 0 20px;
+    }
+}
+
+.perfil-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.perfil-header {
+    background: linear-gradient(135deg, #fadadd 0%, #f5e6e8 100%);
+    padding: 60px 20px;
+    border-radius: 0;
+    margin: -20px -20px 40px -20px;
+}
+
+.perfil-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+}
+
+.profile-avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-info-header p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+.btn-edit-profile {
+    background-color: #5b8de8;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-edit-profile:hover {
+    background-color: #4a7dd4;
+}
+
+.form-row-custom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.form-group-perfil {
+    margin-bottom: 0;
+}
+
+.form-label-perfil {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-control-perfil {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+}
+
+.form-control-perfil:focus {
+    outline: none;
+    border-color: #5b8de8;
+    background-color: white;
+}
+
+.form-control-perfil:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.form-control-perfil.filled {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.email-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.email-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.email-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.email-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5b8de8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+}
+
+.email-content {
+    flex-grow: 1;
+}
+
+.email-address {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.email-date {
+    font-size: 13px;
+    color: #999;
+}
+
+.btn-remove-email {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    font-size: 20px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.btn-remove-email:hover {
+    color: #dc3545;
+}
+
+/* Modal de Contraseña */
+.password-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+    .password-modal.show {
+        display: flex;
+    }
+
+.password-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInModal 0.3s ease;
+}
+
+.password-modal-header {
+    margin-bottom: 25px;
+}
+
+.password-modal-header h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.password-input-group {
+    margin-bottom: 20px;
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+    .password-input-wrapper input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .password-input-wrapper .eye-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        cursor: pointer;
+    }
+
+.btn-modal-action {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-accept {
+    background-color: #333;
+    color: white;
+}
+
+    .btn-accept:hover {
+        background-color: #555;
+    }
+
+/* Modal de Confirmación */
+.confirmation-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+    .confirmation-modal.show {
+        display: flex;
+    }
+
+.confirmation-content {
+    background-color: white;
+    padding: 40px 50px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInModal 0.3s ease;
+    position: relative;
+}
+
+.confirmation-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.confirmation-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.success-message {
+    color: #28a745;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row-custom {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .profile-avatar-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .perfil-card {
+        padding: 25px;
+    }
+}
