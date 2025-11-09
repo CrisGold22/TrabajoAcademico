@@ -5,6 +5,7 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.venta;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -51,7 +52,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
                 modelo.setId(idOrden);
                 
                 for(LineaOrdenCompra linea : modelo.getLineasOrden()){
-                    linea.setIdOrdenCompra(idOrden);
+                    linea.setOrdenCompra(modelo);
                     lineaOrdenCompraDAO.crear(linea, conn);
                 }
                 
@@ -77,7 +78,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
                 ordenCompraDAO.actualizar(modelo, conn);
                 for(LineaOrdenCompra linea : modelo.getLineasOrden()){
                     if(linea.getId() == 0){
-                        linea.setIdOrdenCompra(modelo.getId());
+                        linea.setOrdenCompra(modelo);
                         lineaOrdenCompraDAO.crear(linea, conn);
                     }
                     else{
@@ -115,7 +116,7 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
             try{
                 List<LineaOrdenCompra> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(conn, id);
                 for(LineaOrdenCompra linea : lineas){
-                    if(linea.getIdOrdenCompra() == id){
+                    if(linea.getOrdenCompra().getId() == id){
                         lineaOrdenCompraDAO.eliminar(linea.getId(), conn);
                     }
                 }
@@ -133,6 +134,16 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(OrdenCompraBOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public List<OrdenCompra> consultarPedidoPorFechas(Integer id, Date fecha1, Date fecha2) {
+        return this.ordenCompraDAO.consultarPedidoPorFechas(id, fecha1, fecha2);
+    }
+
+    @Override
+    public List<OrdenCompra> consultarOrdenCompraPorIdCliente(Integer id) {
+        return this.ordenCompraDAO.consultarOrdenCompraPorIdCliente(id);
     }
     
 }

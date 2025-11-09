@@ -27,7 +27,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_idCategoriaProducto", modelo.getId());
-        cmd.setString("p_NombreCategoria", modelo.getNombreString());
+        cmd.setString("p_NombreCategoria", modelo.getNombre());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
         cmd.setInt("p_Catalogo_idCatalogo", modelo.getIdCategoriaPadre());
         cmd.setInt("p_Activo", modelo.getActivo());
@@ -44,7 +44,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_idCategoriaProducto", modelo.getId());
-        cmd.setString("p_NombreCategoria", modelo.getNombreString());
+        cmd.setString("p_NombreCategoria", modelo.getNombre());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
         cmd.setInt("p_Catalogo_idCatalogo", modelo.getIdCategoriaPadre());
         cmd.setInt("p_Activo", modelo.getActivo());
@@ -88,7 +88,7 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         CategoriaProducto categoria = new CategoriaProducto();
         
         categoria.setId(rs.getInt("idCategoriaProducto"));
-        categoria.setNombreString(rs.getString("NombreCategoria"));
+        categoria.setNombre(rs.getString("NombreCategoria"));
         categoria.setDescripcion(rs.getString("Descripcion"));
         categoria.setActivoInt(rs.getInt("Activo"));
         categoria.setIdCategoriaPadre(rs.getInt("Catalogo_idCatalogo"));

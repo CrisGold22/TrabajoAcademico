@@ -22,13 +22,14 @@ public class Producto extends Registro {
     private int stockDisponible;
     private int stockMinimo;
     private int stockMaximo;
-    private int idCategoria;
+    private CategoriaProducto categoria;
+    private String marca;
     
     public Producto() {
 
     }
 
-    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria) {
+    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, CategoriaProducto categoria, String marca) {
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
@@ -38,10 +39,11 @@ public class Producto extends Registro {
         this.stockDisponible = stockDisponible;
         this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
-        this.idCategoria = idCategoria;
+        this.categoria = categoria;
+        this.marca = marca;
     }
 
-    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, int idCategoria, int id, boolean activo) {
+    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, CategoriaProducto categoria, String marca, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.SKU = SKU;
@@ -52,11 +54,12 @@ public class Producto extends Registro {
         this.stockDisponible = stockDisponible;
         this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
-        this.idCategoria = idCategoria;
+        this.categoria = categoria;
+        this.marca = marca;
     }
-
     
-
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -174,13 +177,21 @@ public class Producto extends Registro {
         }
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
+    public CategoriaProducto getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaProducto categoria) {
+        this.categoria = categoria;
+    }
+    
     
 }

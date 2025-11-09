@@ -7,6 +7,7 @@ package pe.edu.pucp.inf30.softprog.modelo.venta;
 import java.util.ArrayList;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
+import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
 import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoCarrito;
 
@@ -20,31 +21,29 @@ public class CarritoCompras extends Registro {
     private double totalParcial;
     private double totalConDescuento;
     private EstadoCarrito estado;
-    private int idCliente;
+    private Cliente cliente;
 
     public CarritoCompras() {
         lineasCarrito = new ArrayList<>();
     }
 
-    public CarritoCompras(ArrayList<LineaCarrito> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente) {
-        this.lineasCarrito = productos;
+    public CarritoCompras(List<LineaCarrito> lineasCarrito, double totalParcial, double totalConDescuento, EstadoCarrito estado, Cliente cliente) {
+        this.lineasCarrito = lineasCarrito;
         this.totalParcial = totalParcial;
         this.totalConDescuento = totalConDescuento;
         this.estado = estado;
-        this.idCliente = idCliente;
+        this.cliente = cliente;
     }
 
-    public CarritoCompras(ArrayList<LineaCarrito> productos, double totalParcial, double totalConDescuento, EstadoCarrito estado, int idCliente, int id, boolean activo) {
+    public CarritoCompras(List<LineaCarrito> lineasCarrito, double totalParcial, double totalConDescuento, EstadoCarrito estado, Cliente cliente, int id, boolean activo) {
         super(id, activo);
-        this.lineasCarrito = productos;
+        this.lineasCarrito = lineasCarrito;
         this.totalParcial = totalParcial;
         this.totalConDescuento = totalConDescuento;
         this.estado = estado;
-        this.idCliente = idCliente;
+        this.cliente = cliente;
     }
-
     
-
     public List<LineaCarrito> getLineasCarritos() {
         return lineasCarrito;
     }
@@ -123,12 +122,14 @@ public class CarritoCompras extends Registro {
         }
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente Cliente) {
+        this.cliente = Cliente;
     }
+
+    
 
 }

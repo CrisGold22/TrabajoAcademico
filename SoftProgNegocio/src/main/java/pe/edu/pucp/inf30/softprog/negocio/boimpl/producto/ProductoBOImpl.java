@@ -45,5 +45,25 @@ public class ProductoBOImpl implements ProductoBO{
     public void eliminar(int id) {
         this.productoDAO.eliminar(id);
     }
+
+    @Override
+    public Producto obtenerPorSku(String sku) {
+        return this.productoDAO.obtenerPorSku(sku);
+    }
+
+    @Override
+    public List<Producto> filtrarProductoPorPrecio(Integer id, double RangoPrecio1, double RangoPrecio2) {
+        return this.productoDAO.filtrarProductoPorPrecio(id,RangoPrecio1, RangoPrecio2);
+    }
+
+    @Override
+    public List<Producto> filtrarProductoPorMarca(Integer id, String marca) {
+        return this.productoDAO.filtrarProductoPorMarca(id, marca);
+    }
+
+    @Override
+    public List<Producto> filtrarProductoPorDescuento(Integer id, String nombre) {
+        return this.productoDAO.filtrarProductoPorDescuento(id, nombre);
+    }
     
 }

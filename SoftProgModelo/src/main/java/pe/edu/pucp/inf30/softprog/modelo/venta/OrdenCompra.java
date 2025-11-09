@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
+import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoOrdenCompra;
 
 /**
@@ -21,33 +22,38 @@ public class OrdenCompra extends Registro {
     private double totalParcial;
     private double totalFinal;
     private double descuentoTotal;
-    private int idDetalleEnvio;
+    private DetalleEnvio detalleEnvio;
+    private Cliente cliente;
     private EstadoOrdenCompra estado;
 
     public OrdenCompra() {
         lineasOrden = new ArrayList<>();
     }
 
-    public OrdenCompra(ArrayList<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, int idDetalleEnvio, EstadoOrdenCompra estado) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, DetalleEnvio detalleEnvio, Cliente cliente, EstadoOrdenCompra estado) {
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
         this.totalFinal = totalFinal;
         this.descuentoTotal = descuentoTotal;
-        this.idDetalleEnvio = idDetalleEnvio;
+        this.detalleEnvio = detalleEnvio;
+        this.cliente = cliente;
         this.estado = estado;
     }
 
-    public OrdenCompra(ArrayList<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, int idDetalleEnvio, EstadoOrdenCompra estado, int id, boolean activo) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, DetalleEnvio detalleEnvio, Cliente cliente, EstadoOrdenCompra estado, int id, boolean activo) {
         super(id, activo);
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
         this.totalFinal = totalFinal;
         this.descuentoTotal = descuentoTotal;
-        this.idDetalleEnvio = idDetalleEnvio;
+        this.detalleEnvio = detalleEnvio;
+        this.cliente = cliente;
         this.estado = estado;
     }
+
+    
 
     public List<LineaOrdenCompra> getLineasOrden() {
         return lineasOrden;
@@ -135,12 +141,22 @@ public class OrdenCompra extends Registro {
         }
     }
 
-    public int getIdDetalleEnvio() {
-        return idDetalleEnvio;
+    public DetalleEnvio getDetalleEnvio() {
+        return detalleEnvio;
     }
 
-    public void setIdDetalleEnvio(int idDetalleEnvio) {
-        this.idDetalleEnvio = idDetalleEnvio;
+    public void setDetalleEnvio(DetalleEnvio detalleEnvio) {
+        this.detalleEnvio = detalleEnvio;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    
 
 }

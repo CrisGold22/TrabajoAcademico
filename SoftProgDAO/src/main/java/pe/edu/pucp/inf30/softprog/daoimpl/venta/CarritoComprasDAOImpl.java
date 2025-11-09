@@ -13,6 +13,7 @@ import java.sql.Types;
 import pe.edu.pucp.inf30.softprog.dao.venta.CarritoComprasDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.ClienteDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
 
 /**
@@ -31,7 +32,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
-        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -47,7 +48,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
-        cmd.setInt("p_cliente_idCliente", modelo.getIdCliente());
+        cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
         
         return cmd;
     }
@@ -91,7 +92,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         carrito.setTotalParcial(rs.getDouble("Total_Parcial"));
         carrito.setEstadoString(rs.getString("Estado"));
         carrito.setTotalConDescuento(rs.getDouble("total_con_descuento"));
-        carrito.setIdCliente(rs.getInt("cliente_idCliente"));
+        carrito.setCliente(new ClienteDAOImpl().leer(rs.getInt("cliente_idCliente")));
         
         return carrito;
     }

@@ -12,8 +12,8 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
  * @author Cristhian Horacio
  */
 public class LineaCarrito extends Registro{
-    private int idProducto;
-    private int idCarritoCompras;
+    private Producto producto;
+    private CarritoCompras carritoCompras;
     private int cantidad;
     private double precioVolumen;
     private double subTotal;
@@ -22,29 +22,31 @@ public class LineaCarrito extends Registro{
         
     }
 
-    public LineaCarrito(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal) {
-        this.idProducto = idProducto;
-        this.idCarritoCompras = idCarritoCompras;
+    public LineaCarrito(Producto producto, CarritoCompras carritoCompras, int cantidad, double precioVolumen, double subTotal) {
+        this.producto = producto;
+        this.carritoCompras = carritoCompras;
         this.cantidad = cantidad;
         this.precioVolumen = precioVolumen;
         this.subTotal = subTotal;
     }
 
-    public LineaCarrito(int idProducto, int idCarritoCompras, int cantidad, double precioVolumen, double subTotal, int id, boolean activo) {
+    public LineaCarrito(Producto producto, CarritoCompras carritoCompras, int cantidad, double precioVolumen, double subTotal, int id, boolean activo) {
         super(id, activo);
-        this.idProducto = idProducto;
-        this.idCarritoCompras = idCarritoCompras;
+        this.producto = producto;
+        this.carritoCompras = carritoCompras;
         this.cantidad = cantidad;
         this.precioVolumen = precioVolumen;
         this.subTotal = subTotal;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    
+
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setIdProducto(int producto) {
-        this.idProducto = producto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public int getCantidad() {
@@ -71,12 +73,12 @@ public class LineaCarrito extends Registro{
         this.subTotal = subTotal;
     }
 
-    public int getIdCarritoCompras() {
-        return idCarritoCompras;
+    public CarritoCompras getCarritoCompras() {
+        return carritoCompras;
     }
 
-    public void setIdCarritoCompras(int idCarritoCompras) {
-        this.idCarritoCompras = idCarritoCompras;
+    public void setCarritoCompras(CarritoCompras idCarritoCompras) {
+        this.carritoCompras = idCarritoCompras;
     }
     
     

@@ -2,7 +2,9 @@ package pe.edu.pucp.inf30.softprogpruebas;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.pago.ComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.dao.producto.ProductoDAO;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
@@ -73,7 +75,92 @@ public class SoftProgPruebas {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         
         pruebaConexionConBaseDeDatos();
-//        pruebasConDatos();
+        pruebasConDatos();
+    
+//        pruebasConProductos();
+        
+    }
+    
+    public static void pruebasConProductos() throws SQLException, ClassNotFoundException{
+        System.out.println();
+        
+        System.out.println("=====================================");
+        System.out.println("Empezando con el proceso de prueba");
+        System.out.println("=====================================\n \n");
+        
+        
+        System.out.println("Ejecucion de procedures de CategoriaProductos");
+        System.out.println("=====================================\n");
+	CategoriaProducto categoria = new CategoriaProducto();
+        CategoriaProductoBO categoriaBO = new CategoriaProductoBOImpl();
+        
+        categoria.setId(1);
+        categoria.setActivo(true);
+        categoria.setDescripcion("Una categoria");
+        categoria.setIdCategoriaPadre(0);
+        categoria.setNombre("Hogar");
+        
+        categoriaBO.insertar(categoria);
+        System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
+        categoria.setDescripcion("Nueva descripcion");
+        categoriaBO.actualizar(categoria);
+        System.out.println("CategoriaProductos se ha actualizado exitosamente");
+        CategoriaProducto categoria2 = categoriaBO.obtener(categoria.getId());
+        System.out.println("CategoriaProductos se llamo al backend de manera correcta\n");
+        
+        
+        System.out.println("Ejecucion de procedures de Productos");
+        System.out.println("=====================================\n");
+        Producto producto = new Producto();
+        ProductoBO productoBO = new ProductoBOImpl();
+        
+        producto.setId(1);
+        producto.setActivo(true);
+        producto.setNombre("Celular IPhone 20 X Giga Pro Max XXXL");
+        producto.setSKU("SEL-123");
+        producto.setDescripcion("Celular de ultima generacion");
+        producto.setPrecioAlMayor(3500);
+        producto.setPrecioUnitario(4000);
+        producto.setMedidaAlMayor(UnidadMedida.BOTELLA);
+        producto.setStockDisponible(10);
+        producto.setStockMaximo(50);
+        producto.setStockMinimo(2);
+        producto.setCategoria(categoria);
+        producto.setMarca("APPLE");
+        
+        productoBO.insertar(producto);
+        System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
+        producto.setDescripcion("Nueva descripcion");
+        productoBO.actualizar(producto);
+        System.out.println("El producto se ha actualizado exitosamente");
+        Producto producto2 = productoBO.obtener(producto.getId());
+        System.out.println("El producto se llamo al backend de manera correcta\n");
+        
+        Producto producto3 = productoBO.obtenerPorSku(producto.getSKU());
+        System.out.println("El SKU del producto ha sido encontrado \n");
+        
+        List<Producto> listaProducto = new ArrayList();
+        listaProducto = productoBO.filtrarProductoPorMarca(1,"APPLE");
+
+        List<Producto> listaProducto2 = new ArrayList();
+        listaProducto2 = productoBO.filtrarProductoPorPrecio(1, 3000,6000);
+        
+        
+        Descuento descuento = new Descuento();
+        DescuentoBO descuentoBO = new DescuentoBOImpl();
+        
+        descuento.setId(1);
+        descuento.setActivo(true);
+        descuento.setPrecioPorVolumen(2000);
+        descuento.setCantidadMax(200);
+        descuento.setCantidadMin(20);
+        descuento.setProducto(producto);
+        
+        descuentoBO.insertar(descuento);
+        
+        List<Producto> listaProducto3 = new ArrayList();
+        listaProducto3 = productoBO.filtrarProductoPorDescuento(1, "CON DESCUENTO");
+                
         
     }
     
@@ -200,8 +287,8 @@ public class SoftProgPruebas {
         cuenta.setActivo(true);
         cuenta.setUsername("CrisGold");
         cuenta.setPassword("Killzone2003");
-        cuenta.setIdAdministrador(1);
-        cuenta.setIdCliente(1);
+        cuenta.setAdministrador(admin);
+        cuenta.setCliente(cliente);
         
         cuentaBO.insertar(cuenta);
         System.out.println("Se inserto la cuenta de id " + cuenta.getId() + " creado exitosamente");
@@ -225,7 +312,7 @@ public class SoftProgPruebas {
         carrito.setEstado(EstadoCarrito.PENDIENTE);
         carrito.setTotalParcial(100);
         carrito.setTotalConDescuento(80);
-        carrito.setIdCliente(1);
+        carrito.setCliente(cliente);
         
         CarritoComprasDAOImpl carritoDAO = new CarritoComprasDAOImpl();
         carritoDAO.crear(carrito);
@@ -250,7 +337,7 @@ public class SoftProgPruebas {
         categoria.setActivo(true);
         categoria.setDescripcion("Una categoria");
         categoria.setIdCategoriaPadre(0);
-        categoria.setNombre(TipoCategoria.HOGAR);
+        categoria.setNombre("Hogar");
         
         categoriaBO.insertar(categoria);
         System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
@@ -281,7 +368,8 @@ public class SoftProgPruebas {
         producto.setStockDisponible(10);
         producto.setStockMaximo(50);
         producto.setStockMinimo(2);
-        producto.setIdCategoria(1);
+        producto.setCategoria(categoria);
+        producto.setMarca("Apple");
         
         productoBO.insertar(producto);
         System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
@@ -306,7 +394,7 @@ public class SoftProgPruebas {
         descuento.setPrecioPorVolumen(2000);
         descuento.setCantidadMax(200);
         descuento.setCantidadMin(20);
-        descuento.setIdProducto(1);
+        descuento.setProducto(producto);
         
         descuentoBO.insertar(descuento);
         System.out.println("Se inserto el descuento de id " + descuento.getId() + " creado exitosamente");
@@ -331,8 +419,8 @@ public class SoftProgPruebas {
         lineaCarrito.setActivo(true);
         lineaCarrito.setCantidad(2000);
         lineaCarrito.setPrecioVolumen(200);
-        lineaCarrito.setIdCarritoCompras(1);
-        lineaCarrito.setIdProducto(1);
+        lineaCarrito.setCarritoCompras(carrito);
+        lineaCarrito.setProducto(producto);
         lineaCarrito.setSubTotal(2000);
         
         lineaCarritoBO.insertar(lineaCarrito);
@@ -363,7 +451,8 @@ public class SoftProgPruebas {
         ordenCompra.setTotalParcial(100);
         ordenCompra.setDescuentoTotal(200);
         ordenCompra.setEstado(EstadoOrdenCompra.ENVIADO);
-        ordenCompra.setIdDetalleEnvio(1);
+        ordenCompra.setDetalleEnvio(detalle);
+        ordenCompra.setCliente(cliente);
         
         ordenCompraDAO.crear(ordenCompra);
         System.out.println("Se inserto la orden de compra de id " + ordenCompra.getId() + " creado exitosamente");
@@ -387,9 +476,9 @@ public class SoftProgPruebas {
         lineaOrdenCompra.setCantidad(10);
         lineaOrdenCompra.setPrecioUnitario(200);
         lineaOrdenCompra.setSubTotal(200);
-        lineaOrdenCompra.setIdProducto(producto.getId());
-        lineaOrdenCompra.setIdOrdenCompra(ordenCompra.getId());
-        lineaOrdenCompra.setIdCarrito(carrito.getId());
+        lineaOrdenCompra.setProducto(producto);
+        lineaOrdenCompra.setOrdenCompra(ordenCompra);
+        lineaOrdenCompra.setCarritoCompras(carrito);
         
         lineaOrdenCompraBO.insertar(lineaOrdenCompra);
         System.out.println("Se inserto la orden de compra de id " + lineaOrdenCompra.getId() + " creado exitosamente");
@@ -418,7 +507,7 @@ public class SoftProgPruebas {
         comprobantePago.setTotalFinal(2000);
         comprobantePago.setImpuestos(1000);
         comprobantePago.setMetodoPago(MetodoPago.VIRTUAL);
-        comprobantePago.setIdOrdenCompra(1);
+        comprobantePago.setOrdenCompra(ordenCompra);
         
         comprobantePagoDAO.crear(comprobantePago);
         System.out.println("Se inserto el comprobante de pago de id " + comprobantePago.getId() + " creado exitosamente");
@@ -444,7 +533,7 @@ public class SoftProgPruebas {
         lineaComprobante.setActivo(true);
         lineaComprobante.setMontoImpuesto(2000);
         lineaComprobante.setMontoPagado(2000);
-        lineaComprobante.setIdComprobantePago(1);
+        lineaComprobante.setComprobantePago(comprobantePago);
         lineaComprobante.setCodigo(20216635);
         lineaComprobante.setCantidad(10);
         lineaComprobante.setSubTotal(1000);
