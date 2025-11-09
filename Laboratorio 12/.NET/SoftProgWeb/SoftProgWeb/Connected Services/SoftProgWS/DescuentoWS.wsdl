@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.softprog.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="DescuentoWS" targetNamespace="http://services.softprog.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/DescuentoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="listarDescuento">
+    <part name="parameters" element="tns:listarDescuento" />
+  </message>
+  <message name="listarDescuentoResponse">
+    <part name="parameters" element="tns:listarDescuentoResponse" />
+  </message>
+  <message name="insertarDescuento">
+    <part name="parameters" element="tns:insertarDescuento" />
+  </message>
+  <message name="insertarDescuentoResponse">
+    <part name="parameters" element="tns:insertarDescuentoResponse" />
+  </message>
+  <message name="obtenerDescuento">
+    <part name="parameters" element="tns:obtenerDescuento" />
+  </message>
+  <message name="obtenerDescuentoResponse">
+    <part name="parameters" element="tns:obtenerDescuentoResponse" />
+  </message>
+  <message name="eliminarDescuento">
+    <part name="parameters" element="tns:eliminarDescuento" />
+  </message>
+  <message name="eliminarDescuentoResponse">
+    <part name="parameters" element="tns:eliminarDescuentoResponse" />
+  </message>
+  <message name="actualizarDescuento">
+    <part name="parameters" element="tns:actualizarDescuento" />
+  </message>
+  <message name="actualizarDescuentoResponse">
+    <part name="parameters" element="tns:actualizarDescuentoResponse" />
+  </message>
+  <portType name="DescuentoWS">
+    <operation name="listarDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest" message="tns:listarDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse" message="tns:listarDescuentoResponse" />
+    </operation>
+    <operation name="insertarDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/insertarDescuentoRequest" message="tns:insertarDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/insertarDescuentoResponse" message="tns:insertarDescuentoResponse" />
+    </operation>
+    <operation name="obtenerDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest" message="tns:obtenerDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse" message="tns:obtenerDescuentoResponse" />
+    </operation>
+    <operation name="eliminarDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoRequest" message="tns:eliminarDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoResponse" message="tns:eliminarDescuentoResponse" />
+    </operation>
+    <operation name="actualizarDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoRequest" message="tns:actualizarDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse" />
+    </operation>
+  </portType>
+  <binding name="DescuentoWSPortBinding" type="tns:DescuentoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarDescuento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarDescuento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerDescuento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarDescuento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarDescuento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DescuentoWS">
+    <port name="DescuentoWSPort" binding="tns:DescuentoWSPortBinding">
+      <soap:address location="http://localhost:8080/SoftProgWS/DescuentoWS" />
+    </port>
+  </service>
+</definitions>
