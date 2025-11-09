@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SoftProgInicio.master.cs" Inherits="SoftProgWeb.SoftProgInicio" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/estilo.css" rel="stylesheet" />
+    <link href="Content/Fonts/css/all.css" rel="stylesheet" />
+    <link href="Content/botones.css" rel="stylesheet" />
+
+    <script src="Scripts/bootstrapt.js"></script>
+    <script src="Scripts/bootstrap.bundle.js"></script>
+    <script src="Scripts/jquery-3.7.1.js"></script>
+
+    
+    <title>
+        <asp:ContentPlaceHolder ID="cphTitle" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <asp:ContentPlaceHolder ID="cphScripts" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- Navbar -->
+    <div>
+        <nav class="navbar navbar-dark bg-rojo px-3">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <a class="navbar-brand text-white fw-bold"></a>
+                <asp:ContentPlaceHolder ID="cphLogo" runat="server"></asp:ContentPlaceHolder>
+                <div>
+                    <button class="btn-blanco" id="btnSignUp" type="button" onclick="window.location.href='Registro.aspx'">
+                        Registrate
+                    </button>
+                    <button class="btn-blanco" id="btnSignIn" type="button" onclick="window.location.href='InicioSesion.aspx'">
+                        Inicia sesión
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Contenido -->
+    <div>
+        <form runat="server">
+            <div class="contenedor-fondo">
+                <div class="contenido-encima">
+                    <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
