@@ -1,0 +1,13 @@
+pe\edu\pucp\inf30\softprog\ws\AdministradorSistemaWS.class
+pe\edu\pucp\inf30\softprog\ws\LineaCarritoWS.class
+pe\edu\pucp\inf30\softprog\ws\ComprobantePagoWS.class
+pe\edu\pucp\inf30\softprog\ws\CuentaUsuarioWS.class
+pe\edu\pucp\inf30\softprog\ws\CategoriaProductoWS.class
+pe\edu\pucp\inf30\softprog\ws\DetalleEnvioWS.class
+pe\edu\pucp\inf30\softprog\ws\OrdenCompraWS.class
+pe\edu\pucp\inf30\softprog\ws\LineaComprobantePagoWS.class
+pe\edu\pucp\inf30\softprog\ws\LineaOrdenCompraWS.class
+pe\edu\pucp\inf30\softprog\ws\ClienteWS.class
+pe\edu\pucp\inf30\softprog\ws\CarritoComprasWS.class
+pe\edu\pucp\inf30\softprog\ws\DescuentoWS.class
+pe\edu\pucp\inf30\softprog\ws\ProductoWS.class

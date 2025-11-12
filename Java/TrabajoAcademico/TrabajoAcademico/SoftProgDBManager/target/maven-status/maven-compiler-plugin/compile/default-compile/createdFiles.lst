@@ -1,0 +1,14 @@
+pe\edu\pucp\inf30\softprog\utils\CadenaConexion$1.class
+pe\edu\pucp\inf30\softprog\dbmanager\Db2DBManagerFactory.class
+pe\edu\pucp\inf30\softprog\dbmanager\MySQLDBManagerFactory.class
+pe\edu\pucp\inf30\softprog\utils\TipoDB.class
+pe\edu\pucp\inf30\softprog\dbmanager\Db2DBManager.class
+pe\edu\pucp\inf30\softprog\utils\CadenaConexion$Builder.class
+pe\edu\pucp\inf30\softprog\utils\CadenaConexion.class
+pe\edu\pucp\inf30\softprog\dbmanager\MySQLDBManager.class
+pe\edu\pucp\inf30\softprog\dbmanager\DBManagerFactory.class
+pe\edu\pucp\inf30\softprog\dbmanager\DBFactoryProvider$1.class
+pe\edu\pucp\inf30\softprog\dbmanager\DBFactoryProvider.class
+pe\edu\pucp\inf30\softprog\dbmanager\MSSQLDBManager.class
+pe\edu\pucp\inf30\softprog\dbmanager\DBManager.class
+pe\edu\pucp\inf30\softprog\dbmanager\MSSQLDBManagerFactory.class
