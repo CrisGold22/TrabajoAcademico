@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Exception" type="tns:Exception" />
+  <xs:element name="actualizarCliente" type="tns:actualizarCliente" />
+  <xs:element name="actualizarClienteResponse" type="tns:actualizarClienteResponse" />
+  <xs:element name="buscarPorDni" type="tns:buscarPorDni" />
+  <xs:element name="buscarPorDniResponse" type="tns:buscarPorDniResponse" />
+  <xs:element name="eEliminarCliente" type="tns:eEliminarCliente" />
+  <xs:element name="eEliminarClienteResponse" type="tns:eEliminarClienteResponse" />
+  <xs:element name="insertarCliente" type="tns:insertarCliente" />
+  <xs:element name="insertarClienteResponse" type="tns:insertarClienteResponse" />
+  <xs:element name="listarCliente" type="tns:listarCliente" />
+  <xs:element name="listarClienteResponse" type="tns:listarClienteResponse" />
+  <xs:element name="obtenerCliente" type="tns:obtenerCliente" />
+  <xs:element name="obtenerClienteResponse" type="tns:obtenerClienteResponse" />
+  <xs:complexType name="obtenerCliente">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoria" type="tns:categoriaCliente" />
+          <xs:element minOccurs="0" name="categoriaCliente" type="xs:string" />
+          <xs:element name="lineaCredito" type="xs:double" />
+          <xs:element name="numeroPedidosHistorico" type="xs:int" />
+          <xs:element name="numeroPedidosMensualPro" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="persona">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
+          <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
+          <xs:element minOccurs="0" name="dni" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="genero" type="tns:genero" />
+          <xs:element minOccurs="0" name="generoString" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element name="telefono" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="registro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCliente">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarClienteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="actualizarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarClienteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eEliminarCliente">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eEliminarClienteResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="buscarPorDni">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPorDniResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="categoriaCliente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DISTRIBUIDOR" />
+      <xs:enumeration value="REVENDEDOR" />
+      <xs:enumeration value="RESTAURANTE" />
+      <xs:enumeration value="HOTEL" />
+      <xs:enumeration value="CATERING" />
+      <xs:enumeration value="GOBIERNO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="genero">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HOMBRE" />
+      <xs:enumeration value="MUJER" />
+      <xs:enumeration value="NO_ESPECIFICADO" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

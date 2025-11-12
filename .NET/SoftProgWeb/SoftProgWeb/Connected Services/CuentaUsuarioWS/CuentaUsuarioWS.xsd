@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarCuentaUsuario" type="tns:actualizarCuentaUsuario" />
+  <xs:element name="actualizarCuentaUsuarioResponse" type="tns:actualizarCuentaUsuarioResponse" />
+  <xs:element name="eliminarCuentaUsuario" type="tns:eliminarCuentaUsuario" />
+  <xs:element name="eliminarCuentaUsuarioResponse" type="tns:eliminarCuentaUsuarioResponse" />
+  <xs:element name="insertarCuentaUsuario" type="tns:insertarCuentaUsuario" />
+  <xs:element name="insertarCuentaUsuarioResponse" type="tns:insertarCuentaUsuarioResponse" />
+  <xs:element name="listarCuentaUsuario" type="tns:listarCuentaUsuario" />
+  <xs:element name="listarCuentaUsuarioResponse" type="tns:listarCuentaUsuarioResponse" />
+  <xs:element name="login" type="tns:login" />
+  <xs:element name="loginResponse" type="tns:loginResponse" />
+  <xs:element name="obtenerCuentaUsuario" type="tns:obtenerCuentaUsuario" />
+  <xs:element name="obtenerCuentaUsuarioResponse" type="tns:obtenerCuentaUsuarioResponse" />
+  <xs:complexType name="insertarCuentaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuentaUsuario" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cuentaUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="administrador" type="tns:administradorSistema" />
+          <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="registro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="administradorSistema">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cargo" type="tns:cargo" />
+          <xs:element minOccurs="0" name="cargoString" type="xs:string" />
+          <xs:element minOccurs="0" name="rango" type="tns:jerarquia" />
+          <xs:element minOccurs="0" name="rangoString" type="xs:string" />
+          <xs:element name="sueldo" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="persona">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
+          <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
+          <xs:element minOccurs="0" name="dni" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="genero" type="tns:genero" />
+          <xs:element minOccurs="0" name="generoString" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element name="telefono" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoria" type="tns:categoriaCliente" />
+          <xs:element minOccurs="0" name="categoriaCliente" type="xs:string" />
+          <xs:element name="lineaCredito" type="xs:double" />
+          <xs:element name="numeroPedidosHistorico" type="xs:int" />
+          <xs:element name="numeroPedidosMensualPro" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="insertarCuentaUsuarioResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarCuentaUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarCuentaUsuarioResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCuentaUsuario">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCuentaUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuentaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuentaUsuario" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuentaUsuarioResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="cargo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADMINISTRADOR" />
+      <xs:enumeration value="GESTOR_PRODUCTOS" />
+      <xs:enumeration value="GESTOR_PEDIDOS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="jerarquia">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMPLETO" />
+      <xs:enumeration value="PARCIAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="genero">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HOMBRE" />
+      <xs:enumeration value="MUJER" />
+      <xs:enumeration value="NO_ESPECIFICADO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="categoriaCliente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DISTRIBUIDOR" />
+      <xs:enumeration value="REVENDEDOR" />
+      <xs:enumeration value="RESTAURANTE" />
+      <xs:enumeration value="HOTEL" />
+      <xs:enumeration value="CATERING" />
+      <xs:enumeration value="GOBIERNO" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

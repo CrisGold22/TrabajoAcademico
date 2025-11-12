@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.softprog.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="CarritoComprasWS" targetNamespace="http://services.softprog.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/CarritoComprasWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="insertarCarritoCompras">
+    <part name="parameters" element="tns:insertarCarritoCompras" />
+  </message>
+  <message name="insertarCarritoComprasResponse">
+    <part name="parameters" element="tns:insertarCarritoComprasResponse" />
+  </message>
+  <message name="actualizarCarritoCompras">
+    <part name="parameters" element="tns:actualizarCarritoCompras" />
+  </message>
+  <message name="actualizarCarritoComprasResponse">
+    <part name="parameters" element="tns:actualizarCarritoComprasResponse" />
+  </message>
+  <message name="eliminarCarritoCompras">
+    <part name="parameters" element="tns:eliminarCarritoCompras" />
+  </message>
+  <message name="eliminarCarritoComprasResponse">
+    <part name="parameters" element="tns:eliminarCarritoComprasResponse" />
+  </message>
+  <message name="listarTodosCarritoCompras">
+    <part name="parameters" element="tns:listarTodosCarritoCompras" />
+  </message>
+  <message name="listarTodosCarritoComprasResponse">
+    <part name="parameters" element="tns:listarTodosCarritoComprasResponse" />
+  </message>
+  <message name="obtenerCarritoCompras">
+    <part name="parameters" element="tns:obtenerCarritoCompras" />
+  </message>
+  <message name="obtenerCarritoComprasResponse">
+    <part name="parameters" element="tns:obtenerCarritoComprasResponse" />
+  </message>
+  <message name="obtenerCarritoComprasPorCliente">
+    <part name="parameters" element="tns:obtenerCarritoComprasPorCliente" />
+  </message>
+  <message name="obtenerCarritoComprasPorClienteResponse">
+    <part name="parameters" element="tns:obtenerCarritoComprasPorClienteResponse" />
+  </message>
+  <portType name="CarritoComprasWS">
+    <operation name="insertarCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasRequest" message="tns:insertarCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasResponse" message="tns:insertarCarritoComprasResponse" />
+    </operation>
+    <operation name="actualizarCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/actualizarCarritoComprasRequest" message="tns:actualizarCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/actualizarCarritoComprasResponse" message="tns:actualizarCarritoComprasResponse" />
+    </operation>
+    <operation name="eliminarCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/eliminarCarritoComprasRequest" message="tns:eliminarCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/eliminarCarritoComprasResponse" message="tns:eliminarCarritoComprasResponse" />
+    </operation>
+    <operation name="listarTodosCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRequest" message="tns:listarTodosCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasResponse" message="tns:listarTodosCarritoComprasResponse" />
+    </operation>
+    <operation name="obtenerCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRequest" message="tns:obtenerCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasResponse" message="tns:obtenerCarritoComprasResponse" />
+    </operation>
+    <operation name="obtenerCarritoComprasPorCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasPorClienteRequest" message="tns:obtenerCarritoComprasPorCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasPorClienteResponse" message="tns:obtenerCarritoComprasPorClienteResponse" />
+    </operation>
+  </portType>
+  <binding name="CarritoComprasWSPortBinding" type="tns:CarritoComprasWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertarCarritoCompras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarCarritoCompras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarCarritoCompras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodosCarritoCompras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCarritoCompras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCarritoComprasPorCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CarritoComprasWS">
+    <port name="CarritoComprasWSPort" binding="tns:CarritoComprasWSPortBinding">
+      <soap:address location="http://localhost:8080/SoftProgWS/CarritoComprasWS" />
+    </port>
+  </service>
+</definitions>
