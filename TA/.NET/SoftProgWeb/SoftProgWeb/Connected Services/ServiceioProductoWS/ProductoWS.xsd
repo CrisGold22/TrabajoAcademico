@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarProducto" type="tns:actualizarProducto" />
+  <xs:element name="actualizarProductoResponse" type="tns:actualizarProductoResponse" />
+  <xs:element name="eliminarProducto" type="tns:eliminarProducto" />
+  <xs:element name="eliminarProductoResponse" type="tns:eliminarProductoResponse" />
+  <xs:element name="insertarProducto" type="tns:insertarProducto" />
+  <xs:element name="insertarProductoResponse" type="tns:insertarProductoResponse" />
+  <xs:element name="listarProducto" type="tns:listarProducto" />
+  <xs:element name="listarProductoResponse" type="tns:listarProductoResponse" />
+  <xs:element name="listarfiltrarProductoPorMarca" type="tns:listarfiltrarProductoPorMarca" />
+  <xs:element name="listarfiltrarProductoPorMarcaResponse" type="tns:listarfiltrarProductoPorMarcaResponse" />
+  <xs:element name="listarfiltrarProductoPorPrecio" type="tns:listarfiltrarProductoPorPrecio" />
+  <xs:element name="listarfiltrarProductoPorPrecioResponse" type="tns:listarfiltrarProductoPorPrecioResponse" />
+  <xs:element name="obtenerPorSku" type="tns:obtenerPorSku" />
+  <xs:element name="obtenerPorSkuResponse" type="tns:obtenerPorSkuResponse" />
+  <xs:element name="obtenerProducto" type="tns:obtenerProducto" />
+  <xs:element name="obtenerProductoResponse" type="tns:obtenerProductoResponse" />
+  <xs:complexType name="listarProducto">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="producto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoria" type="tns:categoriaProducto" />
+          <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+          <xs:element minOccurs="0" name="marca" type="xs:string" />
+          <xs:element minOccurs="0" name="medidaAlMayor" type="tns:unidadMedida" />
+          <xs:element minOccurs="0" name="medidaAlMayorString" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element name="precioAlMayor" type="xs:double" />
+          <xs:element name="precioUnitario" type="xs:double" />
+          <xs:element minOccurs="0" name="SKU" type="xs:string" />
+          <xs:element name="stockDisponible" type="xs:int" />
+          <xs:element name="stockMaximo" type="xs:int" />
+          <xs:element name="stockMinimo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="registro">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoriaProducto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoriaPadre" type="tns:categoriaProducto" />
+          <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="obtenerProducto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerProductoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorMarca">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="RangoPrecio1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorMarcaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorSku">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sku" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorSkuResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorPrecio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element name="rangoPrecio1" type="xs:double" />
+      <xs:element name="rangoPrecio2" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorPrecioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="actualizarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarProducto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:simpleType name="unidadMedida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KILOGRAMO" />
+      <xs:enumeration value="LITRO" />
+      <xs:enumeration value="GALON" />
+      <xs:enumeration value="BOTELLA" />
+      <xs:enumeration value="CAJA" />
+      <xs:enumeration value="PAQUETE" />
+      <xs:enumeration value="SACO" />
+      <xs:enumeration value="PACK" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

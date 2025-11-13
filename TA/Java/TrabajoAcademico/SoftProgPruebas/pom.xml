@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <repositories>
+        <repository>
+            <id>project-local</id>
+            <name>Project Local Repository</name>
+            <url>file://${project.basedir}/../repo</url>
+        </repository>
+    </repositories>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mycompany</groupId>
+        <artifactId>Proyecto</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>pe.edu.pucp.inf30</groupId>
+    <artifactId>SoftProgPruebas</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SoftProgDAO</artifactId>
+            <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>pe.edu.pucp.inf30.softprog</groupId>
+                    <artifactId>SoftProgModelo</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SoftProgDBManager</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>pe.edu.pucp.inf30.softprog</groupId>
+            <artifactId>SoftProgModelo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.db2</groupId>
+            <artifactId>jcc</artifactId>
+            <version>11.5.8.0</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SoftProgNegocio</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <exec.mainClass>pe.edu.pucp.inf30.softprogpruebas.SoftProgPruebas</exec.mainClass>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
