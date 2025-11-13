@@ -1,0 +1,45 @@
+﻿body {
+    padding-top: 80px;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #DE2C2C;
+    height: 80px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+    .navbar .form-control {
+        border-radius: 45px;
+    }
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 232px;
+    max-width: 232px;
+    background: #fff;
+    min-height: calc(100vh - 80px);
+    border-right: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+    #sidebar .nav-link {
+        font-size: 16px;
+        color: #555;
+    }
+
+    #sidebar .nav-pills .nav-link.active,
+    #sidebar .nav-pills .show > .nav-link {
+        background-color: var(--bs-primary);
+        color: white;
+    }
+
+#content {
+    width: 100%;
+    padding: 25px;
+}
