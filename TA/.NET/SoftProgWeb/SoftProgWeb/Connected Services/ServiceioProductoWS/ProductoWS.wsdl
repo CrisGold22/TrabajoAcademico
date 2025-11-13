@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.softprog.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ProductoWS" targetNamespace="http://services.softprog.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/ProductoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="obtenerPorSku">
+    <part name="parameters" element="tns:obtenerPorSku" />
+  </message>
+  <message name="obtenerPorSkuResponse">
+    <part name="parameters" element="tns:obtenerPorSkuResponse" />
+  </message>
+  <message name="listarProducto">
+    <part name="parameters" element="tns:listarProducto" />
+  </message>
+  <message name="listarProductoResponse">
+    <part name="parameters" element="tns:listarProductoResponse" />
+  </message>
+  <message name="listarfiltrarProductoPorPrecio">
+    <part name="parameters" element="tns:listarfiltrarProductoPorPrecio" />
+  </message>
+  <message name="listarfiltrarProductoPorPrecioResponse">
+    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioResponse" />
+  </message>
+  <message name="listarfiltrarProductoPorMarca">
+    <part name="parameters" element="tns:listarfiltrarProductoPorMarca" />
+  </message>
+  <message name="listarfiltrarProductoPorMarcaResponse">
+    <part name="parameters" element="tns:listarfiltrarProductoPorMarcaResponse" />
+  </message>
+  <message name="insertarProducto">
+    <part name="parameters" element="tns:insertarProducto" />
+  </message>
+  <message name="insertarProductoResponse">
+    <part name="parameters" element="tns:insertarProductoResponse" />
+  </message>
+  <message name="obtenerProducto">
+    <part name="parameters" element="tns:obtenerProducto" />
+  </message>
+  <message name="obtenerProductoResponse">
+    <part name="parameters" element="tns:obtenerProductoResponse" />
+  </message>
+  <message name="actualizarProducto">
+    <part name="parameters" element="tns:actualizarProducto" />
+  </message>
+  <message name="actualizarProductoResponse">
+    <part name="parameters" element="tns:actualizarProductoResponse" />
+  </message>
+  <message name="eliminarProducto">
+    <part name="parameters" element="tns:eliminarProducto" />
+  </message>
+  <message name="eliminarProductoResponse">
+    <part name="parameters" element="tns:eliminarProductoResponse" />
+  </message>
+  <portType name="ProductoWS">
+    <operation name="obtenerPorSku">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuRequest" message="tns:obtenerPorSku" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuResponse" message="tns:obtenerPorSkuResponse" />
+    </operation>
+    <operation name="listarProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest" message="tns:listarProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse" message="tns:listarProductoResponse" />
+    </operation>
+    <operation name="listarfiltrarProductoPorPrecio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioRequest" message="tns:listarfiltrarProductoPorPrecio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioResponse" message="tns:listarfiltrarProductoPorPrecioResponse" />
+    </operation>
+    <operation name="listarfiltrarProductoPorMarca">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequest" message="tns:listarfiltrarProductoPorMarca" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResponse" message="tns:listarfiltrarProductoPorMarcaResponse" />
+    </operation>
+    <operation name="insertarProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/insertarProductoRequest" message="tns:insertarProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/insertarProductoResponse" message="tns:insertarProductoResponse" />
+    </operation>
+    <operation name="obtenerProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
+    </operation>
+    <operation name="actualizarProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoRequest" message="tns:actualizarProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoResponse" message="tns:actualizarProductoResponse" />
+    </operation>
+    <operation name="eliminarProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest" message="tns:eliminarProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse" message="tns:eliminarProductoResponse" />
+    </operation>
+  </portType>
+  <binding name="ProductoWSPortBinding" type="tns:ProductoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerPorSku">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarfiltrarProductoPorPrecio">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarfiltrarProductoPorMarca">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ProductoWS">
+    <port name="ProductoWSPort" binding="tns:ProductoWSPortBinding">
+      <soap:address location="http://localhost:8080/SoftProgWS/ProductoWS" />
+    </port>
+  </service>
+</definitions>

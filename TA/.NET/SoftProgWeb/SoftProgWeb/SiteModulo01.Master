@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteModulo01.master.cs" Inherits="SoftProgWeb.SiteModulo01" %>
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Panel de Administración</title>
+
+    <%-- Referencia al CSS de Bootswatch Brite --%>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <%-- Referencia a FontAwesome para los íconos --%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <%-- CSS personalizado para el layout Pantalla Admin--%>
+    <link href="~/Content/Layout01.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://placehold.co/185x77/ffffff/DE2C2C?text=REDCOM" alt="Logo" style="height: 50px ; " class="rounded"/>
+                </a>
+                <div class="mx-auto" style="width: 335px;">
+                    <div class="input-group">
+                        <asp:TextBox runat="server" ID="txtBusquedaGlobal" CssClass="form-control" placeholder="Buscar..."></asp:TextBox>
+                        <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-2x me-2"></i>
+                        <span>Administrador 01</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog fa-fw me-2"></i>Mi Cuenta</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+        <nav id="sidebar" class="p-3">
+            <div class="nav flex-column nav-pills" runat="server">
+                <a id="lnkInicio" class="nav-link" href="#" runat="server">
+                    <i class="fas fa-home fa-fw me-2"></i>Inicio
+                </a>
+                <a id="lnkProductos" class="nav-link" href="~/GestionarProductos01.aspx" runat="server">
+                    <i class="fas fa-box-open fa-fw me-2"></i>Productos
+                </a>
+                <a id="lnkClientes" class="nav-link" href="~/GestionarClientes01.aspx" runat="server">
+                    <i class="fas fa-users fa-fw me-2"></i>Clientes
+                </a>
+                <a id="lnkPedidos" class="nav-link" href="~/GestionarPedidos01.aspx" runat="server">
+                    <i class="fas fa-truck fa-fw me-2"></i>Pedidos
+                </a>
+            </div>
+        </nav>
+
+            <main id="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+            </main>
+        </div>
+
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/jquery-3.4.1.min.js" />
+                <asp:ScriptReference Path="~/Scripts/bootstrap.bundle.min.js" />
+            </Scripts>
+        </asp:ScriptManager>
+    </form>
+</body>
+</html>

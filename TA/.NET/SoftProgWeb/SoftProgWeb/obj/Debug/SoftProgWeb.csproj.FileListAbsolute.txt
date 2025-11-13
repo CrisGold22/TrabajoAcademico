@@ -1,0 +1,358 @@
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll.config
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.pdb
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.rsp
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.rsp
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Managed.Core.targets
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.AppContext.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Collections.Immutable.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Console.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Globalization.Calendars.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Http.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Sockets.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Reflection.Metadata.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.ValueTuple.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XmlDocument.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.rsp
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll.config
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.pdb
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe.config
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.rsp
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe.config
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.rsp
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Managed.Core.targets
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.AppContext.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Console.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Globalization.Calendars.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Http.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Sockets.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.ValueTuple.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XmlDocument.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe.config
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.rsp
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+C:\TrabajosPUCP\Repositorio Local\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll.config
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.pdb
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe.config
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.rsp
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe.config
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.rsp
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Managed.Core.targets
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.AppContext.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Collections.Immutable.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Console.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Globalization.Calendars.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Http.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Sockets.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Reflection.Metadata.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.ValueTuple.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XmlDocument.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe.config
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.rsp
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe.config
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+D:\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+D:\.PUCP\2025-2\Progra 3\proyecto\git\develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\git\develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\git\develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\git\develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll.config
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.pdb
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.rsp
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.rsp
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Managed.Core.targets
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.AppContext.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Collections.Immutable.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Console.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Globalization.Calendars.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Http.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Sockets.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Reflection.Metadata.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.ValueTuple.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XmlDocument.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.rsp
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe.config
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab12\TrabajoAcademico-develop2\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll.config
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.pdb
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe.config
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.rsp
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe.config
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.rsp
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.AppContext.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Console.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Http.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.ValueTuple.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe.config
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.rsp
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Diego\Documents\TrabajoAcademico-develop2\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll.config
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\SoftProgWeb.pdb
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.exe.config
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csc.rsp
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.exe.config
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\csi.rsp
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.AppContext.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Console.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Http.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Net.Sockets.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.ValueTuple.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.exe.config
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\vbc.rsp
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+C:\Users\chris\Downloads\TrabajoAcademico\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
