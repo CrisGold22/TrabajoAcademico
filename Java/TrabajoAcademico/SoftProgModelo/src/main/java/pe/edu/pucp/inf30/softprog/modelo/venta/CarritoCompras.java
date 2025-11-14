@@ -18,8 +18,9 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoCarrito;
 public class CarritoCompras extends Registro {
 
     private List<LineaCarrito> lineasCarrito;
-    private double totalParcial;
-    private double totalConDescuento;
+    private double subtotal;
+    private double descuento;
+    private double montoFinal;
     private EstadoCarrito estado;
     private Cliente cliente;
 
@@ -27,22 +28,25 @@ public class CarritoCompras extends Registro {
         lineasCarrito = new ArrayList<>();
     }
 
-    public CarritoCompras(List<LineaCarrito> lineasCarrito, double totalParcial, double totalConDescuento, EstadoCarrito estado, Cliente cliente) {
+    public CarritoCompras(List<LineaCarrito> lineasCarrito, double subtotal, double descuento, double montoFinal, EstadoCarrito estado, Cliente cliente) {
         this.lineasCarrito = lineasCarrito;
-        this.totalParcial = totalParcial;
-        this.totalConDescuento = totalConDescuento;
+        this.subtotal = subtotal;
+        this.descuento = descuento;
+        this.montoFinal = montoFinal;
         this.estado = estado;
         this.cliente = cliente;
     }
 
-    public CarritoCompras(List<LineaCarrito> lineasCarrito, double totalParcial, double totalConDescuento, EstadoCarrito estado, Cliente cliente, int id, boolean activo) {
+    public CarritoCompras(List<LineaCarrito> lineasCarrito, double subtotal, double descuento, double montoFinal, EstadoCarrito estado, Cliente cliente, int id, boolean activo) {
         super(id, activo);
         this.lineasCarrito = lineasCarrito;
-        this.totalParcial = totalParcial;
-        this.totalConDescuento = totalConDescuento;
+        this.subtotal = subtotal;
+        this.descuento = descuento;
+        this.montoFinal = montoFinal;
         this.estado = estado;
         this.cliente = cliente;
     }
+
     
     public List<LineaCarrito> getLineasCarritos() {
         return lineasCarrito;
@@ -50,22 +54,6 @@ public class CarritoCompras extends Registro {
 
     public void setLineasCarrito(List<LineaCarrito> productos) {
         this.lineasCarrito = productos;
-    }
-
-    public double getTotalParcial() {
-        return totalParcial;
-    }
-
-    public void setTotalParcial(double totalParcial) {
-        this.totalParcial = totalParcial;
-    }
-
-    public double getTotalConDescuento() {
-        return totalConDescuento;
-    }
-
-    public void setTotalConDescuento(double totalConDescuento) {
-        this.totalConDescuento = totalConDescuento;
     }
 
     public EstadoCarrito getEstado() {
@@ -128,6 +116,30 @@ public class CarritoCompras extends Registro {
 
     public void setCliente(Cliente Cliente) {
         this.cliente = Cliente;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
+    public double getMontoFinal() {
+        return montoFinal;
+    }
+
+    public void setMontoFinal(double montoFinal) {
+        this.montoFinal = montoFinal;
     }
 
     

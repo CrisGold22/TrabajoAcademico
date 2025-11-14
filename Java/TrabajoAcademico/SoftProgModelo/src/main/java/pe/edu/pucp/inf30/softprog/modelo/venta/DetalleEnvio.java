@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
+import java.time.LocalDate;
 import java.util.Date;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.Distrito;
@@ -13,32 +14,34 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.utils.Distrito;
  * @author Cristhian Horacio
  */
 public class DetalleEnvio extends Registro {
-
     private String descripcion;
-    private Date fechaEntrega;
-    private Date horarioEntrega;
+    private LocalDate fechaEntrega;
+    private LocalDate horarioEntrega;
     private String direccion;
     private Distrito distrito;
+    private OrdenCompra ordenCompra;
 
     public DetalleEnvio() {
 
     }
 
-    public DetalleEnvio(String descripcion, Date fechaEntrega, Date horarioEntrega, String direccion, Distrito distrito) {
+    public DetalleEnvio(String descripcion, LocalDate fechaEntrega, LocalDate horarioEntrega, String direccion, Distrito distrito, OrdenCompra ordenCompra) {
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
         this.horarioEntrega = horarioEntrega;
         this.direccion = direccion;
         this.distrito = distrito;
+        this.ordenCompra = ordenCompra;
     }
 
-    public DetalleEnvio(String descripcion, Date fechaEntrega, Date horarioEntrega, String direccion, Distrito distrito, int id, boolean activo) {
+    public DetalleEnvio(String descripcion, LocalDate fechaEntrega, LocalDate horarioEntrega, String direccion, Distrito distrito, OrdenCompra ordenCompra, int id, boolean activo) {
         super(id, activo);
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
         this.horarioEntrega = horarioEntrega;
         this.direccion = direccion;
         this.distrito = distrito;
+        this.ordenCompra = ordenCompra;
     }
 
     public String getDescripcion() {
@@ -47,22 +50,6 @@ public class DetalleEnvio extends Registro {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public Date getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public void setFechaEntrega(Date fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
-    }
-
-    public Date getHorarioEntrega() {
-        return horarioEntrega;
-    }
-
-    public void setHorarioEntrega(Date horarioEntrega) {
-        this.horarioEntrega = horarioEntrega;
     }
 
     public String getDireccion() {
@@ -125,4 +112,29 @@ public class DetalleEnvio extends Registro {
         }
     }
 
+    public LocalDate getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(LocalDate fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public LocalDate getHorarioEntrega() {
+        return horarioEntrega;
+    }
+
+    public void setHorarioEntrega(LocalDate horarioEntrega) {
+        this.horarioEntrega = horarioEntrega;
+    }
+
+    public OrdenCompra getOrdenCompra() {
+        return ordenCompra;
+    }
+
+    public void setOrdenCompra(OrdenCompra ordenCompra) {
+        this.ordenCompra = ordenCompra;
+    }
+    
+    
 }

@@ -19,37 +19,38 @@ public class Cliente extends Persona {
     private CategoriaCliente categoria;
     private int numeroPedidosHistorico;
     private int numeroPedidosMensualPro;
+    private CuentaUsuario cuenta;
 
     public Cliente() {
 
     }
 
-    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro) {
+    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, CuentaUsuario cuenta) {
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
-//        this.cuentaUsuario = cuentaUsuario;
         this.numeroPedidosHistorico = numeroPedidosHistorico;
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
+        this.cuenta = cuenta;
     }
 
-    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
-//        this.cuentaUsuario = cuentaUsuario;
         this.numeroPedidosHistorico = numeroPedidosHistorico;
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
+        this.cuenta = cuenta;
     }
 
-    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public Cliente(double lineaCredito, CategoriaCliente categoria, int numeroPedidosHistorico, int numeroPedidosMensualPro, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.lineaCredito = lineaCredito;
         this.categoria = categoria;
-//        this.cuentaUsuario = cuentaUsuario;
         this.numeroPedidosHistorico = numeroPedidosHistorico;
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
+        this.cuenta = cuenta;
     }
-
+    
     public double getLineaCredito() {
         return lineaCredito;
     }
@@ -65,14 +66,6 @@ public class Cliente extends Persona {
     public void setCategoria(CategoriaCliente categoria) {
         this.categoria = categoria;
     }
-
-//    public CuentaUsuarioDTO getCuentaUsuario() {
-//        return cuentaUsuario;
-//    }
-//
-//    public void setCuentaUsuario(CuentaUsuarioDTO cuentaUsuario) {
-//        this.cuentaUsuario = cuentaUsuario;
-//    }
 
     public int getNumeroPedidosHistorico() {
         return numeroPedidosHistorico;
@@ -127,4 +120,13 @@ public class Cliente extends Persona {
         }
     }
 
+    public CuentaUsuario getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(CuentaUsuario cuenta) {
+        this.cuenta = cuenta;
+    }
+    
+    
 }

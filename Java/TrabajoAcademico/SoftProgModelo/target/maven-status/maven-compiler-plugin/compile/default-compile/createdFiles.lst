@@ -32,7 +32,6 @@ pe\edu\pucp\inf30\softprog\modelo\producto\Producto.class
 pe\edu\pucp\inf30\softprog\modelo\venta\DetalleEnvio.class
 pe\edu\pucp\inf30\softprog\modelo\pago\LineaComprobantePago.class
 pe\edu\pucp\inf30\softprog\modelo\venta\LineaCarrito.class
-pe\edu\pucp\inf30\softprog\modelo\persona\Empresa$1.class
 pe\edu\pucp\inf30\softprog\modelo\persona\utils\Jerarquia.class
 pe\edu\pucp\inf30\softprog\modelo\venta\utils\Distrito.class
 pe\edu\pucp\inf30\softprog\modelo\base\Registro.class

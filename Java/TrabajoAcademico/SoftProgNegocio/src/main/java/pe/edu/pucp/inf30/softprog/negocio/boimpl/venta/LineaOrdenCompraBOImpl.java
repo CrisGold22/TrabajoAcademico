@@ -32,10 +32,6 @@ public class LineaOrdenCompraBOImpl implements LineaOrdenCompraBO{
             throw new IllegalArgumentException("La Linea Orden Compra no puede ser nula");
         }        
         
-        if(modelo.getCarritoCompras() == null){
-            throw new IllegalArgumentException("El Carrito Compras asociado no puede ser nulo");
-        }
-        
         if(modelo.getOrdenCompra() == null){
             throw new IllegalArgumentException("El Orden Compra asociado no puede ser nulo");            
         }

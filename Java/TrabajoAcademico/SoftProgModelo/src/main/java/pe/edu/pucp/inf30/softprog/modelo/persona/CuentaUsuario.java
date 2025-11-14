@@ -13,26 +13,21 @@ import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 public class CuentaUsuario extends Registro{
     private String username;
     private String password;
-    private Cliente cliente;
-    private AdministradorSistema administrador;
-    
+
     public CuentaUsuario(){
         
     }
 
-    public CuentaUsuario(String username, String password, Cliente cliente, AdministradorSistema administrador) {
+    public CuentaUsuario(String username, String password) {
         this.username = username;
         this.password = password;
-        this.cliente = cliente;
-        this.administrador = administrador;
+
     }
 
-    public CuentaUsuario(String username, String password, Cliente cliente, AdministradorSistema administrador, int id, boolean activo) {
+    public CuentaUsuario(String username, String password, int id, boolean activo) {
         super(id, activo);
         this.username = username;
         this.password = password;
-        this.cliente = cliente;
-        this.administrador = administrador;
     }
 
     
@@ -44,31 +39,5 @@ public class CuentaUsuario extends Registro{
     public void setUsername(String username) {
         this.username = username;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public AdministradorSistema getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(AdministradorSistema administrador) {
-        this.administrador = administrador;
-    }
-
-    
-    
+  
 }

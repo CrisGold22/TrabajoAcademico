@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.venta;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,11 +19,11 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoOrdenCompra;
 public class OrdenCompra extends Registro {
 
     private List<LineaOrdenCompra> lineasOrden;
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
     private double totalParcial;
     private double totalFinal;
     private double descuentoTotal;
-    private DetalleEnvio detalleEnvio;
+    private CarritoCompras carritoCompras;
     private Cliente cliente;
     private EstadoOrdenCompra estado;
 
@@ -30,31 +31,29 @@ public class OrdenCompra extends Registro {
         lineasOrden = new ArrayList<>();
     }
 
-    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, DetalleEnvio detalleEnvio, Cliente cliente, EstadoOrdenCompra estado) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDate fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado) {
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
         this.totalFinal = totalFinal;
         this.descuentoTotal = descuentoTotal;
-        this.detalleEnvio = detalleEnvio;
+        this.carritoCompras = carritoCompras;
         this.cliente = cliente;
         this.estado = estado;
     }
 
-    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, Date fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, DetalleEnvio detalleEnvio, Cliente cliente, EstadoOrdenCompra estado, int id, boolean activo) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDate fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, int id, boolean activo) {
         super(id, activo);
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
         this.totalFinal = totalFinal;
         this.descuentoTotal = descuentoTotal;
-        this.detalleEnvio = detalleEnvio;
+        this.carritoCompras = carritoCompras;
         this.cliente = cliente;
         this.estado = estado;
     }
-
     
-
     public List<LineaOrdenCompra> getLineasOrden() {
         return lineasOrden;
     }
@@ -63,13 +62,6 @@ public class OrdenCompra extends Registro {
         this.lineasOrden = lineasOrden;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
 
     public double getTotalParcial() {
         return totalParcial;
@@ -144,20 +136,28 @@ public class OrdenCompra extends Registro {
         }
     }
 
-    public DetalleEnvio getDetalleEnvio() {
-        return detalleEnvio;
-    }
-
-    public void setDetalleEnvio(DetalleEnvio detalleEnvio) {
-        this.detalleEnvio = detalleEnvio;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public CarritoCompras getCarritoCompras() {
+        return carritoCompras;
+    }
+
+    public void setCarritoCompras(CarritoCompras carritoCompras) {
+        this.carritoCompras = carritoCompras;
     }
 
     

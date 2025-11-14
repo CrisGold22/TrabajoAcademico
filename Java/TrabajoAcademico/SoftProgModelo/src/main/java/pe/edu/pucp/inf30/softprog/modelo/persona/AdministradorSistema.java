@@ -18,30 +18,34 @@ public class AdministradorSistema extends Persona {
 
     private Cargo cargo;
     private double sueldo;
-    private Jerarquia rango;
+    private Jerarquia jerarquia;
+    private CuentaUsuario cuenta;
 
     public AdministradorSistema() {
 
     }
 
-    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia rango) {
+    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta) {
         this.cargo = cargo;
         this.sueldo = sueldo;
-        this.rango = rango;
+        this.jerarquia = jerarquia;
+        this.cuenta = cuenta;
     }
 
-    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia rango, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.cargo = cargo;
         this.sueldo = sueldo;
-        this.rango = rango;
+        this.jerarquia = jerarquia;
+        this.cuenta = cuenta;
     }
 
-    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia rango, CuentaUsuario cuentaUsuario, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.cargo = cargo;
         this.sueldo = sueldo;
-        this.rango = rango;
+        this.jerarquia = jerarquia;
+        this.cuenta = cuenta;
     }
 
     public Cargo getCargo() {
@@ -60,14 +64,6 @@ public class AdministradorSistema extends Persona {
         this.sueldo = sueldo;
     }
 
-    public Jerarquia getRango() {
-        return rango;
-    }
-
-    public void setRango(Jerarquia rango) {
-        this.rango = rango;
-    }
-
     public String getCargoString() {
         String cadena = "";
 
@@ -83,10 +79,10 @@ public class AdministradorSistema extends Persona {
         return cadena;
     }
 
-    public String getRangoString() {
+    public String getJerarquiaString() {
         String cadena = "";
 
-        switch (this.rango) {
+        switch (this.jerarquia) {
             case COMPLETO ->
                 cadena = "COMPLETO";
             case PARCIAL ->
@@ -107,13 +103,30 @@ public class AdministradorSistema extends Persona {
         }
     }
 
-    public void setRangoString(String rango) {
-        switch (rango) {
+    public void setJerarquiaString(String jerarquia) {
+        switch (jerarquia) {
             case "COMPLETO" ->
-                this.rango = Jerarquia.COMPLETO;
+                this.jerarquia = Jerarquia.COMPLETO;
             case "PARCIAL" ->
-                this.rango = Jerarquia.PARCIAL;
+                this.jerarquia = Jerarquia.PARCIAL;
         }
     }
 
+    public Jerarquia getJerarquia() {
+        return jerarquia;
+    }
+
+    public void setJerarquia(Jerarquia jerarquia) {
+        this.jerarquia = jerarquia;
+    }
+
+    public CuentaUsuario getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(CuentaUsuario cuenta) {
+        this.cuenta = cuenta;
+    }
+    
+    
 }

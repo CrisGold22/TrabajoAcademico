@@ -30,11 +30,7 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
     public void insertar(CuentaUsuario modelo) {
         if(modelo == null){
             throw new IllegalArgumentException("La Cuenta Usuario  no puede ser nula");
-        } 
-        
-        if(modelo.getCliente() == null && modelo.getAdministrador() == null){
-            throw new IllegalArgumentException("Cuenta Usuario invalido");
-        }
+        }     
         
         this.cuenta.crear(modelo);
     }
@@ -47,10 +43,6 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
         
         if(modelo.getId() <= 0){
              throw new IllegalArgumentException("Cuenta Usuario con ID inválido");     
-        }
-        
-        if(modelo.getCliente() == null && modelo.getAdministrador() == null){
-            throw new IllegalArgumentException("Cuenta Usuario invalido");
         }
 
         CuentaUsuario cuentaModelo = this.cuenta.leer(modelo.getId());

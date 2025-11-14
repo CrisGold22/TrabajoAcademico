@@ -16,49 +16,44 @@ public class Producto extends Registro {
     private String nombre;
     private String SKU;
     private String descripcion;
-    private double precioUnitario;
+    private double precioRegular;
     private double precioAlMayor;
     private UnidadMedida medidaAlMayor;
     private int stockDisponible;
-    private int stockMinimo;
     private int stockMaximo;
-    private CategoriaProducto categoria;
     private String marca;
+    private CategoriaProducto categoria;
     
     public Producto() {
 
     }
 
-    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, CategoriaProducto categoria, String marca) {
+    public Producto(String nombre, String SKU, String descripcion, double precioRegular, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMaximo, String marca, CategoriaProducto categoria) {
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
-        this.precioUnitario = precioUnitario;
+        this.precioRegular = precioRegular;
         this.precioAlMayor = precioAlMayor;
         this.medidaAlMayor = medidaAlMayor;
         this.stockDisponible = stockDisponible;
-        this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
-        this.categoria = categoria;
         this.marca = marca;
+        this.categoria = categoria;
     }
 
-    public Producto(String nombre, String SKU, String descripcion, double precioUnitario, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMinimo, int stockMaximo, CategoriaProducto categoria, String marca, int id, boolean activo) {
+    public Producto(String nombre, String SKU, String descripcion, double precioRegular, double precioAlMayor, UnidadMedida medidaAlMayor, int stockDisponible, int stockMaximo, String marca, CategoriaProducto categoria, int id, boolean activo) {
         super(id, activo);
         this.nombre = nombre;
         this.SKU = SKU;
         this.descripcion = descripcion;
-        this.precioUnitario = precioUnitario;
+        this.precioRegular = precioRegular;
         this.precioAlMayor = precioAlMayor;
         this.medidaAlMayor = medidaAlMayor;
         this.stockDisponible = stockDisponible;
-        this.stockMinimo = stockMinimo;
         this.stockMaximo = stockMaximo;
-        this.categoria = categoria;
         this.marca = marca;
+        this.categoria = categoria;
     }
-    
-    
     
     public String getNombre() {
         return nombre;
@@ -84,14 +79,6 @@ public class Producto extends Registro {
         this.descripcion = descripcion;
     }
 
-    public double getPrecioUnitario() {
-        return precioUnitario;
-    }
-
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
-
     public double getPrecioAlMayor() {
         return precioAlMayor;
     }
@@ -114,14 +101,6 @@ public class Producto extends Registro {
 
     public void setStockDisponible(int stockDisponible) {
         this.stockDisponible = stockDisponible;
-    }
-
-    public int getStockMinimo() {
-        return stockMinimo;
-    }
-
-    public void setStockMinimo(int stockMinimo) {
-        this.stockMinimo = stockMinimo;
     }
 
     public int getStockMaximo() {
@@ -191,6 +170,14 @@ public class Producto extends Registro {
 
     public void setCategoria(CategoriaProducto categoria) {
         this.categoria = categoria;
+    }
+
+    public double getPrecioRegular() {
+        return precioRegular;
+    }
+
+    public void setPrecioRegular(double precioRegular) {
+        this.precioRegular = precioRegular;
     }
     
     

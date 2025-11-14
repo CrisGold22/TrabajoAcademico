@@ -15,7 +15,7 @@ public class LineaCarrito extends Registro{
     private Producto producto;
     private CarritoCompras carritoCompras;
     private int cantidad;
-    private double precioVolumen;
+    private double precio;
     private double subTotal;
     
     public LineaCarrito(){
@@ -26,7 +26,7 @@ public class LineaCarrito extends Registro{
         this.producto = producto;
         this.carritoCompras = carritoCompras;
         this.cantidad = cantidad;
-        this.precioVolumen = precioVolumen;
+        this.precio = precioVolumen;
         this.subTotal = subTotal;
     }
 
@@ -35,7 +35,7 @@ public class LineaCarrito extends Registro{
         this.producto = producto;
         this.carritoCompras = carritoCompras;
         this.cantidad = cantidad;
-        this.precioVolumen = precioVolumen;
+        this.precio = precioVolumen;
         this.subTotal = subTotal;
     }
 
@@ -57,12 +57,12 @@ public class LineaCarrito extends Registro{
         this.cantidad = cantidad;
     }
 
-    public double getPrecioVolumen() {
-        return precioVolumen;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecioVolumen(double precioVolumen) {
-        this.precioVolumen = precioVolumen;
+    public void setPrecio(double precioVolumen) {
+        this.precio = precioVolumen;
     }
 
     public double getSubTotal() {
