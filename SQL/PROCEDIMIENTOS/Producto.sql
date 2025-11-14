@@ -4,10 +4,22 @@ USE REDCOM;
 -- PRODUCTO
 -- =====================================================================
 
+DROP PROCEDURE IF EXISTS insertarProducto;
+DROP PROCEDURE IF EXISTS modificarProducto;
+DROP PROCEDURE IF EXISTS eliminarProducto;
+DROP PROCEDURE IF EXISTS buscarProductoPorId;
+DROP PROCEDURE IF EXISTS buscarProductoPorSKU;
+DROP PROCEDURE IF EXISTS listarProductos;
+DROP PROCEDURE IF EXISTS filtrarProductoPorDescuento;
+DROP PROCEDURE IF EXISTS filtrarProductoPorMarca;
+DROP PROCEDURE IF EXISTS filtrarProductoPorPrecio;
+DROP PROCEDURE IF EXISTS verificarStockSuficientePorID;
+DROP PROCEDURE IF EXISTS verificarStockSuficientePorSKU;
+
+
 DELIMITER //
 
 CREATE PROCEDURE insertarProducto (
-    IN p_ID_Producto                           INT,
     IN p_Nombre                                VARCHAR(45),
     IN p_SKU                                   VARCHAR(45),
     IN p_Descripcion                           VARCHAR(45),
@@ -15,7 +27,6 @@ CREATE PROCEDURE insertarProducto (
     IN p_precioAlMayor                         DOUBLE,
     IN p_UnidadDeMedida                        VARCHAR(45),
     IN p_StockDisponible                       INT,
-    IN p_StockMinimo                           INT,
     IN p_StockMaximo                           INT,
     IN p_Activo                                TINYINT,
     IN p_CategoriaProducto_idCategoriaProducto INT, 
@@ -24,12 +35,12 @@ CREATE PROCEDURE insertarProducto (
 )
 BEGIN
     INSERT INTO Producto (
-        ID_Producto, Nombre, SKU, Descripcion, precioRegular, precioAlMayor,
-        UnidadDeMedida, StockDisponible, StockMinimo, StockMaximo, Activo,
-        CategoriaProducto_idCategoriaProducto,Marca
+        nombre, sku, descripcion, precioRegular, precioAlMayor,
+        unidadDeMedida, stockDisponible, stockMaximo, activo,
+        categoriaProducto_idCategoriaProducto,marca
     ) VALUES (
-        p_ID_Producto, p_Nombre, p_SKU, p_Descripcion, p_precioRegular, p_precioAlMayor,
-        p_UnidadDeMedida, p_StockDisponible, p_StockMinimo, p_StockMaximo, p_Activo,
+        p_Nombre, p_SKU, p_Descripcion, p_precioRegular, p_precioAlMayor,
+        p_UnidadDeMedida, p_StockDisponible, p_StockMaximo, p_Activo,
         p_CategoriaProducto_idCategoriaProducto,p_MarcaProducto
     );
         
@@ -45,7 +56,6 @@ CREATE PROCEDURE modificarProducto (
     IN p_precioAlMayor                         DOUBLE,
     IN p_UnidadDeMedida                        VARCHAR(45),
     IN p_StockDisponible                       INT,
-    IN p_StockMinimo                           INT,
     IN p_StockMaximo                           INT,
     IN p_Activo                                TINYINT,
     IN p_CategoriaProducto_idCategoriaProducto INT,
@@ -53,29 +63,28 @@ CREATE PROCEDURE modificarProducto (
 )
 BEGIN
     UPDATE Producto
-       SET Nombre        = p_Nombre,
-           SKU           = p_SKU,
-           Descripcion   = p_Descripcion,
+       SET nombre        = p_Nombre,
+           sku           = p_SKU,
+           descripcion   = p_Descripcion,
            precioRegular = p_precioRegular,
            precioAlMayor = p_precioAlMayor,
-           UnidadDeMedida = p_UnidadDeMedida,
-           StockDisponible = p_StockDisponible,
-           StockMinimo   = p_StockMinimo,
-           StockMaximo   = p_StockMaximo,
-           Activo        = p_Activo,
-           CategoriaProducto_idCategoriaProducto = p_CategoriaProducto_idCategoriaProducto,
-            Marca         = p_MarcaProducto 
-     WHERE ID_Producto = p_ID_Producto;
+           unidadDeMedida = p_UnidadDeMedida,
+           stockDisponible = p_StockDisponible,
+           stockMaximo   = p_StockMaximo,
+           activo        = p_Activo,
+           categoriaProducto_idCategoriaProducto = p_CategoriaProducto_idCategoriaProducto,
+           marca         = p_MarcaProducto 
+     WHERE id_Producto = p_ID_Producto;
 END //
 
 CREATE PROCEDURE eliminarProducto (IN p_ID_Producto INT)
 BEGIN
-    DELETE FROM Producto WHERE ID_Producto = p_ID_Producto;
+    DELETE FROM Producto WHERE id_Producto = p_ID_Producto;
 END //
 
 CREATE PROCEDURE buscarProductoPorId (IN p_ID_Producto INT)
 BEGIN
-    SELECT * FROM Producto WHERE ID_Producto = p_ID_Producto;
+    SELECT * FROM Producto WHERE id_Producto = p_ID_Producto;
 END //
 
 CREATE PROCEDURE listarProductos ()
@@ -85,7 +94,7 @@ END //
 
 CREATE PROCEDURE buscarProductoPorSKU (IN p_SKU VARCHAR(45))
 BEGIN
-    SELECT * FROM Producto WHERE SKU = p_SKU;
+    SELECT * FROM Producto WHERE sku = p_SKU;
 END //
 
 CREATE PROCEDURE filtrarProductoPorPrecio(
@@ -95,10 +104,10 @@ BEGIN
     SELECT 
         p.*
     FROM Producto p
-    INNER JOIN CategoriaProducto c ON p.CategoriaProducto_idCategoriaProducto = c.idCategoriaProducto
-    WHERE p.CategoriaProducto_idCategoriaProducto = p_idCategoriaProducto
-        AND p.Activo = 1
-        AND c.Activo = 1
+    INNER JOIN CategoriaProducto c ON p.categoriaProducto_idCategoriaProducto = c.idCategoriaProducto
+    WHERE p.categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
+        AND p.activo = 1
+        AND c.activo = 1
         AND (
             (p.precioAlMayor BETWEEN p_Filtro1 AND p_Filtro2)
         )
@@ -111,26 +120,14 @@ CREATE PROCEDURE filtrarProductoPorMarca(
 )
 BEGIN
     SELECT 
-        p.ID_Producto,
-        p.Nombre,
-        p.SKU,
-        p.Descripcion,
-        p.precioRegular,
-        p.precioAlMayor,
-        p.UnidadDeMedida,
-        p.StockDisponible,
-        p.StockMinimo,
-        p.StockMaximo,
-        p.Activo,
-        p.Marca,
-        p.CategoriaProducto_idCategoriaProducto
+        p.*
     FROM Producto p
-    INNER JOIN CategoriaProducto c ON p.CategoriaProducto_idCategoriaProducto = c.idCategoriaProducto
-    WHERE p.CategoriaProducto_idCategoriaProducto = p_idCategoriaProducto
-        AND p.Marca = p_MarcaProducto
-        AND p.Activo = 1
-        AND c.Activo = 1
-    ORDER BY p.Nombre;
+    INNER JOIN CategoriaProducto c ON p.categoriaProducto_idCategoriaProducto = c.idCategoriaProducto
+    WHERE p.categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
+        AND p.marca = p_MarcaProducto
+        AND p.activo = 1
+        AND c.activo = 1
+    ORDER BY p.nombre;
 END //
 
 CREATE PROCEDURE filtrarProductoPorDescuento(IN p_idCategoriaProducto INT,IN p_NombreCategoria VARCHAR(45))
@@ -139,11 +136,11 @@ BEGIN
         SELECT 
             p.*
         FROM Producto p
-        INNER JOIN Descuento d ON p.ID_Producto = d.Producto_ID_Producto
-        WHERE p.CategoriaProducto_idCategoriaProducto = p_idCategoriaProducto
-            AND p.Activo = 1
-            AND d.Activo = 1
-        ORDER BY p.Nombre;
+        INNER JOIN Descuento d ON p.id_Producto = d.producto_ID_Producto
+        WHERE p.categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
+            AND p.activo = 1
+            AND d.activo = 1
+        ORDER BY p.nombre;
 	END IF;
 END //
 
@@ -159,13 +156,13 @@ BEGIN
     SET p_stock_suficiente = 0;
     
     SELECT 
-        StockDisponible, 
-        Activo
+        stockDisponible, 
+        activo
     INTO 
         stock_actual, 
         producto_activo
     FROM Producto 
-    WHERE ID_Producto = p_id_producto;
+    WHERE id_Producto = p_id_producto;
     
     IF producto_activo = 1 AND stock_actual >= p_cantidad_solicitada THEN
         SET p_stock_suficiente = 1;

@@ -4,10 +4,17 @@ USE REDCOM;
 -- ADMINISTRADOR
 -- =====================================================================
 
+
+DROP PROCEDURE IF EXISTS insertarAdministrador;
+DROP PROCEDURE IF EXISTS modificarAdministrador;
+DROP PROCEDURE IF EXISTS eliminarAdministrador;
+DROP PROCEDURE IF EXISTS buscarAdministradorPorId;
+DROP PROCEDURE IF EXISTS listarAdministradores;
+
+
 DELIMITER //
 
 CREATE PROCEDURE insertarAdministrador (
-    IN p_idAdministrador INT,
     IN p_cargo           VARCHAR(45),
     IN p_rango           VARCHAR(45),
     IN p_dni             VARCHAR(45),
@@ -19,16 +26,14 @@ CREATE PROCEDURE insertarAdministrador (
     IN p_telefono        INT,
     IN p_Sueldo          DOUBLE,
     IN p_Activo          TINYINT, 
+    IN p_idCuentaUsuario INT,
     OUT p_id INT
 )
 BEGIN
-    INSERT INTO Administrador (
-        idAdministrador, cargo, rango, dni, nombre, apellidoPaterno, apellidoMaterno,
-        genero, fechaNacimiento, telefono, Sueldo, Activo
-    ) VALUES (
-        p_idAdministrador, p_cargo, p_rango, p_dni, p_nombre, p_apellidoPaterno, p_apellidoMaterno,
-        p_genero, p_fechaNacimiento, p_telefono, p_Sueldo, p_Activo
-    );
+    INSERT INTO Administrador (cargo, rango, dni, nombre, apellidoPaterno, apellidoMaterno,
+        genero, fechaNacimiento, telefono, Sueldo, Activo,idCuentaUsuario) 
+        VALUES (p_cargo, p_rango, p_dni, p_nombre, p_apellidoPaterno, p_apellidoMaterno,
+        p_genero, p_fechaNacimiento, p_telefono, p_Sueldo, p_Activo,p_idCuentaUsuario);
 	SET p_id = LAST_INSERT_ID();
 END //
 
@@ -44,7 +49,8 @@ CREATE PROCEDURE modificarAdministrador (
     IN p_fechaNacimiento DATE,
     IN p_telefono        INT,
     IN p_Sueldo          DOUBLE,
-    IN p_Activo          TINYINT
+    IN p_Activo          TINYINT,
+    IN p_idCuentaUsuario INT
 )
 BEGIN
     UPDATE Administrador
@@ -58,7 +64,8 @@ BEGIN
            fechaNacimiento  = p_fechaNacimiento,
            telefono         = p_telefono,
            Sueldo           = p_Sueldo,
-           Activo           = p_Activo
+           Activo           = p_Activo,
+           idCuentaUsuario  = p_idCuentaUsuario
      WHERE idAdministrador  = p_idAdministrador;
 END //
 

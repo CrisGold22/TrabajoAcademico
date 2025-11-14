@@ -4,26 +4,33 @@ USE REDCOM;
 -- LINEAORDENCOMPRA
 -- =====================================================================
 
+
+DROP PROCEDURE IF EXISTS insertarLineaOrdenCompra;
+DROP PROCEDURE IF EXISTS modificarLineaOrdenCompra;
+DROP PROCEDURE IF EXISTS eliminarLineaOrdenCompra;
+DROP PROCEDURE IF EXISTS buscarLineaOrdenCompraPorId;
+DROP PROCEDURE IF EXISTS listarLineasOrdenCompra;
+DROP PROCEDURE IF EXISTS ListarLineasOrdenCompraPorIdOrdenCompra;
+
+
+
+
 DELIMITER //
 
 CREATE PROCEDURE insertarLineaOrdenCompra (
-    IN p_idLineaOrdenCompra INT,
     IN p_cantidad           INT,
-    IN p_precioUnitario     DOUBLE,
+    IN p_precio     		DOUBLE,
     IN p_subtotal           DOUBLE,
     IN p_Producto_ID_Producto INT,
     IN p_OrdenCompra_IdPedido INT,
-    IN p_CarritoDeCompras_Id  INT,
     IN p_activo             TINYINT, 
     OUT p_id INT
 )
 BEGIN
     INSERT INTO LineaOrdenCompra (
-        idLineaOrdenCompra, cantidad, precioUnitario, subtotal,
-        Producto_ID_Producto, OrdenCompra_IdPedido, CarritoDeCompras_Id, activo
+        cantidad, precio, subtotal,producto_ID_Producto, ordenCompra_IdPedido, activo
     ) VALUES (
-        p_idLineaOrdenCompra, p_cantidad, p_precioUnitario, p_subtotal,
-        p_Producto_ID_Producto, p_OrdenCompra_IdPedido, p_CarritoDeCompras_Id, p_activo
+        p_cantidad, p_precio, p_subtotal,p_Producto_ID_Producto, p_OrdenCompra_IdPedido, p_activo
     );
         
     SET p_id = LAST_INSERT_ID();
@@ -32,21 +39,19 @@ END //
 CREATE PROCEDURE modificarLineaOrdenCompra (
     IN p_idLineaOrdenCompra INT,
     IN p_cantidad           INT,
-    IN p_precioUnitario     DOUBLE,
+    IN p_precio     		DOUBLE,
     IN p_subtotal           DOUBLE,
     IN p_Producto_ID_Producto INT,
     IN p_OrdenCompra_IdPedido INT,
-    IN p_CarritoDeCompras_Id  INT,
     IN p_activo             TINYINT
 )
 BEGIN
     UPDATE LineaOrdenCompra
        SET cantidad             = p_cantidad,
-           precioUnitario       = p_precioUnitario,
+           precio		        = p_precio,
            subtotal             = p_subtotal,
-           Producto_ID_Producto = p_Producto_ID_Producto,
-           OrdenCompra_IdPedido = p_OrdenCompra_IdPedido,
-           CarritoDeCompras_Id  = p_CarritoDeCompras_Id,
+           producto_ID_Producto = p_Producto_ID_Producto,
+           ordenCompra_IdPedido = p_OrdenCompra_IdPedido,
            activo               = p_activo
      WHERE idLineaOrdenCompra   = p_idLineaOrdenCompra;
 END //
@@ -68,13 +73,12 @@ END //
 
 DELIMITER //
 
-CREATE PROCEDURE LISTAR_LINEAS_ORDEN_COMPRA_POR_ID_ORDEN (
+CREATE PROCEDURE ListarLineasOrdenCompraPorIdOrdenCompra (
     IN p_IdPedido INT
 )
 BEGIN
     SELECT * 
     FROM LineaOrdenCompra 
-    WHERE OrdenCompra_IdPedido = p_IdPedido;
+    WHERE ordenCompra_IdPedido = p_IdPedido;
 END //
 
-DELIMITER ;

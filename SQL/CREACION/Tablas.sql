@@ -1,75 +1,76 @@
--- Cambiar al esquema
 USE REDCOM;
 
--- Desactivar comprobaciones de claves foráneas
-SET FOREIGN_KEY_CHECKS = 0;
-
-DROP TABLE IF EXISTS administrador;
-DROP TABLE IF EXISTS carritodecompras;
-DROP TABLE IF EXISTS categoriaproducto;
-DROP TABLE IF EXISTS categoriaproducto_has_categoriaproducto;
-DROP TABLE IF EXISTS cliente;
-DROP TABLE IF EXISTS comprobantepago;
-DROP TABLE IF EXISTS cuentausuario;
-DROP TABLE IF EXISTS descuento;
-DROP TABLE IF EXISTS detalledeenvio;
-DROP TABLE IF EXISTS lineacarrito;
-DROP TABLE IF EXISTS lineacomprobantepago;
-DROP TABLE IF EXISTS lineaordencompra;
-DROP TABLE IF EXISTS ordencompra;
-DROP TABLE IF EXISTS producto;
-
--- Reactivar comprobaciones de claves foráneas
-SET FOREIGN_KEY_CHECKS = 1;
 
 
-CREATE TABLE if not exists CategoriaProducto (
-  idCategoriaProducto INT NOT NULL,
-  NombreCategoria VARCHAR(45) NOT NULL,
-  Descripcion VARCHAR(45) NOT NULL,
-  Catalogo_idCatalogo INT,
-  Activo TINYINT NOT NULL,
-  PRIMARY KEY (idCategoriaProducto)
+DROP TABLE IF EXISTS Administrador;
+DROP TABLE IF EXISTS LineaOrdenCompra;
+DROP TABLE IF EXISTS DetalleDeEnvio;
+DROP TABLE IF EXISTS OrdenCompra;
+DROP TABLE IF EXISTS LineaCarrito;
+DROP TABLE IF EXISTS CarritoDeCompras;
+DROP TABLE IF EXISTS Descuento;
+DROP TABLE IF EXISTS Producto;
+DROP TABLE IF EXISTS CategoriaProducto_has_CategoriaProducto;
+DROP TABLE IF EXISTS CategoriaProducto;
+DROP TABLE IF EXISTS Empresa;
+DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS CuentaUsuario;
+
+
+
+
+
+-- Tabla CuentaUsuario
+
+CREATE TABLE IF NOT EXISTS CuentaUsuario (
+    idCuentaUsuario INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    userName VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    activo TINYINT NOT NULL DEFAULT 1
 );
 
-CREATE TABLE if not exists Producto (
-  ID_Producto INT NOT NULL,
-  Nombre VARCHAR(45) NOT NULL,
-  SKU VARCHAR(45) NOT NULL,
-  Descripcion VARCHAR(45) NOT NULL,
-  precioRegular DOUBLE NOT NULL,
-  precioAlMayor DOUBLE NOT NULL,
-  UnidadDeMedida VARCHAR(45) NOT NULL,
-  StockDisponible INT NOT NULL,
-  StockMinimo INT NOT NULL,
-  StockMaximo INT NOT NULL,
-  Activo TINYINT NOT NULL,
-  Marca VARCHAR(45) NOT NULL,
-  CategoriaProducto_idCategoriaProducto INT,
-  PRIMARY KEY (ID_Producto)
-);
+-- Tabla Cliente
 
-CREATE TABLE if not exists cliente (
+CREATE TABLE IF NOT EXISTS Cliente (
+  idCliente INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   lineaCredito DOUBLE NOT NULL,
-  Categoria VARCHAR(45) NOT NULL,
-  numeroDePedido_Historico INT NOT NULL,
+  categoria VARCHAR(45) NOT NULL,
+  numeroDePedido_Historico INT NOT NULL DEFAULT 0,
   numeroDePedido_MensualPro INT NOT NULL,
-  dni VARCHAR(45) NOT NULL,
+  dni VARCHAR(45) NOT NULL UNIQUE,
   nombre VARCHAR(45) NOT NULL,
   apellidoPaterno VARCHAR(45) NOT NULL,
   apellidoMaterno VARCHAR(45) NOT NULL,
   genero VARCHAR(45) NOT NULL,
   fechaNacimiento DATETIME NOT NULL,
   telefono INT ,
-  Activo TINYINT NOT NULL,
-  idCliente INT NOT NULL,
-  PRIMARY KEY (idCliente)
+  activo TINYINT NOT NULL DEFAULT 1,
+  idCuentaUsuario INT NOT NULL
 );
 
-CREATE TABLE if not exists Administrador (
-  idAdministrador INT NOT NULL,
+-- Tabla Empresa
+
+CREATE TABLE IF NOT EXISTS Empresa (
+    idEmpresa INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ruc VARCHAR(11) NOT NULL UNIQUE,
+    razonSocial VARCHAR(200) NOT NULL,
+    direccionFiscal VARCHAR(255),
+    departamento VARCHAR(100),
+    provincia VARCHAR(100),
+    distrito VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(100) NOT NULL,
+    activo TINYINT DEFAULT 1,
+    codigoPostal VARCHAR(10),
+    cliente_idCliente INT NOT NULL
+);
+
+-- Tabla Administrador
+
+CREATE TABLE IF NOT EXISTS Administrador (
+  idAdministrador INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cargo VARCHAR(45) NOT NULL,
-  rango VARCHAR(45) NOT NULL,
+  jerarquia VARCHAR(45) NOT NULL,
   dni VARCHAR(45) NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellidoPaterno VARCHAR(45) NOT NULL,
@@ -77,192 +78,250 @@ CREATE TABLE if not exists Administrador (
   genero VARCHAR(45) NOT NULL,
   fechaNacimiento DATETIME NOT NULL,
   telefono INT,
-  Sueldo DOUBLE NOT NULL,
-  Activo TINYINT NOT NULL,
-  PRIMARY KEY (idAdministrador)
+  sueldo DOUBLE NOT NULL,
+  activo TINYINT NOT NULL DEFAULT 1,
+  idCuentaUsuario INT NOT NULL
 );
 
-CREATE TABLE if not exists CuentaUsuario (
-  idCuentaUsuario INT NOT NULL,
-  userName VARCHAR(45) NOT NULL,
-  password VARCHAR(45) NOT NULL,
-  Administrador_idAdministrador INT NULL,
-  cliente_idCliente INT NULL,
-  PRIMARY KEY (idCuentaUsuario)
+-- Tabla Categoria Producto
+
+CREATE TABLE IF NOT EXISTS CategoriaProducto (
+  idCategoriaProducto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombreCategoria VARCHAR(45) NOT NULL,
+  descripcion VARCHAR(45) NOT NULL,
+  idCategoriaPadre INT,
+  activo TINYINT DEFAULT 1
 );
 
-CREATE TABLE if not exists CarritoDeCompras (
-  Id_CarritoDeCompras INT  ,
-  Total_Parcial DOUBLE  ,
-  Estado VARCHAR(45) NOT NULL,
-  total_con_descuento DOUBLE  ,
-  cliente_idCliente INT,
-  PRIMARY KEY (Id_CarritoDeCompras)
-);
-
-CREATE TABLE if not exists LineaCarrito (
-  idLineaCarrito INT NOT NULL,
-  cantidad INT,
-  precioVolumen DOUBLE,
-  subTotal DOUBLE,
-  Producto_ID_Producto1 INT,
-  CarritoDeCompras_Productos INT,
-  activo TINYINT,
-  Producto_ID_Producto INT,
-  PRIMARY KEY (idLineaCarrito)
-);
-
-CREATE TABLE if not exists Descuento (
-  idReglaPrecioVolumen INT NOT NULL,
-  precioPorVolumen DOUBLE,
-  cantidadMax INT,
-  cantidadMin INT,
-  Activo TINYINT,
-  Producto_ID_Producto INT,
-  PRIMARY KEY (idReglaPrecioVolumen)
-);
-
-CREATE TABLE if not exists DetalleDeEnvio (
-  id_DetalleEnvio INT NOT NULL,
-  descripcion VARCHAR(45) ,
-  Direccion VARCHAR(100) NOT NULL,
-  Distrito VARCHAR(60) NOT NULL,
-  fechaEntrega DATETIME NOT NULL,
-  horarioEntrega DATETIME ,
-  PRIMARY KEY (id_DetalleEnvio)
-);
-
-CREATE TABLE if not exists OrdenCompra (
-  IdPedido INT NOT NULL,
-  FechaCreacion DATE,
-  total_parcial DOUBLE,
-  total_final DOUBLE,
-  descuentoTotal DOUBLE,
-  Estado VARCHAR(45),
-  DetalleDeEnvio_id_DetalleEnvio INT,
-  Activo TINYINT,
-  cliente_idCliente INT NOT NULL,
-  PRIMARY KEY (IdPedido)
-);
-
-CREATE TABLE if not exists ComprobantePago (
-  idComprobante INT NOT NULL,
-  fechaEmision DATE,
-  RUC INT,
-  totalSinImpuestos DOUBLE,
-  Impuesto DOUBLE,
-  totalFinal DOUBLE,
-  metodoPago VARCHAR(45),
-  subTotal DOUBLE,
-  activo TINYINT,
-  OrdenCompra_IdPedido INT,
-  PRIMARY KEY (idComprobante)
-);
-
-CREATE TABLE if not exists LineaComprobantePago (
-  idLineaComprobantePago INT NOT NULL,
-  montoPagado VARCHAR(45),
-  montoImpuesto DOUBLE,
-  activo TINYINT,
-  ComprobantePago_idComprobante INT,
-  codigo INT,
-  cantidad INT,
-  subtotal DOUBLE,
-  PRIMARY KEY (idLineaComprobantePago)
-);
-
-CREATE TABLE if not exists LineaOrdenCompra (
-  idLineaOrdenCompra INT NOT NULL,
-  cantidad INT,
-  precioUnitario DOUBLE,
-  subtotal DOUBLE,
-  Producto_ID_Producto INT,
-  OrdenCompra_IdPedido INT,
-  CarritoDeCompras_Id INT,
-  activo TINYINT,
-  PRIMARY KEY (idLineaOrdenCompra)
-);
+-- Tabla CategoriaProductaHasCategoriaProducto
 
 CREATE TABLE if not exists CategoriaProducto_has_CategoriaProducto (
-  CategoriaProducto_idCategoriaProducto INT NOT NULL,
-  CategoriaProducto_idCategoriaProducto1 INT NOT NULL,
+  categoriaProducto_idCategoriaProducto INT NOT NULL,
+  categoriaProducto_idCategoriaProducto1 INT NOT NULL,
   PRIMARY KEY (CategoriaProducto_idCategoriaProducto, CategoriaProducto_idCategoriaProducto1)
+);
+
+-- Tabla Producto
+
+CREATE TABLE IF NOT EXISTS Producto (
+  id_Producto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(45) NOT NULL,
+  sku VARCHAR(45) NOT NULL,
+  descripcion VARCHAR(45) NOT NULL,
+  precioRegular DOUBLE NOT NULL,
+  precioAlMayor DOUBLE NOT NULL,
+  unidadDeMedida VARCHAR(45) NOT NULL,
+  stockDisponible INT NOT NULL,
+  stockMaximo INT NOT NULL,
+  activo TINYINT NOT NULL DEFAULT 1,
+  marca VARCHAR(45) NOT NULL,
+  categoriaProducto_idCategoriaProducto INT NOT NULL
+);
+
+-- Tabla Descuento
+
+CREATE TABLE IF NOT EXISTS Descuento (
+  idDescuento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  precioPorVolumen DOUBLE NOT NULL,
+  cantidadMax INT,
+  cantidadMin INT,
+  activo TINYINT DEFAULT 1,
+  producto_ID_Producto INT NOT NULL
+);
+
+-- Tabla CarritoCompras
+
+CREATE TABLE IF NOT EXISTS CarritoDeCompras (
+  id_CarritoDeCompras INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  subtotal DOUBLE  ,
+  estado VARCHAR(45) NOT NULL,
+  descuento DOUBLE  ,
+  montoFinal DOUBLE,
+  cliente_idCliente INT NOT NULL,
+  activo TINYINT DEFAULT 1
+);
+
+-- Tabla Linea Carrito
+
+CREATE TABLE if not exists LineaCarrito (
+  idLineaCarrito INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cantidad INT,
+  precio DOUBLE,
+  subTotal DOUBLE,
+  carritoDeCompras_Productos INT NOT NULL,
+  activo TINYINT DEFAULT 1,
+  producto_ID_Producto INT NOT NULL
+);
+
+
+-- Tabla Orden Compra
+
+CREATE TABLE IF NOT EXISTS OrdenCompra (
+  idOrdenCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  fechaCreacion DATE,
+  total_parcial DOUBLE NOT NULL,
+  total_final DOUBLE NOT NULL,
+  descuentoTotal DOUBLE,
+  estado VARCHAR(45),
+  carrito_idCarrito INT NOT NULL,
+  activo TINYINT DEFAULT 1,
+  cliente_idCliente INT NOT NULL,
+  empresa_idEmpresa INT NOT NULL
+);
+
+-- Tabla LineaOrdenCompra
+
+CREATE TABLE IF NOT EXISTS LineaOrdenCompra (
+  idLineaOrdenCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cantidad INT,  
+  precio DOUBLE,
+  subtotal DOUBLE,
+  producto_ID_Producto INT NOT NULL,
+  ordenCompra_IdPedido INT NOT NULL,
+  activo TINYINT DEFAULT 1
+);
+
+-- Tabla Detalle Envio
+
+CREATE TABLE IF NOT EXISTS DetalleDeEnvio (
+  id_DetalleEnvio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  descripcion VARCHAR(45) ,
+  direccion VARCHAR(100) NOT NULL,
+  distrito VARCHAR(60) NOT NULL,
+  fechaEntrega DATETIME NOT NULL,
+  horarioEntrega DATETIME ,
+  ordenCompra_IdPedido INT NOT NULL,
+  activo TINYINT DEFAULT 1
 );
 
 -- ============================================================
 -- Claves foráneas
 -- ============================================================
 
-ALTER TABLE Producto
-  ADD CONSTRAINT fk_Producto_CategoriaProducto1
-  FOREIGN KEY (CategoriaProducto_idCategoriaProducto)
-  REFERENCES CategoriaProducto (idCategoriaProducto);
+-- Tabla Cliente
+ALTER TABLE Cliente 
+ADD CONSTRAINT fk_Cliente_CuentaUsuario 
+FOREIGN KEY (idCuentaUsuario) 
+REFERENCES CuentaUsuario(idCuentaUsuario);
 
-ALTER TABLE CuentaUsuario
-  ADD CONSTRAINT fk_CuentaUsuario_Administrador1
-  FOREIGN KEY (Administrador_idAdministrador)
-  REFERENCES Administrador (idAdministrador);
+-- Tabla Empresa
+ALTER TABLE Empresa 
+ADD CONSTRAINT fk_Empresa_Cliente 
+FOREIGN KEY (cliente_idCliente) 
+REFERENCES Cliente(idCliente)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE CuentaUsuario
-  ADD CONSTRAINT fk_CuentaUsuario_cliente1
-  FOREIGN KEY (cliente_idCliente)
-  REFERENCES cliente (idCliente);
+-- Tabla Administrador
+ALTER TABLE Administrador 
+ADD CONSTRAINT fk_Administrador_CuentaUsuario 
+FOREIGN KEY (idCuentaUsuario) 
+REFERENCES CuentaUsuario(idCuentaUsuario);
 
-ALTER TABLE CarritoDeCompras
-  ADD CONSTRAINT fk_CarritoDeCompras_cliente1
-  FOREIGN KEY (cliente_idCliente)
-  REFERENCES cliente (idCliente);
+-- Tabla CategoriaProducto (RELACIÓN AUTORREFERENCIAL)
+ALTER TABLE CategoriaProducto 
+ADD CONSTRAINT fk_CategoriaProducto_Padre 
+FOREIGN KEY (idCategoriaPadre) 
+REFERENCES CategoriaProducto(idCategoriaProducto)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
 
-ALTER TABLE LineaCarrito
-  ADD CONSTRAINT fk_LineaCarrito_Producto1
-  FOREIGN KEY (Producto_ID_Producto)
-  REFERENCES Producto (ID_Producto);
+-- Tabla CategoriaProducto_has_CategoriaProducto
+ALTER TABLE CategoriaProducto_has_CategoriaProducto 
+ADD CONSTRAINT fk_CategoriaProducto_has_Categoria1 
+FOREIGN KEY (categoriaProducto_idCategoriaProducto) 
+REFERENCES CategoriaProducto(idCategoriaProducto)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE LineaCarrito
-  ADD CONSTRAINT fk_LineaProducto_CarritoDeCompras1
-  FOREIGN KEY (CarritoDeCompras_Productos)
-  REFERENCES CarritoDeCompras (Id_CarritoDeCompras);
+ALTER TABLE CategoriaProducto_has_CategoriaProducto 
+ADD CONSTRAINT fk_CategoriaProducto_has_Categoria2 
+FOREIGN KEY (categoriaProducto_idCategoriaProducto1) 
+REFERENCES CategoriaProducto(idCategoriaProducto)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE Descuento
-  ADD CONSTRAINT fk_Descuento_Producto1
-  FOREIGN KEY (Producto_ID_Producto)
-  REFERENCES Producto (ID_Producto);
+-- Tabla Producto
+ALTER TABLE Producto 
+ADD CONSTRAINT fk_Producto_Categoria 
+FOREIGN KEY (categoriaProducto_idCategoriaProducto) 
+REFERENCES CategoriaProducto(idCategoriaProducto)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE OrdenCompra
-  ADD CONSTRAINT fk_OrdenCompra_DetalleDeEnvio1
-  FOREIGN KEY (DetalleDeEnvio_id_DetalleEnvio)
-  REFERENCES DetalleDeEnvio (id_DetalleEnvio);
+-- Tabla Descuento
+ALTER TABLE Descuento 
+ADD CONSTRAINT fk_Descuento_Producto 
+FOREIGN KEY (producto_ID_Producto) 
+REFERENCES Producto(id_Producto)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE ComprobantePago
-  ADD CONSTRAINT fk_ComprobantePago_OrdenCompra1
-  FOREIGN KEY (OrdenCompra_IdPedido)
-  REFERENCES OrdenCompra (IdPedido);
+-- Tabla CarritoDeCompras
+ALTER TABLE CarritoDeCompras 
+ADD CONSTRAINT fk_Carrito_Cliente 
+FOREIGN KEY (cliente_idCliente) 
+REFERENCES Cliente(idCliente)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE LineaComprobantePago
-  ADD CONSTRAINT fk_LineaComprobantePago_ComprobantePago1
-  FOREIGN KEY (ComprobantePago_idComprobante)
-  REFERENCES ComprobantePago (idComprobante);
+-- Tabla LineaCarrito
+ALTER TABLE LineaCarrito 
+ADD CONSTRAINT fk_LineaCarrito_Carrito 
+FOREIGN KEY (carritoDeCompras_Productos) 
+REFERENCES CarritoDeCompras(id_CarritoDeCompras)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE LineaOrdenCompra
-  ADD CONSTRAINT fk_LineaOrdenCompra_OrdenCompra1
-  FOREIGN KEY (OrdenCompra_IdPedido)
-  REFERENCES OrdenCompra (IdPedido);
+ALTER TABLE LineaCarrito 
+ADD CONSTRAINT fk_LineaCarrito_Producto 
+FOREIGN KEY (producto_ID_Producto) 
+REFERENCES Producto(id_Producto)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
-ALTER TABLE LineaOrdenCompra
-  ADD CONSTRAINT fk_LineaOrdenCompra_CarritoDeCompras1
-  FOREIGN KEY (CarritoDeCompras_Id)
-  REFERENCES CarritoDeCompras (Id_CarritoDeCompras);
-
-ALTER TABLE CategoriaProducto_has_CategoriaProducto
-  ADD CONSTRAINT fk_CategoriaProducto_has_CategoriaProducto1
-  FOREIGN KEY (CategoriaProducto_idCategoriaProducto)
-  REFERENCES CategoriaProducto (idCategoriaProducto);
-
-ALTER TABLE CategoriaProducto_has_CategoriaProducto
-  ADD CONSTRAINT fk_CategoriaProducto_has_CategoriaProducto1_ref
-  FOREIGN KEY (CategoriaProducto_idCategoriaProducto1)
-  REFERENCES CategoriaProducto (idCategoriaProducto);
-  
+-- Tabla OrdenCompra
 ALTER TABLE OrdenCompra 
-ADD CONSTRAINT fk_ordencompra_cliente
-FOREIGN KEY (cliente_idCliente) REFERENCES cliente(idCliente);
+ADD CONSTRAINT fk_OrdenCompra_Carrito 
+FOREIGN KEY (carrito_idCarrito) 
+REFERENCES CarritoDeCompras(id_CarritoDeCompras)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+ALTER TABLE OrdenCompra 
+ADD CONSTRAINT fk_OrdenCompra_Cliente 
+FOREIGN KEY (cliente_idCliente) 
+REFERENCES Cliente(idCliente)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+ALTER TABLE OrdenCompra 
+ADD CONSTRAINT fk_OrdenCompra_Empresa 
+FOREIGN KEY (empresa_idEmpresa) 
+REFERENCES Empresa(idEmpresa)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+-- Tabla LineaOrdenCompra
+ALTER TABLE LineaOrdenCompra 
+ADD CONSTRAINT fk_LineaOrdenCompra_Producto 
+FOREIGN KEY (producto_ID_Producto) 
+REFERENCES Producto(id_Producto)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+ALTER TABLE LineaOrdenCompra 
+ADD CONSTRAINT fk_LineaOrdenCompra_OrdenCompra 
+FOREIGN KEY (ordenCompra_IdPedido) 
+REFERENCES OrdenCompra(idOrdenCompra)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+-- Tabla DetalleDeEnvio
+ALTER TABLE DetalleDeEnvio 
+ADD CONSTRAINT fk_DetalleEnvio_OrdenCompra 
+FOREIGN KEY (ordenCompra_IdPedido) 
+REFERENCES OrdenCompra(idOrdenCompra)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+

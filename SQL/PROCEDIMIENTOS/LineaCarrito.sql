@@ -4,28 +4,32 @@ USE REDCOM;
 -- LINEACARRITO
 -- =====================================================================
 
+
+DROP PROCEDURE IF EXISTS insertarLineaCarrito;
+DROP PROCEDURE IF EXISTS modificarLineaCarrito;
+DROP PROCEDURE IF EXISTS eliminarLineaCarrito;
+DROP PROCEDURE IF EXISTS buscarLineaCarritoPorId;
+DROP PROCEDURE IF EXISTS listarLineasCarrito;
+DROP PROCEDURE IF EXISTS listarLineasCarritoPorIdCarrito;
+
+
 DELIMITER // 
 
 CREATE PROCEDURE insertarLineaCarrito (
-    IN p_idLineaCarrito             INT,
     IN p_cantidad                   INT,
     IN p_precioVolumen              DOUBLE,
     IN p_subTotal                   DOUBLE,
-    IN p_Producto_ID_Producto1      INT,
     IN p_CarritoDeCompras_Productos INT,
     IN p_activo                     TINYINT,
     IN p_Producto_ID_Producto       INT, 
     OUT p_id INT
 )
 BEGIN
-    INSERT INTO LineaCarrito (
-        idLineaCarrito, cantidad, precioVolumen, subTotal, Producto_ID_Producto1,
-        CarritoDeCompras_Productos, activo, Producto_ID_Producto
-    ) VALUES (
-        p_idLineaCarrito, p_cantidad, p_precioVolumen, p_subTotal, p_Producto_ID_Producto1,
+    INSERT INTO LineaCarrito (cantidad, precio, subTotal,
+        carritoDeCompras_Productos, activo, producto_ID_Producto
+    ) VALUES (p_cantidad, p_precioVolumen, p_subTotal,
         p_CarritoDeCompras_Productos, p_activo, p_Producto_ID_Producto
     );
-        
     SET p_id = LAST_INSERT_ID();
 END //
 
@@ -34,18 +38,18 @@ CREATE PROCEDURE modificarLineaCarrito (
     IN p_cantidad                   INT,
     IN p_precioVolumen              DOUBLE,
     IN p_subTotal                   DOUBLE,
-    IN p_Producto_ID_Producto1      INT,
+    IN p_CarritoDeCompras_Productos INT,
     IN p_activo                     TINYINT,
     IN p_Producto_ID_Producto       INT
 )
 BEGIN
     UPDATE LineaCarrito
        SET cantidad                   = p_cantidad,
-           precioVolumen              = p_precioVolumen,
+           precio		              = p_precioVolumen,
            subTotal                   = p_subTotal,
-           Producto_ID_Producto1      = p_Producto_ID_Producto1,
            activo                     = p_activo,
-           Producto_ID_Producto       = p_Producto_ID_Producto
+           carritoDeCompras_Productos = p_CarritoDeCompras_Productos,
+           producto_ID_Producto       = p_Producto_ID_Producto
      WHERE idLineaCarrito = p_idLineaCarrito;
 END //
 
@@ -69,7 +73,7 @@ CREATE PROCEDURE listarLineasCarritoPorIdCarrito (
     IN p_Id_CarritoDeCompras INT
 )
 BEGIN
-    SELECT *
-      FROM LineaCarrito
-     WHERE CarritoDeCompras_Productos = p_Id_CarritoDeCompras;
+	 SELECT *
+	 FROM LineaCarrito
+     WHERE carritoDeCompras_Productos = p_Id_CarritoDeCompras;
 END //

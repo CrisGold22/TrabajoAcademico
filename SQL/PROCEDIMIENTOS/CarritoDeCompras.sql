@@ -4,50 +4,63 @@ USE REDCOM;
 -- CARRITODECOMPRAS
 -- =====================================================================
 
+
+DROP PROCEDURE IF EXISTS insertarCarritoDeCompras;
+DROP PROCEDURE IF EXISTS modificarCarritoDeCompras;
+DROP PROCEDURE IF EXISTS eliminarCarritoDeCompras;
+DROP PROCEDURE IF EXISTS buscarCarritoDeComprasPorId;
+DROP PROCEDURE IF EXISTS listarCarritosDeCompras;
+DROP PROCEDURE IF EXISTS buscarCarritoDeComprasPorId;
+DROP PROCEDURE IF EXISTS obtenerCarritoPorIdCliente;
+
+
 DELIMITER //
 
 CREATE PROCEDURE insertarCarritoDeCompras (
-    IN p_Id_CarritoDeCompras INT,
-    IN p_Total_Parcial       DOUBLE,
+    IN p_subtotal            DOUBLE,
     IN p_Estado              VARCHAR(45),
-    IN p_total_con_descuento DOUBLE,
+    IN p_descuento 			 DOUBLE,
     IN p_cliente_idCliente   INT, 
+    IN p_monto_final         DOUBLE,
+    IN p_activo              TINYINT,
     OUT p_id INT
 )
 BEGIN
-    INSERT INTO CarritoDeCompras (
-        Id_CarritoDeCompras, Total_Parcial, Estado, total_con_descuento, cliente_idCliente
-    ) VALUES (
-        p_Id_CarritoDeCompras, p_Total_Parcial, p_Estado, p_total_con_descuento, p_cliente_idCliente
+    INSERT INTO CarritoDeCompras (subtotal, estado,descuento, montoFinal,cliente_idCliente,activo
+    ) VALUES (p_subtotal, p_Estado, p_descuento, p_monto_final,p_cliente_idCliente,p_monto_final,p_activo
     );
 	
 	SET p_id = LAST_INSERT_ID();
 END //
 
 CREATE PROCEDURE modificarCarritoDeCompras (
-    IN p_Id_CarritoDeCompras INT,
-    IN p_Total_Parcial       DOUBLE,
+    IN p_id_CarritoDeCompras INT,
+    IN p_subtotal       DOUBLE,
     IN p_Estado              VARCHAR(45),
-    IN p_total_con_descuento DOUBLE,
-    IN p_cliente_idCliente   INT
+    IN p_descuento 			DOUBLE,
+    IN p_cliente_idCliente   INT,
+    IN p_monto_final         DOUBLE,
+    IN p_activo              TINYINT    
 )
 BEGIN
     UPDATE CarritoDeCompras
-       SET Total_Parcial       = p_Total_Parcial,
-           Estado              = p_Estado,
-           total_con_descuento = p_total_con_descuento,
-           cliente_idCliente   = p_cliente_idCliente
+       SET subtotal       	   = p_Total_Parcial,
+           estado              = p_Estado,
+           descuento 		   = p_total_con_descuento,
+           montoFinal		   = p_monto_final,
+           cliente_idCliente   = p_cliente_idCliente,
+           activo              = p_activo
      WHERE Id_CarritoDeCompras = p_Id_CarritoDeCompras;
 END //
 
 CREATE PROCEDURE eliminarCarritoDeCompras (IN p_Id_CarritoDeCompras INT)
 BEGIN
-    DELETE FROM CarritoDeCompras WHERE Id_CarritoDeCompras = p_Id_CarritoDeCompras;
+    DELETE FROM CarritoDeCompras WHERE id_CarritoDeCompras = p_Id_CarritoDeCompras;
 END //
 
 CREATE PROCEDURE buscarCarritoDeComprasPorId (IN p_Id_CarritoDeCompras INT)
 BEGIN
-    SELECT * FROM CarritoDeCompras WHERE Id_CarritoDeCompras = p_Id_CarritoDeCompras;
+    SELECT * FROM CarritoDeCompras WHERE id_CarritoDeCompras = p_Id_CarritoDeCompras;
 END //
 
 CREATE PROCEDURE listarCarritosDeCompras ()

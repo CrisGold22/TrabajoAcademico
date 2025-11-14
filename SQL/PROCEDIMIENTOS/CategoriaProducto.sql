@@ -4,21 +4,27 @@ USE REDCOM;
 -- CATEGORIAPRODUCTO
 -- =====================================================================
 
+
+DROP PROCEDURE IF EXISTS insertarCategoriaProducto;
+DROP PROCEDURE IF EXISTS eliminarCategoriaProducto;
+DROP PROCEDURE IF EXISTS modificarCategoriaProducto;
+DROP PROCEDURE IF EXISTS listarCategoriaProductos;
+DROP PROCEDURE IF EXISTS buscarCategoriaProductoPorId;
+
 DELIMITER //
 
 CREATE PROCEDURE insertarCategoriaProducto (
-    IN p_idCategoriaProducto INT,
     IN p_NombreCategoria     VARCHAR(45),
     IN p_Descripcion         VARCHAR(45),
-    IN p_Catalogo_idCatalogo INT,
+    IN p_idCategoriaPadre    INT,
     IN p_Activo              TINYINT, 
     OUT p_id INT
 )
 BEGIN
     INSERT INTO CategoriaProducto (
-        idCategoriaProducto, NombreCategoria, Descripcion, Catalogo_idCatalogo, Activo
+        nombreCategoria, descripcion, idCategoriaPadre, activo
     ) VALUES (
-        p_idCategoriaProducto, p_NombreCategoria, p_Descripcion, p_Catalogo_idCatalogo, p_Activo
+        p_NombreCategoria, p_Descripcion, p_idCategoriaPadre, p_Activo
     );
 	    
     SET p_id = LAST_INSERT_ID();
@@ -28,15 +34,15 @@ CREATE PROCEDURE modificarCategoriaProducto (
     IN p_idCategoriaProducto INT,
     IN p_NombreCategoria     VARCHAR(45),
     IN p_Descripcion         VARCHAR(45),
-    IN p_Catalogo_idCatalogo INT,
+    IN p_idCategoriaPadre    INT,
     IN p_Activo              TINYINT
 )
 BEGIN
     UPDATE CategoriaProducto
-       SET NombreCategoria     = p_NombreCategoria,
-           Descripcion         = p_Descripcion,
-           Catalogo_idCatalogo = p_Catalogo_idCatalogo,
-           Activo              = p_Activo
+       SET nombreCategoria     = p_NombreCategoria,
+           descripcion         = p_Descripcion,
+           idCategoriaPadre    = p_idCategoriaPadre,
+           activo              = p_Activo
      WHERE idCategoriaProducto = p_idCategoriaProducto;
 END //
 
