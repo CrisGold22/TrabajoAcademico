@@ -4,56 +4,68 @@ USE REDCOM;
 -- ORDENCOMPRA
 -- =====================================================================
 
+
+DROP PROCEDURE IF EXISTS insertarOrdenCompra;
+DROP PROCEDURE IF EXISTS modificarOrdenCompra;
+DROP PROCEDURE IF EXISTS eliminarOrdenCompra;
+DROP PROCEDURE IF EXISTS buscarOrdenCompraPorId;
+DROP PROCEDURE IF EXISTS listarOrdenesCompra;
+DROP PROCEDURE IF EXISTS consultarOrdenCompraPorIdCliente;
+DROP PROCEDURE IF EXISTS consultarPedidoPorFechas;
+DROP PROCEDURE IF EXISTS procesarOrdenCompra;
+DROP PROCEDURE IF EXISTS DesactivarOrdenCompra;
+
 DELIMITER //
 
 CREATE PROCEDURE insertarOrdenCompra (
-    IN p_IdPedido                 INT,
     IN p_FechaCreacion            DATE,
     IN p_total_parcial            DOUBLE,
     IN p_total_final              DOUBLE,
     IN p_descuentoTotal           DOUBLE,
     IN p_Estado                   VARCHAR(45),
-    IN p_DetalleDeEnvio_id_DetalleEnvio INT,
+    IN p_carrito_idCarrito 		  INT,
     IN p_Activo                   TINYINT, 
     IN p_Cliente                  INT,
+    IN p_Empresa				  INT,
     OUT p_id INT
 )
 BEGIN
     INSERT INTO OrdenCompra (
-        IdPedido, FechaCreacion, total_parcial, total_final, descuentoTotal, Estado,
-        DetalleDeEnvio_id_DetalleEnvio, Activo,cliente_idCliente
+        fechaCreacion, total_parcial, total_final, descuentoTotal, estado,
+        carrito_idCarrito, activo,cliente_idCliente,empresa_idEmpresa
     ) VALUES (
-        p_IdPedido, p_FechaCreacion, p_total_parcial, p_total_final, p_descuentoTotal, p_Estado,
-        p_DetalleDeEnvio_id_DetalleEnvio, p_Activo,p_Cliente
+        p_FechaCreacion, p_total_parcial, p_total_final, p_descuentoTotal, p_Estado,
+        p_carrito_idCarrito, p_Activo,p_Cliente,p_Empresa
     );
         
     SET p_id = LAST_INSERT_ID();
 END //
 
-select * from OrdenCompra
+
 //
 CREATE PROCEDURE modificarOrdenCompra (
-    IN p_IdPedido                 INT,
+    IN p_idOrdenCompra            INT,
     IN p_FechaCreacion            DATE,
     IN p_total_parcial            DOUBLE,
     IN p_total_final              DOUBLE,
     IN p_descuentoTotal           DOUBLE,
     IN p_Estado                   VARCHAR(45),
-    IN p_DetalleDeEnvio_id_DetalleEnvio INT,
-    IN p_Activo                   TINYINT,
-    IN p_Cliente                  INT
+    IN p_carrito_idCarrito 		  INT,
+    IN p_Activo                   TINYINT, 
+    IN p_Cliente                  INT,
+    IN p_Empresa				  INT
 )
 BEGIN
     UPDATE OrdenCompra
-       SET FechaCreacion = p_FechaCreacion,
+       SET fechaCreacion = p_FechaCreacion,
            total_parcial = p_total_parcial,
            total_final   = p_total_final,
            descuentoTotal = p_descuentoTotal,
-           Estado        = p_Estado,
-           DetalleDeEnvio_id_DetalleEnvio = p_DetalleDeEnvio_id_DetalleEnvio,
-           Activo        = p_Activo,
+           estado        = p_Estado,
+           carrito_idCarrito = p_carrito_idCarrito,
+           activo        = p_Activo,
            cliente_idCliente = p_Cliente
-     WHERE IdPedido = p_IdPedido;
+     WHERE idOrdenCompra = p_idOrdenCompra;
 END //
 
 CREATE PROCEDURE eliminarOrdenCompra (IN p_IdPedido INT)
@@ -102,11 +114,11 @@ BEGIN
     DECLARE v_activo TINYINT;
     DECLARE v_estado VARCHAR(45);
     
-    SELECT COUNT(*) INTO v_count FROM OrdenCompra WHERE IdPedido = p_IdPedido;
+    SELECT COUNT(*) INTO v_count FROM OrdenCompra WHERE idOrdenCompra = p_IdPedido;
     IF v_count = 0 THEN
         SELECT 'Error: Orden no existe' AS Resultado;
     ELSE
-        SELECT Activo, Estado INTO v_activo, v_estado FROM OrdenCompra WHERE IdPedido = p_IdPedido;
+        SELECT activo, estado INTO v_activo, v_estado FROM OrdenCompra WHERE idOrdenCompra = p_IdPedido;
         
         IF v_activo != 1 THEN
             SELECT 'Error: Orden no activa' AS Resultado;

@@ -1,26 +1,29 @@
 USE REDCOM;
 
 -- =====================================================================
--- CUENTAOUSUARIO
+-- CUENTA USUARIO
 -- =====================================================================
+
+DROP PROCEDURE IF EXISTS insertarCuentaUsuario;
+DROP PROCEDURE IF EXISTS modificarCuentaUsuario;
+DROP PROCEDURE IF EXISTS eliminarCuentaUsuario;
+DROP PROCEDURE IF EXISTS listarCuentaUsuarios;
+DROP PROCEDURE IF EXISTS buscarCuentaUsuarioPorId;
+DROP PROCEDURE IF EXISTS loginUsuario;
+
 
 DELIMITER //
 
 CREATE PROCEDURE insertarCuentaUsuario (
-    IN p_idCuentaUsuario             INT,
-    IN p_userName                    VARCHAR(45),
-    IN p_password                    VARCHAR(45),
-    IN p_Administrador_idAdministrador INT,
-    IN p_cliente_idCliente           INT, 
-    OUT p_id INT
+    IN p_userName                    VARCHAR(50),
+    IN p_password                    VARCHAR(50),
+    IN p_activo 					 TINYINT,
+    OUT p_id 						 INT
 )
 BEGIN
     INSERT INTO CuentaUsuario (
-        idCuentaUsuario, userName, password, Administrador_idAdministrador, cliente_idCliente
-    ) VALUES (
-        p_idCuentaUsuario, p_userName, p_password, p_Administrador_idAdministrador, p_cliente_idCliente
-    );
-        
+        userName, password,activo) VALUES (
+        p_userName, p_password,p_activo);  
     SET p_id = LAST_INSERT_ID();
 END //
 
@@ -28,15 +31,12 @@ CREATE PROCEDURE modificarCuentaUsuario (
     IN p_idCuentaUsuario             INT,
     IN p_userName                    VARCHAR(45),
     IN p_password                    VARCHAR(45),
-    IN p_Administrador_idAdministrador INT,
-    IN p_cliente_idCliente           INT
-)
+    IN p_activo 					 TINYINT)
 BEGIN
     UPDATE CuentaUsuario
        SET userName                     = p_userName,
            password                     = p_password,
-           Administrador_idAdministrador = p_Administrador_idAdministrador,
-           cliente_idCliente            = p_cliente_idCliente
+           activo                       = p_activo
      WHERE idCuentaUsuario = p_idCuentaUsuario;
 END //
 
