@@ -79,7 +79,7 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        pruebaConexionConBaseDeDatos();
+//        pruebaConexionConBaseDeDatos();
         pruebasConDatos();
 
 //        pruebasConProductos();

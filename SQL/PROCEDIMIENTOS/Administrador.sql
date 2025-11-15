@@ -55,7 +55,7 @@ CREATE PROCEDURE modificarAdministrador (
 BEGIN
     UPDATE Administrador
        SET cargo            = p_cargo,
-           jerarquia            = p_rango,
+           jerarquia        = p_rango,
            dni              = p_dni,
            nombre           = p_nombre,
            apellidoPaterno  = p_apellidoPaterno,
