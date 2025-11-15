@@ -128,21 +128,21 @@ BEGIN
             ELSE
                 SELECT COUNT(*) INTO v_count
                 FROM LineaOrdenCompra loc
-                JOIN Producto p ON loc.Producto_ID_Producto = p.ID_Producto
-                WHERE loc.OrdenCompra_Idpedido = p_IdPedido 
+                JOIN Producto p ON loc.Producto_ID_Producto = p.id_Producto
+                WHERE loc.ordenCompra_Idpedido = p_IdPedido 
                 AND loc.activo = 1
-                AND p.StockDisponible < loc.cantidad;
+                AND p.stockDisponible < loc.cantidad;
                 
                 IF v_count > 0 THEN
                     SELECT 'Error: Stock insuficiente' AS Resultado;
                 ELSE
                     START TRANSACTION;
                     UPDATE Producto p
-                    JOIN LineaOrdenCompra loc ON p.ID_Producto = loc.Producto_ID_Producto
-                    SET p.StockDisponible = p.StockDisponible - loc.cantidad
+                    JOIN LineaOrdenCompra loc ON p.id_Producto = loc.producto_ID_Producto
+                    SET p.stockDisponible = p.stockDisponible - loc.cantidad
                     WHERE loc.OrdenCompra_Idpedido = p_IdPedido AND loc.activo = 1;
                     
-                    UPDATE OrdenCompra SET Estado = 'PROCESADO' WHERE IdPedido = p_IdPedido;
+                    UPDATE OrdenCompra SET estado = 'PROCESADO' WHERE idOrdenCompra = p_IdPedido;
                     COMMIT;
                     
                     SELECT 'Orden procesada exitosamente' AS Resultado;
@@ -162,16 +162,29 @@ BEGIN
     DECLARE v_Activo TINYINT;
     DECLARE v_LineasAfectadas INT DEFAULT 0;
     DECLARE v_StockActualizado INT DEFAULT 0;
+    DECLARE v_ErrorCode CHAR(5) DEFAULT '00000';
+    DECLARE v_ErrorMsg TEXT;
+    
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
+        GET DIAGNOSTICS CONDITION 1 
+            v_ErrorCode = RETURNED_SQLSTATE, 
+            v_ErrorMsg = MESSAGE_TEXT;
+        
         ROLLBACK;
-        SET p_Mensaje = 'Error: Ocurrió un problema al procesar la desactivación de la orden';
+        
+        -- Mensaje específico según el tipo de error
+        IF v_ErrorCode = '23000' THEN
+            SET p_Mensaje = 'Error: Violación de integridad referencial';
+        ELSE
+            SET p_Mensaje = CONCAT('Error: ', v_ErrorMsg, ' (Código: ', v_ErrorCode, ')');
+        END IF;
     END;
 
     -- Verificar si la orden existe y está activa
-    SELECT Estado, Activo INTO v_Estado, v_Activo 
+    SELECT estado, activo INTO v_Estado, v_Activo 
     FROM OrdenCompra 
-    WHERE IdPedido = p_IdPedido;
+    WHERE idOrdenCompra = p_IdPedido;
 
     IF v_Activo IS NULL THEN
         SET p_Mensaje = 'Error: La orden de compra no existe';
@@ -182,28 +195,37 @@ BEGIN
 
         -- Desactivar las líneas de orden de compra y actualizar stock
         UPDATE LineaOrdenCompra loc
-        INNER JOIN Producto p ON loc.Producto_ID_Producto = p.ID_Producto
+        INNER JOIN Producto p ON loc.producto_ID_Producto = p.id_Producto
         SET 
             loc.activo = 0,
-            p.StockDisponible = p.StockDisponible + loc.cantidad
-        WHERE loc.OrdenCompra_IdPedido = p_IdPedido 
+            p.stockDisponible = p.stockDisponible + loc.cantidad
+        WHERE loc.ordenCompra_IdPedido = p_IdPedido 
         AND loc.activo = 1;
 
         -- Contar líneas afectadas
         SET v_LineasAfectadas = ROW_COUNT();
 
-        -- Desactivar la orden de compra principal
-        UPDATE OrdenCompra 
-        SET Activo = 0 
-        WHERE IdPedido = p_IdPedido 
-        AND Activo = 1;
+        -- Verificar si se encontraron líneas para actualizar
+        IF v_LineasAfectadas = 0 THEN
+            ROLLBACK;
+            SET p_Mensaje = 'Advertencia: No se encontraron líneas activas para desactivar';
+        ELSE
+            -- Desactivar la orden de compra principal
+            UPDATE OrdenCompra 
+            SET activo = 0 , estado = 'CANCELADO'
+            WHERE idOrdenCompra = p_IdPedido 
+            AND activo = 1;
 
-        -- Contar stock actualizado (mismo que líneas afectadas)
-        SET v_StockActualizado = v_LineasAfectadas;
-
-        COMMIT;
-
-        SET p_Mensaje = CONCAT('Éxito: Orden desactivada. ', v_LineasAfectadas, ' líneas afectadas. ',v_StockActualizado, ' productos con stock actualizado.');
+            -- Verificar si se actualizó la orden
+            IF ROW_COUNT() = 0 THEN
+                ROLLBACK;
+                SET p_Mensaje = 'Error: No se pudo desactivar la orden principal';
+            ELSE
+                COMMIT;
+                SET v_StockActualizado = v_LineasAfectadas;
+                SET p_Mensaje = CONCAT('Éxito: Orden desactivada. ', v_LineasAfectadas, ' líneas afectadas. ', v_StockActualizado, ' productos con stock actualizado.');
+            END IF;
+        END IF;
     END IF;
 END//
 

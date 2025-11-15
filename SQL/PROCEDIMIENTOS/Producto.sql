@@ -97,7 +97,7 @@ BEGIN
     SELECT * FROM Producto WHERE sku = p_SKU;
 END //
 
-CREATE PROCEDURE filtrarProductoPorPrecio(
+CREATE PROCEDURE filtrarProductoPorPrecioAlMayor(
 	IN p_idCategoriaProducto INT,IN p_Filtro1 DOUBLE,
 	IN p_Filtro2 DOUBLE)
 BEGIN
@@ -197,3 +197,19 @@ BEGIN
     
 END //
  
+CREATE PROCEDURE filtrarProductoPorPrecioRegular(
+	IN p_idCategoriaProducto INT,IN p_Filtro1 DOUBLE,
+	IN p_Filtro2 DOUBLE)
+BEGIN
+    SELECT 
+        p.*
+    FROM Producto p
+    INNER JOIN CategoriaProducto c ON p.categoriaProducto_idCategoriaProducto = c.idCategoriaProducto
+    WHERE p.categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
+        AND p.activo = 1
+        AND c.activo = 1
+        AND (
+            (p.precioRegular BETWEEN p_Filtro1 AND p_Filtro2)
+        )
+    ORDER BY p.precioRegular;
+END// 

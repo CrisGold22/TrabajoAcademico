@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS CuentaUsuario;
 
 CREATE TABLE IF NOT EXISTS CuentaUsuario (
     idCuentaUsuario INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    userName VARCHAR(50) NOT NULL,
+    userName VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(50) NOT NULL,
     activo TINYINT NOT NULL DEFAULT 1
 );
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Cliente (
   apellidoMaterno VARCHAR(45) NOT NULL,
   genero VARCHAR(45) NOT NULL,
   fechaNacimiento DATETIME NOT NULL,
-  telefono INT ,
+  telefono VARCHAR(20) NOT NULL ,
   activo TINYINT NOT NULL DEFAULT 1,
   idCuentaUsuario INT NOT NULL
 );
@@ -54,14 +54,14 @@ CREATE TABLE IF NOT EXISTS Empresa (
     idEmpresa INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     ruc VARCHAR(11) NOT NULL UNIQUE,
     razonSocial VARCHAR(200) NOT NULL,
-    direccionFiscal VARCHAR(255),
-    departamento VARCHAR(100),
-    provincia VARCHAR(100),
-    distrito VARCHAR(100),
-    telefono VARCHAR(20),
+    direccionFiscal VARCHAR(255) NOT NULL,
+    departamento VARCHAR(100) NOT NULL,
+    provincia VARCHAR(100) NOT NULL,
+    distrito VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
     email VARCHAR(100) NOT NULL,
     activo TINYINT DEFAULT 1,
-    codigoPostal VARCHAR(10),
+    codigoPostal VARCHAR(10) NOT NULL,
     cliente_idCliente INT NOT NULL
 );
 
@@ -71,13 +71,13 @@ CREATE TABLE IF NOT EXISTS Administrador (
   idAdministrador INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cargo VARCHAR(45) NOT NULL,
   jerarquia VARCHAR(45) NOT NULL,
-  dni VARCHAR(45) NOT NULL,
+  dni VARCHAR(45) NOT NULL UNIQUE,
   nombre VARCHAR(45) NOT NULL,
   apellidoPaterno VARCHAR(45) NOT NULL,
   apellidoMaterno VARCHAR(45) NOT NULL,
   genero VARCHAR(45) NOT NULL,
   fechaNacimiento DATETIME NOT NULL,
-  telefono INT,
+  telefono VARCHAR(20) NOT NULL,
   sueldo DOUBLE NOT NULL,
   activo TINYINT NOT NULL DEFAULT 1,
   idCuentaUsuario INT NOT NULL
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS Descuento (
   cantidadMax INT,
   cantidadMin INT,
   activo TINYINT DEFAULT 1,
-  producto_ID_Producto INT NOT NULL
+  producto_ID_Producto INT NOT NULL UNIQUE
 );
 
 -- Tabla CarritoCompras
@@ -158,7 +158,7 @@ CREATE TABLE if not exists LineaCarrito (
 
 CREATE TABLE IF NOT EXISTS OrdenCompra (
   idOrdenCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  fechaCreacion DATE,
+  fechaCreacion DATETIME,
   total_parcial DOUBLE NOT NULL,
   total_final DOUBLE NOT NULL,
   descuentoTotal DOUBLE,
