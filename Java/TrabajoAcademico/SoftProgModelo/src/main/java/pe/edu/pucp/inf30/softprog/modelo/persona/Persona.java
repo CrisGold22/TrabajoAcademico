@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
+import java.time.LocalDate;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Genero;
 import java.util.Date;
@@ -19,14 +20,14 @@ public class Persona extends Registro {
     private String apellidoPaterno;
     private String apellidoMaterno;
     private Genero genero;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private int telefono;
 
     public Persona() {
 
     }
 
-    public Persona(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public Persona(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, LocalDate fechaNacimiento, int telefono) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -36,7 +37,7 @@ public class Persona extends Registro {
         this.telefono = telefono;
     }
 
-    public Persona(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public Persona(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, LocalDate fechaNacimiento, int telefono, int id, boolean activo) {
         super(id, activo);
         this.dni = dni;
         this.nombre = nombre;
@@ -87,11 +88,11 @@ public class Persona extends Registro {
         this.genero = genero;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

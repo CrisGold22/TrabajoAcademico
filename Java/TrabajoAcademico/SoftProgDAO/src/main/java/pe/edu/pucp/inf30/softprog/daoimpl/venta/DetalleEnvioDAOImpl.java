@@ -24,16 +24,17 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvio> implements Detall
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, DetalleEnvio modelo) throws SQLException {
-        String sql = "{CALL insertarDetalleDeEnvio(?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarDetalleDeEnvio(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_id_DetalleEnvio", modelo.getId());
         cmd.setString("p_descripcion", modelo.getDescripcion());
-        cmd.setDate("p_fechaEntrega", (Date) modelo.getFechaEntrega());
-        cmd.setDate("p_horarioEntrega", (Date) modelo.getHorarioEntrega());
         cmd.setString("p_Direccion", modelo.getDireccion());
         cmd.setString("p_Distrito", modelo.getDistritoString());
+        cmd.setDate("p_fechaEntraga", java.sql.Date.valueOf(modelo.getFechaEntrega()));
+        cmd.setDate("p_horarioEntrega", java.sql.Date.valueOf(modelo.getHorarioEntrega()));
+        cmd.setInt("p_ordenCompra_IdPedido", modelo.getOrdenCompra().getId());
+        cmd.setInt("p_activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -41,16 +42,18 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvio> implements Detall
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, DetalleEnvio modelo) throws SQLException {
-        String sql = "{CALL modificarDetalleDeEnvio(?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarDetalleDeEnvio(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_id_DetalleEnvio", modelo.getId());
         cmd.setString("p_descripcion", modelo.getDescripcion());
-        cmd.setDate("p_fechaEntrega", (Date) modelo.getFechaEntrega());
-        cmd.setDate("p_horarioEntrega", (Date) modelo.getHorarioEntrega());
         cmd.setString("p_Direccion", modelo.getDireccion());
         cmd.setString("p_Distrito", modelo.getDistritoString());
+        cmd.setDate("p_fechaEntraga", java.sql.Date.valueOf(modelo.getFechaEntrega()));
+        cmd.setDate("p_horarioEntrega", java.sql.Date.valueOf(modelo.getHorarioEntrega()));
+        cmd.setInt("p_ordenCompra_IdPedido", modelo.getOrdenCompra().getId());
+        cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
     }
@@ -92,10 +95,12 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvio> implements Detall
         
         detalle.setId(rs.getInt("id_DetalleEnvio"));
         detalle.setDescripcion(rs.getString("descripcion"));
-        detalle.setFechaEntrega(rs.getDate("fechaEntrega"));
-        detalle.setHorarioEntrega(rs.getDate("horarioEntrega"));
-        detalle.setDireccion(rs.getString("Direccion"));
-        detalle.setDistritoString(rs.getString("Distrito"));
+        detalle.setDireccion(rs.getString("direccion"));
+        detalle.setDistritoString(rs.getString("distrito"));
+        detalle.setFechaEntrega(rs.getDate("fechaEntrega").toLocalDate());
+        detalle.setHorarioEntrega(rs.getDate("horarioEntrega").toLocalDate());
+        detalle.setOrdenCompra(new OrdenCompraDAOImpl().leer(rs.getInt("ordenCompra_IdPedido")));
+        detalle.setActivoInt(rs.getInt("activo"));
         
         return detalle;
     }

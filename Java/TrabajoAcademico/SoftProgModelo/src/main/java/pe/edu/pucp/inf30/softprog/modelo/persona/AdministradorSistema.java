@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
+import java.time.LocalDate;
 import java.util.Date;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Cargo;
 import pe.edu.pucp.inf30.softprog.modelo.persona.utils.Jerarquia;
@@ -32,7 +33,7 @@ public class AdministradorSistema extends Persona {
         this.cuenta = cuenta;
     }
 
-    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono) {
+    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, LocalDate fechaNacimiento, int telefono) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono);
         this.cargo = cargo;
         this.sueldo = sueldo;
@@ -40,7 +41,7 @@ public class AdministradorSistema extends Persona {
         this.cuenta = cuenta;
     }
 
-    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, Date fechaNacimiento, int telefono, int id, boolean activo) {
+    public AdministradorSistema(Cargo cargo, double sueldo, Jerarquia jerarquia, CuentaUsuario cuenta, String dni, String nombre, String apellidoPaterno, String apellidoMaterno, Genero genero, LocalDate fechaNacimiento, int telefono, int id, boolean activo) {
         super(dni, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, telefono, id, activo);
         this.cargo = cargo;
         this.sueldo = sueldo;
@@ -48,6 +49,7 @@ public class AdministradorSistema extends Persona {
         this.cuenta = cuenta;
     }
 
+    
     public Cargo getCargo() {
         return cargo;
     }

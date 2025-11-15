@@ -22,18 +22,17 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CategoriaProducto modelo) throws SQLException {
-        String sql = "{CALL insertarCategoriaProducto(?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarCategoriaProducto(?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idCategoriaProducto", modelo.getId());
         cmd.setString("p_NombreCategoria", modelo.getNombre());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
         if(modelo.getCategoriaPadre() == null){
-            cmd.setNull("p_Catalogo_idCatalogo", Types.INTEGER);
+            cmd.setNull("p_idCategoriaPadre", Types.INTEGER);
         }
         else{
-            cmd.setInt("p_Catalogo_idCatalogo", modelo.getCategoriaPadre().getId());
+            cmd.setInt("p_idCategoriaPadre", modelo.getCategoriaPadre().getId());
         }
         cmd.setInt("p_Activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
@@ -52,10 +51,10 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         cmd.setString("p_NombreCategoria", modelo.getNombre());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
         if(modelo.getCategoriaPadre() == null){
-            cmd.setNull("p_Catalogo_idCatalogo", Types.INTEGER);
+            cmd.setNull("p_idCategoriaPadre", Types.INTEGER);
         }
         else{
-            cmd.setInt("p_Catalogo_idCatalogo", modelo.getCategoriaPadre().getId());
+            cmd.setInt("p_idCategoriaPadre", modelo.getCategoriaPadre().getId());
         }
         cmd.setInt("p_Activo", modelo.getActivo());
         
@@ -98,11 +97,11 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         CategoriaProducto categoria = new CategoriaProducto();
         
         categoria.setId(rs.getInt("idCategoriaProducto"));
-        categoria.setNombre(rs.getString("NombreCategoria"));
-        categoria.setDescripcion(rs.getString("Descripcion"));
-        categoria.setActivoInt(rs.getInt("Activo"));
+        categoria.setNombre(rs.getString("nombreCategoria"));
+        categoria.setDescripcion(rs.getString("descripcion"));
+        categoria.setActivoInt(rs.getInt("activo"));
        
-        int idPadre = rs.getInt("Catalogo_idCatalogo");
+        int idPadre = rs.getInt("idCategoriaPadre");
         if (rs.wasNull()) {
             categoria.setCategoriaPadre(null);
         } else {

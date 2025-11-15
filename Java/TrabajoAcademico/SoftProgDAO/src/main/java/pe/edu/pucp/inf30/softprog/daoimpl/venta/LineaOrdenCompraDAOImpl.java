@@ -26,17 +26,15 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaOrdenCompra modelo) throws SQLException {
-        String sql = "{CALL insertarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idLineaOrdenCompra", modelo.getId());
         cmd.setInt("p_cantidad", modelo.getCantidad());
-        cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
+        cmd.setDouble("p_precio", modelo.getPrecio());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
         cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
         cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
-        cmd.setInt("p_CarritoDeCompras_Id", modelo.getCarritoCompras().getId());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
@@ -51,11 +49,11 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         
         cmd.setInt("p_idLineaOrdenCompra", modelo.getId());
         cmd.setInt("p_cantidad", modelo.getCantidad());
-        cmd.setDouble("p_precioUnitario", modelo.getPrecioUnitario());
+        cmd.setDouble("p_precio", modelo.getPrecio());
         cmd.setDouble("p_subtotal", modelo.getSubTotal());
         cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
         cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
-        cmd.setInt("p_CarritoDeCompras_Id", modelo.getCarritoCompras().getId());
+        cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
@@ -98,21 +96,20 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
         
         linea.setId(rs.getInt("idLineaOrdenCompra"));
         linea.setCantidad(rs.getInt("cantidad"));
-        linea.setPrecioUnitario(rs.getDouble("precioUnitario"));
+        linea.setPrecio(rs.getDouble("precio"));
         linea.setSubTotal(rs.getDouble("subtotal"));
         linea.setProducto(new ProductoDAOImpl().leer(rs.getInt("Producto_ID_Producto")));
         linea.setOrdenCompra(new OrdenCompraDAOImpl().leer(rs.getInt("OrdenCompra_IdPedido")));
-        linea.setCarritoCompras(new CarritoComprasDAOImpl().leer(rs.getInt("CarritoDeCompras_Id")));
         linea.setActivoInt(rs.getInt("activo"));
         
         return linea;
     }
     
     private PreparedStatement comandoListarPorIdOrdenCompra(Connection conn, int id) throws SQLException {
-        String sql = "{CALL LISTAR_LINEAS_ORDEN_COMPRA_POR_ID_ORDEN(?)}";
+        String sql = "{CALL ListarLineasOrdenCompraPorIdOrdenCompra(?)}";
         CallableStatement cmd = conn.prepareCall(sql);
 
-        cmd.setInt(1, id); 
+        cmd.setInt("p_IdPedido", id); 
 
         return cmd;
     }

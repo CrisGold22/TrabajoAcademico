@@ -34,7 +34,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
         cmd.setString("p_direccionFiscal", modelo.getDireccionFiscal());
         cmd.setString("p_departamento", modelo.getDepartamento());
         cmd.setString("p_provincia", modelo.getProvincia());
-        cmd.setString("p_distrito", modelo.getDistritoString());
+        cmd.setString("p_distrito", modelo.getDistrito());
         cmd.setString("p_telefono", modelo.getTelefono());
         cmd.setString("p_email", modelo.getEmail());
         cmd.setString("p_codigoPostal", modelo.getCodigoPostal());
@@ -47,7 +47,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, Empresa modelo) throws SQLException {
-        String sql = "{CALL modificarEmpresa(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarEmpresa(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -57,7 +57,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
         cmd.setString("p_direccionFiscal", modelo.getDireccionFiscal());
         cmd.setString("p_departamento", modelo.getDepartamento());
         cmd.setString("p_provincia", modelo.getProvincia());
-        cmd.setString("p_distrito", modelo.getDistritoString());
+        cmd.setString("p_distrito", modelo.getDistrito());
         cmd.setString("p_telefono", modelo.getTelefono());
         cmd.setString("p_email", modelo.getEmail());
         cmd.setString("p_codigoPostal", modelo.getCodigoPostal());
@@ -109,7 +109,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
         empresa.setDireccionFiscal(rs.getString("direccionFiscal"));
         empresa.setDepartamento(rs.getString("departamento"));
         empresa.setProvincia(rs.getString("provincia"));
-        empresa.setDistritoString(rs.getString("distrito"));
+        empresa.setDistrito(rs.getString("distrito"));
         empresa.setTelefono(rs.getString("telefono"));
         empresa.setEmail(rs.getString("email"));
         empresa.setActivoInt(rs.getInt("activo"));

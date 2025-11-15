@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
+import pe.edu.pucp.inf30.softprog.modelo.persona.Empresa;
 import pe.edu.pucp.inf30.softprog.modelo.venta.utils.EstadoOrdenCompra;
 
 /**
@@ -26,12 +27,13 @@ public class OrdenCompra extends Registro {
     private CarritoCompras carritoCompras;
     private Cliente cliente;
     private EstadoOrdenCompra estado;
+    private Empresa empresa;
 
     public OrdenCompra() {
         lineasOrden = new ArrayList<>();
     }
 
-    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDate fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDate fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, Empresa empresa) {
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
@@ -40,9 +42,10 @@ public class OrdenCompra extends Registro {
         this.carritoCompras = carritoCompras;
         this.cliente = cliente;
         this.estado = estado;
+        this.empresa = empresa;
     }
 
-    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDate fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, int id, boolean activo) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDate fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, Empresa empresa, int id, boolean activo) {
         super(id, activo);
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
@@ -52,7 +55,10 @@ public class OrdenCompra extends Registro {
         this.carritoCompras = carritoCompras;
         this.cliente = cliente;
         this.estado = estado;
+        this.empresa = empresa;
     }
+
+    
     
     public List<LineaOrdenCompra> getLineasOrden() {
         return lineasOrden;
@@ -158,6 +164,14 @@ public class OrdenCompra extends Registro {
 
     public void setCarritoCompras(CarritoCompras carritoCompras) {
         this.carritoCompras = carritoCompras;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     

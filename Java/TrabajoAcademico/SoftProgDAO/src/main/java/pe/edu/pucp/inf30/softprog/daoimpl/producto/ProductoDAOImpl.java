@@ -24,20 +24,18 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, Producto modelo) throws SQLException {
-        String sql = "{CALL insertarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_ID_Producto", modelo.getId());
         cmd.setString("p_Nombre", modelo.getNombre());
         cmd.setString("p_SKU", modelo.getSKU());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
-        cmd.setDouble("p_precioRegular", modelo.getPrecioUnitario());
+        cmd.setDouble("p_precioRegular", modelo.getPrecioRegular());
         cmd.setDouble("p_precioAlMayor", modelo.getPrecioAlMayor());
         cmd.setString("p_UnidadDeMedida", modelo.getMedidaAlMayorString());
         cmd.setInt("p_StockDisponible", modelo.getStockDisponible());
         cmd.setInt("p_StockMaximo", modelo.getStockMaximo());
-        cmd.setInt("p_StockMinimo", modelo.getStockMinimo());
         cmd.setInt("p_Activo", modelo.getActivo());
         cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getCategoria().getId());
         cmd.setString("p_MarcaProducto", modelo.getMarca());
@@ -48,7 +46,7 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, Producto modelo) throws SQLException {
-        String sql = "{CALL modificarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarProducto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -56,12 +54,11 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         cmd.setString("p_Nombre", modelo.getNombre());
         cmd.setString("p_SKU", modelo.getSKU());
         cmd.setString("p_Descripcion", modelo.getDescripcion());
-        cmd.setDouble("p_precioRegular", modelo.getPrecioUnitario());
+        cmd.setDouble("p_precioRegular", modelo.getPrecioRegular());
         cmd.setDouble("p_precioAlMayor", modelo.getPrecioAlMayor());
         cmd.setString("p_UnidadDeMedida", modelo.getMedidaAlMayorString());
         cmd.setInt("p_StockDisponible", modelo.getStockDisponible());
         cmd.setInt("p_StockMaximo", modelo.getStockMaximo());
-        cmd.setInt("p_StockMinimo", modelo.getStockMinimo());
         cmd.setInt("p_Activo", modelo.getActivo());
         cmd.setInt("p_CategoriaProducto_idCategoriaProducto", modelo.getCategoria().getId());
         cmd.setString("p_MarcaProducto", modelo.getMarca());
@@ -104,19 +101,18 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
     protected Producto mapearModelo(ResultSet rs) throws SQLException {
         Producto producto = new Producto();
         
-        producto.setId(rs.getInt("ID_Producto"));
-        producto.setNombre(rs.getString("Nombre"));
-        producto.setSKU(rs.getString("SKU"));
-        producto.setDescripcion(rs.getString("Descripcion"));
+        producto.setId(rs.getInt("id_Producto"));
+        producto.setNombre(rs.getString("nombre"));
+        producto.setSKU(rs.getString("sku"));
+        producto.setDescripcion(rs.getString("descripcion"));
         producto.setPrecioAlMayor(rs.getDouble("precioAlMayor"));
-        producto.setPrecioUnitario(rs.getDouble("precioRegular"));
-        producto.setMedidaAlMayorString(rs.getString("UnidadDeMedida"));
-        producto.setStockDisponible(rs.getInt("StockDisponible"));
-        producto.setStockMaximo(rs.getInt("StockMaximo"));
-        producto.setStockMinimo(rs.getInt("StockMinimo"));
-        producto.setActivoInt(rs.getInt("Activo"));
-        producto.setCategoria(new CategoriaProductoDAOImpl().leer(rs.getInt("CategoriaProducto_idCategoriaProducto")));
-        producto.setMarca(rs.getString("Marca"));
+        producto.setPrecioRegular(rs.getDouble("precioRegular"));
+        producto.setMedidaAlMayorString(rs.getString("unidadDeMedida"));
+        producto.setStockDisponible(rs.getInt("stockDisponible"));
+        producto.setStockMaximo(rs.getInt("stockMaximo"));
+        producto.setActivoInt(rs.getInt("activo"));
+        producto.setCategoria(new CategoriaProductoDAOImpl().leer(rs.getInt("categoriaProducto_idCategoriaProducto")));
+        producto.setMarca(rs.getString("marca"));
         
         return producto;
     }

@@ -15,6 +15,7 @@ import pe.edu.pucp.inf30.softprog.dao.persona.ClienteDAO;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.persona.Cliente;
+import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 
 /**
  *
@@ -28,7 +29,6 @@ public class ClienteDAOImpl extends BaseDAO<Cliente> implements ClienteDAO{
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idCliente", modelo.getId());
         cmd.setDouble("p_lineaCredito", modelo.getLineaCredito());
         cmd.setString("p_Categoria", modelo.getCategoriaCliente());
         cmd.setInt("p_numeroDePedido_Historico", modelo.getNumeroPedidosHistorico());
@@ -38,9 +38,10 @@ public class ClienteDAOImpl extends BaseDAO<Cliente> implements ClienteDAO{
         cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
         cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
         cmd.setString("p_genero", modelo.getGeneroString());
-        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setDate("p_fechaNacimiento", java.sql.Date.valueOf(modelo.getFechaNacimiento()));
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setInt("p_Activo", modelo.getActivo());
+        cmd.setInt("p_idCuentaUsuario", modelo.getCuenta().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -48,7 +49,7 @@ public class ClienteDAOImpl extends BaseDAO<Cliente> implements ClienteDAO{
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, Cliente modelo) throws SQLException {
-        String sql = "{call modificarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{call modificarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -62,8 +63,9 @@ public class ClienteDAOImpl extends BaseDAO<Cliente> implements ClienteDAO{
         cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
         cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
         cmd.setString("p_genero", modelo.getGeneroString());
-        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setDate("p_fechaNacimiento", java.sql.Date.valueOf(modelo.getFechaNacimiento()));
         cmd.setInt("p_telefono", modelo.getTelefono());
+        cmd.setInt("p_idCuentaUsuario", modelo.getCuenta().getId());
         cmd.setInt("p_Activo", modelo.getActivo());
         
         return cmd;
@@ -114,10 +116,11 @@ public class ClienteDAOImpl extends BaseDAO<Cliente> implements ClienteDAO{
         cliente.setApellidoPaterno(rs.getString("apellidoPaterno"));
         cliente.setApellidoMaterno(rs.getString("apellidoMaterno"));
         cliente.setGeneroString(rs.getString("genero"));
-        cliente.setFechaNacimiento(rs.getDate("fechaNacimiento"));
+        cliente.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
         cliente.setTelefono(rs.getInt("telefono"));
-        cliente.setActivoInt(rs.getInt("Activo"));
         cliente.setLineaCredito(rs.getDouble("lineaCredito"));
+        cliente.setActivoInt(rs.getInt("Activo"));
+        cliente.setCuenta(new CuentaUsuarioDAOImpl().leer(rs.getInt("idCuentaUsuario")));
         
         return cliente;
     }

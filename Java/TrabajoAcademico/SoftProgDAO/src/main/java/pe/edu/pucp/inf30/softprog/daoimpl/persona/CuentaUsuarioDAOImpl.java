@@ -22,15 +22,13 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CuentaUsuario modelo) throws SQLException {
-        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idCuentaUsuario", modelo.getId());
         cmd.setString("p_userName", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
-        cmd.setInt("p_Administrador_idAdministrador", modelo.getAdministrador().getId());
-        cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
+        cmd.setInt("p_activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -38,15 +36,14 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, CuentaUsuario modelo) throws SQLException {
-        String sql = "{CALL modificarCuentaUsuario(?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarCuentaUsuario(?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_idCuentaUsuario", modelo.getId());
         cmd.setString("p_userName", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
-        cmd.setInt("p_Administrador_idAdministrador", modelo.getAdministrador().getId());
-        cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
+        cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
     }
@@ -90,8 +87,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
         cuenta.setId(rs.getInt("idCuentaUsuario"));
         cuenta.setUsername(rs.getString("userName"));
         cuenta.setPassword(rs.getString("password"));
-        cuenta.setCliente(new ClienteDAOImpl().leer(rs.getInt("Cliente_idCliente")));
-        cuenta.setAdministrador(new AdministradorSistemaDAOImpl().leer(rs.getInt("Administrador_idAdministrador")));
+        cuenta.setActivoInt(rs.getInt("activo"));
         
         return cuenta;
     }

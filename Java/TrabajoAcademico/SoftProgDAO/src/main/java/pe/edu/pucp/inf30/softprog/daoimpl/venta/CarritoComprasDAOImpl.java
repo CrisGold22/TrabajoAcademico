@@ -27,12 +27,13 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        
-        cmd.setInt("p_Id_CarritoDeCompras", modelo.getId());
-        cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
+       
+        cmd.setDouble("p_subtotal", modelo.getSubtotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
-        cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
+        cmd.setDouble("p_descuento", modelo.getDescuento());
         cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
+        cmd.setDouble("P_monto_final", modelo.getMontoFinal());
+        cmd.setInt("p_activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -45,10 +46,12 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_Id_CarritoDeCompras", modelo.getId());
-        cmd.setDouble("p_Total_Parcial", modelo.getTotalParcial());
+        cmd.setDouble("p_subtotal", modelo.getSubtotal());
         cmd.setString("p_Estado", modelo.getEstadoString());
-        cmd.setDouble("p_total_con_descuento", modelo.getTotalConDescuento());
+        cmd.setDouble("p_descuento", modelo.getDescuento());
         cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
+        cmd.setDouble("P_monto_final", modelo.getMontoFinal());
+        cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;
     }
@@ -88,11 +91,12 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
     protected CarritoCompras mapearModelo(ResultSet rs) throws SQLException {
         CarritoCompras carrito = new CarritoCompras();
         
-        carrito.setId(rs.getInt("Id_CarritoDeCompras"));
-        carrito.setTotalParcial(rs.getDouble("Total_Parcial"));
-        carrito.setEstadoString(rs.getString("Estado"));
-        carrito.setTotalConDescuento(rs.getDouble("total_con_descuento"));
+        carrito.setId(rs.getInt("id_CarritoDeCompras"));
+        carrito.setSubtotal(rs.getDouble("subtotal"));
+        carrito.setEstadoString(rs.getString("estado"));
+        carrito.setDescuento(rs.getDouble("montoFinal"));
         carrito.setCliente(new ClienteDAOImpl().leer(rs.getInt("cliente_idCliente")));
+        carrito.setActivoInt(rs.getInt("activo"));
         
         return carrito;
     }

@@ -27,18 +27,18 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idAdministrador", modelo.getId());
         cmd.setString("p_cargo", modelo.getCargoString());
-        cmd.setString("p_rango", modelo.getRangoString());
+        cmd.setString("p_rango", modelo.getJerarquiaString());
         cmd.setString("p_dni", modelo.getDni());
         cmd.setString("p_nombre", modelo.getNombre());
         cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
         cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
         cmd.setString("p_genero", modelo.getGeneroString());
-        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setDate("p_fechaNacimiento", java.sql.Date.valueOf(modelo.getFechaNacimiento()));
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setDouble("p_Sueldo", modelo.getSueldo());
         cmd.setInt("p_Activo", modelo.getActivo());
+        cmd.setInt("p_idCuentaUsuasrio", modelo.getCuenta().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -46,22 +46,23 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, AdministradorSistema modelo) throws SQLException {
-        String sql = "{CALL modificarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarAdministrador(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_idAdministrador", modelo.getId());
         cmd.setString("p_cargo", modelo.getCargoString());
-        cmd.setString("p_rango", modelo.getRangoString());
+        cmd.setString("p_rango", modelo.getJerarquiaString());
         cmd.setString("p_dni", modelo.getDni());
         cmd.setString("p_nombre", modelo.getNombre());
         cmd.setString("p_apellidoPaterno", modelo.getApellidoPaterno());
         cmd.setString("p_apellidoMaterno", modelo.getApellidoMaterno());
         cmd.setString("p_genero", modelo.getGeneroString());
-        cmd.setDate("p_fechaNacimiento", (Date) modelo.getFechaNacimiento());
+        cmd.setDate("p_fechaNacimiento", java.sql.Date.valueOf(modelo.getFechaNacimiento()));
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setDouble("p_Sueldo", modelo.getSueldo());
         cmd.setInt("p_Activo", modelo.getActivo());
+        cmd.setInt("p_idCuentaUsuasrio", modelo.getCuenta().getId());
         
         return cmd;
     }
@@ -101,17 +102,18 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         AdministradorSistema administrador = new AdministradorSistema();
         
         administrador.setId(rs.getInt("idAdministrador"));
-        administrador.setRangoString(rs.getString("rango"));
-        administrador.setCargoString(rs.getString("cargo"));
+        administrador.setCargoString(rs.getString("rango"));
+        administrador.setJerarquiaString(rs.getString("jerarquia"));
         administrador.setDni(rs.getString("dni"));
         administrador.setNombre(rs.getString("nombre"));
         administrador.setApellidoPaterno(rs.getString("apellidoPaterno"));
         administrador.setApellidoMaterno(rs.getString("apellidoMaterno"));
         administrador.setGeneroString(rs.getString("genero"));
-        administrador.setFechaNacimiento(rs.getDate("fechaNacimiento"));
+        administrador.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
         administrador.setTelefono(rs.getInt("telefono"));
         administrador.setSueldo(rs.getDouble("Sueldo"));
         administrador.setActivoInt(rs.getInt("activo"));
+        administrador.setCuenta(new CuentaUsuarioDAOImpl().leer(rs.getInt("p_idCuentaUsuario")));
         
         return administrador;
     }

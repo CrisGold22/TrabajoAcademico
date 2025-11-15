@@ -22,12 +22,10 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, Descuento modelo) throws SQLException {
-        String sql = "{CALL insertarDescuento(?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarDescuento(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idReglaPrecioVolumen", modelo.getId());
-        cmd.setString("p_tipoDescuento", modelo.getTipoDescuentoString());
         cmd.setDouble("p_precioPorVolumen", modelo.getPrecioPorVolumen());
         cmd.setInt("p_cantidadMax", modelo.getCantidadMax());
         cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
@@ -40,12 +38,11 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, Descuento modelo) throws SQLException {
-        String sql = "{CALL modificarDescuento(?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarDescuento(?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idReglaPrecioVolumen", modelo.getId());
-        cmd.setString("p_tipoDescuento", modelo.getTipoDescuentoString());
+        cmd.setInt("p_idDescuento", modelo.getId());
         cmd.setDouble("p_precioPorVolumen", modelo.getPrecioPorVolumen());
         cmd.setInt("p_cantidadMax", modelo.getCantidadMax());
         cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
@@ -61,7 +58,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idReglaPrecioVolumen", id);
+        cmd.setInt("p_idDescuento", id);
         
         return cmd;
     }
@@ -72,7 +69,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idReglaPrecioVolumen", id);
+        cmd.setInt("p_idDescuento", id);
         
         return cmd;
     }
@@ -90,13 +87,12 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
     protected Descuento mapearModelo(ResultSet rs) throws SQLException {
         Descuento descuento = new Descuento();
         
-        descuento.setId(rs.getInt("idReglaPrecioVolumen"));
-        descuento.setTipoDescuentoString(rs.getString("tipoDescuento"));
+        descuento.setId(rs.getInt("p_idDescuento"));
         descuento.setPrecioPorVolumen(rs.getDouble("precioPorVolumen"));
         descuento.setCantidadMax(rs.getInt("cantidadMax"));
         descuento.setCantidadMin(rs.getInt("cantidadMin"));
-        descuento.setActivoInt(rs.getInt("Activo"));
-        descuento.setProducto(new ProductoDAOImpl().leer(rs.getInt("Producto_ID_Producto")));
+        descuento.setActivoInt(rs.getInt("activo"));
+        descuento.setProducto(new ProductoDAOImpl().leer(rs.getInt("producto_ID_Producto")));
         
         return descuento;
     }

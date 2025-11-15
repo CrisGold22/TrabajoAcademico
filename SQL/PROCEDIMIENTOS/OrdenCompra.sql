@@ -68,14 +68,14 @@ BEGIN
      WHERE idOrdenCompra = p_idOrdenCompra;
 END //
 
-CREATE PROCEDURE eliminarOrdenCompra (IN p_IdPedido INT)
+CREATE PROCEDURE eliminarOrdenCompra (IN p_idOrdenCompra INT)
 BEGIN
-    DELETE FROM OrdenCompra WHERE IdPedido = p_IdPedido;
+    DELETE FROM OrdenCompra WHERE idOrdenCompra = p_idOrdenCompra;
 END //
 
-CREATE PROCEDURE buscarOrdenCompraPorId (IN p_IdPedido INT)
+CREATE PROCEDURE buscarOrdenCompraPorId (IN p_idOrdenCompra INT)
 BEGIN
-    SELECT * FROM OrdenCompra WHERE IdPedido = p_IdPedido;
+    SELECT * FROM OrdenCompra WHERE idOrdenCompra = p_idOrdenCompra;
 END //
 
 CREATE PROCEDURE listarOrdenesCompra ()

@@ -31,12 +31,10 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarrito> impl
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idLineaCarrito", modelo.getId());
         cmd.setInt("p_cantidad", modelo.getCantidad());
-        cmd.setDouble("p_precioVolumen", modelo.getPrecioVolumen());
+        cmd.setDouble("p_precioVolumen", modelo.getPrecio());
         cmd.setDouble("p_subTotal", modelo.getSubTotal());
-        cmd.setInt("p_Producto_ID_Producto1", modelo.getProducto().getId());
-        //cmd.setInt("p_CarritoDeCompras_Productos", modelo.getCarritoCompras().getId());
+        cmd.setInt("p_CarritoDeCompras_Productos", modelo.getCarritoCompras().getId());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
@@ -52,10 +50,9 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarrito> impl
         
         cmd.setInt("p_idLineaCarrito", modelo.getId());
         cmd.setInt("p_cantidad", modelo.getCantidad());
-        cmd.setDouble("p_precioVolumen", modelo.getPrecioVolumen());
+        cmd.setDouble("p_precioVolumen", modelo.getPrecio());
         cmd.setDouble("p_subTotal", modelo.getSubTotal());
-        cmd.setInt("p_Producto_ID_Producto1", modelo.getProducto().getId());
-        //cmd.setInt("p_CarritoDeCompras_Productos", modelo.getCarritoCompras().getId());
+        cmd.setInt("p_CarritoDeCompras_Productos", modelo.getCarritoCompras().getId());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.setInt("p_Producto_ID_Producto", modelo.getProducto().getId());
         
@@ -100,11 +97,11 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarrito> impl
         
         linea.setId(rs.getInt("idLineaCarrito"));
         linea.setCantidad(rs.getInt("cantidad"));
-        linea.setPrecioVolumen(rs.getDouble("precioVolumen"));
+        linea.setPrecio(rs.getDouble("precio"));
         linea.setSubTotal(rs.getDouble("subTotal"));
-        linea.setProducto(new ProductoDAOImpl().leer(rs.getInt("Producto_ID_Producto")));
-        //linea.setCarritoCompras(new CarritoComprasDAOImpl().leer(rs.getInt("CarritoDeCompras_Productos")));
+        linea.setCarritoCompras(new CarritoComprasDAOImpl().leer(rs.getInt("carritoDeCompras_Productos")));
         linea.setActivoInt(rs.getInt("activo"));
+        linea.setProducto(new ProductoDAOImpl().leer(rs.getInt("producto_ID_Producto")));
         
         return linea;
     }
