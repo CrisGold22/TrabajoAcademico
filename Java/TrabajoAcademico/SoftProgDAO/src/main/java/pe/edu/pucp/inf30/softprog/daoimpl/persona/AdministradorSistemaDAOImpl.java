@@ -38,7 +38,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setDouble("p_Sueldo", modelo.getSueldo());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_idCuentaUsuasrio", modelo.getCuenta().getId());
+        cmd.setInt("p_idCuentaUsuario", modelo.getCuenta().getId());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
         return cmd;
@@ -62,7 +62,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         cmd.setInt("p_telefono", modelo.getTelefono());
         cmd.setDouble("p_Sueldo", modelo.getSueldo());
         cmd.setInt("p_Activo", modelo.getActivo());
-        cmd.setInt("p_idCuentaUsuasrio", modelo.getCuenta().getId());
+        cmd.setInt("p_idCuentaUsuario", modelo.getCuenta().getId());
         
         return cmd;
     }
@@ -102,7 +102,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         AdministradorSistema administrador = new AdministradorSistema();
         
         administrador.setId(rs.getInt("idAdministrador"));
-        administrador.setCargoString(rs.getString("rango"));
+        administrador.setCargoString(rs.getString("cargo"));
         administrador.setJerarquiaString(rs.getString("jerarquia"));
         administrador.setDni(rs.getString("dni"));
         administrador.setNombre(rs.getString("nombre"));
@@ -113,7 +113,7 @@ public class AdministradorSistemaDAOImpl extends BaseDAO<AdministradorSistema> i
         administrador.setTelefono(rs.getInt("telefono"));
         administrador.setSueldo(rs.getDouble("Sueldo"));
         administrador.setActivoInt(rs.getInt("activo"));
-        administrador.setCuenta(new CuentaUsuarioDAOImpl().leer(rs.getInt("p_idCuentaUsuario")));
+        administrador.setCuenta(new CuentaUsuarioDAOImpl().leer(rs.getInt("idCuentaUsuario")));
         
         return administrador;
     }

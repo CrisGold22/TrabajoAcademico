@@ -16,7 +16,7 @@ import pe.edu.pucp.inf30.softprog.daoimpl.TransaccionalBaseDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.ClienteDAOImpl;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
 
-/**
+/**     
  *
  * @author Cristhian Horacio
  */
@@ -24,7 +24,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CarritoCompras modelo) throws SQLException {
-        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?, ?)";
+        String sql = "CALL insertarCarritoDeCompras(?, ?, ?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
        
@@ -32,7 +32,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_descuento", modelo.getDescuento());
         cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
-        cmd.setDouble("P_monto_final", modelo.getMontoFinal());
+        cmd.setDouble("p_monto_final", modelo.getMontoFinal());
         cmd.setInt("p_activo", modelo.getActivo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
         
@@ -41,7 +41,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, CarritoCompras modelo) throws SQLException {
-        String sql = "CALL modificarCarritoDeCompras(?, ?, ?, ?, ?)";
+        String sql = "CALL modificarCarritoDeCompras(?, ?, ?, ?, ?, ?, ?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
@@ -50,7 +50,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         cmd.setString("p_Estado", modelo.getEstadoString());
         cmd.setDouble("p_descuento", modelo.getDescuento());
         cmd.setInt("p_cliente_idCliente", modelo.getCliente().getId());
-        cmd.setDouble("P_monto_final", modelo.getMontoFinal());
+        cmd.setDouble("p_monto_final", modelo.getMontoFinal());
         cmd.setInt("p_activo", modelo.getActivo());
         
         return cmd;

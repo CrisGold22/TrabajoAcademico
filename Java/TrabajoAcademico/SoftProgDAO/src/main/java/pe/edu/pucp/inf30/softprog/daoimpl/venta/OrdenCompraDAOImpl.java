@@ -103,16 +103,16 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra> implem
     protected OrdenCompra mapearModelo(ResultSet rs) throws SQLException {
         OrdenCompra orden = new OrdenCompra();
         
-        orden.setId(rs.getInt("IdPedido"));
-        orden.setFechaCreacion(rs.getDate("FechaCreacion").toLocalDate());
+        orden.setId(rs.getInt("idOrdenCompra"));
+        orden.setFechaCreacion(rs.getDate("fechaCreacion").toLocalDate());
         orden.setTotalParcial(rs.getDouble("total_parcial"));
         orden.setTotalFinal(rs.getDouble("total_final"));
         orden.setDescuentoTotal(rs.getDouble("descuentoTotal"));
-        orden.setEstadoString(rs.getString("Estado"));
-        orden.setCarritoCompras(new CarritoComprasDAOImpl().leer(rs.getInt("p_carrito_idCarrito")));
-        orden.setActivoInt(rs.getInt("Activo"));
+        orden.setEstadoString(rs.getString("estado"));
+        orden.setCarritoCompras(new CarritoComprasDAOImpl().leer(rs.getInt("carrito_idCarrito")));
+        orden.setActivoInt(rs.getInt("activo"));
         orden.setCliente(new ClienteDAOImpl().leer(rs.getInt("cliente_idCliente")));
-        orden.setEmpresa(new EmpresaDAOImpl().leer(rs.getInt("p_Empresa")));
+        orden.setEmpresa(new EmpresaDAOImpl().leer(rs.getInt("empresa_idEmpresa")));
         
         return orden;
     }

@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin"/>
-    <property name="sun.java.command" value="C:\Users\Cristhian Horacio\AppData\Local\Temp\surefire18344577720606042213\surefirebooter-20251113234555048_9.jar C:\Users\Cristhian Horacio\AppData\Local\Temp\surefire18344577720606042213 2025-11-13T23-45-50_846-jvmRun1 surefire-20251113234555048_7tmp surefire_2-20251113234555048_8tmp"/>
+    <property name="sun.java.command" value="C:\Users\Cristhian Horacio\AppData\Local\Temp\surefire8648540193269100601\surefirebooter-20251115092829757_9.jar C:\Users\Cristhian Horacio\AppData\Local\Temp\surefire8648540193269100601 2025-11-15T09-28-25_515-jvmRun1 surefire-20251115092829757_7tmp surefire_2-20251115092829757_8tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Cristhian Horacio\Documents\NetBeansProjects\Proyecto\Java\TrabajoAcademico\SoftProgNegocio\target\test-classes;C:\Users\Cristhian Horacio\Documents\NetBeansProjects\Proyecto\Java\TrabajoAcademico\SoftProgNegocio\target\classes;C:\Users\Cristhian Horacio\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\Cristhian Horacio\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Cristhian Horacio\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\Cristhian Horacio\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Cristhian Horacio\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;C:\Users\Cristhian Horacio\Documents\NetBeansProjects\Proyecto\Java\TrabajoAcademico\SoftProgDAO\target\SoftProgDAO-1.0-SNAPSHOT.jar;C:\Users\Cristhian Horacio\Documents\NetBeansProjects\Proyecto\Java\TrabajoAcademico\SoftProgDBManager\target\SoftProgDBManager-1.0-SNAPSHOT.jar;C:\Users\Cristhian Horacio\.m2\repository\com\mysql\mysql-connector-j\8.4.0\mysql-connector-j-8.4.0.jar;C:\Users\Cristhian Horacio\.m2\repository\com\google\protobuf\protobuf-java\3.25.1\protobuf-java-3.25.1.jar;C:\Users\Cristhian Horacio\.m2\repository\com\ibm\db2\jcc\11.5.8.0\jcc-11.5.8.0.jar;C:\Users\Cristhian Horacio\.m2\repository\com\microsoft\sqlserver\mssql-jdbc\13.2.0.jre11\mssql-jdbc-13.2.0.jre11.jar;C:\Users\Cristhian Horacio\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Cristhian Horacio\Documents\NetBeansProjects\Proyecto\Java\TrabajoAcademico\SoftProgModelo\target\SoftProgModelo-1.0-SNAPSHOT.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Cristhian Horacio\AppData\Local\Temp\surefire18344577720606042213\surefirebooter-20251113234555048_9.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Cristhian Horacio\AppData\Local\Temp\surefire8648540193269100601\surefirebooter-20251115092829757_9.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.2+12"/>
@@ -60,5 +60,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="pe.edu.pucp.inf30.softprog.negocio.AppTest" time="0.025"/>
+  <testcase name="shouldAnswerWithTrue" classname="pe.edu.pucp.inf30.softprog.negocio.AppTest" time="0.026"/>
 </testsuite>

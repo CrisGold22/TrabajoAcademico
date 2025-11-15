@@ -31,7 +31,7 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvio> implements Detall
         cmd.setString("p_descripcion", modelo.getDescripcion());
         cmd.setString("p_Direccion", modelo.getDireccion());
         cmd.setString("p_Distrito", modelo.getDistritoString());
-        cmd.setDate("p_fechaEntraga", java.sql.Date.valueOf(modelo.getFechaEntrega()));
+        cmd.setDate("p_fechaEntrega", java.sql.Date.valueOf(modelo.getFechaEntrega()));
         cmd.setDate("p_horarioEntrega", java.sql.Date.valueOf(modelo.getHorarioEntrega()));
         cmd.setInt("p_ordenCompra_IdPedido", modelo.getOrdenCompra().getId());
         cmd.setInt("p_activo", modelo.getActivo());
@@ -50,7 +50,7 @@ public class DetalleEnvioDAOImpl extends BaseDAO<DetalleEnvio> implements Detall
         cmd.setString("p_descripcion", modelo.getDescripcion());
         cmd.setString("p_Direccion", modelo.getDireccion());
         cmd.setString("p_Distrito", modelo.getDistritoString());
-        cmd.setDate("p_fechaEntraga", java.sql.Date.valueOf(modelo.getFechaEntrega()));
+        cmd.setDate("p_fechaEntrega", java.sql.Date.valueOf(modelo.getFechaEntrega()));
         cmd.setDate("p_horarioEntrega", java.sql.Date.valueOf(modelo.getHorarioEntrega()));
         cmd.setInt("p_ordenCompra_IdPedido", modelo.getOrdenCompra().getId());
         cmd.setInt("p_activo", modelo.getActivo());

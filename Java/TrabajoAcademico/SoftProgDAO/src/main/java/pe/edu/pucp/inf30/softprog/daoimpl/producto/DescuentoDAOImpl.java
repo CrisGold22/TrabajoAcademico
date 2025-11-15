@@ -87,7 +87,7 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
     protected Descuento mapearModelo(ResultSet rs) throws SQLException {
         Descuento descuento = new Descuento();
         
-        descuento.setId(rs.getInt("p_idDescuento"));
+        descuento.setId(rs.getInt("idDescuento"));
         descuento.setPrecioPorVolumen(rs.getDouble("precioPorVolumen"));
         descuento.setCantidadMax(rs.getInt("cantidadMax"));
         descuento.setCantidadMin(rs.getInt("cantidadMin"));

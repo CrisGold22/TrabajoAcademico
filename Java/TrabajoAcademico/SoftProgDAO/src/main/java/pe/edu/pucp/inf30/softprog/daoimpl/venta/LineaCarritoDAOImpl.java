@@ -27,7 +27,7 @@ public class LineaCarritoDAOImpl extends TransaccionalBaseDAO<LineaCarrito> impl
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaCarrito modelo) throws SQLException {
-        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarLineaCarrito(?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         

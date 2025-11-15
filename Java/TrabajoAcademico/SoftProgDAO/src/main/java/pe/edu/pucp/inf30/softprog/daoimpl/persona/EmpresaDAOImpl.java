@@ -24,11 +24,10 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, Empresa modelo) throws SQLException {
-        String sql = "{CALL insertarEmpresa(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarEmpresa(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setInt("p_idEmpresa", modelo.getId());
         cmd.setString("p_ruc", modelo.getRUC());
         cmd.setString("p_razonsocial", modelo.getRazonSocial());
         cmd.setString("p_direccionFiscal", modelo.getDireccionFiscal());
@@ -47,7 +46,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, Empresa modelo) throws SQLException {
-        String sql = "{CALL modificarEmpresa(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarEmpresa(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         

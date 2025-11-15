@@ -43,7 +43,7 @@ public class LineaOrdenCompraDAOImpl extends TransaccionalBaseDAO<LineaOrdenComp
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, LineaOrdenCompra modelo) throws SQLException {
-        String sql = "{CALL modificarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL modificarLineaOrdenCompra(?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         

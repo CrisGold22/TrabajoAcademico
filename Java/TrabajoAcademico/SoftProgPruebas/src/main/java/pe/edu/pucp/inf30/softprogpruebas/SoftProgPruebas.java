@@ -2,6 +2,7 @@ package pe.edu.pucp.inf30.softprogpruebas;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -84,14 +85,13 @@ public class SoftProgPruebas {
 //        pruebasConProductos();
 //          pruebaDesactivarOrdenCompra();
 //        pruebaConEmpresa();
-
     }
 
 //    public static void pruebaDesactivarOrdenCompra() {
 //        OrdenCompra ordenCompra;
 //        OrdenCompraBO ordenCompraBO = new OrdenCompraBOImpl();
 //
-////        ordenCompra = ordenCompraBO.obtener(1);
+    ////        ordenCompra = ordenCompraBO.obtener(1);
 //        ordenCompraBO.desactivarOrdenCompra(1);
 //
 //    }
@@ -420,39 +420,77 @@ public class SoftProgPruebas {
         System.out.println("Empezando con el proceso de prueba");
         System.out.println("=====================================\n \n");
 
-        //Detalle De Envio
-        System.out.println("Ejecucion de procedures de Detalle de envio");
+        //Cuenta Usuario
+        System.out.println("Ejecucion de procedures de Cuenta de Usuario");
         System.out.println("=====================================\n");
-        DetalleEnvio detalle = new DetalleEnvio();
-        DetalleEnvioBO detalleEnvioBO = new DetalleEnvioBOImpl();
+        CuentaUsuario cuenta = new CuentaUsuario();
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
 
-        
+        cuenta.setId(1);
+        cuenta.setActivo(true);
+        cuenta.setUsername("CrisGold");
+        cuenta.setPassword("Killzone2003");
 
-        detalle.setDescripcion("Pago con exito");
-        detalle.setFechaEntrega(fechaSQL);
-        detalle.setHorarioEntrega(fechaSQL);
-        detalle.setDistrito(Distrito.LINCE);
-        detalle.setDireccion("Av. Donde vive Galileo");
+        cuentaBO.insertar(cuenta);
+        System.out.println("Se inserto la cuenta de id 1 creado exitosamente");
+        cuenta.setPassword("CrisGold2003");
+        cuentaBO.actualizar(cuenta);
+        System.out.println("La cuenta se ha actualizado exitosamente");
+        CuentaUsuario cuenta2 = cuentaBO.obtener(1);
+        cuenta.setId(2);
+        System.out.println("La cuenta se llamo al backend de manera correcta");
+        cuentaBO.insertar(cuenta2);
+        List<CuentaUsuario> listaCuentas = cuentaBO.listar();
 
-        detalleEnvioBO.insertar(detalle);
-        System.out.println("Se inserto el detalle de envio de id " + detalle.getId() + " creado exitosamente");
-        detalle.setDescripcion("hola :)");
-        detalleEnvioBO.actualizar(detalle);
-        System.out.println("Se actualizo el detalle de envio de id " + detalle.getId() + " creado exitosamente");
-        DetalleEnvio detalle2 = detalleEnvioBO.obtener(1);
-        System.out.println("Detalle de envio se llamo al backend de manera correcta\n");
-        detalle2.setId(2);
-        detalleEnvioBO.insertar(detalle2);
-        List<DetalleEnvio> listaDetalle = detalleEnvioBO.listar();
-        System.out.println("Se listo con exito todos los detalleEnvio");
+        for (CuentaUsuario c : listaCuentas) {
+            System.out.println(c.getId() + "   " + c.getUsername() + "   " + c.getPassword());
+        }
+
+        System.out.println("Se listo con exito todos las cuentas\n");
+
+        //Administrador
+        System.out.println("Ejecucion de procedures de Administrador");
+        System.out.println("=====================================\n");
+        AdministradorSistema admin = new AdministradorSistema();
+        AdministradorSistemaBO adminBO = new AdministradorSistemaBOImpl();
+
+        LocalDate nacimientoSQL = LocalDate.now();
+
+        admin.setId(1);
+        admin.setCargo(Cargo.ADMINISTRADOR);
+        admin.setJerarquia(Jerarquia.PARCIAL);
+        admin.setDni("72233478");
+        admin.setNombre("Cristhian Horacio");
+        admin.setApellidoMaterno("Olivares");
+        admin.setApellidoPaterno("Gupioc");
+        admin.setGenero(Genero.HOMBRE);
+        admin.setFechaNacimiento(nacimientoSQL);
+        admin.setTelefono(981429641);
+        admin.setSueldo(5000);
+        admin.setActivo(true);
+        admin.setCuenta(cuenta);
+
+        adminBO.insertar(admin);
+        System.out.println("Se inserto el Administrador de id 1 creado exitosamente");
+        admin.setTelefono(941993577);
+        adminBO.actualizar(admin);
+        System.out.println("El Administrador se ha actualizado exitosamente");
+        AdministradorSistema admin2 = adminBO.obtener(1);
+        System.out.println("El Administrador se llamo al backend de manera correcta");
+        admin.setId(2);
+        adminBO.insertar(admin2);
+        List<AdministradorSistema> listaAdmin = adminBO.listar();
+        System.out.println("Se listo con exito todos los admins\n");
+
+        for (AdministradorSistema c : listaAdmin) {
+            System.out.println(c.getId() + "   " + c.getNombre() + "   " + c.getCargoString());
+        }
 
         //Cliente
         System.out.println("Ejecucion de procedures de Cliente");
         System.out.println("=====================================\n");
         Cliente cliente = new Cliente();
         ClienteBO clienteBO = new ClienteBOImpl();
-        Date fechaNacimiento = new Date();
-        java.sql.Date nacimientoSQL = new java.sql.Date(fechaNacimiento.getTime());
 
         cliente.setId(1);
         cliente.setDni("72233478");
@@ -466,78 +504,58 @@ public class SoftProgPruebas {
         cliente.setCategoria(CategoriaCliente.CATERING);
         cliente.setNumeroPedidosHistorico(12);
         cliente.setNumeroPedidosMensualPro(10);
+        cliente.setCuenta(cuenta);
         cliente.setActivo(true);
 
         clienteBO.insertar(cliente);
-        System.out.println("Se inserto el cliente de id " + cliente.getId() + " creado exitosamente");
-        cliente.setTelefono(941993577);
+        System.out.println("Se inserto el cliente de id 1 creado exitosamente");
+        cliente.setTelefono(23234234);
         clienteBO.actualizar(cliente);
         System.out.println("El cliente se actualizado exitosamente");
-        Cliente cliente2 = clienteBO.obtener(cliente.getId());
+        Cliente cliente2 = clienteBO.obtener(1);
         System.out.println("El cliente se llamo al backend de manera correcta\n");
         cliente2.setId(2);
+        cliente2.setDni("72233426");
         clienteBO.insertar(cliente2);
         List<Cliente> listaCliente = clienteBO.listar();
         System.out.println("Se listo con exito todos los clientes");
+        
+        for (Cliente c : listaCliente) {
+            System.out.println(c.getId() + "   " + c.getNombre() + "   " + c.getGeneroString());
+        }
 
-        //Administrador
-        System.out.println("Ejecucion de procedures de Administrador");
-        System.out.println("=====================================\n");
-        AdministradorSistema admin = new AdministradorSistema();
-        AdministradorSistemaBO adminBO = new AdministradorSistemaBOImpl();
+//        Empresa
+        Empresa empresa = new Empresa();
+        EmpresaBO empresaBO = new EmpresaBOImpl();
 
-        admin.setId(1);
-        admin.setDni("72233478");
-        admin.setNombre("Cristhian Horacio");
-        admin.setApellidoMaterno("Olivares");
-        admin.setApellidoPaterno("Gupioc");
-        admin.setGenero(Genero.HOMBRE);
-        admin.setFechaNacimiento(nacimientoSQL);
-        admin.setTelefono(981429641);
-        admin.setActivo(true);
+        empresa.setId(1);
+        empresa.setRUC("13233212324");
+        empresa.setRazonSocial("Empresa1");
+        empresa.setDireccionFiscal("Av. Pacheco");
+        empresa.setDepartamento("La Libertad");
+        empresa.setProvincia("No lo se");
+        empresa.setDistrito("LINCE");
+        empresa.setTelefono("981238723");
+        empresa.setEmail("pacheco@gmail.com");
+        empresa.setCodigoPostal("61263");
+        empresa.setCliente(cliente);
 
-        admin.setCargo(Cargo.ADMINISTRADOR);
-        admin.setSueldo(5000);
-        admin.setRango(Jerarquia.PARCIAL);
+        empresaBO.insertar(empresa);
+        System.out.println("Se inserto la empresa de id 1 creado exitosamente");
+        empresa.setTelefono("981428641");
+        empresaBO.actualizar(empresa);
+        System.out.println("El empresa se actualizado exitosamente");
+        Empresa empresaDuplicado = empresaBO.obtener(empresa.getId());
+        System.out.println("El empresa se llamo al backend de manera correcta\n");
+        empresaDuplicado.setId(2);
+        empresaDuplicado.setRUC("132123223");
+        empresaBO.insertar(empresaDuplicado);
+        List<Empresa> listaEmpresas = empresaBO.listar();
+        System.out.println("Se listo con exito todos las empresas");
 
-        adminBO.insertar(admin);
-        System.out.println("Se inserto el Administrador de id " + admin.getId() + " creado exitosamente");
-        admin.setTelefono(941993577);
-        adminBO.actualizar(admin);
-        System.out.println("El Administrador se ha actualizado exitosamente");
-        AdministradorSistema admin2 = adminBO.obtener(admin.getId());
-        System.out.println("El Administrador se llamo al backend de manera correcta\n");
-        admin2.setId(2);
-        adminBO.insertar(admin2);
-        List<AdministradorSistema> listaAdmin = adminBO.listar();
-        System.out.println("Se listo con exito todos los admins");
-
-        //Cuenta Usuario
-        System.out.println("Ejecucion de procedures de Cuenta de Usuario");
-        System.out.println("=====================================\n");
-        CuentaUsuario cuenta = new CuentaUsuario();
-        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
-
-        cuenta.setId(1);
-        cuenta.setActivo(true);
-        cuenta.setUsername("CrisGold");
-        cuenta.setPassword("Killzone2003");
-        cuenta.setAdministrador(admin);
-        cuenta.setCliente(cliente);
-
-        cuentaBO.insertar(cuenta);
-        System.out.println("Se inserto la cuenta de id " + cuenta.getId() + " creado exitosamente");
-        cuenta.setPassword("CrisGold2003");
-        cuentaBO.actualizar(cuenta);
-        System.out.println("La cuenta se ha actualizado exitosamente");
-        CuentaUsuario cuenta2 = cuentaBO.obtener(cuenta.getId());
-        System.out.println("La cuenta se llamo al backend de manera correcta\n");
-        cuenta2.setId(2);
-        cuenta2.setCliente(cliente2);
-        cuenta2.setAdministrador(admin2);
-        cuentaBO.insertar(cuenta2);
-        List<CuentaUsuario> listaCuentas = cuentaBO.listar();
-        System.out.println("Se listo con exito todos las cuentas");
+        for (Empresa c : listaEmpresas) {
+            System.out.println(c.getId() + "   " + c.getRazonSocial() + "   " + c.getEmail());
+        }
 
         //Carrito de Compras
         System.out.println("Ejecucion de procedures de Carrito de compras");
@@ -546,16 +564,17 @@ public class SoftProgPruebas {
         CarritoComprasBO carritoBO = new CarritoComprasBOImpl();
 
         carrito.setId(1);
-        carrito.setActivo(true);
-        carrito.setEstado(EstadoCarrito.PENDIENTE);
-        carrito.setTotalParcial(100);
-        carrito.setTotalConDescuento(80);
+        carrito.setSubtotal(2000);
+        carrito.setEstado(EstadoCarrito.EXPIRADO);
+        carrito.setDescuento(200);
+        carrito.setMontoFinal(1800);
         carrito.setCliente(cliente);
+        carrito.setActivo(true);
 
         CarritoComprasDAOImpl carritoDAO = new CarritoComprasDAOImpl();
         carritoDAO.crear(carrito);
         System.out.println("Se inserto la cuenta de id " + carrito.getId() + " creado exitosamente");
-        carrito.setEstado(EstadoCarrito.EXPIRADO);
+        carrito.setEstado(EstadoCarrito.COMPLETADO);
         carritoDAO.actualizar(carrito);
         System.out.println("El carrito de compras se ha actualizado exitosamente");
         CarritoCompras carrito2 = carritoDAO.leer(carrito.getId());
@@ -565,6 +584,78 @@ public class SoftProgPruebas {
         carritoDAO.crear(carrito2);
         List<CarritoCompras> listaCarrito = carritoDAO.leerTodos();
         System.out.println("Se listo con exito todos los carritos");
+
+        for (CarritoCompras c : listaCarrito) {
+            System.out.println(c.getId() + "   " + c.getEstadoString() + "   " + c.getMontoFinal());
+        }
+
+        //Orden de compra
+        System.out.println("Ejecucion de procedures de OrdenCompra");
+        System.out.println("=====================================\n");
+        OrdenCompra ordenCompra = new OrdenCompra();
+        OrdenCompraDAO ordenCompraDAO = new OrdenCompraDAOImpl();
+
+        LocalDate fechaSQLOrden = LocalDate.now();
+
+        ordenCompra.setId(1);
+        ordenCompra.setFechaCreacion(fechaSQLOrden);
+        ordenCompra.setTotalFinal(200);
+        ordenCompra.setTotalParcial(100);
+        ordenCompra.setDescuentoTotal(200);
+        ordenCompra.setEstado(EstadoOrdenCompra.ENVIADO);
+        ordenCompra.setActivo(true);
+        ordenCompra.setCarritoCompras(carrito);
+        ordenCompra.setCliente(cliente);
+        ordenCompra.setEmpresa(empresa);
+
+        ordenCompraDAO.crear(ordenCompra);
+        System.out.println("Se inserto la orden de compra de id " + ordenCompra.getId() + " creado exitosamente");
+        ordenCompra.setTotalFinal(300);
+        ordenCompraDAO.actualizar(ordenCompra);
+        System.out.println("La orden de compra se ha actualizado exitosamente");
+        OrdenCompra ordenCompra2 = ordenCompraDAO.leer(ordenCompra.getId());
+        System.out.println("La orden de compra se llamo al backend de manera correcta\n");
+        ordenCompra2.setEmpresa(empresaDuplicado);
+        ordenCompra2.setCliente(cliente2);
+        ordenCompraDAO.crear(ordenCompra2);
+        List<OrdenCompra> listaOrdenCompra = ordenCompraDAO.leerTodos();
+        System.out.println("Se listo con exito todos las ordenCompra");
+
+        for (OrdenCompra c : listaOrdenCompra) {
+            System.out.println(c.getId() + "   " + c.getEstadoString() + "   " + c.getTotalFinal());
+        }
+
+        //Detalle De Envio
+        System.out.println("Ejecucion de procedures de Detalle de envio");
+        System.out.println("=====================================\n");
+        DetalleEnvio detalle = new DetalleEnvio();
+        DetalleEnvioBO detalleEnvioBO = new DetalleEnvioBOImpl();
+
+        LocalDate fechaSQL = LocalDate.now();
+
+        detalle.setId(1);
+        detalle.setDescripcion("Pago con exito");
+        detalle.setDireccion("Av. Donde vive Galileo");
+        detalle.setDistrito(Distrito.LINCE);
+        detalle.setFechaEntrega(fechaSQL);
+        detalle.setHorarioEntrega(fechaSQL);
+        detalle.setOrdenCompra(ordenCompra);
+        detalle.setActivo(true);
+
+        detalleEnvioBO.insertar(detalle);
+        System.out.println("Se inserto el detalle de envio de id " + detalle.getId() + " creado exitosamente");
+        detalle.setDescripcion("hola :)");
+        detalleEnvioBO.actualizar(detalle);
+        System.out.println("Se actualizo el detalle de envio de id " + detalle.getId() + " creado exitosamente");
+        DetalleEnvio detalle2 = detalleEnvioBO.obtener(1);
+        System.out.println("Detalle de envio se llamo al backend de manera correcta\n");
+        detalleEnvioBO.insertar(detalle2);
+        List<DetalleEnvio> listaDetalle = detalleEnvioBO.listar();
+        System.out.println("Se listo con exito todos los detalleEnvio");
+
+        for (DetalleEnvio c : listaDetalle) {
+            System.out.println(c.getId() + "   " + c.getDescripcion() + "   " + c.getDireccion());
+        }
 
         //Categoria Producto
         System.out.println("Ejecucion de procedures de CategoriaProductos");
@@ -590,6 +681,10 @@ public class SoftProgPruebas {
         List<CategoriaProducto> listaCategoria = categoriaBO.listar();
         System.out.println("Se listo con exito todos las categorias");
 
+        for (CategoriaProducto c : listaCategoria) {
+            System.out.println(c.getId() + "   " + c.getNombre() + "   " + c.getDescripcion());
+        }
+
         //Producto
         System.out.println("Ejecucion de procedures de Productos");
         System.out.println("=====================================\n");
@@ -597,18 +692,17 @@ public class SoftProgPruebas {
         ProductoBO productoBO = new ProductoBOImpl();
 
         producto.setId(1);
-        producto.setActivo(true);
         producto.setNombre("Celular IPhone 20 X Giga Pro Max XXXL");
         producto.setSKU("SEL-123");
         producto.setDescripcion("Celular de ultima generacion");
         producto.setPrecioAlMayor(3500);
-        producto.setPrecioUnitario(4000);
+        producto.setPrecioRegular(4000);
         producto.setMedidaAlMayor(UnidadMedida.BOTELLA);
         producto.setStockDisponible(10);
         producto.setStockMaximo(50);
-        producto.setStockMinimo(2);
-        producto.setCategoria(categoria);
+        producto.setActivo(true);
         producto.setMarca("Apple");
+        producto.setCategoria(categoria);
 
         productoBO.insertar(producto);
         System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
@@ -617,11 +711,14 @@ public class SoftProgPruebas {
         System.out.println("El producto se ha actualizado exitosamente");
         Producto producto2 = productoBO.obtener(producto.getId());
         System.out.println("El producto se llamo al backend de manera correcta\n");
-        producto2.setId(2);
         producto2.setCategoria(categoria2);
         productoBO.insertar(producto2);
         List<Producto> listaProductos = productoBO.listar();
         System.out.println("Se listo con exito todos los productos");
+
+        for (Producto c : listaProductos) {
+            System.out.println(c.getId() + "   " + c.getNombre() + "   " + c.getDescripcion());
+        }
 
         //Descuento
         System.out.println("Ejecucion de procedures de Descuento");
@@ -630,11 +727,10 @@ public class SoftProgPruebas {
         DescuentoBO descuentoBO = new DescuentoBOImpl();
 
         descuento.setId(1);
-        descuento.setActivo(true);
         descuento.setPrecioPorVolumen(2000);
         descuento.setCantidadMax(200);
         descuento.setCantidadMin(20);
-        descuento.setTipoDescuento(TipoDescuento.SIN_DESCUENTO);
+        descuento.setActivo(true);
         descuento.setProducto(producto);
 
         descuentoBO.insertar(descuento);
@@ -650,6 +746,10 @@ public class SoftProgPruebas {
         List<Descuento> listaDescuento = descuentoBO.listar();
         System.out.println("Se listo con exito todos los descuentos");
 
+        for (Descuento c : listaDescuento) {
+            System.out.println(c.getId() + "   " + c.getPrecioPorVolumen() + "   " + c.getCantidadMax());
+        }
+
         //Linea Carrito
         System.out.println("Ejecucion de procedures de Linea carrito");
         System.out.println("=====================================\n");
@@ -657,12 +757,12 @@ public class SoftProgPruebas {
         LineaCarritoBO lineaCarritoBO = new LineaCarritoBOImpl();
 
         lineaCarrito.setId(1);
-        lineaCarrito.setActivo(true);
         lineaCarrito.setCantidad(2000);
-        lineaCarrito.setPrecioVolumen(200);
-        lineaCarrito.setCarritoCompras(carrito);
-        lineaCarrito.setProducto(producto);
+        lineaCarrito.setPrecio(200);
         lineaCarrito.setSubTotal(2000);
+        lineaCarrito.setCarritoCompras(carrito);
+        lineaCarrito.setActivo(true);
+        lineaCarrito.setProducto(producto);
 
         lineaCarritoBO.insertar(lineaCarrito);
         System.out.println("Se inserto Linea carrito de id " + lineaCarrito.getId() + " creado exitosamente");
@@ -678,39 +778,9 @@ public class SoftProgPruebas {
         List<LineaCarrito> listaLineaCarrito = lineaCarritoBO.listar();
         System.out.println("Se listo con exito todos las lineaCarrito");
 
-        //Orden de compra
-        System.out.println("Ejecucion de procedures de OrdenCompra");
-        System.out.println("=====================================\n");
-        OrdenCompra ordenCompra = new OrdenCompra();
-        OrdenCompraBO ordenCompraBO = new OrdenCompraBOImpl();
-        OrdenCompraDAO ordenCompraDAO = new OrdenCompraDAOImpl();
-
-        Date fechaCreacionOrden = new Date();
-        java.sql.Date fechaSQLOrden = new java.sql.Date(fechaCreacionOrden.getTime());
-
-        ordenCompra.setId(1);
-        ordenCompra.setActivo(true);
-        ordenCompra.setFechaCreacion(fechaSQLOrden);
-        ordenCompra.setTotalFinal(200);
-        ordenCompra.setTotalParcial(100);
-        ordenCompra.setDescuentoTotal(200);
-        ordenCompra.setEstado(EstadoOrdenCompra.ENVIADO);
-        ordenCompra.setDetalleEnvio(detalle);
-        ordenCompra.setCliente(cliente);
-
-        ordenCompraDAO.crear(ordenCompra);
-        System.out.println("Se inserto la orden de compra de id " + ordenCompra.getId() + " creado exitosamente");
-        ordenCompra.setTotalFinal(300);
-        ordenCompraDAO.actualizar(ordenCompra);
-        System.out.println("La orden de compra se ha actualizado exitosamente");
-        OrdenCompra ordenCompra2 = ordenCompraDAO.leer(ordenCompra.getId());
-        System.out.println("La orden de compra se llamo al backend de manera correcta\n");
-        ordenCompra2.setId(2);
-        ordenCompra2.setDetalleEnvio(detalle2);
-        ordenCompra2.setCliente(cliente2);
-        ordenCompraDAO.crear(ordenCompra2);
-        List<OrdenCompra> listaOrdenCompra = ordenCompraDAO.leerTodos();
-        System.out.println("Se listo con exito todos las ordenCompra");
+        for (LineaCarrito c : listaLineaCarrito) {
+            System.out.println(c.getId() + "   " + c.getCantidad() + "   " + c.getPrecio());
+        }
 
         //Linea Orden de compra
         System.out.println("Ejecucion de procedures de Linea orden de compra");
@@ -719,17 +789,16 @@ public class SoftProgPruebas {
         LineaOrdenCompraBO lineaOrdenCompraBO = new LineaOrdenCompraBOImpl();
 
         lineaOrdenCompra.setId(1);
-        lineaOrdenCompra.setActivo(true);
         lineaOrdenCompra.setCantidad(10);
-        lineaOrdenCompra.setPrecioUnitario(200);
+        lineaOrdenCompra.setPrecio(200);
         lineaOrdenCompra.setSubTotal(200);
         lineaOrdenCompra.setProducto(producto);
         lineaOrdenCompra.setOrdenCompra(ordenCompra);
-        lineaOrdenCompra.setCarritoCompras(carrito);
+        lineaOrdenCompra.setActivo(true);
 
         lineaOrdenCompraBO.insertar(lineaOrdenCompra);
         System.out.println("Se inserto la orden de compra de id " + lineaOrdenCompra.getId() + " creado exitosamente");
-        lineaOrdenCompra.setPrecioUnitario(300);
+        lineaOrdenCompra.setPrecio(300);
         lineaOrdenCompraBO.actualizar(lineaOrdenCompra);
         System.out.println("La orden de compra se ha actualizado exitosamente");
         LineaOrdenCompra lineaOrdenCompra2 = lineaOrdenCompraBO.obtener(lineaOrdenCompra.getId());
@@ -737,152 +806,90 @@ public class SoftProgPruebas {
         lineaOrdenCompra2.setId(2);
         lineaOrdenCompra2.setProducto(producto2);
         lineaOrdenCompra2.setOrdenCompra(ordenCompra2);
-        lineaOrdenCompra2.setCarritoCompras(carrito2);
         lineaOrdenCompraBO.insertar(lineaOrdenCompra2);
         List<LineaOrdenCompra> listaLineaOrdenCompra = lineaOrdenCompraBO.listar();
         System.out.println("Se listo con exito todos las LineaOrdenCompra");
 
-        //Comprobante de Pago 
-        System.out.println("Ejecucion de procedures de Comprobante de pago");
-        System.out.println("=====================================\n");
-        ComprobantePago comprobantePago = new ComprobantePago();
-        ComprobantePagoBO comprobantePagoBO = new ComprobantePagoBOImpl();
-        ComprobantePagoDAO comprobantePagoDAO = new ComprobantePagoDAOImpl();
+        for (LineaOrdenCompra c : listaLineaOrdenCompra) {
+            System.out.println(c.getId() + "   " + c.getCantidad() + "   " + c.getPrecio());
+        }
 
-        Date fechaCreacionComprobante = new Date();
-        java.sql.Date fechaSQLComprobante = new java.sql.Date(fechaCreacionComprobante.getTime());
 
-        comprobantePago.setId(1);
-        comprobantePago.setActivo(true);
-        comprobantePago.setFechaEmision(fechaSQLComprobante);
-        comprobantePago.setRUC(20038433);
-        comprobantePago.setTotalSinImpuestos(1000);
-        comprobantePago.setTotalFinal(2000);
-        comprobantePago.setImpuestos(1000);
-        comprobantePago.setMetodoPago(MetodoPago.VIRTUAL);
-        comprobantePago.setOrdenCompra(ordenCompra);
-
-        comprobantePagoDAO.crear(comprobantePago);
-        System.out.println("Se inserto el comprobante de pago de id " + comprobantePago.getId() + " creado exitosamente");
-        comprobantePago.setTotalFinal(300);
-        comprobantePagoDAO.actualizar(comprobantePago);
-        System.out.println("El comprobante de pago se ha actualizado exitosamente");
-        ComprobantePago comprobantePago2 = comprobantePagoDAO.leer(comprobantePago.getId());
-        System.out.println("El comprobante de pago se llamo al backend de manera correcta\n");
-        comprobantePago2.setId(2);
-        comprobantePago2.setOrdenCompra(ordenCompra2);
-        comprobantePagoDAO.crear(comprobantePago2);
-        List<ComprobantePago> listaComprobante = comprobantePagoDAO.leerTodos();
-        System.out.println("Se listo con exito todos los comprobantePago");
-
-        //Linea comprobante de pago
-        System.out.println("Ejecucion de procedures de Linea de Comprobante");
-        System.out.println("=====================================\n");
-        LineaComprobantePago lineaComprobante = new LineaComprobantePago();
-        LineaComprobantePagoBO lineaComprobanteBO = new LineaComprobantePagoBOImpl();
-        LineaComprobantePagoDAOImpl lineaComprobanteDAO = new LineaComprobantePagoDAOImpl();
-
-        lineaComprobante.setId(1);
-        lineaComprobante.setActivo(true);
-        lineaComprobante.setMontoImpuesto(2000);
-        lineaComprobante.setMontoPagado(2000);
-        lineaComprobante.setComprobantePago(comprobantePago);
-        lineaComprobante.setCodigo(20216635);
-        lineaComprobante.setCantidad(10);
-        lineaComprobante.setSubTotal(1000);
-
-        lineaComprobanteBO.insertar(lineaComprobante);
-        System.out.println("Se inserto la Linea de Comprobante de id " + lineaComprobante.getId() + " creado exitosamente");
-        lineaComprobante.setCantidad(20);
-        lineaComprobanteBO.actualizar(lineaComprobante);
-        System.out.println("La Linea de Comprobante se ha actualizado exitosamente");
-        LineaComprobantePago lineaComprobante2 = lineaComprobanteBO.obtener(lineaComprobante.getId());
-        System.out.println("La Linea de Comprobante se llamo al backend de manera correcta\n");
-        lineaComprobante2.setId(2);
-        lineaComprobante2.setComprobantePago(comprobantePago2);
-        lineaComprobanteBO.insertar(lineaComprobante2);
-        List<LineaComprobantePago> listaLineaComprobante = lineaComprobanteBO.listar();
-        System.out.println("Se listo con exito todos las lineaComprobantePago");
-
-        //Limpiaza de datos
-        // 1. LineaComprobantePago
-        lineaComprobanteBO.eliminar(1);
-        lineaComprobanteBO.eliminar(2);
-        System.out.println("La Linea de Comprobante se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Linea de Comprobante FINALIZADO \n");
-
-        // 2. ComprobantePago
-        comprobantePagoDAO.eliminar(1);
-        comprobantePagoDAO.eliminar(2);
-        System.out.println("El comprobante de pago se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Comprobante de pago FINALIZADO \n");
-
-        // 3. LineaOrdenCompra
+// 1. LineaOrdenCompra
         lineaOrdenCompraBO.eliminar(1);
         lineaOrdenCompraBO.eliminar(2);
-        System.out.println("La linea de orden de compra se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Linea de Orden de compra FINALIZADO \n");
+        System.out.println("Linea de Orden de compra eliminada correctamente");
+        System.out.println("-----> Procedimientos LineaOrdenCompra FINALIZADO \n");
 
-        // 4. LineaCarrito
+// 2. LineaCarrito
         lineaCarritoBO.eliminar(1);
         lineaCarritoBO.eliminar(2);
-        System.out.println("Linea carrito se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Linea carrito FINALIZADO \n");
+        System.out.println("Linea de carrito eliminada correctamente");
+        System.out.println("-----> Procedimientos LineaCarrito FINALIZADO \n");
 
-        // 5. Descuento
+// 3. Descuento
         descuentoBO.eliminar(1);
         descuentoBO.eliminar(2);
-        System.out.println("El descuento se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Descuento FINALIZADO \n");
+        System.out.println("Descuento eliminado correctamente");
+        System.out.println("-----> Procedimientos Descuento FINALIZADO \n");
 
-        // 6. OrdenCompra
-        ordenCompraDAO.eliminar(1);
-        ordenCompraDAO.eliminar(2);
-        System.out.println("La orden de compra se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Orden de compra FINALIZADO \n");
-
-        // 7. CarritoDeCompras
-        carritoDAO.eliminar(1);
-        carritoDAO.eliminar(2);
-        System.out.println("El carrito de compras se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Carrito de compras FINALIZADO \n");
-
-        // 8. Producto
-        productoBO.eliminar(1);
-        productoBO.eliminar(2);
-        System.out.println("El producto se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Producto FINALIZADO \n");
-
-        // 9. CategoriaProducto
-        categoriaBO.eliminar(1);
-        categoriaBO.eliminar(2);
-        System.out.println("CategoriaProducto se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de CategoriaProducto FINALIZADO \n");
-
-        // 10. CuentaUsuario
-        cuentaBO.eliminar(1);
-        cuentaBO.eliminar(2);
-        System.out.println("La cuenta se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Cuenta de Usuario FINALIZADO \n");
-
-        // 11. Administrador
-        adminBO.eliminar(1);
-        adminBO.eliminar(2);
-        System.out.println("El Administrador se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Administrador FINALIZADO \n");
-
-        // 12. Cliente
-        clienteBO.eliminar(1);
-        clienteBO.eliminar(2);
-        System.out.println("El cliente se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Cliente FINALIZADO \n");
-
-        // 13. DetalleEnvio
+// 4. DetalleEnvio
         detalleEnvioBO.eliminar(1);
         detalleEnvioBO.eliminar(2);
-        System.out.println("El detalle de envio seleccionado se elimino correctamente");
-        System.out.println("-----> Ejecucion de procedures de Detalle de envio FINALIZADO \n");
+        System.out.println("Detalle de envío eliminado correctamente");
+        System.out.println("-----> Procedimientos DetalleEnvio FINALIZADO \n");
 
-        System.out.println("Testeo del proyecto de persistancia, negocio, dbManagner y Modelo FINALIZADO :)");
+// 5. OrdenCompra
+        ordenCompraDAO.eliminar(1);
+        ordenCompraDAO.eliminar(2);
+        System.out.println("Orden de compra eliminada correctamente");
+        System.out.println("-----> Procedimientos OrdenCompra FINALIZADO \n");
+
+// 6. CarritoDeCompras
+        carritoDAO.eliminar(1);
+        carritoDAO.eliminar(2);
+        System.out.println("Carrito de compras eliminado correctamente");
+        System.out.println("-----> Procedimientos CarritoDeCompras FINALIZADO \n");
+
+// 7. Producto
+        productoBO.eliminar(1);
+        productoBO.eliminar(2);
+        System.out.println("Producto eliminado correctamente");
+        System.out.println("-----> Procedimientos Producto FINALIZADO \n");
+
+// 8. CategoriaProducto
+        categoriaBO.eliminar(1);
+        categoriaBO.eliminar(2);
+        System.out.println("Categoría de producto eliminada correctamente");
+        System.out.println("-----> Procedimientos CategoriaProducto FINALIZADO \n");
+
+// 9. Administrador
+        adminBO.eliminar(1);
+        adminBO.eliminar(2);
+        System.out.println("Administrador eliminado correctamente");
+        System.out.println("-----> Procedimientos Administrador FINALIZADO \n");
+
+// 10. Empresa (FALTABA)
+        empresaBO.eliminar(1);
+        empresaBO.eliminar(2);
+        System.out.println("Empresa eliminada correctamente");
+        System.out.println("-----> Procedimientos Empresa FINALIZADO \n");
+
+// 11. Cliente
+        clienteBO.eliminar(1);
+        clienteBO.eliminar(2);
+        System.out.println("Cliente eliminado correctamente");
+        System.out.println("-----> Procedimientos Cliente FINALIZADO \n");
+
+// 12. CuentaUsuario
+        cuentaBO.eliminar(1);
+        cuentaBO.eliminar(2);
+        System.out.println("Cuenta de usuario eliminada correctamente");
+        System.out.println("-----> Procedimientos CuentaUsuario FINALIZADO \n");
+
+
+
+        System.out.println("TESTEO COMPLETO DE PERSISTENCIA, NEGOCIO, DBMANAGER Y MODELO FINALIZADO :)");
+
     }
 }

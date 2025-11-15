@@ -30,7 +30,7 @@ CREATE PROCEDURE insertarAdministrador (
     OUT p_id INT
 )
 BEGIN
-    INSERT INTO Administrador (cargo, rango, dni, nombre, apellidoPaterno, apellidoMaterno,
+    INSERT INTO Administrador (cargo, jerarquia, dni, nombre, apellidoPaterno, apellidoMaterno,
         genero, fechaNacimiento, telefono, Sueldo, Activo,idCuentaUsuario) 
         VALUES (p_cargo, p_rango, p_dni, p_nombre, p_apellidoPaterno, p_apellidoMaterno,
         p_genero, p_fechaNacimiento, p_telefono, p_Sueldo, p_Activo,p_idCuentaUsuario);
@@ -55,7 +55,7 @@ CREATE PROCEDURE modificarAdministrador (
 BEGIN
     UPDATE Administrador
        SET cargo            = p_cargo,
-           rango            = p_rango,
+           jerarquia            = p_rango,
            dni              = p_dni,
            nombre           = p_nombre,
            apellidoPaterno  = p_apellidoPaterno,
