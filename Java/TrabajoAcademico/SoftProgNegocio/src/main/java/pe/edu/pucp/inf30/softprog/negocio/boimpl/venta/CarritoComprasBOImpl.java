@@ -141,5 +141,10 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
         List<LineaCarrito> lista = carrito.getLineasCarritos();
         return lista;
     }
+
+    @Override
+    public CarritoCompras obtenerCarritoComprasPorIdCliente(int idCliente) {
+        return carritoCompras.obtenerCarritoPorIdCliente(idCliente);
+    }
     
 }

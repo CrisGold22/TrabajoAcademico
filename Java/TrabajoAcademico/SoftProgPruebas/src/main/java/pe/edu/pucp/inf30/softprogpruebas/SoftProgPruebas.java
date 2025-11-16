@@ -80,15 +80,26 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-//        pruebaConexionConBaseDeDatos();
+        pruebaConexionConBaseDeDatos();
 //        pruebasConDatos();
         
 //        pruebasConProductos();
 //          pruebaDesactivarOrdenCompra();
 //        pruebaConEmpresa();
-        pruebaListar();
+//        pruebaListar();
+//        pruebaDemasFunciones();
+    
     }
 
+    public static void pruebaDemasFunciones(){
+        CarritoCompras carrito = new CarritoComprasBOImpl().obtenerCarritoComprasPorIdCliente(1);
+        
+        System.out.println(carrito.getId() + "    " + carrito.getCliente().getNombre());
+        
+        
+    }
+    
+    
     public static void pruebaListar(){
         List<AdministradorSistema> listaAdministradores = new AdministradorSistemaDAOImpl().leerTodos();
         

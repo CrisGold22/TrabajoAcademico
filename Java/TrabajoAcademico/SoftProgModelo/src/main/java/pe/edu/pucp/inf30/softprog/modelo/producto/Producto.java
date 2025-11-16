@@ -131,6 +131,8 @@ public class Producto extends Registro {
                 cadena = "PAQUETE";
             case SACO ->
                 cadena = "SACO";
+            case UNIDAD ->
+                cadena = "UNIDAD";  
         }
         return cadena;
     }
@@ -153,6 +155,8 @@ public class Producto extends Registro {
                 this.medidaAlMayor = UnidadMedida.PAQUETE;
             case "SACO" ->
                 this.medidaAlMayor = UnidadMedida.SACO;
+            case "UNIDAD" ->
+                this.medidaAlMayor = UnidadMedida.UNIDAD;
         }
     }
 

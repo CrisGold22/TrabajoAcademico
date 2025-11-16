@@ -15,7 +15,6 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.utils.TipoDescuento;
 public class Descuento extends Registro {
 
     private double precioPorVolumen;
-    private TipoDescuento tipoDescuento;
     private Producto producto;
     private int cantidadMax;
     private int cantidadMin;
@@ -24,18 +23,16 @@ public class Descuento extends Registro {
 
     }
 
-    public Descuento(double precioPorVolumen, TipoDescuento tipoDescuento, Producto producto, int cantidadMax, int cantidadMin) {
+    public Descuento(double precioPorVolumen, Producto producto, int cantidadMax, int cantidadMin) {
         this.precioPorVolumen = precioPorVolumen;
-        this.tipoDescuento = tipoDescuento;
         this.producto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
     }
 
-    public Descuento(double precioPorVolumen, TipoDescuento tipoDescuento, Producto producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
+    public Descuento(double precioPorVolumen, Producto producto, int cantidadMax, int cantidadMin, int id, boolean activo) {
         super(id, activo);
         this.precioPorVolumen = precioPorVolumen;
-        this.tipoDescuento = tipoDescuento;
         this.producto = producto;
         this.cantidadMax = cantidadMax;
         this.cantidadMin = cantidadMin;
@@ -73,46 +70,46 @@ public class Descuento extends Registro {
         this.cantidadMin = cantidadMin;
     }
 
-    public TipoDescuento getTipoDescuento() {
-        return tipoDescuento;
-    }
-
-    public void setTipoDescuento(TipoDescuento tipoDescuento) {
-        this.tipoDescuento = tipoDescuento;
-    }
-
-    public String getTipoDescuentoString() {
-        String cadena = "";
-
-        switch (this.tipoDescuento) {
-            case PRIMERA_COMPRA ->
-                cadena = "PRIMERA_COMPRA";
-            case DESC_TEMPORADA ->
-                cadena = "DESC_TEMPORADA";
-            case CLIENTE_FRECUENTE ->
-                cadena = "CLIENTE_FRECUENTE";
-            case DESC_PERSONALIZADO ->
-                cadena = "DESC_PERSONALIZADO";
-            case SIN_DESCUENTO ->
-                cadena = "SIN_DESCUENTO";
-        }
-
-        return cadena;
-    }
-
-    public void setTipoDescuentoString(String tipoDescuento) {
-        switch (tipoDescuento) {
-            case "PRIMERA_COMPRA" ->
-                this.tipoDescuento = TipoDescuento.PRIMERA_COMPRA;
-            case "DESC_TEMPORADA" ->
-                this.tipoDescuento = TipoDescuento.DESC_TEMPORADA;
-            case "CLIENTE_FRECUENTE" ->
-                this.tipoDescuento = TipoDescuento.CLIENTE_FRECUENTE;
-            case "DESC_PERSONALIZADO" ->
-                this.tipoDescuento = TipoDescuento.DESC_PERSONALIZADO;
-            case "SIN_DESCUENTO" ->
-                this.tipoDescuento = TipoDescuento.SIN_DESCUENTO;
-        }
-    }
+//    public TipoDescuento getTipoDescuento() {
+//        return tipoDescuento;
+//    }
+//
+//    public void setTipoDescuento(TipoDescuento tipoDescuento) {
+//        this.tipoDescuento = tipoDescuento;
+//    }
+//
+//    public String getTipoDescuentoString() {
+//        String cadena = "";
+//
+//        switch (this.tipoDescuento) {
+//            case PRIMERA_COMPRA ->
+//                cadena = "PRIMERA_COMPRA";
+//            case DESC_TEMPORADA ->
+//                cadena = "DESC_TEMPORADA";
+//            case CLIENTE_FRECUENTE ->
+//                cadena = "CLIENTE_FRECUENTE";
+//            case DESC_PERSONALIZADO ->
+//                cadena = "DESC_PERSONALIZADO";
+//            case SIN_DESCUENTO ->
+//                cadena = "SIN_DESCUENTO";
+//        }
+//
+//        return cadena;
+//    }
+//
+//    public void setTipoDescuentoString(String tipoDescuento) {
+//        switch (tipoDescuento) {
+//            case "PRIMERA_COMPRA" ->
+//                this.tipoDescuento = TipoDescuento.PRIMERA_COMPRA;
+//            case "DESC_TEMPORADA" ->
+//                this.tipoDescuento = TipoDescuento.DESC_TEMPORADA;
+//            case "CLIENTE_FRECUENTE" ->
+//                this.tipoDescuento = TipoDescuento.CLIENTE_FRECUENTE;
+//            case "DESC_PERSONALIZADO" ->
+//                this.tipoDescuento = TipoDescuento.DESC_PERSONALIZADO;
+//            case "SIN_DESCUENTO" ->
+//                this.tipoDescuento = TipoDescuento.SIN_DESCUENTO;
+//        }
+//    }
 
 }

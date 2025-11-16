@@ -102,13 +102,35 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         return carrito;
     }
 
-    public CarritoCompras obtenerPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    protected PreparedStatement comandoObtenerCarritoComprasPorIdCliente(Connection conn, int id) throws SQLException {
+        String sql = "CALL listarCarritosDeCompras()";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        cmd.setInt("p_Id_cliente", id);
+        
+        return cmd;
     }
-
+    
     @Override
-    public List<CarritoCompras> obtenerCarritoPorIdCliente(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public CarritoCompras obtenerCarritoPorIdCliente(int id) {
+        return ejecutarComando(conn -> {
+            try(PreparedStatement cmd = this.comandoObtenerCarritoComprasPorIdCliente(conn, id)){
+                ResultSet rs = cmd.executeQuery();
+
+                if (!rs.next()) {
+                    System.err.println("No se encontro el registro con "
+                            + "id: " + id);
+                    return null;
+                }
+
+                return this.mapearModelo(rs);
+                
+            }
+            catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+            throw new RuntimeException(e);
+            }
+        });
     }
     
 }
