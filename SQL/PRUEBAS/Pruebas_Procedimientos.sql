@@ -126,19 +126,19 @@ CALL insertarCategoriaProducto('Verduras de Hoja', 'Lechuga, espinaca, etc.', 5,
 CALL insertarCategoriaProducto('Verduras de Raíz', 'Zanahoria, papa, etc.', 5, 1, @nuevo_id);
 
 //
-CALL insertarProducto('Coca Cola 3L', 'SKU001', 'Gaseosa Coca Cola 3 litros', 12.50, 10.00, 'UNIDAD', 100, 500, 1, 6, 'Coca Cola', @nuevo_id);
+CALL insertarProducto('Coca Cola 3L', 'SKU001', 'Gaseosa Coca Cola 3 litros', 12.50, 10.00, 'KILOGRAMO', 100, 500, 1, 6, 'Coca Cola', @nuevo_id);
 //
-CALL insertarProducto('Leche Gloria 1L', 'SKU002', 'Leche evaporada Gloria 1L', 8.00, 6.50, 'UNIDAD', 80, 400, 1, 8, 'Gloria', @nuevo_id);
+CALL insertarProducto('Leche Gloria 1L', 'SKU002', 'Leche evaporada Gloria 1L', 8.00, 6.50, 'KILOGRAMO', 80, 400, 1, 8, 'Gloria', @nuevo_id);
 //
 CALL insertarProducto('Pechuga de Pollo', 'SKU003', 'Pechuga de pollo fresca', 18.00, 15.00, 'KILOGRAMO', 50, 200, 1, 11, 'San Fernando', @nuevo_id);
 //
 CALL insertarProducto('Mango Kent', 'SKU004', 'Mango Kent de exportación', 12.00, 9.50, 'KILOGRAMO', 60, 300, 1, 12, 'AgroExport', @nuevo_id);
 //
-CALL insertarProducto('Lechuga Americana', 'SKU005', 'Lechuga fresca americana', 6.50, 5.00, 'UNIDAD', 40, 150, 1, 14, 'Verduras Frescas', @nuevo_id);
+CALL insertarProducto('Lechuga Americana', 'SKU005', 'Lechuga fresca americana', 6.50, 5.00, 'KILOGRAMO', 40, 150, 1, 14, 'Verduras Frescas', @nuevo_id);
 //
-CALL insertarProducto('Inca Kola 2L', 'SKU006', 'Gaseosa Inca Kola 2 litros', 10.00, 8.00, 'UNIDAD', 120, 600, 1, 6, 'Inca Kola', @nuevo_id);
+CALL insertarProducto('Inca Kola 2L', 'SKU006', 'Gaseosa Inca Kola 2 litros', 10.00, 8.00, 'KILOGRAMO', 120, 600, 1, 6, 'Inca Kola', @nuevo_id);
 //
-CALL insertarProducto('Yogurt Gloria', 'SKU007', 'Yogurt bebible Gloria', 5.50, 4.50, 'UNIDAD', 90, 450, 1, 8, 'Gloria', @nuevo_id);
+CALL insertarProducto('Yogurt Gloria', 'SKU007', 'Yogurt bebible Gloria', 5.50, 4.50, 'KILOGRAMO', 90, 450, 1, 8, 'Gloria', @nuevo_id);
 //
 CALL insertarProducto('Lomo Fino', 'SKU008', 'Lomo fino de res', 35.00, 28.00, 'KILOGRAMO', 30, 100, 1, 10, 'Carnes Premium', @nuevo_id);
 //
@@ -146,7 +146,7 @@ CALL insertarProducto('Naranja Valencia', 'SKU009', 'Naranja dulce Valencia', 8.
 //
 CALL insertarProducto('Zanahoria Fresca', 'SKU010', 'Zanahoria orgánica fresca', 4.50, 3.50, 'KILOGRAMO', 55, 250, 1, 15, 'Orgánicos', @nuevo_id);
 //
-CALL insertarProducto('Sprite 2L', 'SKU011', 'Gaseosa Sprite 2 litros', 9.50, 7.50, 'UNIDAD', 110, 550, 1, 6, 'Sprite', @nuevo_id);
+CALL insertarProducto('Sprite 2L', 'SKU011', 'Gaseosa Sprite 2 litros', 9.50, 7.50, 'KILOGRAMO', 110, 550, 1, 6, 'Sprite', @nuevo_id);
 //
 CALL insertarProducto('Queso Fresco', 'SKU012', 'Queso fresco andino', 16.00, 13.00, 'KILOGRAMO', 35, 120, 1, 9, 'Quesos Andinos', @nuevo_id);
 //
@@ -154,7 +154,7 @@ CALL insertarProducto('Pavo Entero', 'SKU013', 'Pavo entero congelado', 45.00, 3
 //
 CALL insertarProducto('Limón Sutil', 'SKU014', 'Limón sutil fresco', 6.00, 4.50, 'KILOGRAMO', 65, 280, 1, 13, 'Cítricos Perú', @nuevo_id);
 //
-CALL insertarProducto('Espinaca Fresca', 'SKU015', 'Espinaca orgánica fresca', 7.50, 6.00, 'ATADO', 45, 180, 1, 14, 'Orgánicos', @nuevo_id);
+CALL insertarProducto('Espinaca Fresca', 'SKU015', 'Espinaca orgánica fresca', 7.50, 6.00, 'KILOGRAMO', 45, 180, 1, 14, 'Orgánicos', @nuevo_id);
 //
 
 CALL insertarDescuento(9.00, 100, 50, 1, 1, @nuevo_id);
