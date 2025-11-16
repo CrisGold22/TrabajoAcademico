@@ -108,10 +108,10 @@ public class Persona extends Registro {
         String cadena = "";
 
         switch (this.genero) {
-            case HOMBRE ->
-                cadena = "HOMBRE";
-            case MUJER ->
-                cadena = "MUJER";
+            case MASCULINO ->
+                cadena = "MASCULINO";
+            case FEMENINO ->
+                cadena = "FEMENINO";
             case NO_ESPECIFICADO ->
                 cadena = "NO_ESPECIFICADO";
         }
@@ -121,10 +121,10 @@ public class Persona extends Registro {
 
     public void setGeneroString(String genero) {
         switch (genero) {
-            case "HOMBRE" ->
-                this.genero = Genero.HOMBRE;
-            case "MUJER" ->
-                this.genero = Genero.MUJER;
+            case "MASCULINO" ->
+                this.genero = Genero.MASCULINO;
+            case "FEMENINO" ->
+                this.genero = Genero.FEMENINO;
             case "NO_ESPECIFICADO" ->
                 this.genero = Genero.NO_ESPECIFICADO;
         }

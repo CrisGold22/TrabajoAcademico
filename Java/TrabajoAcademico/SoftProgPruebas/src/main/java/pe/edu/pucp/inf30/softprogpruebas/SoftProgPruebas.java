@@ -12,6 +12,7 @@ import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.pago.ComprobantePagoDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.pago.LineaComprobantePagoDAOImpl;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.AdministradorSistemaDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.producto.ProductoDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.CarritoComprasDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaOrdenCompraDAOImpl;
@@ -84,18 +85,28 @@ public class SoftProgPruebas {
         
 //        pruebasConProductos();
 //          pruebaDesactivarOrdenCompra();
-        pruebaConEmpresa();
+//        pruebaConEmpresa();
+        pruebaListar();
     }
 
-//    public static void pruebaDesactivarOrdenCompra() {
-//        OrdenCompra ordenCompra;
-//        OrdenCompraBO ordenCompraBO = new OrdenCompraBOImpl();
-//
-//        ordenCompra = ordenCompraBO.obtener(2);
-//        ordenCompraBO.desactivarOrdenCompra(2);
-//
-//    }
-//
+    public static void pruebaListar(){
+        List<AdministradorSistema> listaAdministradores = new AdministradorSistemaDAOImpl().leerTodos();
+        
+        for(AdministradorSistema a : listaAdministradores){
+            System.out.println(a.getId() + "   " + a.getNombre() + "   " + a.getCargoString());
+        }
+        
+    }
+    
+    public static void pruebaDesactivarOrdenCompra() {
+        OrdenCompra ordenCompra;
+        OrdenCompraBO ordenCompraBO = new OrdenCompraBOImpl();
+
+        ordenCompra = ordenCompraBO.obtener(2);
+        ordenCompraBO.desactivarOrdenCompra(2);
+
+    }
+
     public static void pruebaConEmpresa() {
 
         CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
@@ -115,7 +126,7 @@ public class SoftProgPruebas {
         cliente.setNombre("Cristhian Horacio");
         cliente.setApellidoMaterno("Olivares");
         cliente.setApellidoPaterno("Gupioc");
-        cliente.setGenero(Genero.HOMBRE);
+        cliente.setGenero(Genero.MASCULINO);
         cliente.setFechaNacimiento(nacimientoSQL);
         cliente.setTelefono(981429641);
         cliente.setLineaCredito(10000);
@@ -468,7 +479,7 @@ public class SoftProgPruebas {
         admin.setNombre("Cristhian Horacio");
         admin.setApellidoMaterno("Olivares");
         admin.setApellidoPaterno("Gupioc");
-        admin.setGenero(Genero.HOMBRE);
+        admin.setGenero(Genero.MASCULINO);
         admin.setFechaNacimiento(nacimientoSQL);
         admin.setTelefono(981429641);
         admin.setSueldo(5000);
@@ -502,7 +513,7 @@ public class SoftProgPruebas {
         cliente.setNombre("Cristhian Horacio");
         cliente.setApellidoMaterno("Olivares");
         cliente.setApellidoPaterno("Gupioc");
-        cliente.setGenero(Genero.HOMBRE);
+        cliente.setGenero(Genero.MASCULINO);
         cliente.setFechaNacimiento(nacimientoSQL);
         cliente.setTelefono(981429641);
         cliente.setLineaCredito(10000);

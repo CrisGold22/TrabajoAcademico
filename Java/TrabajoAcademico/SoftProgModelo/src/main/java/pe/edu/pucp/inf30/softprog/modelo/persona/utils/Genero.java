@@ -9,5 +9,5 @@ package pe.edu.pucp.inf30.softprog.modelo.persona.utils;
  * @author Cristhian Horacio
  */
 public enum Genero {
-    HOMBRE, MUJER, NO_ESPECIFICADO
+    MASCULINO, FEMENINO, NO_ESPECIFICADO
 }
