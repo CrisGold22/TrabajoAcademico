@@ -67,7 +67,7 @@ public class CarritoCompras extends Registro {
     public String getEstadoString() {
         return switch (this.estado) {
             case VACIO ->
-                "CARRITO_VACIO";
+                "VACIO";
             case EN_PROCESO ->
                 "EN_PROCESO";
             case EN_REVISION ->
@@ -89,7 +89,7 @@ public class CarritoCompras extends Registro {
 
     public void setEstadoString(String estado) {
         switch (estado) {
-            case "CARRITO_VACIO" ->
+            case "VACIO" ->
                 this.estado = EstadoCarrito.VACIO;
             case "EN_PROCESO" ->
                 this.estado = EstadoCarrito.EN_PROCESO;

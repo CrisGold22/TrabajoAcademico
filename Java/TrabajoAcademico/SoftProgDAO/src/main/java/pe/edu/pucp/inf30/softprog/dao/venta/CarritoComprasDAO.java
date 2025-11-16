@@ -4,14 +4,16 @@
  */
 package pe.edu.pucp.inf30.softprog.dao.venta;
 
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
 import pe.edu.pucp.inf30.softprog.dao.PersistibleTransaccional;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarrito;
 
 /**
  *
  * @author Cristhian Horacio
  */
 public interface CarritoComprasDAO extends PersistibleTransaccional<CarritoCompras, Integer> {
-    
+    List<CarritoCompras> obtenerCarritoPorIdCliente(int id);
 }

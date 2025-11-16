@@ -12,6 +12,7 @@ import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.pago.ComprobantePagoDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.pago.LineaComprobantePagoDAOImpl;
+import pe.edu.pucp.inf30.softprog.daoimpl.persona.AdministradorSistemaDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.producto.ProductoDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.CarritoComprasDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaOrdenCompraDAOImpl;
@@ -79,233 +80,249 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        pruebaConexionConBaseDeDatos();
-        pruebasConDatos();
-
+//        pruebaConexionConBaseDeDatos();
+//        pruebasConDatos();
+        
 //        pruebasConProductos();
 //          pruebaDesactivarOrdenCompra();
 //        pruebaConEmpresa();
+        pruebaListar();
     }
 
-//    public static void pruebaDesactivarOrdenCompra() {
-//        OrdenCompra ordenCompra;
-//        OrdenCompraBO ordenCompraBO = new OrdenCompraBOImpl();
-//
-    ////        ordenCompra = ordenCompraBO.obtener(1);
-//        ordenCompraBO.desactivarOrdenCompra(1);
-//
-//    }
-//
-//    public static void pruebaConEmpresa() {
-//
-//        //Cliente
-//        System.out.println("Ejecucion de procedures de Cliente");
-//        System.out.println("=====================================\n");
-//        Cliente cliente = new Cliente();
-//        ClienteBO clienteBO = new ClienteBOImpl();
-//        
-//
-//        cliente.setId(1);
-//        cliente.setDni("72233478");
-//        cliente.setNombre("Cristhian Horacio");
-//        cliente.setApellidoMaterno("Olivares");
-//        cliente.setApellidoPaterno("Gupioc");
-//        cliente.setGenero(Genero.HOMBRE);
-//        cliente.setFechaNacimiento(nacimientoSQL);
-//        cliente.setTelefono(981429641);
-//        cliente.setLineaCredito(10000);
-//        cliente.setCategoria(CategoriaCliente.CATERING);
-//        cliente.setNumeroPedidosHistorico(12);
-//        cliente.setNumeroPedidosMensualPro(10);
-//        cliente.setActivo(true);
-//
-//        clienteBO.insertar(cliente);
-//        System.out.println("Se inserto el cliente de id " + cliente.getId() + " creado exitosamente");
-//
-//        Empresa empresa = new Empresa();
-//        EmpresaBO empresaBO = new EmpresaBOImpl();
-//
-//        empresa.setId(1);
-//
-//        empresa.setRUC("13212324");
-//        empresa.setRazonSocial("Empresa1");
-//        empresa.setDireccionFiscal("Av. Pacheco");
-//        empresa.setDepartamento("La Libertad");
-//        empresa.setProvincia("No lo se");
-//        empresa.setDistrito(Distrito.LINCE);
-//        empresa.setTelefono("981238723");
-//        empresa.setEmail("pacheco@gmail.com");
-//        empresa.setCodigoPostal("61263");
-//        empresa.setCliente(cliente);
-//
-//        empresaBO.insertar(empresa);
-//        System.out.println("Se inserto la empresa de id " + empresa.getId() + " creado exitosamente");
-//        empresa.setTelefono("981428641");
-//        empresaBO.actualizar(empresa);
-//        System.out.println("El empresa se actualizado exitosamente");
-//        Empresa empresaDuplicado = empresaBO.obtener(empresa.getId());
-//        System.out.println("El empresa se llamo al backend de manera correcta\n");
-//        empresaDuplicado.setId(2);
-//        empresaDuplicado.setRUC("132123223");
-//        empresaBO.insertar(empresaDuplicado);
-//        List<Empresa> listaEmpresas = empresaBO.listar();
-//        System.out.println("Se listo con exito todos las empresas");
-//
-//        empresaBO.eliminar(2);
-//        System.out.println("Empresa de Id 2 a sido eliminada");
-//
-//        Empresa empresa1 = new Empresa();
-//
-//        empresa1.setId(2);
-//        empresa1.setRUC("20458732109");
-//        empresa1.setRazonSocial("Inversiones Los Andes S.A.C.");
-//        empresa1.setDireccionFiscal("Av. Los Próceres 245, Santa Anita");
-//        empresa1.setDepartamento("Lima");
-//        empresa1.setProvincia("Lima");
-//        empresa1.setDistrito(Distrito.SAN_MIGUEL);
-//        empresa1.setTelefono("987654321");
-//        empresa1.setEmail("contacto@losandes.com");
-//        empresa1.setCodigoPostal("15088");
-//        empresa1.setCliente(cliente);
-//        empresa1.setActivoInt(1); // disponible
-//        empresaBO.insertar(empresa1);
-//        System.out.println("Se inserto la empresa de id " + empresa1.getId() + " creado exitosamente");
-//        
-//        Empresa empresa2 = new Empresa();
-//
-//        empresa2.setId(3);
-//        empresa2.setRUC("20165897432");
-//        empresa2.setRazonSocial("Distribuidora El Sol E.I.R.L.");
-//        empresa2.setDireccionFiscal("Jr. Los Geranios 112, San Borja");
-//        empresa2.setDepartamento("Lima");
-//        empresa2.setProvincia("Lima");
-//        empresa2.setDistrito(Distrito.SAN_BORJA);
-//        empresa2.setTelefono("991234567");
-//        empresa2.setEmail("ventas@elsol.com.pe");
-//        empresa2.setCodigoPostal("15036");
-//        empresa2.setCliente(cliente);
-//        empresa2.setActivoInt(0); // no disponible
-//        empresaBO.insertar(empresa2);
-//        System.out.println("Se inserto la empresa de id " + empresa2.getId() + " creado exitosamente");
-//
-//        Empresa empresa3 = new Empresa();
-//
-//        empresa3.setId(4);
-//        empresa3.setRUC("20654712380");
-//        empresa3.setRazonSocial("Tecnología Global S.A.");
-//        empresa3.setDireccionFiscal("Av. Colonial 3050, Callao");
-//        empresa3.setDepartamento("Callao");
-//        empresa3.setProvincia("Callao");
-//        empresa3.setDistrito(Distrito.CALLAO);
-//        empresa3.setTelefono("936258147");
-//        empresa3.setEmail("info@tecnologiaglobal.pe");
-//        empresa3.setCodigoPostal("07001");
-//        empresa3.setCliente(cliente);
-//        empresa3.setActivoInt(1); // disponible
-//        empresaBO.insertar(empresa3);
-//        System.out.println("Se inserto la empresa de id " + empresa3.getId() + " creado exitosamente");
-//
-//        Empresa empresa4 = new Empresa();
-//
-//        empresa4.setId(5);
-//        empresa4.setRUC("20549876012");
-//        empresa4.setRazonSocial("Servicios Integrales del Hogar S.R.L.");
-//        empresa4.setDireccionFiscal("Av. Canadá 850, La Victoria");
-//        empresa4.setDepartamento("Lima");
-//        empresa4.setProvincia("Lima");
-//        empresa4.setDistrito(Distrito.LA_VICTORIA);
-//        empresa4.setTelefono("987120450");
-//        empresa4.setEmail("servicios@hogarperu.com");
-//        empresa4.setCodigoPostal("15018");
-//        empresa4.setCliente(cliente);
-//        empresa4.setActivoInt(1); // disponible
-//        empresaBO.insertar(empresa4);
-//        System.out.println("Se inserto la empresa de id " + empresa4.getId() + " creado exitosamente");
-//
-//        Empresa empresa5 = new Empresa();
-//
-//        empresa5.setId(6);
-//        empresa5.setRUC("20876543219");
-//        empresa5.setRazonSocial("Alimentos del Norte S.A.C.");
-//        empresa5.setDireccionFiscal("Calle Los Laureles 120, Pueblo Libre");
-//        empresa5.setDepartamento("La Libertad");
-//        empresa5.setProvincia("Trujillo");
-//        empresa5.setDistrito(Distrito.PUEBLO_LIBRE);
-//        empresa5.setTelefono("972540321");
-//        empresa5.setEmail("contacto@alimentosnorte.com");
-//        empresa5.setCodigoPostal("13007");
-//        empresa5.setCliente(cliente);
-//        empresa5.setActivoInt(0); // no disponible
-//        empresaBO.insertar(empresa5);
-//        System.out.println("Se inserto la empresa de id " + empresa5.getId() + " creado exitosamente");
-//
-//        List<Empresa> listaEmpresasActivas = empresaBO.listarEmpresasActivos();
-//        List<Empresa> listaEmpresasNoActivas = empresaBO.listarEmpresasNoActivos();
-//        List<Empresa> listaEmpresasPorCliente = empresaBO.listarEmpresasPorCliente(1);
-//        List<Empresa> listaEmpresasPorClienteActivas = empresaBO.listarEmpresasPorClienteActivas(1);
-//        List<Empresa> listaEmpresasPorClienteNoActivas = empresaBO.listarEmpresasPorClienteNoActivas(1);
-//
-//        System.out.println("============================================");
-//        System.out.println("REPORTE DE EMPRESAS ACTIVAS");
-//        System.out.println("============================================");
-//        for (Empresa e : listaEmpresasActivas) {
-//            System.out.println("ID: " + e.getId());
-//            System.out.println("Razón Social: " + e.getRazonSocial());
-//            System.out.println("RUC: " + e.getRUC());
-//            System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
-//            System.out.println("Distrito: " + e.getDistrito());
-//            System.out.println("--------------------------------------------");
-//        }
-//
-//        System.out.println("\n============================================");
-//        System.out.println("REPORTE DE EMPRESAS NO ACTIVAS");
-//        System.out.println("============================================");
-//        for (Empresa e : listaEmpresasNoActivas) {
-//            System.out.println("ID: " + e.getId());
-//            System.out.println("Razón Social: " + e.getRazonSocial());
-//            System.out.println("RUC: " + e.getRUC());
-//            System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
-//            System.out.println("Distrito: " + e.getDistrito());
-//            System.out.println("--------------------------------------------");
-//        }
-//
-//        System.out.println("\n============================================");
-//        System.out.println("REPORTE DE EMPRESAS POR CLIENTE (ID: 1)");
-//        System.out.println("============================================");
-//        for (Empresa e : listaEmpresasPorCliente) {
-//            System.out.println("ID: " + e.getId());
-//            System.out.println("Razón Social: " + e.getRazonSocial());
-//            System.out.println("RUC: " + e.getRUC());
-//            System.out.println("Departamento: " + e.getDepartamento());
-//            System.out.println("Activo: " + e.getActivo());
-//            System.out.println("--------------------------------------------");
-//        }
-//
-//        System.out.println("\n============================================");
-//        System.out.println("REPORTE DE EMPRESAS POR CLIENTE ACTIVAS (ID: 1)");
-//        System.out.println("============================================");
-//        for (Empresa e : listaEmpresasPorClienteActivas) {
-//            System.out.println("ID: " + e.getId());
-//            System.out.println("Razón Social: " + e.getRazonSocial());
-//            System.out.println("RUC: " + e.getRUC());
-//            System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
-//            System.out.println("Activo: " + e.getActivo());
-//            System.out.println("--------------------------------------------");
-//        }
-//
-//        System.out.println("\n============================================");
-//        System.out.println("REPORTE DE EMPRESAS POR CLIENTE NO ACTIVAS (ID: 1)");
-//        System.out.println("============================================");
-//        for (Empresa e : listaEmpresasPorClienteNoActivas) {
-//            System.out.println("ID: " + e.getId());
-//            System.out.println("Razón Social: " + e.getRazonSocial());
-//            System.out.println("RUC: " + e.getRUC());
-//            System.out.println("Departamento: " + e.getDepartamento());
-//            System.out.println("Activo: " + e.getActivo());
-//            System.out.println("--------------------------------------------");
-//        }
-//        
-//        //Eliminando las empresas
+    public static void pruebaListar(){
+        List<AdministradorSistema> listaAdministradores = new AdministradorSistemaDAOImpl().leerTodos();
+        
+        for(AdministradorSistema a : listaAdministradores){
+            System.out.println(a.getId() + "   " + a.getNombre() + "   " + a.getCargoString());
+        }
+        
+    }
+    
+    public static void pruebaDesactivarOrdenCompra() {
+        OrdenCompra ordenCompra;
+        OrdenCompraBO ordenCompraBO = new OrdenCompraBOImpl();
+
+        ordenCompra = ordenCompraBO.obtener(2);
+        ordenCompraBO.desactivarOrdenCompra(2);
+
+    }
+
+    public static void pruebaConEmpresa() {
+
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
+        CuentaUsuario cuenta = new CuentaUsuario("cristhianhoracio22@gmail.com", "Killzone2003", 1, true);
+        cuentaBO.insertar(cuenta);
+    
+        //Cliente
+        System.out.println("Ejecucion de procedures de Cliente");
+        System.out.println("=====================================\n");
+        Cliente cliente = new Cliente();
+        ClienteBO clienteBO = new ClienteBOImpl();
+        
+        LocalDate nacimientoSQL = LocalDate.now();
+
+        cliente.setId(1);
+        cliente.setDni("72233478");
+        cliente.setNombre("Cristhian Horacio");
+        cliente.setApellidoMaterno("Olivares");
+        cliente.setApellidoPaterno("Gupioc");
+        cliente.setGenero(Genero.MASCULINO);
+        cliente.setFechaNacimiento(nacimientoSQL);
+        cliente.setTelefono(981429641);
+        cliente.setLineaCredito(10000);
+        cliente.setCategoria(CategoriaCliente.CATERING);
+        cliente.setNumeroPedidosHistorico(12);
+        cliente.setNumeroPedidosMensualPro(10);
+        cliente.setActivo(true);
+        cliente.setCuenta(cuenta);
+
+        clienteBO.insertar(cliente);
+        System.out.println("Se inserto el cliente de id " + cliente.getId() + " creado exitosamente");
+
+        Empresa empresa = new Empresa();
+        EmpresaBO empresaBO = new EmpresaBOImpl();
+
+        empresa.setId(1);
+
+        empresa.setRUC("13212324");
+        empresa.setRazonSocial("Empresa1");
+        empresa.setDireccionFiscal("Av. Pacheco");
+        empresa.setDepartamento("La Libertad");
+        empresa.setProvincia("No lo se");
+        empresa.setDistrito("LINCE");
+        empresa.setTelefono("981238723");
+        empresa.setEmail("pacheco@gmail.com");
+        empresa.setCodigoPostal("61263");
+        empresa.setCliente(cliente);
+
+        empresaBO.insertar(empresa);
+        System.out.println("Se inserto la empresa de id " + empresa.getId() + " creado exitosamente");
+        empresa.setTelefono("981428641");
+        empresaBO.actualizar(empresa);
+        System.out.println("El empresa se actualizado exitosamente");
+        Empresa empresaDuplicado = empresaBO.obtener(empresa.getId());
+        System.out.println("El empresa se llamo al backend de manera correcta\n");
+        empresaDuplicado.setId(2);
+        empresaDuplicado.setRUC("132123223");
+        empresaBO.insertar(empresaDuplicado);
+        List<Empresa> listaEmpresas = empresaBO.listar();
+        System.out.println("Se listo con exito todos las empresas");
+
+        empresaBO.eliminar(2);
+        System.out.println("Empresa de Id 2 a sido eliminada");
+
+        Empresa empresa1 = new Empresa();
+
+        empresa1.setId(2);
+        empresa1.setRUC("20458732109");
+        empresa1.setRazonSocial("Inversiones Los Andes S.A.C.");
+        empresa1.setDireccionFiscal("Av. Los Próceres 245, Santa Anita");
+        empresa1.setDepartamento("Lima");
+        empresa1.setProvincia("Lima");
+        empresa1.setDistrito("SAN_MIGUEL");
+        empresa1.setTelefono("987654321");
+        empresa1.setEmail("contacto@losandes.com");
+        empresa1.setCodigoPostal("15088");
+        empresa1.setCliente(cliente);
+        empresa1.setActivoInt(1); // disponible
+        empresaBO.insertar(empresa1);
+        System.out.println("Se inserto la empresa de id " + empresa1.getId() + " creado exitosamente");
+        
+        Empresa empresa2 = new Empresa();
+
+        empresa2.setId(3);
+        empresa2.setRUC("20165897432");
+        empresa2.setRazonSocial("Distribuidora El Sol E.I.R.L.");
+        empresa2.setDireccionFiscal("Jr. Los Geranios 112, San Borja");
+        empresa2.setDepartamento("Lima");
+        empresa2.setProvincia("Lima");
+        empresa2.setDistrito("SAN_BORJA");
+        empresa2.setTelefono("991234567");
+        empresa2.setEmail("ventas@elsol.com.pe");
+        empresa2.setCodigoPostal("15036");
+        empresa2.setCliente(cliente);
+        empresa2.setActivoInt(0); // no disponible
+        empresaBO.insertar(empresa2);
+        System.out.println("Se inserto la empresa de id " + empresa2.getId() + " creado exitosamente");
+
+        Empresa empresa3 = new Empresa();
+
+        empresa3.setId(4);
+        empresa3.setRUC("20654712380");
+        empresa3.setRazonSocial("Tecnología Global S.A.");
+        empresa3.setDireccionFiscal("Av. Colonial 3050, Callao");
+        empresa3.setDepartamento("Callao");
+        empresa3.setProvincia("Callao");
+        empresa3.setDistrito("CALLAO");
+        empresa3.setTelefono("936258147");
+        empresa3.setEmail("info@tecnologiaglobal.pe");
+        empresa3.setCodigoPostal("07001");
+        empresa3.setCliente(cliente);
+        empresa3.setActivoInt(1); // disponible
+        empresaBO.insertar(empresa3);
+        System.out.println("Se inserto la empresa de id " + empresa3.getId() + " creado exitosamente");
+
+        Empresa empresa4 = new Empresa();
+
+        empresa4.setId(5);
+        empresa4.setRUC("20549876012");
+        empresa4.setRazonSocial("Servicios Integrales del Hogar S.R.L.");
+        empresa4.setDireccionFiscal("Av. Canadá 850, La Victoria");
+        empresa4.setDepartamento("Lima");
+        empresa4.setProvincia("Lima");
+        empresa4.setDistrito("LA_VICTORIA");
+        empresa4.setTelefono("987120450");
+        empresa4.setEmail("servicios@hogarperu.com");
+        empresa4.setCodigoPostal("15018");
+        empresa4.setCliente(cliente);
+        empresa4.setActivoInt(1); // disponible
+        empresaBO.insertar(empresa4);
+        System.out.println("Se inserto la empresa de id " + empresa4.getId() + " creado exitosamente");
+
+        Empresa empresa5 = new Empresa();
+
+        empresa5.setId(6);
+        empresa5.setRUC("20876543219");
+        empresa5.setRazonSocial("Alimentos del Norte S.A.C.");
+        empresa5.setDireccionFiscal("Calle Los Laureles 120, Pueblo Libre");
+        empresa5.setDepartamento("La Libertad");
+        empresa5.setProvincia("Trujillo");
+        empresa5.setDistrito("PUEBLO_LIBRE");
+        empresa5.setTelefono("972540321");
+        empresa5.setEmail("contacto@alimentosnorte.com");
+        empresa5.setCodigoPostal("13007");
+        empresa5.setCliente(cliente);
+        empresa5.setActivoInt(0); // no disponible
+        empresaBO.insertar(empresa5);
+        System.out.println("Se inserto la empresa de id " + empresa5.getId() + " creado exitosamente");
+
+        List<Empresa> listaEmpresasActivas = empresaBO.listarEmpresasActivos();
+        List<Empresa> listaEmpresasNoActivas = empresaBO.listarEmpresasNoActivos();
+        List<Empresa> listaEmpresasPorCliente = empresaBO.listarEmpresasPorCliente(1);
+        List<Empresa> listaEmpresasPorClienteActivas = empresaBO.listarEmpresasPorClienteActivas(1);
+        List<Empresa> listaEmpresasPorClienteNoActivas = empresaBO.listarEmpresasPorClienteNoActivas(1);
+
+        System.out.println("============================================");
+        System.out.println("REPORTE DE EMPRESAS ACTIVAS");
+        System.out.println("============================================");
+        for (Empresa e : listaEmpresasActivas) {
+            System.out.println("ID: " + e.getId());
+            System.out.println("Razón Social: " + e.getRazonSocial());
+            System.out.println("RUC: " + e.getRUC());
+            System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
+            System.out.println("Distrito: " + e.getDistrito());
+            System.out.println("--------------------------------------------");
+        }
+
+        System.out.println("\n============================================");
+        System.out.println("REPORTE DE EMPRESAS NO ACTIVAS");
+        System.out.println("============================================");
+        for (Empresa e : listaEmpresasNoActivas) {
+            System.out.println("ID: " + e.getId());
+            System.out.println("Razón Social: " + e.getRazonSocial());
+            System.out.println("RUC: " + e.getRUC());
+            System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
+            System.out.println("Distrito: " + e.getDistrito());
+            System.out.println("--------------------------------------------");
+        }
+
+        System.out.println("\n============================================");
+        System.out.println("REPORTE DE EMPRESAS POR CLIENTE (ID: 1)");
+        System.out.println("============================================");
+        for (Empresa e : listaEmpresasPorCliente) {
+            System.out.println("ID: " + e.getId());
+            System.out.println("Razón Social: " + e.getRazonSocial());
+            System.out.println("RUC: " + e.getRUC());
+            System.out.println("Departamento: " + e.getDepartamento());
+            System.out.println("Activo: " + e.getActivo());
+            System.out.println("--------------------------------------------");
+        }
+
+        System.out.println("\n============================================");
+        System.out.println("REPORTE DE EMPRESAS POR CLIENTE ACTIVAS (ID: 1)");
+        System.out.println("============================================");
+        for (Empresa e : listaEmpresasPorClienteActivas) {
+            System.out.println("ID: " + e.getId());
+            System.out.println("Razón Social: " + e.getRazonSocial());
+            System.out.println("RUC: " + e.getRUC());
+            System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
+            System.out.println("Activo: " + e.getActivo());
+            System.out.println("--------------------------------------------");
+        }
+
+        System.out.println("\n============================================");
+        System.out.println("REPORTE DE EMPRESAS POR CLIENTE NO ACTIVAS (ID: 1)");
+        System.out.println("============================================");
+        for (Empresa e : listaEmpresasPorClienteNoActivas) {
+            System.out.println("ID: " + e.getId());
+            System.out.println("Razón Social: " + e.getRazonSocial());
+            System.out.println("RUC: " + e.getRUC());
+            System.out.println("Departamento: " + e.getDepartamento());
+            System.out.println("Activo: " + e.getActivo());
+            System.out.println("--------------------------------------------");
+        }
+        
+        //Eliminando las empresas
 //        empresaBO.eliminar(1);
 //        empresaBO.eliminar(2);
 //        empresaBO.eliminar(3);
@@ -313,92 +330,91 @@ public class SoftProgPruebas {
 //        empresaBO.eliminar(5);
 //        empresaBO.eliminar(6);
 //        
-//        System.out.println("Empresas eliminadas :)");
-//        
+        System.out.println("Empresas eliminadas :)");
+        
 //        clienteBO.eliminar(1);
-//        System.out.println("Cliente eliminado :) ");
-//        
-//        System.out.println("Proceso finalizado");
-//    }
-//
-//    public static void pruebasConProductos() throws SQLException, ClassNotFoundException {
-//        System.out.println();
-//
-//        System.out.println("=====================================");
-//        System.out.println("Empezando con el proceso de prueba");
-//        System.out.println("=====================================\n \n");
-//
-//        System.out.println("Ejecucion de procedures de CategoriaProductos");
-//        System.out.println("=====================================\n");
-//        CategoriaProducto categoria = new CategoriaProducto();
-//        CategoriaProductoBO categoriaBO = new CategoriaProductoBOImpl();
-//
-//        categoria.setId(1);
-//        categoria.setActivo(true);
-//        categoria.setDescripcion("Una categoria");
-//        categoria.setCategoriaPadre(null);
-//        categoria.setNombre("Hogar");
-//
-//        categoriaBO.insertar(categoria);
-//        System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
-//        categoria.setDescripcion("Nueva descripcion");
-//        categoriaBO.actualizar(categoria);
-//        System.out.println("CategoriaProductos se ha actualizado exitosamente");
-//        CategoriaProducto categoria2 = categoriaBO.obtener(categoria.getId());
-//        System.out.println("CategoriaProductos se llamo al backend de manera correcta\n");
-//
-//        System.out.println("Ejecucion de procedures de Productos");
-//        System.out.println("=====================================\n");
-//        Producto producto = new Producto();
-//        ProductoBO productoBO = new ProductoBOImpl();
-//
-//        producto.setId(1);
-//        producto.setActivo(true);
-//        producto.setNombre("Celular IPhone 20 X Giga Pro Max XXXL");
-//        producto.setSKU("SEL-123");
-//        producto.setDescripcion("Celular de ultima generacion");
-//        producto.setPrecioAlMayor(3500);
-//        producto.setPrecioUnitario(4000);
-//        producto.setMedidaAlMayor(UnidadMedida.BOTELLA);
-//        producto.setStockDisponible(10);
-//        producto.setStockMaximo(50);
-//        producto.setStockMinimo(2);
-//        producto.setCategoria(categoria);
-//        producto.setMarca("APPLE");
-//
-//        productoBO.insertar(producto);
-//        System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
-//        producto.setDescripcion("Nueva descripcion");
-//        productoBO.actualizar(producto);
-//        System.out.println("El producto se ha actualizado exitosamente");
-//        Producto producto2 = productoBO.obtener(producto.getId());
-//        System.out.println("El producto se llamo al backend de manera correcta\n");
-//
-//        Producto producto3 = productoBO.obtenerPorSku(producto.getSKU());
-//        System.out.println("El SKU del producto ha sido encontrado \n");
-//
-//        List<Producto> listaProducto = new ArrayList();
-//        listaProducto = productoBO.filtrarProductoPorMarca(1, "APPLE");
-//
-//        List<Producto> listaProducto2 = new ArrayList();
-//        listaProducto2 = productoBO.filtrarProductoPorPrecio(1, 3000, 6000);
-//
-//        Descuento descuento = new Descuento();
-//        DescuentoBO descuentoBO = new DescuentoBOImpl();
-//
-//        descuento.setId(1);
-//        descuento.setActivo(true);
-//        descuento.setPrecioPorVolumen(2000);
-//        descuento.setCantidadMax(200);
-//        descuento.setCantidadMin(20);
-//        descuento.setProducto(producto);
-//
-//        descuentoBO.insertar(descuento);
-//
-//        List<Producto> listaProducto3 = new ArrayList();
-//        listaProducto3 = productoBO.filtrarProductoPorDescuento(1, "CON DESCUENTO");
-//
-//    }
+        System.out.println("Cliente eliminado :) ");
+        
+        System.out.println("Proceso finalizado");
+    }
+
+    public static void pruebasConProductos() throws SQLException, ClassNotFoundException {
+        System.out.println();
+
+        System.out.println("=====================================");
+        System.out.println("Empezando con el proceso de prueba");
+        System.out.println("=====================================\n \n");
+
+        System.out.println("Ejecucion de procedures de CategoriaProductos");
+        System.out.println("=====================================\n");
+        CategoriaProducto categoria = new CategoriaProducto();
+        CategoriaProductoBO categoriaBO = new CategoriaProductoBOImpl();
+
+        categoria.setId(1);
+        categoria.setActivo(true);
+        categoria.setDescripcion("Una categoria");
+        categoria.setCategoriaPadre(null);
+        categoria.setNombre("Hogar");
+
+        categoriaBO.insertar(categoria);
+        System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
+        categoria.setDescripcion("Nueva descripcion");
+        categoriaBO.actualizar(categoria);
+        System.out.println("CategoriaProductos se ha actualizado exitosamente");
+        CategoriaProducto categoria2 = categoriaBO.obtener(categoria.getId());
+        System.out.println("CategoriaProductos se llamo al backend de manera correcta\n");
+
+        System.out.println("Ejecucion de procedures de Productos");
+        System.out.println("=====================================\n");
+        Producto producto = new Producto();
+        ProductoBO productoBO = new ProductoBOImpl();
+
+        producto.setId(1);
+        producto.setActivo(true);
+        producto.setNombre("Celular IPhone 20 X Giga Pro Max XXXL");
+        producto.setSKU("SEL-123");
+        producto.setDescripcion("Celular de ultima generacion");
+        producto.setPrecioAlMayor(3500);
+        producto.setPrecioRegular(4000);
+        producto.setMedidaAlMayor(UnidadMedida.BOTELLA);
+        producto.setStockDisponible(10);
+        producto.setStockMaximo(50);
+        producto.setCategoria(categoria);
+        producto.setMarca("APPLE");
+
+        productoBO.insertar(producto);
+        System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
+        producto.setDescripcion("Nueva descripcion");
+        productoBO.actualizar(producto);
+        System.out.println("El producto se ha actualizado exitosamente");
+        Producto producto2 = productoBO.obtener(producto.getId());
+        System.out.println("El producto se llamo al backend de manera correcta\n");
+
+        Producto producto3 = productoBO.obtenerPorSku(producto.getSKU());
+        System.out.println("El SKU del producto ha sido encontrado \n");
+
+        List<Producto> listaProducto = new ArrayList();
+        listaProducto = productoBO.filtrarProductoPorMarca(1, "APPLE");
+
+        List<Producto> listaProducto2 = new ArrayList();
+        listaProducto2 = productoBO.filtrarProductoPorPrecio(1, 3000, 6000);
+
+        Descuento descuento = new Descuento();
+        DescuentoBO descuentoBO = new DescuentoBOImpl();
+
+        descuento.setId(1);
+        descuento.setActivo(true);
+        descuento.setPrecioPorVolumen(2000);
+        descuento.setCantidadMax(200);
+        descuento.setCantidadMin(20);
+        descuento.setProducto(producto);
+
+        descuentoBO.insertar(descuento);
+
+        List<Producto> listaProducto3 = new ArrayList();
+        listaProducto3 = productoBO.filtrarProductoPorDescuento(1, "CON DESCUENTO");
+
+    }
 
     public static void pruebaConexionConBaseDeDatos() throws SQLException, ClassNotFoundException {
         DBManager dbManager = DBFactoryProvider.getManager();
@@ -463,7 +479,7 @@ public class SoftProgPruebas {
         admin.setNombre("Cristhian Horacio");
         admin.setApellidoMaterno("Olivares");
         admin.setApellidoPaterno("Gupioc");
-        admin.setGenero(Genero.HOMBRE);
+        admin.setGenero(Genero.MASCULINO);
         admin.setFechaNacimiento(nacimientoSQL);
         admin.setTelefono(981429641);
         admin.setSueldo(5000);
@@ -497,7 +513,7 @@ public class SoftProgPruebas {
         cliente.setNombre("Cristhian Horacio");
         cliente.setApellidoMaterno("Olivares");
         cliente.setApellidoPaterno("Gupioc");
-        cliente.setGenero(Genero.HOMBRE);
+        cliente.setGenero(Genero.MASCULINO);
         cliente.setFechaNacimiento(nacimientoSQL);
         cliente.setTelefono(981429641);
         cliente.setLineaCredito(10000);

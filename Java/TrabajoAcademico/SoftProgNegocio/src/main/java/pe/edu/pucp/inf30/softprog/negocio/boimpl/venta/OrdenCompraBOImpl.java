@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import pe.edu.pucp.inf30.softprog.dao.pago.LineaComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
 import pe.edu.pucp.inf30.softprog.dao.venta.OrdenCompraDAO;
+import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaCarritoDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.LineaOrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.daoimpl.venta.OrdenCompraDAOImpl;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBFactoryProvider;
@@ -150,6 +151,13 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     public void desactivarOrdenCompra(Integer id) {
         String mensaje = this.ordenCompraDAO.desactivarOrdenCompra(id);
         System.out.println(mensaje);
+    }
+
+    @Override
+    public List<LineaOrdenCompra> listarLineasOrdenCompraPorIdOrdenCompra(int id) {
+        List<LineaOrdenCompra> lista = new LineaOrdenCompraDAOImpl().listarPorIdOrdenCompra(id);
+        
+        return lista;
     }
     
     

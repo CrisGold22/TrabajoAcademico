@@ -5,6 +5,7 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.modelo.venta.CarritoCompras;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarrito;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.CarritoComprasBO;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.venta.CarritoComprasBOImpl;
 
@@ -45,5 +46,11 @@ public class CarritoComprasWS {
     public void eliminarCarritoCompras(@WebParam(name = "id") 
             int id) {
         carritoComprasBO.eliminar(id);
+    }
+    
+    @WebMethod(operationName = "listarLineaCarritoPorIdCarrito")
+    public List<LineaCarrito> listarLineaCarritoPorIdCarrito(@WebParam(name = "id") 
+            int id) {
+        return carritoComprasBO.listarLineaCarritoPorIdCarrito(id);
     }
 }

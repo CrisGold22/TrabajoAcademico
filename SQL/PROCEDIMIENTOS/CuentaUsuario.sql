@@ -66,7 +66,7 @@ BEGIN
     SELECT COUNT(*) INTO v_count
     FROM CuentaUsuario
     WHERE userName = p_username
-      AND password = p_password;
+      AND password = p_password AND activo = 1;
 
     IF v_count > 0 THEN
         SET p_valido = TRUE;

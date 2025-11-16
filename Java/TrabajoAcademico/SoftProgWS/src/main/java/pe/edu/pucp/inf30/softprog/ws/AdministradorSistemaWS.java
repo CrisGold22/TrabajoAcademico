@@ -20,7 +20,7 @@ public class AdministradorSistemaWS {
         this.administradorSistemaBO = new AdministradorSistemaBOImpl();
     }
     @WebMethod(operationName = "listarTodosAdminstradores")
-    public List<AdministradorSistema>listarTodosAdminstradores(){
+    public List<AdministradorSistema>listarTodosAdministradores(){
         return administradorSistemaBO.listar();
     }
     @WebMethod(operationName = "insertarAdministrador")
