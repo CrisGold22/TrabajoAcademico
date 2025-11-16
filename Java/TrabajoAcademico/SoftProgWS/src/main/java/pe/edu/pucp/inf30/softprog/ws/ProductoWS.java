@@ -43,18 +43,41 @@ public class ProductoWS {
         productoBO.eliminar(id);
     }
     @WebMethod(operationName = "obtenerPorSku")
+    
     public Producto obtenerPorSku(@WebParam(name = "sku")String sku)  {
         return productoBO.obtenerPorSku(sku);
     }
     @WebMethod(operationName = "listarfiltrarProductoPorPrecio")
+    
     public List<Producto> listarfiltrarProductoPorPrecio(@WebParam(name = "id")
             Integer id,@WebParam(name = "rangoPrecio1")double RangoPrecio1,
             @WebParam(name = "rangoPrecio2")double RangoPrecio2)  {
         return productoBO.filtrarProductoPorPrecio(id, RangoPrecio1, RangoPrecio2);
     }
+    
+    
     @WebMethod(operationName = "listarfiltrarProductoPorMarca")
     public List<Producto> listarfiltrarProductoPorMarca(@WebParam(name = "id")
-            Integer id,@WebParam(name = "RangoPrecio1")String marca)  {
+            Integer id,@WebParam(name = "marca")String marca)  {
         return productoBO.filtrarProductoPorMarca(id, marca);
+    }
+    
+    
+    @WebMethod(operationName = "listarfiltrarProductoPorDescuento")
+    public List<Producto> filtrarProductoPorDescuento(@WebParam(name = "id")
+            Integer id,@WebParam(name = "nombre")String nombre) {
+        return productoBO.filtrarProductoPorDescuento(id, nombre);
+    }
+
+    @WebMethod(operationName = "verificarStockSuficientePorID")
+    public boolean verificarStockSuficientePorID(@WebParam(name = "id")
+            Integer id,@WebParam(name = "cantidadSolicitada")Integer cantidadSolicitada) {
+        return productoBO.verificarStockSuficientePorID(id, cantidadSolicitada);
+    }
+    @WebMethod(operationName = "verificarStockSuficientePorSKU")
+    public boolean verificarStockSuficientePorSKU(@WebParam(name = "sku")
+            String sku,@WebParam(name = "cantidadSolicitada")Integer cantidadSolicitada) {
+
+        return productoBO.verificarStockSuficientePorSKU(sku, cantidadSolicitada);
     }
 }

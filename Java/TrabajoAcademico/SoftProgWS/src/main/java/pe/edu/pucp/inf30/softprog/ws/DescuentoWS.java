@@ -43,4 +43,8 @@ public class DescuentoWS {
     public void eliminarDescuento(@WebParam(name = "id")int id) {
         descuentoBO.eliminar(id);
     }
+    @WebMethod(operationName ="actualizarPrecioDescuentoProducto")
+    public void actualizarPrecioDescuentoProducto(@WebParam(name="id") int id,@WebParam(name="nuevo_precio") int nuevo_precio){
+        descuentoBO.actualizarPrecioDescuentoProducto(id, nuevo_precio);
+    }
 }

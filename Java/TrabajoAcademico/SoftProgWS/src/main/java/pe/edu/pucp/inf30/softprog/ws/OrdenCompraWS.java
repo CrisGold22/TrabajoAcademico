@@ -4,7 +4,9 @@ package pe.edu.pucp.inf30.softprog.ws;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
+import java.sql.Date;
 import java.util.List;
+import pe.edu.pucp.inf30.softprog.modelo.venta.LineaOrdenCompra;
 import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 import pe.edu.pucp.inf30.softprog.negocio.bo.venta.OrdenCompraBO;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.venta.OrdenCompraBOImpl;
@@ -43,8 +45,22 @@ public class OrdenCompraWS {
         ordenCompraBO.eliminar(id);
     }
     
+    @WebMethod(operationName = "consultarPedidoPorFechasOrdenCompra")
+    public List<OrdenCompra> consultarPedidoPorFechas(@WebParam(name = "id")Integer id,@WebParam(name = "fecha1")Date fecha1, @WebParam(name = "fecha2")Date fecha2) {
+        return ordenCompraBO.consultarPedidoPorFechas(id, fecha1, fecha2);
+    }
+
+    @WebMethod(operationName = "consultarOrdenCompraPorIdClienteOrdenCompra")
+    public List<OrdenCompra> consultarOrdenCompraPorIdCliente(@WebParam(name = "id")Integer id) {
+        return ordenCompraBO.consultarOrdenCompraPorIdCliente(id);
+    }
+    
     @WebMethod(operationName = "desactivarOrdenCompra")
-    public void desactivarOrdenCompra(@WebParam(name = "id")int id)  {
+    public void desactivarOrdenCompra(@WebParam(name = "id")Integer id)  {
         ordenCompraBO.desactivarOrdenCompra(id);
+    }
+    @WebMethod(operationName = "listarLineasOrdenCompraPorIdOrdenCompra")
+    public List<LineaOrdenCompra> listarLineasOrdenCompraPorIdOrdenCompra(@WebParam(name = "id")int id) {
+        return ordenCompraBO.listarLineasOrdenCompraPorIdOrdenCompra(id);
     }
 }
