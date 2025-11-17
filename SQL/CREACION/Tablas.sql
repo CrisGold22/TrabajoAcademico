@@ -106,7 +106,7 @@ CREATE TABLE if not exists CategoriaProducto_has_CategoriaProducto (
 CREATE TABLE IF NOT EXISTS Producto (
   id_Producto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(45) NOT NULL,
-  sku VARCHAR(45) NOT NULL,
+  sku VARCHAR(45) NOT NULL UNIQUE,
   descripcion VARCHAR(45) NOT NULL,
   precioRegular DOUBLE NOT NULL,
   precioAlMayor DOUBLE NOT NULL,
@@ -307,7 +307,7 @@ ALTER TABLE LineaOrdenCompra
 ADD CONSTRAINT fk_LineaOrdenCompra_Producto 
 FOREIGN KEY (producto_ID_Producto) 
 REFERENCES Producto(id_Producto)
-ON DELETE RESTRICT
+ON DELETE CASCADE
 ON UPDATE CASCADE;
 
 ALTER TABLE LineaOrdenCompra 

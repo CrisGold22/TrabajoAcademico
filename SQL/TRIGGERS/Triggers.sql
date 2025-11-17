@@ -2,6 +2,7 @@ USE REDCOM;
 
 
 DROP TRIGGER IF EXISTS after_insert_categoriaProducto;
+DROP TRIGGER IF EXISTS eliminar_linea_orden_compra_after_producto_eliminar;
 
 DELIMITER //
 
@@ -25,3 +26,12 @@ BEGIN
         END IF;
     END IF;
 END//
+
+
+CREATE TRIGGER eliminar_linea_orden_compra_after_producto_eliminar
+AFTER DELETE ON Producto
+FOR EACH ROW
+BEGIN
+    DELETE FROM LineaOrdenCompra 
+    WHERE producto_ID_Producto = OLD.id_Producto;
+END;//
