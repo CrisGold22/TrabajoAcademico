@@ -101,7 +101,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
             String password )throws SQLException{
         String sql = "{CALL loginUsuario(?,?,?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setString("p_email", email);
+        cmd.setString("p_username", email);
         cmd.setString("p_password", password);
         cmd.registerOutParameter("p_valido", Types.BOOLEAN);
         

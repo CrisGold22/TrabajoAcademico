@@ -103,10 +103,10 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
     }
 
     protected PreparedStatement comandoObtenerCarritoComprasPorIdCliente(Connection conn, int id) throws SQLException {
-        String sql = "CALL listarCarritosDeCompras()";
+        String sql = "CALL obtenerCarritoPorIdCliente(?)";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setInt("p_Id_cliente", id);
+        cmd.setInt("p_Id_Cliente", id);
         
         return cmd;
     }

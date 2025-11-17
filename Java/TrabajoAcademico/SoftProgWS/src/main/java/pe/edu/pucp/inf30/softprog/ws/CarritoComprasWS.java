@@ -53,4 +53,9 @@ public class CarritoComprasWS {
             int id) {
         return carritoComprasBO.listarLineaCarritoPorIdCarrito(id);
     }
+    @WebMethod(operationName = "obtenerCarritoDeCliente")
+    public CarritoCompras obtenerCarritoDeCliente(@WebParam(name = "idCliente") 
+            int idCliente){
+        return carritoComprasBO.obtenerCarritoComprasPorIdCliente(idCliente);
+    }
 }
