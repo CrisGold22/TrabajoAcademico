@@ -5,24 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/ClienteWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="obtenerCliente">
-    <part name="parameters" element="tns:obtenerCliente" />
-  </message>
-  <message name="obtenerClienteResponse">
-    <part name="parameters" element="tns:obtenerClienteResponse" />
-  </message>
-  <message name="insertarCliente">
-    <part name="parameters" element="tns:insertarCliente" />
-  </message>
-  <message name="insertarClienteResponse">
-    <part name="parameters" element="tns:insertarClienteResponse" />
-  </message>
-  <message name="eEliminarCliente">
-    <part name="parameters" element="tns:eEliminarCliente" />
-  </message>
-  <message name="eEliminarClienteResponse">
-    <part name="parameters" element="tns:eEliminarClienteResponse" />
-  </message>
   <message name="listarCliente">
     <part name="parameters" element="tns:listarCliente" />
   </message>
@@ -32,11 +14,29 @@
   <message name="Exception">
     <part name="fault" element="tns:Exception" />
   </message>
+  <message name="eEliminarCliente">
+    <part name="parameters" element="tns:eEliminarCliente" />
+  </message>
+  <message name="eEliminarClienteResponse">
+    <part name="parameters" element="tns:eEliminarClienteResponse" />
+  </message>
   <message name="buscarPorDni">
     <part name="parameters" element="tns:buscarPorDni" />
   </message>
   <message name="buscarPorDniResponse">
     <part name="parameters" element="tns:buscarPorDniResponse" />
+  </message>
+  <message name="insertarCliente">
+    <part name="parameters" element="tns:insertarCliente" />
+  </message>
+  <message name="insertarClienteResponse">
+    <part name="parameters" element="tns:insertarClienteResponse" />
+  </message>
+  <message name="obtenerCliente">
+    <part name="parameters" element="tns:obtenerCliente" />
+  </message>
+  <message name="obtenerClienteResponse">
+    <part name="parameters" element="tns:obtenerClienteResponse" />
   </message>
   <message name="actualizarCliente">
     <part name="parameters" element="tns:actualizarCliente" />
@@ -45,26 +45,26 @@
     <part name="parameters" element="tns:actualizarClienteResponse" />
   </message>
   <portType name="ClienteWS">
-    <operation name="obtenerCliente">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteRequest" message="tns:obtenerCliente" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteResponse" message="tns:obtenerClienteResponse" />
-    </operation>
-    <operation name="insertarCliente">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest" message="tns:insertarCliente" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse" message="tns:insertarClienteResponse" />
-    </operation>
-    <operation name="eEliminarCliente">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eEliminarClienteRequest" message="tns:eEliminarCliente" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eEliminarClienteResponse" message="tns:eEliminarClienteResponse" />
-    </operation>
     <operation name="listarCliente">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteRequest" message="tns:listarCliente" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteResponse" message="tns:listarClienteResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarCliente/Fault/Exception" name="Exception" message="tns:Exception" />
     </operation>
+    <operation name="eEliminarCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eEliminarClienteRequest" message="tns:eEliminarCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eEliminarClienteResponse" message="tns:eEliminarClienteResponse" />
+    </operation>
     <operation name="buscarPorDni">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/buscarPorDniRequest" message="tns:buscarPorDni" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/buscarPorDniResponse" message="tns:buscarPorDniResponse" />
+    </operation>
+    <operation name="insertarCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest" message="tns:insertarCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse" message="tns:insertarClienteResponse" />
+    </operation>
+    <operation name="obtenerCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteRequest" message="tns:obtenerCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteResponse" message="tns:obtenerClienteResponse" />
     </operation>
     <operation name="actualizarCliente">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarClienteRequest" message="tns:actualizarCliente" />
@@ -73,33 +73,6 @@
   </portType>
   <binding name="ClienteWSPortBinding" type="tns:ClienteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eEliminarCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarCliente">
       <soap:operation soapAction="" />
       <input>
@@ -112,7 +85,34 @@
         <soap:fault use="literal" name="Exception" namespace="" />
       </fault>
     </operation>
+    <operation name="eEliminarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="buscarPorDni">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

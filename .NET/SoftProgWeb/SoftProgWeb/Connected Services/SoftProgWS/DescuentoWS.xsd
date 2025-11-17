@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="actualizarDescuento" type="tns:actualizarDescuento" />
   <xs:element name="actualizarDescuentoResponse" type="tns:actualizarDescuentoResponse" />
+  <xs:element name="actualizarPrecioDescuentoProducto" type="tns:actualizarPrecioDescuentoProducto" />
+  <xs:element name="actualizarPrecioDescuentoProductoResponse" type="tns:actualizarPrecioDescuentoProductoResponse" />
   <xs:element name="eliminarDescuento" type="tns:eliminarDescuento" />
   <xs:element name="eliminarDescuentoResponse" type="tns:eliminarDescuentoResponse" />
   <xs:element name="insertarDescuento" type="tns:insertarDescuento" />
@@ -46,11 +48,10 @@
           <xs:element minOccurs="0" name="medidaAlMayorString" type="xs:string" />
           <xs:element minOccurs="0" name="nombre" type="xs:string" />
           <xs:element name="precioAlMayor" type="xs:double" />
-          <xs:element name="precioUnitario" type="xs:double" />
+          <xs:element name="precioRegular" type="xs:double" />
           <xs:element minOccurs="0" name="SKU" type="xs:string" />
           <xs:element name="stockDisponible" type="xs:int" />
           <xs:element name="stockMaximo" type="xs:int" />
-          <xs:element name="stockMinimo" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -59,20 +60,12 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:registro">
         <xs:sequence>
+          <xs:element minOccurs="0" name="categoriaPadre" type="tns:categoriaProducto" />
           <xs:element minOccurs="0" name="descripcion" type="xs:string" />
-          <xs:element name="idCategoriaPadre" type="xs:int" />
           <xs:element minOccurs="0" name="nombre" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="eliminarDescuento">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarDescuentoResponse">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="actualizarDescuento">
     <xs:sequence>
@@ -80,6 +73,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarDescuentoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarDescuento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarDescuentoResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerDescuento">
@@ -100,6 +101,15 @@
   <xs:complexType name="insertarDescuentoResponse">
     <xs:sequence />
   </xs:complexType>
+  <xs:complexType name="actualizarPrecioDescuentoProducto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element name="nuevo_precio" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarPrecioDescuentoProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:simpleType name="unidadMedida">
     <xs:restriction base="xs:string">
       <xs:enumeration value="KILOGRAMO" />
@@ -110,6 +120,7 @@
       <xs:enumeration value="PAQUETE" />
       <xs:enumeration value="SACO" />
       <xs:enumeration value="PACK" />
+      <xs:enumeration value="UNIDAD" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

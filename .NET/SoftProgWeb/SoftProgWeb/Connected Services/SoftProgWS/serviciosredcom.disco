@@ -4,13 +4,10 @@
   <contractRef ref="http://localhost:8080/SoftProgWS/CarritoComprasWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/CategoriaProductoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/ClienteWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SoftProgWS/ComprobantePagoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/CuentaUsuarioWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/DescuentoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/DetalleEnvioWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SoftProgWS/LineaCarritoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SoftProgWS/LineaComprobantePagoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <contractRef ref="http://localhost:8080/SoftProgWS/LineaOrdenCompraWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/OrdenCompraWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/ProductoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <contractRef ref="http://localhost:8080/SoftProgWS/EmpresaWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
 </discovery>

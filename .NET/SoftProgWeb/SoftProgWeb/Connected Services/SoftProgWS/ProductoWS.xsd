@@ -8,6 +8,8 @@
   <xs:element name="insertarProductoResponse" type="tns:insertarProductoResponse" />
   <xs:element name="listarProducto" type="tns:listarProducto" />
   <xs:element name="listarProductoResponse" type="tns:listarProductoResponse" />
+  <xs:element name="listarfiltrarProductoPorDescuento" type="tns:listarfiltrarProductoPorDescuento" />
+  <xs:element name="listarfiltrarProductoPorDescuentoResponse" type="tns:listarfiltrarProductoPorDescuentoResponse" />
   <xs:element name="listarfiltrarProductoPorMarca" type="tns:listarfiltrarProductoPorMarca" />
   <xs:element name="listarfiltrarProductoPorMarcaResponse" type="tns:listarfiltrarProductoPorMarcaResponse" />
   <xs:element name="listarfiltrarProductoPorPrecio" type="tns:listarfiltrarProductoPorPrecio" />
@@ -16,6 +18,21 @@
   <xs:element name="obtenerPorSkuResponse" type="tns:obtenerPorSkuResponse" />
   <xs:element name="obtenerProducto" type="tns:obtenerProducto" />
   <xs:element name="obtenerProductoResponse" type="tns:obtenerProductoResponse" />
+  <xs:element name="verificarStockSuficientePorID" type="tns:verificarStockSuficientePorID" />
+  <xs:element name="verificarStockSuficientePorIDResponse" type="tns:verificarStockSuficientePorIDResponse" />
+  <xs:element name="verificarStockSuficientePorSKU" type="tns:verificarStockSuficientePorSKU" />
+  <xs:element name="verificarStockSuficientePorSKUResponse" type="tns:verificarStockSuficientePorSKUResponse" />
+  <xs:complexType name="verificarStockSuficientePorSKU">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sku" type="xs:string" />
+      <xs:element minOccurs="0" name="cantidadSolicitada" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarStockSuficientePorSKUResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarProducto">
     <xs:sequence />
   </xs:complexType>
@@ -35,11 +52,10 @@
           <xs:element minOccurs="0" name="medidaAlMayorString" type="xs:string" />
           <xs:element minOccurs="0" name="nombre" type="xs:string" />
           <xs:element name="precioAlMayor" type="xs:double" />
-          <xs:element name="precioUnitario" type="xs:double" />
+          <xs:element name="precioRegular" type="xs:double" />
           <xs:element minOccurs="0" name="SKU" type="xs:string" />
           <xs:element name="stockDisponible" type="xs:int" />
           <xs:element name="stockMaximo" type="xs:int" />
-          <xs:element name="stockMinimo" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -53,12 +69,23 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:registro">
         <xs:sequence>
+          <xs:element minOccurs="0" name="categoriaPadre" type="tns:categoriaProducto" />
           <xs:element minOccurs="0" name="descripcion" type="xs:string" />
-          <xs:element name="idCategoriaPadre" type="xs:int" />
           <xs:element minOccurs="0" name="nombre" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="verificarStockSuficientePorID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidadSolicitada" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarStockSuficientePorIDResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerProducto">
     <xs:sequence>
@@ -73,7 +100,7 @@
   <xs:complexType name="listarfiltrarProductoPorMarca">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="RangoPrecio1" type="xs:string" />
+      <xs:element minOccurs="0" name="marca" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarfiltrarProductoPorMarcaResponse">
@@ -93,14 +120,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarProducto">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="producto" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarProductoResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="obtenerPorSku">
     <xs:sequence>
       <xs:element minOccurs="0" name="sku" type="xs:string" />
@@ -109,6 +128,25 @@
   <xs:complexType name="obtenerPorSkuResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorDescuento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorDescuentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarProducto">
@@ -137,6 +175,7 @@
       <xs:enumeration value="PAQUETE" />
       <xs:enumeration value="SACO" />
       <xs:enumeration value="PACK" />
+      <xs:enumeration value="UNIDAD" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

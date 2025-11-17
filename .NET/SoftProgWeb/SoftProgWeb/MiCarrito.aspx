@@ -68,7 +68,7 @@
                             </asp:TemplateField>
 
                             <%-- PRECIO --%>
-                            <asp:BoundField HeaderText="PRECIO" DataField="precioVolumen"
+                            <asp:BoundField HeaderText="PRECIO" DataField="producto.precioRegular"
                                             DataFormatString="S/ {0:F2}" ItemStyle-HorizontalAlign="Center" />
 
                             <%-- CANTIDAD CON BOTONES FUNCIONALES --%>

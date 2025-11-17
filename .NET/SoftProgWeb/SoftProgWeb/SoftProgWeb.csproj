@@ -336,11 +336,10 @@
     <None Include="Connected Services\SoftProgWS\ClienteWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SoftProgWS\ComprobantePagoWS.xsd">
+    <None Include="Connected Services\SoftProgWS\EmpresaWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\EmpresaWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SoftProgWS\LineaCarritoWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\LineaOrdenCompraWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\serviciosredcom.disco" />
     <None Include="Connected Services\SoftProgWS\configuration91.svcinfo" />
     <None Include="Connected Services\SoftProgWS\configuration.svcinfo" />
@@ -505,7 +504,6 @@
     <None Include="Connected Services\SoftProgWS\CategoriaProductoWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SoftProgWS\ComprobantePagoWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\CuentaUsuarioWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\CuentaUsuarioWS.xsd">
       <SubType>Designer</SubType>
@@ -516,16 +514,6 @@
     </None>
     <None Include="Connected Services\SoftProgWS\DetalleEnvioWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\DetalleEnvioWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SoftProgWS\LineaCarritoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SoftProgWS\LineaComprobantePagoWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\LineaComprobantePagoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SoftProgWS\LineaOrdenCompraWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SoftProgWS\OrdenCompraWS.wsdl" />
@@ -548,9 +536,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarCuentaUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -558,15 +543,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ActualizarLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarLineaComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarLineaOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse.datasource">
@@ -590,9 +566,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.comprobantePago.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.cuentaUsuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -614,9 +587,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarCategoriaProductoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -624,15 +594,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.EliminarLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarLineaComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarLineaOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse.datasource">
@@ -653,9 +614,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarCuentaUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -663,15 +621,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarDetalleEnvioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.InsertarLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarLineaComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarLineaOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse.datasource">
@@ -683,9 +632,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.lineaCarrito.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.lineaComprobantePago.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.lineaOrdenCompra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -693,9 +639,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarComprobantePagoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarCuentaUsuarioResponse.datasource">
@@ -711,15 +654,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarOrdenCompraResponse.datasource">
@@ -749,9 +683,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -759,15 +690,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ObtenerLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerLineaComprobantePagoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerLineaOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerOrdenCompraResponse.datasource">
@@ -783,6 +705,72 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.producto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarPrecioDescuentoProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.consultarPedidoPorFechasOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.empresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasNoActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClientesNoActivasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.validarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.verificarStockSuficientePorSKUResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />

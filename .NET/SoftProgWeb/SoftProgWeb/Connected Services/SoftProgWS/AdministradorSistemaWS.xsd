@@ -10,14 +10,12 @@
   <xs:element name="listarTodosAdminstradoresResponse" type="tns:listarTodosAdminstradoresResponse" />
   <xs:element name="obtenerAdministradorPorId" type="tns:obtenerAdministradorPorId" />
   <xs:element name="obtenerAdministradorPorIdResponse" type="tns:obtenerAdministradorPorIdResponse" />
-  <xs:complexType name="obtenerAdministradorPorId">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
+  <xs:complexType name="listarTodosAdminstradores">
+    <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="obtenerAdministradorPorIdResponse">
+  <xs:complexType name="listarTodosAdminstradoresResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:administradorSistema" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:administradorSistema" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="administradorSistema">
@@ -26,8 +24,9 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="cargo" type="tns:cargo" />
           <xs:element minOccurs="0" name="cargoString" type="xs:string" />
-          <xs:element minOccurs="0" name="rango" type="tns:jerarquia" />
-          <xs:element minOccurs="0" name="rangoString" type="xs:string" />
+          <xs:element minOccurs="0" name="cuenta" type="tns:cuentaUsuario" />
+          <xs:element minOccurs="0" name="jerarquia" type="tns:jerarquia" />
+          <xs:element minOccurs="0" name="jerarquiaString" type="xs:string" />
           <xs:element name="sueldo" type="xs:double" />
         </xs:sequence>
       </xs:extension>
@@ -40,7 +39,7 @@
           <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
           <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
           <xs:element minOccurs="0" name="dni" type="xs:string" />
-          <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaNacimiento" type="tns:localDate" />
           <xs:element minOccurs="0" name="genero" type="tns:genero" />
           <xs:element minOccurs="0" name="generoString" type="xs:string" />
           <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -52,6 +51,29 @@
   <xs:complexType name="registro">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cuentaUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="localDate" final="extension restriction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerAdministradorPorId">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerAdministradorPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:administradorSistema" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarAdministradorPorId">
@@ -69,14 +91,6 @@
   </xs:complexType>
   <xs:complexType name="insertarAdministradorResponse">
     <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarTodosAdminstradores">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarTodosAdminstradoresResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:administradorSistema" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarAdministradorPorId">
     <xs:sequence>
@@ -101,8 +115,8 @@
   </xs:simpleType>
   <xs:simpleType name="genero">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="HOMBRE" />
-      <xs:enumeration value="MUJER" />
+      <xs:enumeration value="MASCULINO" />
+      <xs:enumeration value="FEMENINO" />
       <xs:enumeration value="NO_ESPECIFICADO" />
     </xs:restriction>
   </xs:simpleType>
