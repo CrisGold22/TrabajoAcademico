@@ -219,6 +219,9 @@ CREATE PROCEDURE obtenerProductosPorCategoria(IN p_idCategoriaProducto INT)
 BEGIN 
 	SELECT p.*
     FROM Producto p
-    WHERE categoriaProducto_idCategoriaProducto = p_idCategoriaProducto;
+    INNER JOIN CategoriaProducto c ON c.idCategoriaProducto = p.categoriaProducto_idCategoriaProducto
+    WHERE categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
+    AND p.activo = 1 AND c.activo = 1
+    ORDER BY p.nombre;
 
 END//

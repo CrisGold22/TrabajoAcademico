@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import net.bytebuddy.matcher.FilterableList;
 import pe.edu.pucp.inf30.softprog.dao.pago.ComprobantePagoDAO;
 import pe.edu.pucp.inf30.softprog.dao.producto.ProductoDAO;
 import pe.edu.pucp.inf30.softprog.dao.venta.LineaOrdenCompraDAO;
@@ -80,7 +81,7 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        pruebaConexionConBaseDeDatos();
+//        pruebaConexionConBaseDeDatos();
 //        pruebasConDatos();
         
 //        pruebasConProductos();
@@ -90,6 +91,40 @@ public class SoftProgPruebas {
 //        pruebaDemasFunciones();
     
 //        pruebaFiltroPorPrecio();
+//        pruebaObtenerMarcasPorCategoria();
+        pruebaObtenerProductosPorCategoria();
+    }
+    
+    public static void pruebaObtenerProductosPorCategoria(){
+        // PRUEBAS PARA EL OBTENER  PRODUCTOS SEGUN EL IDCATEGORIA
+        // HECHO EL 17/11/2025
+        // SE MODIFICARON EL DAO,DAO IMPL,BO , BOIMPL           
+        List<Producto> listaProductos = new ArrayList<Producto>();
+        ProductoBO productoBO = new ProductoBOImpl();
+        
+        listaProductos = productoBO.obtenerProductosPorCategoria(1);
+        
+        for(var producto: listaProductos){
+            System.err.println("Producto con ID: "+producto.getId()+"   "+producto.getDescripcion());
+
+        }
+        
+    }
+    
+    public static void pruebaObtenerMarcasPorCategoria(){
+        // PRUEBAS PARA EL FILTRADO DE PRODUCTOS SEGUN EL IDCATEGORIA
+        // RETORNA TODAS LAS MARCAS ENCONTRADAS
+        // HECHO EL 17/11/2025
+        // SE MODIFICARON EL DAO,DAO IMPL,BO , BOIMPL       
+        List<String> listaMarcas = new ArrayList<String>();
+        CategoriaProductoBO categoriaBO = new CategoriaProductoBOImpl();
+        
+        listaMarcas = categoriaBO.obtenerMarcasPorCategoria(1);
+        
+        for(var aux:listaMarcas){
+            System.out.println(aux);
+        }
+        
     }
     
     public static void pruebaFiltroPorPrecio(){

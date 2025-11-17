@@ -20,6 +20,6 @@ public interface ProductoDAO extends Persistible<Producto, Integer> {
     boolean verificarStockSuficientePorID(Integer id, Integer cantidadSolicitada);
     boolean verificarStockSuficientePorSKU(String sku,Integer cantidadSolicitada);
     List<Producto> filtrarProductoPorPrecioAlMayor(Integer id,double RangoPrecio1,double RangoPrecio2);
-    
+    List<Producto> obtenerProductosPorCategoria(Integer idCategoria);
 }
 

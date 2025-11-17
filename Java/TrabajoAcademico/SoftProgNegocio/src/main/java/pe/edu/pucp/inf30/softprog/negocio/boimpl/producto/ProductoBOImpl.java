@@ -194,5 +194,20 @@ public class ProductoBOImpl implements ProductoBO{
         
         return this.productoDAO.filtrarProductoPorPrecioAlMayor(id,RangoPrecio1, RangoPrecio2);        
     }
+
+    @Override
+    public List<Producto> obtenerProductosPorCategoria(Integer idCategoria) {
+        if(idCategoria <= 0){
+            throw new IllegalArgumentException("Categoria Producto con ID invalido");
+        }
+        
+        CategoriaProducto categoria = this.categoriaDAO.leer(idCategoria);
+        
+        if(categoria == null){
+            throw new RuntimeException("No se encontro la Categoria Producto a buscar con ID : "+ idCategoria);
+        }        
+        
+        return this.productoDAO.obtenerProductosPorCategoria(idCategoria);
+    }
     
 }

@@ -343,5 +343,35 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         
         return cmd; 
     }      
+
+    
+    protected PreparedStatement comandoObtenerProductosPorCategoria(Connection conn,
+            Integer idCategoria) throws SQLException {
+         
+        String sql = "{CALL obtenerProductosPorCategoria(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+
+        cmd.setInt("p_idCategoriaProducto", idCategoria);
+
+        return cmd; 
+    }         
+    
+    
+    @Override
+    public List<Producto> obtenerProductosPorCategoria(Integer idCategoria) {
+        return ejecutarComando(conn -> {
+            try (PreparedStatement cmd = this.comandoObtenerProductosPorCategoria(conn,idCategoria)) {
+                ResultSet rs = cmd.executeQuery();
+
+                List<Producto> modelos = new ArrayList<>();
+                while (rs.next()) {
+                    modelos.add(this.mapearModelo(rs));
+                }
+
+                return modelos;
+            }
+        });           
+    }
 }
 

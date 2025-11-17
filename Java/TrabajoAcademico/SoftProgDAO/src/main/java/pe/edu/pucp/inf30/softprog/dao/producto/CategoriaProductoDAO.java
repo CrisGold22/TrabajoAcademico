@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.dao.producto;
 
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
 import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
 
@@ -12,5 +13,5 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
  * @author Cristhian Horacio
  */
 public interface CategoriaProductoDAO extends Persistible<CategoriaProducto, Integer> {
-    
+    List<String>obtenerMarcasPorCategoria(Integer idCategoria);
 }

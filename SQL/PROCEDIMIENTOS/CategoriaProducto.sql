@@ -68,7 +68,8 @@ CREATE PROCEDURE obtenerMarcasPorCategoria(
 BEGIN
     SELECT DISTINCT p.marca
     FROM Producto p
+    INNER JOIN CategoriaProducto c ON c.idCategoriaProducto = p.categoriaProducto_idCategoriaProducto
     WHERE p.categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
-    AND p.activo = 1
+    AND p.activo = 1 AND c.activo = 1
     ORDER BY p.marca;
 END //
