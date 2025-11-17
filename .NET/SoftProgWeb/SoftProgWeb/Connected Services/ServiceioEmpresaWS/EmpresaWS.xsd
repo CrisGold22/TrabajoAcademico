@@ -40,8 +40,7 @@
           <xs:element minOccurs="0" name="codigoPostal" type="xs:string" />
           <xs:element minOccurs="0" name="departamento" type="xs:string" />
           <xs:element minOccurs="0" name="direccionFiscal" type="xs:string" />
-          <xs:element minOccurs="0" name="distrito" type="tns:distrito" />
-          <xs:element minOccurs="0" name="distritoString" type="xs:string" />
+          <xs:element minOccurs="0" name="distrito" type="xs:string" />
           <xs:element minOccurs="0" name="email" type="xs:string" />
           <xs:element minOccurs="0" name="provincia" type="xs:string" />
           <xs:element minOccurs="0" name="RUC" type="xs:string" />
@@ -62,6 +61,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="categoria" type="tns:categoriaCliente" />
           <xs:element minOccurs="0" name="categoriaCliente" type="xs:string" />
+          <xs:element minOccurs="0" name="cuenta" type="tns:cuentaUsuario" />
           <xs:element name="lineaCredito" type="xs:double" />
           <xs:element name="numeroPedidosHistorico" type="xs:int" />
           <xs:element name="numeroPedidosMensualPro" type="xs:int" />
@@ -76,7 +76,7 @@
           <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
           <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
           <xs:element minOccurs="0" name="dni" type="xs:string" />
-          <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaNacimiento" type="tns:localDate" />
           <xs:element minOccurs="0" name="genero" type="tns:genero" />
           <xs:element minOccurs="0" name="generoString" type="xs:string" />
           <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -84,6 +84,19 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="cuentaUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="localDate" final="extension restriction">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="eliminarEmpresa">
     <xs:sequence>
@@ -109,16 +122,6 @@
   <xs:complexType name="validarEmpresaResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="obtenerEmpresa">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerEmpresaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:empresa" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarEmpresa">
     <xs:sequence>
       <xs:element minOccurs="0" name="empresa" type="tns:empresa" />
@@ -135,20 +138,20 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpresa">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarEmpresaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasPorCliente">
+  <xs:complexType name="obtenerEmpresa">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpresasPorClienteResponse">
+  <xs:complexType name="obtenerEmpresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:empresa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresa">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEmpresaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
@@ -160,6 +163,16 @@
   </xs:complexType>
   <xs:complexType name="insertarEmpresaResponse">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasPorCliente">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasPorClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarEmpresasPorClienteActivas">
     <xs:sequence>
@@ -183,20 +196,9 @@
   </xs:simpleType>
   <xs:simpleType name="genero">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="HOMBRE" />
-      <xs:enumeration value="MUJER" />
+      <xs:enumeration value="MASCULINO" />
+      <xs:enumeration value="FEMENINO" />
       <xs:enumeration value="NO_ESPECIFICADO" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="distrito">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="PUEBLO_LIBRE" />
-      <xs:enumeration value="SAN_MIGUEL" />
-      <xs:enumeration value="SAN_BORJA" />
-      <xs:enumeration value="SAN_LUIS" />
-      <xs:enumeration value="LINCE" />
-      <xs:enumeration value="CALLAO" />
-      <xs:enumeration value="LA_VICTORIA" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

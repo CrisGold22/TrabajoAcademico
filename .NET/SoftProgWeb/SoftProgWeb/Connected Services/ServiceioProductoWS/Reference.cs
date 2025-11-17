@@ -16,24 +16,46 @@ namespace SoftProgWeb.ServiceioProductoWS {
     public interface ProductoWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Response")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse obtenerPorSku(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request);
+        SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse listarfiltrarProductoPorDescuento(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse> obtenerPorSkuAsync(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Response")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse> listarfiltrarProductoPorDescuentoAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResp" +
+            "onse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.ServiceioProductoWS.listarProductoResponse listarProducto(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request);
+        SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse verificarStockSuficientePorID(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarProductoResponse> listarProductoAsync(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResp" +
+            "onse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse> verificarStockSuficientePorIDAsync(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResp" +
+            "onse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse listarfiltrarProductoPorMarca(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResp" +
+            "onse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse> listarfiltrarProductoPorMarcaAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioReq" +
@@ -50,18 +72,18 @@ namespace SoftProgWeb.ServiceioProductoWS {
         System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorPrecioResponse> listarfiltrarProductoPorPrecioAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorPrecioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResp" +
-            "onse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKUReq" +
+            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKURes" +
+            "ponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse listarfiltrarProductoPorMarca(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request);
+        SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse verificarStockSuficientePorSKU(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResp" +
-            "onse")]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse> listarfiltrarProductoPorMarcaAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKUReq" +
+            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKURes" +
+            "ponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse> verificarStockSuficientePorSKUAsync(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest request);
         
         // CODEGEN: Parameter 'producto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/insertarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/insertarProductoResponse")]
@@ -82,6 +104,15 @@ namespace SoftProgWeb.ServiceioProductoWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerProductoResponse> obtenerProductoAsync(SoftProgWeb.ServiceioProductoWS.obtenerProductoRequest request);
         
+        // CODEGEN: Parameter 'id' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse eliminarProducto(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse> eliminarProductoAsync(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request);
+        
         // CODEGEN: Parameter 'producto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -91,14 +122,25 @@ namespace SoftProgWeb.ServiceioProductoWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.actualizarProductoResponse> actualizarProductoAsync(SoftProgWeb.ServiceioProductoWS.actualizarProductoRequest request);
         
-        // CODEGEN: Parameter 'id' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse eliminarProducto(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request);
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.ServiceioProductoWS.listarProductoResponse listarProducto(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse> eliminarProductoAsync(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarProductoResponse> listarProductoAsync(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse obtenerPorSku(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse> obtenerPorSkuAsync(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request);
     }
     
     /// <remarks/>
@@ -125,15 +167,13 @@ namespace SoftProgWeb.ServiceioProductoWS {
         
         private double precioAlMayorField;
         
-        private double precioUnitarioField;
+        private double precioRegularField;
         
         private string sKUField;
         
         private int stockDisponibleField;
         
         private int stockMaximoField;
-        
-        private int stockMinimoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -233,13 +273,13 @@ namespace SoftProgWeb.ServiceioProductoWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public double precioUnitario {
+        public double precioRegular {
             get {
-                return this.precioUnitarioField;
+                return this.precioRegularField;
             }
             set {
-                this.precioUnitarioField = value;
-                this.RaisePropertyChanged("precioUnitario");
+                this.precioRegularField = value;
+                this.RaisePropertyChanged("precioRegular");
             }
         }
         
@@ -276,18 +316,6 @@ namespace SoftProgWeb.ServiceioProductoWS {
             set {
                 this.stockMaximoField = value;
                 this.RaisePropertyChanged("stockMaximo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-        public int stockMinimo {
-            get {
-                return this.stockMinimoField;
-            }
-            set {
-                this.stockMinimoField = value;
-                this.RaisePropertyChanged("stockMinimo");
             }
         }
     }
@@ -406,40 +434,48 @@ namespace SoftProgWeb.ServiceioProductoWS {
         
         /// <remarks/>
         PACK,
+        
+        /// <remarks/>
+        UNIDAD,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorSku", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerPorSkuRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorDescuentoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string sku;
+        public int id;
         
-        public obtenerPorSkuRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        public listarfiltrarProductoPorDescuentoRequest() {
         }
         
-        public obtenerPorSkuRequest(string sku) {
-            this.sku = sku;
+        public listarfiltrarProductoPorDescuentoRequest(int id, string nombre) {
+            this.id = id;
+            this.nombre = nombre;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorSkuResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerPorSkuResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorDescuentoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.ServiceioProductoWS.producto @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServiceioProductoWS.producto[] @return;
         
-        public obtenerPorSkuResponse() {
+        public listarfiltrarProductoPorDescuentoResponse() {
         }
         
-        public obtenerPorSkuResponse(SoftProgWeb.ServiceioProductoWS.producto @return) {
+        public listarfiltrarProductoPorDescuentoResponse(SoftProgWeb.ServiceioProductoWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -447,27 +483,81 @@ namespace SoftProgWeb.ServiceioProductoWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorID", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficientePorIDRequest {
         
-        public listarProductoRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int cantidadSolicitada;
+        
+        public verificarStockSuficientePorIDRequest() {
+        }
+        
+        public verificarStockSuficientePorIDRequest(int id, int cantidadSolicitada) {
+            this.id = id;
+            this.cantidadSolicitada = cantidadSolicitada;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorIDResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficientePorIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public verificarStockSuficientePorIDResponse() {
+        }
+        
+        public verificarStockSuficientePorIDResponse(bool @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorMarca", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorMarcaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string marca;
+        
+        public listarfiltrarProductoPorMarcaRequest() {
+        }
+        
+        public listarfiltrarProductoPorMarcaRequest(int id, string marca) {
+            this.id = id;
+            this.marca = marca;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorMarcaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorMarcaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.ServiceioProductoWS.producto[] @return;
         
-        public listarProductoResponse() {
+        public listarfiltrarProductoPorMarcaResponse() {
         }
         
-        public listarProductoResponse(SoftProgWeb.ServiceioProductoWS.producto[] @return) {
+        public listarfiltrarProductoPorMarcaResponse(SoftProgWeb.ServiceioProductoWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -521,40 +611,40 @@ namespace SoftProgWeb.ServiceioProductoWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorMarca", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarfiltrarProductoPorMarcaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorSKU", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficientePorSKURequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
+        public string sku;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string RangoPrecio1;
+        public int cantidadSolicitada;
         
-        public listarfiltrarProductoPorMarcaRequest() {
+        public verificarStockSuficientePorSKURequest() {
         }
         
-        public listarfiltrarProductoPorMarcaRequest(int id, string RangoPrecio1) {
-            this.id = id;
-            this.RangoPrecio1 = RangoPrecio1;
+        public verificarStockSuficientePorSKURequest(string sku, int cantidadSolicitada) {
+            this.sku = sku;
+            this.cantidadSolicitada = cantidadSolicitada;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorMarcaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarfiltrarProductoPorMarcaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorSKUResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficientePorSKUResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.ServiceioProductoWS.producto[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
         
-        public listarfiltrarProductoPorMarcaResponse() {
+        public verificarStockSuficientePorSKUResponse() {
         }
         
-        public listarfiltrarProductoPorMarcaResponse(SoftProgWeb.ServiceioProductoWS.producto[] @return) {
+        public verificarStockSuficientePorSKUResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -626,6 +716,34 @@ namespace SoftProgWeb.ServiceioProductoWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public eliminarProductoRequest() {
+        }
+        
+        public eliminarProductoRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarProductoResponse {
+        
+        public eliminarProductoResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class actualizarProductoRequest {
         
@@ -654,28 +772,64 @@ namespace SoftProgWeb.ServiceioProductoWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarProductoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductoRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public eliminarProductoRequest() {
-        }
-        
-        public eliminarProductoRequest(int id) {
-            this.id = id;
+        public listarProductoRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarProductoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductoResponse {
         
-        public eliminarProductoResponse() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServiceioProductoWS.producto[] @return;
+        
+        public listarProductoResponse() {
+        }
+        
+        public listarProductoResponse(SoftProgWeb.ServiceioProductoWS.producto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorSku", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerPorSkuRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string sku;
+        
+        public obtenerPorSkuRequest() {
+        }
+        
+        public obtenerPorSkuRequest(string sku) {
+            this.sku = sku;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorSkuResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerPorSkuResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServiceioProductoWS.producto @return;
+        
+        public obtenerPorSkuResponse() {
+        }
+        
+        public obtenerPorSkuResponse(SoftProgWeb.ServiceioProductoWS.producto @return) {
+            this.@return = @return;
         }
     }
     
@@ -707,47 +861,78 @@ namespace SoftProgWeb.ServiceioProductoWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.obtenerPorSku(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request) {
-            return base.Channel.obtenerPorSku(request);
+        SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.listarfiltrarProductoPorDescuento(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest request) {
+            return base.Channel.listarfiltrarProductoPorDescuento(request);
         }
         
-        public SoftProgWeb.ServiceioProductoWS.producto obtenerPorSku(string sku) {
-            SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest inValue = new SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest();
-            inValue.sku = sku;
-            SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).obtenerPorSku(inValue);
+        public SoftProgWeb.ServiceioProductoWS.producto[] listarfiltrarProductoPorDescuento(int id, string nombre) {
+            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest();
+            inValue.id = id;
+            inValue.nombre = nombre;
+            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarfiltrarProductoPorDescuento(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.obtenerPorSkuAsync(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request) {
-            return base.Channel.obtenerPorSkuAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.listarfiltrarProductoPorDescuentoAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest request) {
+            return base.Channel.listarfiltrarProductoPorDescuentoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse> obtenerPorSkuAsync(string sku) {
-            SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest inValue = new SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest();
-            inValue.sku = sku;
-            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).obtenerPorSkuAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse> listarfiltrarProductoPorDescuentoAsync(int id, string nombre) {
+            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoRequest();
+            inValue.id = id;
+            inValue.nombre = nombre;
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarfiltrarProductoPorDescuentoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.ServiceioProductoWS.listarProductoResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.listarProducto(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request) {
-            return base.Channel.listarProducto(request);
+        SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.verificarStockSuficientePorID(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest request) {
+            return base.Channel.verificarStockSuficientePorID(request);
         }
         
-        public SoftProgWeb.ServiceioProductoWS.producto[] listarProducto() {
-            SoftProgWeb.ServiceioProductoWS.listarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarProductoRequest();
-            SoftProgWeb.ServiceioProductoWS.listarProductoResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarProducto(inValue);
+        public bool verificarStockSuficientePorID(int id, int cantidadSolicitada) {
+            SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest inValue = new SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest();
+            inValue.id = id;
+            inValue.cantidadSolicitada = cantidadSolicitada;
+            SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).verificarStockSuficientePorID(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarProductoResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.listarProductoAsync(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request) {
-            return base.Channel.listarProductoAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.verificarStockSuficientePorIDAsync(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest request) {
+            return base.Channel.verificarStockSuficientePorIDAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarProductoResponse> listarProductoAsync() {
-            SoftProgWeb.ServiceioProductoWS.listarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarProductoRequest();
-            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarProductoAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse> verificarStockSuficientePorIDAsync(int id, int cantidadSolicitada) {
+            SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest inValue = new SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDRequest();
+            inValue.id = id;
+            inValue.cantidadSolicitada = cantidadSolicitada;
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).verificarStockSuficientePorIDAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.listarfiltrarProductoPorMarca(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request) {
+            return base.Channel.listarfiltrarProductoPorMarca(request);
+        }
+        
+        public SoftProgWeb.ServiceioProductoWS.producto[] listarfiltrarProductoPorMarca(int id, string marca) {
+            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest();
+            inValue.id = id;
+            inValue.marca = marca;
+            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarfiltrarProductoPorMarca(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.listarfiltrarProductoPorMarcaAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request) {
+            return base.Channel.listarfiltrarProductoPorMarcaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse> listarfiltrarProductoPorMarcaAsync(int id, string marca) {
+            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest();
+            inValue.id = id;
+            inValue.marca = marca;
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarfiltrarProductoPorMarcaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -778,28 +963,28 @@ namespace SoftProgWeb.ServiceioProductoWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.listarfiltrarProductoPorMarca(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request) {
-            return base.Channel.listarfiltrarProductoPorMarca(request);
+        SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.verificarStockSuficientePorSKU(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest request) {
+            return base.Channel.verificarStockSuficientePorSKU(request);
         }
         
-        public SoftProgWeb.ServiceioProductoWS.producto[] listarfiltrarProductoPorMarca(int id, string RangoPrecio1) {
-            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest();
-            inValue.id = id;
-            inValue.RangoPrecio1 = RangoPrecio1;
-            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarfiltrarProductoPorMarca(inValue);
+        public bool verificarStockSuficientePorSKU(string sku, int cantidadSolicitada) {
+            SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest inValue = new SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest();
+            inValue.sku = sku;
+            inValue.cantidadSolicitada = cantidadSolicitada;
+            SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).verificarStockSuficientePorSKU(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.listarfiltrarProductoPorMarcaAsync(SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest request) {
-            return base.Channel.listarfiltrarProductoPorMarcaAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.verificarStockSuficientePorSKUAsync(SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest request) {
+            return base.Channel.verificarStockSuficientePorSKUAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse> listarfiltrarProductoPorMarcaAsync(int id, string RangoPrecio1) {
-            SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaRequest();
-            inValue.id = id;
-            inValue.RangoPrecio1 = RangoPrecio1;
-            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarfiltrarProductoPorMarcaAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse> verificarStockSuficientePorSKUAsync(string sku, int cantidadSolicitada) {
+            SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest inValue = new SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKURequest();
+            inValue.sku = sku;
+            inValue.cantidadSolicitada = cantidadSolicitada;
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).verificarStockSuficientePorSKUAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -848,6 +1033,28 @@ namespace SoftProgWeb.ServiceioProductoWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.eliminarProducto(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request) {
+            return base.Channel.eliminarProducto(request);
+        }
+        
+        public void eliminarProducto(int id) {
+            SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest();
+            inValue.id = id;
+            SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).eliminarProducto(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.eliminarProductoAsync(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request) {
+            return base.Channel.eliminarProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse> eliminarProductoAsync(int id) {
+            SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).eliminarProductoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.ServiceioProductoWS.actualizarProductoResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.actualizarProducto(SoftProgWeb.ServiceioProductoWS.actualizarProductoRequest request) {
             return base.Channel.actualizarProducto(request);
         }
@@ -870,25 +1077,47 @@ namespace SoftProgWeb.ServiceioProductoWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.eliminarProducto(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request) {
-            return base.Channel.eliminarProducto(request);
+        SoftProgWeb.ServiceioProductoWS.listarProductoResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.listarProducto(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request) {
+            return base.Channel.listarProducto(request);
         }
         
-        public void eliminarProducto(int id) {
-            SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest();
-            inValue.id = id;
-            SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).eliminarProducto(inValue);
+        public SoftProgWeb.ServiceioProductoWS.producto[] listarProducto() {
+            SoftProgWeb.ServiceioProductoWS.listarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarProductoRequest();
+            SoftProgWeb.ServiceioProductoWS.listarProductoResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarProducto(inValue);
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.eliminarProductoAsync(SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest request) {
-            return base.Channel.eliminarProductoAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarProductoResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.listarProductoAsync(SoftProgWeb.ServiceioProductoWS.listarProductoRequest request) {
+            return base.Channel.listarProductoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse> eliminarProductoAsync(int id) {
-            SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.eliminarProductoRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).eliminarProductoAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.listarProductoResponse> listarProductoAsync() {
+            SoftProgWeb.ServiceioProductoWS.listarProductoRequest inValue = new SoftProgWeb.ServiceioProductoWS.listarProductoRequest();
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).listarProductoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse SoftProgWeb.ServiceioProductoWS.ProductoWS.obtenerPorSku(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request) {
+            return base.Channel.obtenerPorSku(request);
+        }
+        
+        public SoftProgWeb.ServiceioProductoWS.producto obtenerPorSku(string sku) {
+            SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest inValue = new SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest();
+            inValue.sku = sku;
+            SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse retVal = ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).obtenerPorSku(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse> SoftProgWeb.ServiceioProductoWS.ProductoWS.obtenerPorSkuAsync(SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest request) {
+            return base.Channel.obtenerPorSkuAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse> obtenerPorSkuAsync(string sku) {
+            SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest inValue = new SoftProgWeb.ServiceioProductoWS.obtenerPorSkuRequest();
+            inValue.sku = sku;
+            return ((SoftProgWeb.ServiceioProductoWS.ProductoWS)(this)).obtenerPorSkuAsync(inValue);
         }
     }
 }

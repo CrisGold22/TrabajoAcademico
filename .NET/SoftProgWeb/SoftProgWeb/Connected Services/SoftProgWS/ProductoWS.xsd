@@ -120,6 +120,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="obtenerPorSku">
     <xs:sequence>
       <xs:element minOccurs="0" name="sku" type="xs:string" />
@@ -129,14 +137,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:producto" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarProducto">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="producto" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarProductoResponse">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarfiltrarProductoPorDescuento">
     <xs:sequence>

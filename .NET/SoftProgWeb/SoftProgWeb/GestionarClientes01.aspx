@@ -1,74 +1,93 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteModulo01.Master" AutoEventWireup="true" CodeBehind="GestionarClientes01.aspx.cs" Inherits="SoftProgWeb.GestionarClientes01" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="row mb-3 align-items-center">
-        <div class="col-md-5">
-            <div class="input-group">
-                <asp:TextBox ID="txtBuscarCliente" runat="server" CssClass="form-control" placeholder="Buscar por RUC o Razón Social..."></asp:TextBox>
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
+    
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h2><i class="fas fa-users"></i> Gestión de Clientes</h2>
+                     <div class="col-md-4">
+                        <asp:Button ID="btnAtenderSolicitudes" runat="server" 
+                            Text="Atender Solicitudes Pendientes" 
+                            CssClass="btn btn-warning" 
+                            OnClick="btnAtenderSolicitudes_Click" 
+                            CausesValidation="false" />
+                    </div>
+                
+                <hr />
             </div>
         </div>
 
-    <div class="col-md-auto ms-auto">
-        <asp:Button ID="btnImprimirClientes" runat="server" Text="Generar Reporte" CssClass="btn btn-success fw-bold"/>
-            <asp:Button ID="btnVerPendientes" runat="server" Text="Bandeja de Pendientes" 
-                CssClass="btn btn-warning" OnClick="btnVerPendientes_Click" />
-    </div>
-
-</div>
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <asp:GridView ID="gvEmpresas" runat="server"
-                CssClass="table table-hover table-striped"
-                AutoGenerateColumns="False"
-                DataKeyNames="id" 
-                AllowPaging="True"
-                PageSize="15"
-                OnPageIndexChanging="gvEmpresas_PageIndexChanging">
-                <Columns>
-                    <asp:BoundField DataField="razonSocial" HeaderText="Razón Social" />
-                    <asp:BoundField DataField="RUC" HeaderText="RUC" />
-                    <asp:BoundField DataField="direccionFiscal" HeaderText="Dirección" />
-                    <asp:BoundField DataField="email" HeaderText="Email" />
-                    <asp:BoundField DataField="telefono" HeaderText="Teléfono" />
-      
-        
-                </Columns>
-                <EmptyDataTemplate>
-                    <div class="alert alert-info">
-                        No se encontraron empresas registradas.
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-3">
+                        <label>Buscar por ID:</label>
                     </div>
-                </EmptyDataTemplate>
-            </asp:GridView>
-        </div>
-<div class="card-footer d-flex justify-content-center">
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link" href="#">&laquo;</a>
-            </li>
-            <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">5</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">&raquo;</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+                    <div class="col-md-5">
+                        <asp:TextBox ID="txtId" runat="server" CssClass="form-control" placeholder="Ingrese ID..."></asp:TextBox>
+                    </div>
+                    <div class="col-md-4">
+                        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" 
+                            CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+                        <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" 
+                            CssClass="btn btn-secondary" OnClick="btnLimpiar_Click" CausesValidation="false" />
+                    </div>
 
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <asp:Panel ID="pnlMensaje" runat="server" Visible="false" CssClass="alert alert-danger" role="alert">
+            <asp:Literal ID="litMensajeError" runat="server"></asp:Literal>
+        </asp:Panel>
+
+        <div class="row">
+            <div class="col-md-12">
+                <asp:GridView ID="gvClientes" runat="server"
+                    CssClass="table table-hover table-striped"
+                    AutoGenerateColumns="False"
+                    DataKeyNames="id" 
+                    AllowPaging="True"
+                    PageSize="15"
+                    OnPageIndexChanging="gvClientes_PageIndexChanging"
+                    OnRowCommand="gvClientes_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="id" HeaderText="ID" ItemStyle-CssClass="fw-bold" />
+                        <asp:TemplateField HeaderText="Nombre Completo">
+                            <ItemTemplate>
+                                <%# Eval("nombre") + " " + Eval("apellidoPaterno") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="dni" HeaderText="DNI" />
+                        <asp:BoundField DataField="categoriaCliente" HeaderText="Categoria" />
+                        <asp:BoundField DataField="telefono" HeaderText="Teléfono" />
+                        
+                        <asp:TemplateField HeaderText="Acciones">
+                            <ItemTemplate>
+                                <asp:Button ID="btnVerEmpresas" runat="server" 
+                                    Text="Ver Empresas" 
+                                    CssClass="btn btn-info btn-sm"
+                                    CommandName="VerEmpresas"
+                                    CommandArgument='<%# Eval("id") %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EmptyDataTemplate>
+                        <div class="alert alert-info">
+                            No se encontraron clientes.
+                        </div>
+                    </EmptyDataTemplate>
+                    <PagerSettings Mode="NumericFirstLast" Position="Bottom" PageButtonCount="5"
+                        FirstPageText="&laquo; Primero" LastPageText="Último &raquo;"
+                        NextPageText="Siguiente &rsaquo;" PreviousPageText="&lsaquo; Anterior" />
+                    <PagerStyle CssClass="pagination-container" HorizontalAlign="Center" />
+                </asp:GridView>
+            </div>
+        </div>
     </div>
+
 </asp:Content>
