@@ -83,12 +83,43 @@ public class SoftProgPruebas {
         pruebaConexionConBaseDeDatos();
 //        pruebasConDatos();
         
-        pruebasConProductos();
+//        pruebasConProductos();
 //          pruebaDesactivarOrdenCompra();
 //        pruebaConEmpresa();
 //        pruebaListar();
 //        pruebaDemasFunciones();
     
+//        pruebaFiltroPorPrecio();
+    }
+    
+    public static void pruebaFiltroPorPrecio(){
+        // PRUEBAS PARA EL FILTRADO DE PRODUCTOS SEGUN PRECIO
+        // HECHO EL 17/11/2025
+        // SE MODIFICARON EL DAO,DAO IMPL,BO , BOIMPL Y EL WS
+        
+        List<Producto> prueba1 = new ArrayList<>();
+        ProductoBO productoBO = new ProductoBOImpl();
+        
+        System.out.println("Empieza la prueba de filtrar productos por precio Regular");
+        
+        prueba1 = productoBO.filtrarProductoPorPrecioRegular(1,18,30);
+        
+        for(var aux:prueba1){
+            System.out.println("Producto: "+aux.getId()+"  "+aux.getDescripcion());
+            System.out.println(""+aux.getPrecioRegular());
+            System.out.println("-----------------------------------");
+        }
+        
+       System.out.println("Prueba exitosa");
+       System.out.println("Empieza la prueba de filtrar productos por precio Al Mayor");
+       
+       prueba1 = productoBO.filtrarProductoPorPrecioAlMayor(1, 18, 24);
+       
+        for(var aux:prueba1){
+            System.out.println("Producto: "+aux.getId()+"  "+aux.getDescripcion());
+            System.out.println(""+aux.getPrecioRegular());
+            System.out.println("-----------------------------------");
+        }       
     }
 
     public static void pruebaDemasFunciones(){

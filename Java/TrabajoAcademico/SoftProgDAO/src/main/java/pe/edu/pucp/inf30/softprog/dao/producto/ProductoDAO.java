@@ -14,9 +14,12 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
  */
 public interface ProductoDAO extends Persistible<Producto, Integer> {
     Producto obtenerPorSku(String sku);
-    List<Producto> filtrarProductoPorPrecio(Integer id,double RangoPrecio1,double RangoPrecio2);
+    List<Producto> filtrarProductoPorPrecioRegular(Integer id,double RangoPrecio1,double RangoPrecio2);
     List<Producto> filtrarProductoPorMarca(Integer id,String marca);
     List<Producto> filtrarProductoPorDescuento(Integer id,String nombre);
     boolean verificarStockSuficientePorID(Integer id, Integer cantidadSolicitada);
     boolean verificarStockSuficientePorSKU(String sku,Integer cantidadSolicitada);
+    List<Producto> filtrarProductoPorPrecioAlMayor(Integer id,double RangoPrecio1,double RangoPrecio2);
+    
 }
+

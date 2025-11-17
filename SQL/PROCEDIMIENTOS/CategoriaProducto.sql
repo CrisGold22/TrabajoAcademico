@@ -10,6 +10,7 @@ DROP PROCEDURE IF EXISTS eliminarCategoriaProducto;
 DROP PROCEDURE IF EXISTS modificarCategoriaProducto;
 DROP PROCEDURE IF EXISTS listarCategoriaProductos;
 DROP PROCEDURE IF EXISTS buscarCategoriaProductoPorId;
+DROP PROCEDURE IF EXISTS obtenerMarcasPorCategoria;
 
 DELIMITER //
 
@@ -59,4 +60,15 @@ END //
 CREATE PROCEDURE listarCategoriaProductos ()
 BEGIN
     SELECT * FROM CategoriaProducto;
+END //
+
+CREATE PROCEDURE obtenerMarcasPorCategoria(
+    IN p_idCategoriaProducto INT
+)
+BEGIN
+    SELECT DISTINCT p.marca
+    FROM Producto p
+    WHERE p.categoriaProducto_idCategoriaProducto = p_idCategoriaProducto
+    AND p.activo = 1
+    ORDER BY p.marca;
 END //

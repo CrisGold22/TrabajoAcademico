@@ -12,10 +12,11 @@ DROP PROCEDURE IF EXISTS buscarProductoPorSKU;
 DROP PROCEDURE IF EXISTS listarProductos;
 DROP PROCEDURE IF EXISTS filtrarProductoPorDescuento;
 DROP PROCEDURE IF EXISTS filtrarProductoPorMarca;
-DROP PROCEDURE IF EXISTS filtrarProductoPorPrecio;
+DROP PROCEDURE IF EXISTS filtrarProductoPorPrecioAlMayor;
+DROP PROCEDURE IF EXISTS filtrarProductoPorPrecioRegular;
 DROP PROCEDURE IF EXISTS verificarStockSuficientePorID;
 DROP PROCEDURE IF EXISTS verificarStockSuficientePorSKU;
-
+DROP PROCEDURE IF EXISTS obtenerProductosPorCategoria;
 
 DELIMITER //
 
@@ -213,3 +214,11 @@ BEGIN
         )
     ORDER BY p.precioRegular;
 END// 
+
+CREATE PROCEDURE obtenerProductosPorCategoria(IN p_idCategoriaProducto INT)
+BEGIN 
+	SELECT p.*
+    FROM Producto p
+    WHERE categoriaProducto_idCategoriaProducto = p_idCategoriaProducto;
+
+END//
