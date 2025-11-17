@@ -11,17 +11,11 @@
   <message name="listarLineaCarritoPorIdCarritoResponse">
     <part name="parameters" element="tns:listarLineaCarritoPorIdCarritoResponse" />
   </message>
-  <message name="listarTodosCarritoCompras">
-    <part name="parameters" element="tns:listarTodosCarritoCompras" />
+  <message name="obtenerCarritoCompras">
+    <part name="parameters" element="tns:obtenerCarritoCompras" />
   </message>
-  <message name="listarTodosCarritoComprasResponse">
-    <part name="parameters" element="tns:listarTodosCarritoComprasResponse" />
-  </message>
-  <message name="insertarCarritoCompras">
-    <part name="parameters" element="tns:insertarCarritoCompras" />
-  </message>
-  <message name="insertarCarritoComprasResponse">
-    <part name="parameters" element="tns:insertarCarritoComprasResponse" />
+  <message name="obtenerCarritoComprasResponse">
+    <part name="parameters" element="tns:obtenerCarritoComprasResponse" />
   </message>
   <message name="actualizarCarritoCompras">
     <part name="parameters" element="tns:actualizarCarritoCompras" />
@@ -29,17 +23,17 @@
   <message name="actualizarCarritoComprasResponse">
     <part name="parameters" element="tns:actualizarCarritoComprasResponse" />
   </message>
+  <message name="insertarCarritoCompras">
+    <part name="parameters" element="tns:insertarCarritoCompras" />
+  </message>
+  <message name="insertarCarritoComprasResponse">
+    <part name="parameters" element="tns:insertarCarritoComprasResponse" />
+  </message>
   <message name="eliminarCarritoCompras">
     <part name="parameters" element="tns:eliminarCarritoCompras" />
   </message>
   <message name="eliminarCarritoComprasResponse">
     <part name="parameters" element="tns:eliminarCarritoComprasResponse" />
-  </message>
-  <message name="obtenerCarritoCompras">
-    <part name="parameters" element="tns:obtenerCarritoCompras" />
-  </message>
-  <message name="obtenerCarritoComprasResponse">
-    <part name="parameters" element="tns:obtenerCarritoComprasResponse" />
   </message>
   <message name="obtenerCarritoDeCliente">
     <part name="parameters" element="tns:obtenerCarritoDeCliente" />
@@ -47,34 +41,40 @@
   <message name="obtenerCarritoDeClienteResponse">
     <part name="parameters" element="tns:obtenerCarritoDeClienteResponse" />
   </message>
+  <message name="listarTodosCarritoCompras">
+    <part name="parameters" element="tns:listarTodosCarritoCompras" />
+  </message>
+  <message name="listarTodosCarritoComprasResponse">
+    <part name="parameters" element="tns:listarTodosCarritoComprasResponse" />
+  </message>
   <portType name="CarritoComprasWS">
     <operation name="listarLineaCarritoPorIdCarrito">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarritoRequest" message="tns:listarLineaCarritoPorIdCarrito" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarritoResponse" message="tns:listarLineaCarritoPorIdCarritoResponse" />
     </operation>
-    <operation name="listarTodosCarritoCompras">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRequest" message="tns:listarTodosCarritoCompras" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasResponse" message="tns:listarTodosCarritoComprasResponse" />
-    </operation>
-    <operation name="insertarCarritoCompras">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasRequest" message="tns:insertarCarritoCompras" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasResponse" message="tns:insertarCarritoComprasResponse" />
+    <operation name="obtenerCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRequest" message="tns:obtenerCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasResponse" message="tns:obtenerCarritoComprasResponse" />
     </operation>
     <operation name="actualizarCarritoCompras">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/actualizarCarritoComprasRequest" message="tns:actualizarCarritoCompras" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/actualizarCarritoComprasResponse" message="tns:actualizarCarritoComprasResponse" />
     </operation>
+    <operation name="insertarCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasRequest" message="tns:insertarCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasResponse" message="tns:insertarCarritoComprasResponse" />
+    </operation>
     <operation name="eliminarCarritoCompras">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/eliminarCarritoComprasRequest" message="tns:eliminarCarritoCompras" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/eliminarCarritoComprasResponse" message="tns:eliminarCarritoComprasResponse" />
     </operation>
-    <operation name="obtenerCarritoCompras">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRequest" message="tns:obtenerCarritoCompras" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasResponse" message="tns:obtenerCarritoComprasResponse" />
-    </operation>
     <operation name="obtenerCarritoDeCliente">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteRequest" message="tns:obtenerCarritoDeCliente" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteResponse" message="tns:obtenerCarritoDeClienteResponse" />
+    </operation>
+    <operation name="listarTodosCarritoCompras">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRequest" message="tns:listarTodosCarritoCompras" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasResponse" message="tns:listarTodosCarritoComprasResponse" />
     </operation>
   </portType>
   <binding name="CarritoComprasWSPortBinding" type="tns:CarritoComprasWS">
@@ -88,16 +88,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosCarritoCompras">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarCarritoCompras">
+    <operation name="obtenerCarritoCompras">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -115,6 +106,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="insertarCarritoCompras">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarCarritoCompras">
       <soap:operation soapAction="" />
       <input>
@@ -124,7 +124,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerCarritoCompras">
+    <operation name="obtenerCarritoDeCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -133,7 +133,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerCarritoDeCliente">
+    <operation name="listarTodosCarritoCompras">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

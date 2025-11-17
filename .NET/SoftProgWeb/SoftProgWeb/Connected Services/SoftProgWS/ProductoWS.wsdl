@@ -5,17 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/ProductoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarfiltrarProductoPorMarca">
-    <part name="parameters" element="tns:listarfiltrarProductoPorMarca" />
+  <message name="listarfiltrarProductoPorPrecio">
+    <part name="parameters" element="tns:listarfiltrarProductoPorPrecio" />
   </message>
-  <message name="listarfiltrarProductoPorMarcaResponse">
-    <part name="parameters" element="tns:listarfiltrarProductoPorMarcaResponse" />
-  </message>
-  <message name="verificarStockSuficientePorSKU">
-    <part name="parameters" element="tns:verificarStockSuficientePorSKU" />
-  </message>
-  <message name="verificarStockSuficientePorSKUResponse">
-    <part name="parameters" element="tns:verificarStockSuficientePorSKUResponse" />
+  <message name="listarfiltrarProductoPorPrecioResponse">
+    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioResponse" />
   </message>
   <message name="listarfiltrarProductoPorDescuento">
     <part name="parameters" element="tns:listarfiltrarProductoPorDescuento" />
@@ -23,29 +17,29 @@
   <message name="listarfiltrarProductoPorDescuentoResponse">
     <part name="parameters" element="tns:listarfiltrarProductoPorDescuentoResponse" />
   </message>
+  <message name="listarfiltrarProductoPorMarca">
+    <part name="parameters" element="tns:listarfiltrarProductoPorMarca" />
+  </message>
+  <message name="listarfiltrarProductoPorMarcaResponse">
+    <part name="parameters" element="tns:listarfiltrarProductoPorMarcaResponse" />
+  </message>
   <message name="verificarStockSuficientePorID">
     <part name="parameters" element="tns:verificarStockSuficientePorID" />
   </message>
   <message name="verificarStockSuficientePorIDResponse">
     <part name="parameters" element="tns:verificarStockSuficientePorIDResponse" />
   </message>
-  <message name="listarfiltrarProductoPorPrecio">
-    <part name="parameters" element="tns:listarfiltrarProductoPorPrecio" />
+  <message name="verificarStockSuficientePorSKU">
+    <part name="parameters" element="tns:verificarStockSuficientePorSKU" />
   </message>
-  <message name="listarfiltrarProductoPorPrecioResponse">
-    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioResponse" />
+  <message name="verificarStockSuficientePorSKUResponse">
+    <part name="parameters" element="tns:verificarStockSuficientePorSKUResponse" />
   </message>
   <message name="listarProducto">
     <part name="parameters" element="tns:listarProducto" />
   </message>
   <message name="listarProductoResponse">
     <part name="parameters" element="tns:listarProductoResponse" />
-  </message>
-  <message name="obtenerProducto">
-    <part name="parameters" element="tns:obtenerProducto" />
-  </message>
-  <message name="obtenerProductoResponse">
-    <part name="parameters" element="tns:obtenerProductoResponse" />
   </message>
   <message name="obtenerPorSku">
     <part name="parameters" element="tns:obtenerPorSku" />
@@ -58,6 +52,12 @@
   </message>
   <message name="actualizarProductoResponse">
     <part name="parameters" element="tns:actualizarProductoResponse" />
+  </message>
+  <message name="obtenerProducto">
+    <part name="parameters" element="tns:obtenerProducto" />
+  </message>
+  <message name="obtenerProductoResponse">
+    <part name="parameters" element="tns:obtenerProductoResponse" />
   </message>
   <message name="eliminarProducto">
     <part name="parameters" element="tns:eliminarProducto" />
@@ -72,33 +72,29 @@
     <part name="parameters" element="tns:insertarProductoResponse" />
   </message>
   <portType name="ProductoWS">
-    <operation name="listarfiltrarProductoPorMarca">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequest" message="tns:listarfiltrarProductoPorMarca" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResponse" message="tns:listarfiltrarProductoPorMarcaResponse" />
-    </operation>
-    <operation name="verificarStockSuficientePorSKU">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKURequest" message="tns:verificarStockSuficientePorSKU" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKUResponse" message="tns:verificarStockSuficientePorSKUResponse" />
+    <operation name="listarfiltrarProductoPorPrecio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioRequest" message="tns:listarfiltrarProductoPorPrecio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioResponse" message="tns:listarfiltrarProductoPorPrecioResponse" />
     </operation>
     <operation name="listarfiltrarProductoPorDescuento">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuentoRequest" message="tns:listarfiltrarProductoPorDescuento" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuentoResponse" message="tns:listarfiltrarProductoPorDescuentoResponse" />
     </operation>
+    <operation name="listarfiltrarProductoPorMarca">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequest" message="tns:listarfiltrarProductoPorMarca" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaResponse" message="tns:listarfiltrarProductoPorMarcaResponse" />
+    </operation>
     <operation name="verificarStockSuficientePorID">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequest" message="tns:verificarStockSuficientePorID" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResponse" message="tns:verificarStockSuficientePorIDResponse" />
     </operation>
-    <operation name="listarfiltrarProductoPorPrecio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioRequest" message="tns:listarfiltrarProductoPorPrecio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioResponse" message="tns:listarfiltrarProductoPorPrecioResponse" />
+    <operation name="verificarStockSuficientePorSKU">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKURequest" message="tns:verificarStockSuficientePorSKU" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKUResponse" message="tns:verificarStockSuficientePorSKUResponse" />
     </operation>
     <operation name="listarProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest" message="tns:listarProducto" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse" message="tns:listarProductoResponse" />
-    </operation>
-    <operation name="obtenerProducto">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
     </operation>
     <operation name="obtenerPorSku">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSkuRequest" message="tns:obtenerPorSku" />
@@ -107,6 +103,10 @@
     <operation name="actualizarProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoRequest" message="tns:actualizarProducto" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/actualizarProductoResponse" message="tns:actualizarProductoResponse" />
+    </operation>
+    <operation name="obtenerProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
     </operation>
     <operation name="eliminarProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest" message="tns:eliminarProducto" />
@@ -119,16 +119,7 @@
   </portType>
   <binding name="ProductoWSPortBinding" type="tns:ProductoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarfiltrarProductoPorMarca">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="verificarStockSuficientePorSKU">
+    <operation name="listarfiltrarProductoPorPrecio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -146,6 +137,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarfiltrarProductoPorMarca">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="verificarStockSuficientePorID">
       <soap:operation soapAction="" />
       <input>
@@ -155,7 +155,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarfiltrarProductoPorPrecio">
+    <operation name="verificarStockSuficientePorSKU">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -165,15 +165,6 @@
       </output>
     </operation>
     <operation name="listarProducto">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -192,6 +183,15 @@
       </output>
     </operation>
     <operation name="actualizarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

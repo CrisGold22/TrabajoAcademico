@@ -18,6 +18,14 @@
   <xs:element name="listarOrdenCompraResponse" type="tns:listarOrdenCompraResponse" />
   <xs:element name="obtenerOrdenCompra" type="tns:obtenerOrdenCompra" />
   <xs:element name="obtenerOrdenCompraResponse" type="tns:obtenerOrdenCompraResponse" />
+  <xs:complexType name="desactivarOrdenCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="desactivarOrdenCompraResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="consultarPedidoPorFechasOrdenCompra">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int" />
@@ -182,14 +190,6 @@
   <xs:complexType name="insertarOrdenCompraResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="desactivarOrdenCompra">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="desactivarOrdenCompraResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="listarOrdenCompra">
     <xs:sequence />
   </xs:complexType>
@@ -197,14 +197,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenCompra" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarOrdenCompra">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ordenCompra" type="tns:ordenCompra" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarOrdenCompraResponse">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarLineasOrdenCompraPorIdOrdenCompra">
     <xs:sequence>
@@ -216,6 +208,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaOrdenCompra" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="actualizarOrdenCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ordenCompra" type="tns:ordenCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarOrdenCompraResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="obtenerOrdenCompra">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
@@ -226,14 +226,6 @@
       <xs:element minOccurs="0" name="return" type="tns:ordenCompra" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarOrdenCompra">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarOrdenCompraResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="consultarOrdenCompraPorIdClienteOrdenCompra">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int" />
@@ -243,6 +235,14 @@
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenCompra" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarOrdenCompra">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarOrdenCompraResponse">
+    <xs:sequence />
   </xs:complexType>
   <xs:simpleType name="categoriaCliente">
     <xs:restriction base="xs:string">

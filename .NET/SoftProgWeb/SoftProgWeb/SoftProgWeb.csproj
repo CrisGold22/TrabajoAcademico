@@ -340,6 +340,10 @@
     <None Include="Connected Services\SoftProgWS\EmpresaWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SoftProgWS\LineaCarritoWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\LineaCarritoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SoftProgWS\serviciosredcom.disco" />
     <None Include="Connected Services\SoftProgWS\configuration91.svcinfo" />
     <None Include="Connected Services\SoftProgWS\configuration.svcinfo" />
@@ -771,6 +775,21 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ActualizarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.EliminarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.InsertarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ObtenerLineaCarritoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />

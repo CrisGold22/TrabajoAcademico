@@ -1,30 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\",
+  "WorkspaceRootPath": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\micarrito.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\2025-2\\proyecto p3\\repositoriopostl12\\trabajoacademico\\.net\\softprogweb\\softprogweb\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\iniciosesion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\softprogweb\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\2025-2\\proyecto p3\\repositoriopostl12\\trabajoacademico\\.net\\softprogweb\\softprogweb\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\2025-2\\proyecto p3\\repositoriopostl12\\trabajoacademico\\.net\\softprogweb\\softprogweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\2025-2\\proyecto p3\\repositoriopostl12\\trabajoacademico\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\2025-2\\proyecto p3\\repositoriopostl12\\trabajoacademico\\.net\\softprogweb\\softprogweb\\micarrito.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,88 +30,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MiCarrito.aspx.cs",
-              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
-              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAADgv0AAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T22:35:33.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MiCarrito.aspx",
-              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx",
-              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx*",
-              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx*",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-16T22:36:36.775Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InicioSesion.aspx",
-              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx",
-              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx",
-              "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-16T22:34:59.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.aspx",
-              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Index.aspx",
-              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx",
-              "RelativeToolTip": "SoftProgWeb\\Index.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-16T20:13:58.34Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "InicioSesion.aspx.cs",
-              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T22:59:52.174Z",
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\Web.config",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Web.config",
+              "ToolTip": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\Web.config",
+              "RelativeToolTip": "SoftProgWeb\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-17T05:55:54.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "Index.aspx",
+              "DocumentMoniker": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Index.aspx",
+              "ToolTip": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx",
+              "RelativeToolTip": "SoftProgWeb\\Index.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-17T04:12:51.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Index.aspx.cs",
-              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx.cs",
+              "DocumentMoniker": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\Index.aspx.cs",
-              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx.cs",
+              "ToolTip": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\Index.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T20:18:09.342Z",
+              "WhenOpened": "2025-11-17T04:35:58.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MiCarrito.aspx.cs",
+              "DocumentMoniker": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
+              "ToolTip": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T04:18:38.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MiCarrito.aspx",
+              "DocumentMoniker": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx",
+              "ToolTip": "D:\\2025-2\\proyecto p3\\RepositorioPostL12\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx",
+              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-17T04:18:21.728Z",
               "EditorCaption": ""
             }
           ]

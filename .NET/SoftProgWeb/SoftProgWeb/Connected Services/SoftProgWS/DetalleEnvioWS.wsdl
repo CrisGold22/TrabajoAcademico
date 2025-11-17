@@ -11,11 +11,11 @@
   <message name="actualizarDetalleEnvioResponse">
     <part name="parameters" element="tns:actualizarDetalleEnvioResponse" />
   </message>
-  <message name="eliminarDetalleEnvio">
-    <part name="parameters" element="tns:eliminarDetalleEnvio" />
+  <message name="obtenerDetalleEnvio">
+    <part name="parameters" element="tns:obtenerDetalleEnvio" />
   </message>
-  <message name="eliminarDetalleEnvioResponse">
-    <part name="parameters" element="tns:eliminarDetalleEnvioResponse" />
+  <message name="obtenerDetalleEnvioResponse">
+    <part name="parameters" element="tns:obtenerDetalleEnvioResponse" />
   </message>
   <message name="insertarDetalleEnvio">
     <part name="parameters" element="tns:insertarDetalleEnvio" />
@@ -23,38 +23,38 @@
   <message name="insertarDetalleEnvioResponse">
     <part name="parameters" element="tns:insertarDetalleEnvioResponse" />
   </message>
-  <message name="obtenerDetalleEnvio">
-    <part name="parameters" element="tns:obtenerDetalleEnvio" />
-  </message>
-  <message name="obtenerDetalleEnvioResponse">
-    <part name="parameters" element="tns:obtenerDetalleEnvioResponse" />
-  </message>
   <message name="listarDetalleEnvio">
     <part name="parameters" element="tns:listarDetalleEnvio" />
   </message>
   <message name="listarDetalleEnvioResponse">
     <part name="parameters" element="tns:listarDetalleEnvioResponse" />
   </message>
+  <message name="eliminarDetalleEnvio">
+    <part name="parameters" element="tns:eliminarDetalleEnvio" />
+  </message>
+  <message name="eliminarDetalleEnvioResponse">
+    <part name="parameters" element="tns:eliminarDetalleEnvioResponse" />
+  </message>
   <portType name="DetalleEnvioWS">
     <operation name="actualizarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRequest" message="tns:actualizarDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioResponse" message="tns:actualizarDetalleEnvioResponse" />
     </operation>
-    <operation name="eliminarDetalleEnvio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioRequest" message="tns:eliminarDetalleEnvio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse" message="tns:eliminarDetalleEnvioResponse" />
+    <operation name="obtenerDetalleEnvio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest" message="tns:obtenerDetalleEnvio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse" message="tns:obtenerDetalleEnvioResponse" />
     </operation>
     <operation name="insertarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioRequest" message="tns:insertarDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioResponse" message="tns:insertarDetalleEnvioResponse" />
     </operation>
-    <operation name="obtenerDetalleEnvio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest" message="tns:obtenerDetalleEnvio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse" message="tns:obtenerDetalleEnvioResponse" />
-    </operation>
     <operation name="listarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest" message="tns:listarDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioResponse" message="tns:listarDetalleEnvioResponse" />
+    </operation>
+    <operation name="eliminarDetalleEnvio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioRequest" message="tns:eliminarDetalleEnvio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse" message="tns:eliminarDetalleEnvioResponse" />
     </operation>
   </portType>
   <binding name="DetalleEnvioWSPortBinding" type="tns:DetalleEnvioWS">
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarDetalleEnvio">
+    <operation name="obtenerDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerDetalleEnvio">
+    <operation name="listarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarDetalleEnvio">
+    <operation name="eliminarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

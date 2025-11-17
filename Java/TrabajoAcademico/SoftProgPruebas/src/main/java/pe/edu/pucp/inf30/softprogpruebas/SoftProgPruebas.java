@@ -83,7 +83,7 @@ public class SoftProgPruebas {
         pruebaConexionConBaseDeDatos();
 //        pruebasConDatos();
         
-//        pruebasConProductos();
+        pruebasConProductos();
 //          pruebaDesactivarOrdenCompra();
 //        pruebaConEmpresa();
 //        pruebaListar();
@@ -361,69 +361,72 @@ public class SoftProgPruebas {
         CategoriaProducto categoria = new CategoriaProducto();
         CategoriaProductoBO categoriaBO = new CategoriaProductoBOImpl();
 
-        categoria.setId(1);
-        categoria.setActivo(true);
-        categoria.setDescripcion("Una categoria");
-        categoria.setCategoriaPadre(null);
-        categoria.setNombre("Hogar");
-
-        categoriaBO.insertar(categoria);
-        System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
-        categoria.setDescripcion("Nueva descripcion");
-        categoriaBO.actualizar(categoria);
-        System.out.println("CategoriaProductos se ha actualizado exitosamente");
-        CategoriaProducto categoria2 = categoriaBO.obtener(categoria.getId());
-        System.out.println("CategoriaProductos se llamo al backend de manera correcta\n");
+//        categoria.setId(1);
+//        categoria.setActivo(true);
+//        categoria.setDescripcion("Una categoria");
+//        categoria.setCategoriaPadre(null);
+//        categoria.setNombre("Hogar");
+//
+//        categoriaBO.insertar(categoria);
+//        System.out.println("Se inserto CategoriaProductos de id " + categoria.getId() + " creado exitosamente");
+//        categoria.setDescripcion("Nueva descripcion");
+//        categoriaBO.actualizar(categoria);
+//        System.out.println("CategoriaProductos se ha actualizado exitosamente");
+//        CategoriaProducto categoria2 = categoriaBO.obtener(categoria.getId());
+//        System.out.println("CategoriaProductos se llamo al backend de manera correcta\n");
 
         System.out.println("Ejecucion de procedures de Productos");
         System.out.println("=====================================\n");
         Producto producto = new Producto();
         ProductoBO productoBO = new ProductoBOImpl();
-
-        producto.setId(1);
-        producto.setActivo(true);
-        producto.setNombre("Celular IPhone 20 X Giga Pro Max XXXL");
-        producto.setSKU("SEL-123");
-        producto.setDescripcion("Celular de ultima generacion");
-        producto.setPrecioAlMayor(3500);
-        producto.setPrecioRegular(4000);
-        producto.setMedidaAlMayor(UnidadMedida.BOTELLA);
-        producto.setStockDisponible(10);
-        producto.setStockMaximo(50);
-        producto.setCategoria(categoria);
-        producto.setMarca("APPLE");
-
-        productoBO.insertar(producto);
-        System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
-        producto.setDescripcion("Nueva descripcion");
-        productoBO.actualizar(producto);
-        System.out.println("El producto se ha actualizado exitosamente");
-        Producto producto2 = productoBO.obtener(producto.getId());
-        System.out.println("El producto se llamo al backend de manera correcta\n");
-
-        Producto producto3 = productoBO.obtenerPorSku(producto.getSKU());
-        System.out.println("El SKU del producto ha sido encontrado \n");
-
-        List<Producto> listaProducto = new ArrayList();
-        listaProducto = productoBO.filtrarProductoPorMarca(1, "APPLE");
-
-        List<Producto> listaProducto2 = new ArrayList();
-        listaProducto2 = productoBO.filtrarProductoPorPrecio(1, 3000, 6000);
-
-        Descuento descuento = new Descuento();
-        DescuentoBO descuentoBO = new DescuentoBOImpl();
-
-        descuento.setId(1);
-        descuento.setActivo(true);
-        descuento.setPrecioPorVolumen(2000);
-        descuento.setCantidadMax(200);
-        descuento.setCantidadMin(20);
-        descuento.setProducto(producto);
-
-        descuentoBO.insertar(descuento);
-
-        List<Producto> listaProducto3 = new ArrayList();
-        listaProducto3 = productoBO.filtrarProductoPorDescuento(1, "CON DESCUENTO");
+        
+        producto = productoBO.obtener(101);
+        System.out.println("producto " + producto.getDescripcion());
+        
+//        producto.setId(1);
+//        producto.setActivo(true);
+//        producto.setNombre("Celular IPhone 20 X Giga Pro Max XXXL");
+//        producto.setSKU("SEL-123");
+//        producto.setDescripcion("Celular de ultima generacion");
+//        producto.setPrecioAlMayor(3500);
+//        producto.setPrecioRegular(4000);
+//        producto.setMedidaAlMayor(UnidadMedida.BOTELLA);
+//        producto.setStockDisponible(10);
+//        producto.setStockMaximo(50);
+//        producto.setCategoria(categoria);
+//        producto.setMarca("APPLE");
+//
+//        productoBO.insertar(producto);
+//        System.out.println("Se inserto el producto de id " + producto.getId() + " creado exitosamente");
+//        producto.setDescripcion("Nueva descripcion");
+//        productoBO.actualizar(producto);
+//        System.out.println("El producto se ha actualizado exitosamente");
+//        Producto producto2 = productoBO.obtener(producto.getId());
+//        System.out.println("El producto se llamo al backend de manera correcta\n");
+//
+//        Producto producto3 = productoBO.obtenerPorSku(producto.getSKU());
+//        System.out.println("El SKU del producto ha sido encontrado \n");
+//
+//        List<Producto> listaProducto = new ArrayList();
+//        listaProducto = productoBO.filtrarProductoPorMarca(1, "APPLE");
+//
+//        List<Producto> listaProducto2 = new ArrayList();
+//        listaProducto2 = productoBO.filtrarProductoPorPrecio(1, 3000, 6000);
+//
+//        Descuento descuento = new Descuento();
+//        DescuentoBO descuentoBO = new DescuentoBOImpl();
+//
+//        descuento.setId(1);
+//        descuento.setActivo(true);
+//        descuento.setPrecioPorVolumen(2000);
+//        descuento.setCantidadMax(200);
+//        descuento.setCantidadMin(20);
+//        descuento.setProducto(producto);
+//
+//        descuentoBO.insertar(descuento);
+//
+//        List<Producto> listaProducto3 = new ArrayList();
+//        listaProducto3 = productoBO.filtrarProductoPorDescuento(1, "CON DESCUENTO");
 
     }
 

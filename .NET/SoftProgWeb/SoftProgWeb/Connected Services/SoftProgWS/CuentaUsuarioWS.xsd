@@ -53,14 +53,6 @@
       <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarCuentaUsuario">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarCuentaUsuarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuentaUsuario" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="login">
     <xs:sequence>
       <xs:element minOccurs="0" name="email" type="xs:string" />
@@ -70,6 +62,14 @@
   <xs:complexType name="loginResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCuentaUsuario">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCuentaUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuentaUsuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarCuentaUsuario">
