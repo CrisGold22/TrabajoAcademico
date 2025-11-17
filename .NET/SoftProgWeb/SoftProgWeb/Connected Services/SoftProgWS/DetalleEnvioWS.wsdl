@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/DetalleEnvioWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarDetalleEnvio">
-    <part name="parameters" element="tns:actualizarDetalleEnvio" />
-  </message>
-  <message name="actualizarDetalleEnvioResponse">
-    <part name="parameters" element="tns:actualizarDetalleEnvioResponse" />
-  </message>
   <message name="obtenerDetalleEnvio">
     <part name="parameters" element="tns:obtenerDetalleEnvio" />
   </message>
@@ -22,6 +16,12 @@
   </message>
   <message name="insertarDetalleEnvioResponse">
     <part name="parameters" element="tns:insertarDetalleEnvioResponse" />
+  </message>
+  <message name="actualizarDetalleEnvio">
+    <part name="parameters" element="tns:actualizarDetalleEnvio" />
+  </message>
+  <message name="actualizarDetalleEnvioResponse">
+    <part name="parameters" element="tns:actualizarDetalleEnvioResponse" />
   </message>
   <message name="listarDetalleEnvio">
     <part name="parameters" element="tns:listarDetalleEnvio" />
@@ -36,10 +36,6 @@
     <part name="parameters" element="tns:eliminarDetalleEnvioResponse" />
   </message>
   <portType name="DetalleEnvioWS">
-    <operation name="actualizarDetalleEnvio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRequest" message="tns:actualizarDetalleEnvio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioResponse" message="tns:actualizarDetalleEnvioResponse" />
-    </operation>
     <operation name="obtenerDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest" message="tns:obtenerDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse" message="tns:obtenerDetalleEnvioResponse" />
@@ -47,6 +43,10 @@
     <operation name="insertarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioRequest" message="tns:insertarDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioResponse" message="tns:insertarDetalleEnvioResponse" />
+    </operation>
+    <operation name="actualizarDetalleEnvio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRequest" message="tns:actualizarDetalleEnvio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioResponse" message="tns:actualizarDetalleEnvioResponse" />
     </operation>
     <operation name="listarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest" message="tns:listarDetalleEnvio" />
@@ -59,15 +59,6 @@
   </portType>
   <binding name="DetalleEnvioWSPortBinding" type="tns:DetalleEnvioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarDetalleEnvio">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="obtenerDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
@@ -78,6 +69,15 @@
       </output>
     </operation>
     <operation name="insertarDetalleEnvio">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

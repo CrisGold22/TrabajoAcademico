@@ -23,6 +23,12 @@
   <message name="listarCuentaUsuarioResponse">
     <part name="parameters" element="tns:listarCuentaUsuarioResponse" />
   </message>
+  <message name="insertarCuentaUsuario">
+    <part name="parameters" element="tns:insertarCuentaUsuario" />
+  </message>
+  <message name="insertarCuentaUsuarioResponse">
+    <part name="parameters" element="tns:insertarCuentaUsuarioResponse" />
+  </message>
   <message name="obtenerCuentaUsuario">
     <part name="parameters" element="tns:obtenerCuentaUsuario" />
   </message>
@@ -34,12 +40,6 @@
   </message>
   <message name="eliminarCuentaUsuarioResponse">
     <part name="parameters" element="tns:eliminarCuentaUsuarioResponse" />
-  </message>
-  <message name="insertarCuentaUsuario">
-    <part name="parameters" element="tns:insertarCuentaUsuario" />
-  </message>
-  <message name="insertarCuentaUsuarioResponse">
-    <part name="parameters" element="tns:insertarCuentaUsuarioResponse" />
   </message>
   <portType name="CuentaUsuarioWS">
     <operation name="login">
@@ -54,6 +54,10 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuarioRequest" message="tns:listarCuentaUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuarioResponse" message="tns:listarCuentaUsuarioResponse" />
     </operation>
+    <operation name="insertarCuentaUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioRequest" message="tns:insertarCuentaUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioResponse" message="tns:insertarCuentaUsuarioResponse" />
+    </operation>
     <operation name="obtenerCuentaUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioRequest" message="tns:obtenerCuentaUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioResponse" message="tns:obtenerCuentaUsuarioResponse" />
@@ -61,10 +65,6 @@
     <operation name="eliminarCuentaUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuarioRequest" message="tns:eliminarCuentaUsuario" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuarioResponse" message="tns:eliminarCuentaUsuarioResponse" />
-    </operation>
-    <operation name="insertarCuentaUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioRequest" message="tns:insertarCuentaUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioResponse" message="tns:insertarCuentaUsuarioResponse" />
     </operation>
   </portType>
   <binding name="CuentaUsuarioWSPortBinding" type="tns:CuentaUsuarioWS">
@@ -96,6 +96,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="insertarCuentaUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="obtenerCuentaUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -106,15 +115,6 @@
       </output>
     </operation>
     <operation name="eliminarCuentaUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarCuentaUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

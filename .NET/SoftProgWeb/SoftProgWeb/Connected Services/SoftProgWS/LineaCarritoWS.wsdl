@@ -5,29 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/LineaCarritoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="EliminarLineaCarrito">
-    <part name="parameters" element="tns:EliminarLineaCarrito" />
-  </message>
-  <message name="EliminarLineaCarritoResponse">
-    <part name="parameters" element="tns:EliminarLineaCarritoResponse" />
-  </message>
   <message name="InsertarLineaCarrito">
     <part name="parameters" element="tns:InsertarLineaCarrito" />
   </message>
   <message name="InsertarLineaCarritoResponse">
     <part name="parameters" element="tns:InsertarLineaCarritoResponse" />
-  </message>
-  <message name="ObtenerLineaCarrito">
-    <part name="parameters" element="tns:ObtenerLineaCarrito" />
-  </message>
-  <message name="ObtenerLineaCarritoResponse">
-    <part name="parameters" element="tns:ObtenerLineaCarritoResponse" />
-  </message>
-  <message name="listarLineaCarrito">
-    <part name="parameters" element="tns:listarLineaCarrito" />
-  </message>
-  <message name="listarLineaCarritoResponse">
-    <part name="parameters" element="tns:listarLineaCarritoResponse" />
   </message>
   <message name="ActualizarLineaCarrito">
     <part name="parameters" element="tns:ActualizarLineaCarrito" />
@@ -35,39 +17,48 @@
   <message name="ActualizarLineaCarritoResponse">
     <part name="parameters" element="tns:ActualizarLineaCarritoResponse" />
   </message>
+  <message name="EliminarLineaCarrito">
+    <part name="parameters" element="tns:EliminarLineaCarrito" />
+  </message>
+  <message name="EliminarLineaCarritoResponse">
+    <part name="parameters" element="tns:EliminarLineaCarritoResponse" />
+  </message>
+  <message name="listarLineaCarrito">
+    <part name="parameters" element="tns:listarLineaCarrito" />
+  </message>
+  <message name="listarLineaCarritoResponse">
+    <part name="parameters" element="tns:listarLineaCarritoResponse" />
+  </message>
+  <message name="ObtenerLineaCarrito">
+    <part name="parameters" element="tns:ObtenerLineaCarrito" />
+  </message>
+  <message name="ObtenerLineaCarritoResponse">
+    <part name="parameters" element="tns:ObtenerLineaCarritoResponse" />
+  </message>
   <portType name="LineaCarritoWS">
-    <operation name="EliminarLineaCarrito">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoRequest" message="tns:EliminarLineaCarrito" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoResponse" message="tns:EliminarLineaCarritoResponse" />
-    </operation>
     <operation name="InsertarLineaCarrito">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/InsertarLineaCarritoRequest" message="tns:InsertarLineaCarrito" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/InsertarLineaCarritoResponse" message="tns:InsertarLineaCarritoResponse" />
-    </operation>
-    <operation name="ObtenerLineaCarrito">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarritoRequest" message="tns:ObtenerLineaCarrito" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarritoResponse" message="tns:ObtenerLineaCarritoResponse" />
-    </operation>
-    <operation name="listarLineaCarrito">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoRequest" message="tns:listarLineaCarrito" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoResponse" message="tns:listarLineaCarritoResponse" />
     </operation>
     <operation name="ActualizarLineaCarrito">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoRequest" message="tns:ActualizarLineaCarrito" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoResponse" message="tns:ActualizarLineaCarritoResponse" />
     </operation>
+    <operation name="EliminarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoRequest" message="tns:EliminarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoResponse" message="tns:EliminarLineaCarritoResponse" />
+    </operation>
+    <operation name="listarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoRequest" message="tns:listarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoResponse" message="tns:listarLineaCarritoResponse" />
+    </operation>
+    <operation name="ObtenerLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarritoRequest" message="tns:ObtenerLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarritoResponse" message="tns:ObtenerLineaCarritoResponse" />
+    </operation>
   </portType>
   <binding name="LineaCarritoWSPortBinding" type="tns:LineaCarritoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="EliminarLineaCarrito">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="InsertarLineaCarrito">
       <soap:operation soapAction="" />
       <input>
@@ -77,7 +68,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="ObtenerLineaCarrito">
+    <operation name="ActualizarLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="EliminarLineaCarrito">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="ActualizarLineaCarrito">
+    <operation name="ObtenerLineaCarrito">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

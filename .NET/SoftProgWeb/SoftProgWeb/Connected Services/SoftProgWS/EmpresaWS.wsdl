@@ -5,6 +5,36 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/EmpresaWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="listarEmpresasNoActivos">
+    <part name="parameters" element="tns:listarEmpresasNoActivos" />
+  </message>
+  <message name="listarEmpresasNoActivosResponse">
+    <part name="parameters" element="tns:listarEmpresasNoActivosResponse" />
+  </message>
+  <message name="eliminarEmpresa">
+    <part name="parameters" element="tns:eliminarEmpresa" />
+  </message>
+  <message name="eliminarEmpresaResponse">
+    <part name="parameters" element="tns:eliminarEmpresaResponse" />
+  </message>
+  <message name="insertarEmpresa">
+    <part name="parameters" element="tns:insertarEmpresa" />
+  </message>
+  <message name="insertarEmpresaResponse">
+    <part name="parameters" element="tns:insertarEmpresaResponse" />
+  </message>
+  <message name="actualizarEmpresa">
+    <part name="parameters" element="tns:actualizarEmpresa" />
+  </message>
+  <message name="actualizarEmpresaResponse">
+    <part name="parameters" element="tns:actualizarEmpresaResponse" />
+  </message>
+  <message name="listarEmpresasActivos">
+    <part name="parameters" element="tns:listarEmpresasActivos" />
+  </message>
+  <message name="listarEmpresasActivosResponse">
+    <part name="parameters" element="tns:listarEmpresasActivosResponse" />
+  </message>
   <message name="listarEmpresasPorClienteActivas">
     <part name="parameters" element="tns:listarEmpresasPorClienteActivas" />
   </message>
@@ -23,35 +53,11 @@
   <message name="listarEmpresaResponse">
     <part name="parameters" element="tns:listarEmpresaResponse" />
   </message>
-  <message name="listarEmpresasActivos">
-    <part name="parameters" element="tns:listarEmpresasActivos" />
-  </message>
-  <message name="listarEmpresasActivosResponse">
-    <part name="parameters" element="tns:listarEmpresasActivosResponse" />
-  </message>
-  <message name="listarEmpresasNoActivos">
-    <part name="parameters" element="tns:listarEmpresasNoActivos" />
-  </message>
-  <message name="listarEmpresasNoActivosResponse">
-    <part name="parameters" element="tns:listarEmpresasNoActivosResponse" />
-  </message>
-  <message name="listarEmpresasPorCliente">
-    <part name="parameters" element="tns:listarEmpresasPorCliente" />
-  </message>
-  <message name="listarEmpresasPorClienteResponse">
-    <part name="parameters" element="tns:listarEmpresasPorClienteResponse" />
-  </message>
   <message name="validarEmpresa">
     <part name="parameters" element="tns:validarEmpresa" />
   </message>
   <message name="validarEmpresaResponse">
     <part name="parameters" element="tns:validarEmpresaResponse" />
-  </message>
-  <message name="actualizarEmpresa">
-    <part name="parameters" element="tns:actualizarEmpresa" />
-  </message>
-  <message name="actualizarEmpresaResponse">
-    <part name="parameters" element="tns:actualizarEmpresaResponse" />
   </message>
   <message name="obtenerEmpresa">
     <part name="parameters" element="tns:obtenerEmpresa" />
@@ -59,19 +65,33 @@
   <message name="obtenerEmpresaResponse">
     <part name="parameters" element="tns:obtenerEmpresaResponse" />
   </message>
-  <message name="eliminarEmpresa">
-    <part name="parameters" element="tns:eliminarEmpresa" />
+  <message name="listarEmpresasPorCliente">
+    <part name="parameters" element="tns:listarEmpresasPorCliente" />
   </message>
-  <message name="eliminarEmpresaResponse">
-    <part name="parameters" element="tns:eliminarEmpresaResponse" />
-  </message>
-  <message name="insertarEmpresa">
-    <part name="parameters" element="tns:insertarEmpresa" />
-  </message>
-  <message name="insertarEmpresaResponse">
-    <part name="parameters" element="tns:insertarEmpresaResponse" />
+  <message name="listarEmpresasPorClienteResponse">
+    <part name="parameters" element="tns:listarEmpresasPorClienteResponse" />
   </message>
   <portType name="EmpresaWS">
+    <operation name="listarEmpresasNoActivos">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosRequest" message="tns:listarEmpresasNoActivos" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosResponse" message="tns:listarEmpresasNoActivosResponse" />
+    </operation>
+    <operation name="eliminarEmpresa">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest" message="tns:eliminarEmpresa" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaResponse" message="tns:eliminarEmpresaResponse" />
+    </operation>
+    <operation name="insertarEmpresa">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaRequest" message="tns:insertarEmpresa" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaResponse" message="tns:insertarEmpresaResponse" />
+    </operation>
+    <operation name="actualizarEmpresa">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaRequest" message="tns:actualizarEmpresa" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaResponse" message="tns:actualizarEmpresaResponse" />
+    </operation>
+    <operation name="listarEmpresasActivos">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest" message="tns:listarEmpresasActivos" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse" message="tns:listarEmpresasActivosResponse" />
+    </operation>
     <operation name="listarEmpresasPorClienteActivas">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRequest" message="tns:listarEmpresasPorClienteActivas" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasResponse" message="tns:listarEmpresasPorClienteActivasResponse" />
@@ -84,41 +104,66 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaRequest" message="tns:listarEmpresa" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaResponse" message="tns:listarEmpresaResponse" />
     </operation>
-    <operation name="listarEmpresasActivos">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest" message="tns:listarEmpresasActivos" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse" message="tns:listarEmpresasActivosResponse" />
-    </operation>
-    <operation name="listarEmpresasNoActivos">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosRequest" message="tns:listarEmpresasNoActivos" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosResponse" message="tns:listarEmpresasNoActivosResponse" />
-    </operation>
-    <operation name="listarEmpresasPorCliente">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteRequest" message="tns:listarEmpresasPorCliente" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteResponse" message="tns:listarEmpresasPorClienteResponse" />
-    </operation>
     <operation name="validarEmpresa">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaRequest" message="tns:validarEmpresa" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaResponse" message="tns:validarEmpresaResponse" />
-    </operation>
-    <operation name="actualizarEmpresa">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaRequest" message="tns:actualizarEmpresa" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaResponse" message="tns:actualizarEmpresaResponse" />
     </operation>
     <operation name="obtenerEmpresa">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaRequest" message="tns:obtenerEmpresa" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaResponse" message="tns:obtenerEmpresaResponse" />
     </operation>
-    <operation name="eliminarEmpresa">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest" message="tns:eliminarEmpresa" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaResponse" message="tns:eliminarEmpresaResponse" />
-    </operation>
-    <operation name="insertarEmpresa">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaRequest" message="tns:insertarEmpresa" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaResponse" message="tns:insertarEmpresaResponse" />
+    <operation name="listarEmpresasPorCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteRequest" message="tns:listarEmpresasPorCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteResponse" message="tns:listarEmpresasPorClienteResponse" />
     </operation>
   </portType>
   <binding name="EmpresaWSPortBinding" type="tns:EmpresaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarEmpresasNoActivos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpresasActivos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarEmpresasPorClienteActivas">
       <soap:operation soapAction="" />
       <input>
@@ -146,43 +191,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarEmpresasActivos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarEmpresasNoActivos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarEmpresasPorCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="validarEmpresa">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="actualizarEmpresa">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -200,16 +209,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarEmpresa">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarEmpresa">
+    <operation name="listarEmpresasPorCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

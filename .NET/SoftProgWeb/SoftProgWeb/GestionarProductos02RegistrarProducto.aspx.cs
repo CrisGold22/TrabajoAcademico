@@ -10,131 +10,139 @@ namespace SoftProgWeb
 {
     public partial class GestionarProductos02RegistrarProducto : System.Web.UI.Page
     {
-        private ServiceioProductoWS.ProductoWSClient servicioProducto;
-        private ServicioCategoriaWS.CategoriaProductoWSClient servicioCategoria;
+    private ServiceioProductoWS.ProductoWSClient _servicioProducto;
+    private ServicioCategoriaWS.CategoriaProductoWSClient _servicioCategoria;
 
-        protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        _servicioProducto = new ServiceioProductoWS.ProductoWSClient();
+        _servicioCategoria = new ServicioCategoriaWS.CategoriaProductoWSClient();
+
+        pnlMensaje.Visible = false;
+
+        if (!Page.IsPostBack)
         {
-            servicioProducto = new ServiceioProductoWS.ProductoWSClient();
-            servicioCategoria = new ServicioCategoriaWS.CategoriaProductoWSClient();
+            CargarDependencias();
 
-            pnlMensaje.Visible = false;
-
-            if (!Page.IsPostBack)
+            if (Request.QueryString["id"] == null)
             {
-                CargarDependencias();
-
-                if (Request.QueryString["id"] == null)
-                {
-                    litTitulo.Text = "Nuevo Producto";
-                    ViewState["ProductoID"] = 0; 
-                    chkActivo.Checked = true; 
-                }
-                else
-                {
-                    litTitulo.Text = "Modificar Producto";
-                    int idProducto = Convert.ToInt32(Request.QueryString["id"]);
-                    ViewState["ProductoID"] = idProducto;
-                    CargarDatosProducto(idProducto);
-                }
+                litTitulo.Text = "Nuevo Producto";
+                ViewState["ProductoID"] = 0;
+            }
+            else
+            {
+                litTitulo.Text = "Modificar Producto";
+                int idProducto = Convert.ToInt32(Request.QueryString["id"]);
+                ViewState["ProductoID"] = idProducto;
+                CargarDatosProducto(idProducto);
             }
         }
+    }
 
-        private void CargarDependencias()
+    private void CargarDependencias()
+    {
+        try
         {
-            try
-            {
-                ddlCategoria.DataSource = servicioCategoria.listarCategoriaProducto();
-                ddlCategoria.DataValueField = "idCategoria";
-                ddlCategoria.DataTextField = "nombre";
-                ddlCategoria.DataBind();
-                ddlCategoria.Items.Insert(0, new ListItem("-- Seleccionar Categoría --", "0"));
+            ddlCategoria.DataSource = _servicioCategoria.listarCategoriaProducto();
+            ddlCategoria.DataValueField = "id";
+            ddlCategoria.DataTextField = "nombre";
+            ddlCategoria.DataBind();
+            ddlCategoria.Items.Insert(0, new ListItem("-- Seleccionar Categoría --", "0"));
 
-                ddlUnidadMedida.DataSource = Enum.GetNames(typeof(ServiceioProductoWS.unidadMedida));
-                ddlUnidadMedida.DataBind();
-            }
-            catch (System.Exception ex)
+            ddlUnidadMedida.DataSource = Enum.GetNames(typeof(ServiceioProductoWS.unidadMedida));
+            ddlUnidadMedida.DataBind();
+        }
+        catch (System.Exception ex)
+        {
+            MostrarError("Error al cargar dependencias: " + ex.Message);
+        }
+    }
+
+    private void CargarDatosProducto(int idProducto)
+    {
+        try
+        {
+            ServiceioProductoWS.producto prod = _servicioProducto.obtenerProducto(idProducto);
+            if (prod != null)
             {
-                MostrarError("Error al cargar dependencias: " + ex.Message);
+                txtNombre.Text = prod.nombre;
+                txtSKU.Text = prod.SKU;
+                txtMarca.Text = prod.marca;
+                txtDescripcion.Text = prod.descripcion;
+                txtPrecioRegular.Text = prod.precioRegular.ToString();
+                txtStockDisponible.Text = prod.stockDisponible.ToString();
+
+                ddlCategoria.SelectedValue = prod.categoria.id.ToString();
+                ddlUnidadMedida.SelectedValue = prod.medidaAlMayor.ToString();
             }
         }
-
-        private void CargarDatosProducto(int idProducto)
+        catch (System.Exception ex)
         {
-            try
-            {
-                ServiceioProductoWS.producto prod = servicioProducto.obtenerProducto(idProducto);
-                if (prod != null)
-                {
-                    txtNombre.Text = prod.nombre;
-                    txtDescripcion.Text = prod.descripcion;
-                    txtPrecio.Text = prod.precioUnitario.ToString();
-                    txtStock.Text = prod.stockDisponible.ToString();
+            MostrarError("Error al cargar el producto: " + ex.Message);
+        }
+    }
 
-                    ddlCategoria.SelectedValue = prod.categoria.id.ToString();
-                    ddlUnidadMedida.SelectedValue = prod.medidaAlMayor.ToString();
-                }
-            }
-            catch (System.Exception ex)
-            {
-                MostrarError("Error al cargar el producto: " + ex.Message);
-            }
+        protected ServiceioProductoWS.ProductoWSClient Get_servicioProducto()
+        {
+            return _servicioProducto;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
+    {
+        try
         {
-            try
+            ServiceioProductoWS.producto prod = new ServiceioProductoWS.producto();
+
+            prod.nombre = txtNombre.Text;
+            prod.SKU = txtSKU.Text;
+            prod.marca = txtMarca.Text;
+            prod.descripcion = txtDescripcion.Text;
+            prod.precioRegular = double.Parse(txtPrecioRegular.Text);
+            prod.stockDisponible = int.Parse(txtStockDisponible.Text);
+            prod.categoria = new ServiceioProductoWS.categoriaProducto();
+            prod.categoria.id = int.Parse(ddlCategoria.SelectedValue);
+            prod.medidaAlMayor = (ServiceioProductoWS.unidadMedida)Enum.Parse(typeof(ServiceioProductoWS.unidadMedida), ddlUnidadMedida.SelectedValue);
+            prod.medidaAlMayorSpecified = true;
+
+            int idProducto = (int)ViewState["ProductoID"];
+            int resultado = 0;
+
+            if (idProducto == 0)
             {
-                ServiceioProductoWS.producto prod = new ServiceioProductoWS.producto();
-
-                prod.nombre = txtNombre.Text;
-                prod.descripcion = txtDescripcion.Text;
-                prod.precioAlMayor = double.Parse(txtPrecio.Text);
-                prod.stockDisponible = int.Parse(txtStock.Text);
-
-                prod.categoria = new ServiceioProductoWS.categoriaProducto();
-                prod.categoria.id = int.Parse(ddlCategoria.SelectedValue);
-
-                prod.medidaAlMayor = (ServiceioProductoWS.unidadMedida)Enum.Parse(typeof(ServiceioProductoWS.unidadMedida), ddlUnidadMedida.SelectedValue);
-                prod.medidaAlMayorSpecified = true;
-
-                int idProducto = (int)ViewState["ProductoID"];
-                int resultado = 0;
-
-                if (idProducto == 0)
-                {
-                    servicioProducto.insertarProducto(prod);
-                }
-                else
-                {
-                    prod.id = idProducto;
-                    servicioProducto.actualizarProducto(prod);
-                }
-
-                if (resultado > 0)
-                {
-                    Response.Redirect("~/GestionarProductos01.aspx");
-                }
-                else
-                {
-                    MostrarError("No se pudo guardar el producto. El backend no reportó filas afectadas.");
-                }
+                _servicioProducto.insertarProducto(prod);
+                    resultado = 1;
             }
-            catch (System.Exception ex)
+            else
             {
-                MostrarError("Error al guardar: " + ex.Message);
+                prod.id = idProducto;
+                _servicioProducto.actualizarProducto(prod);
+                resultado = 1;
+            }
+
+            if (resultado > 0)
+            {
+                Response.Redirect("~/GestionarProductos01.aspx");
+            }
+            else
+            {
+                MostrarError("No se pudo guardar el producto. El backend no reportó filas afectadas.");
             }
         }
-
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        catch (System.Exception ex)
         {
-            Response.Redirect("~/GestionarProductos01.aspx");
-        }
-
-        private void MostrarError(string mensaje)
-        {
-            pnlMensaje.Visible = true;
-            litMensajeError.Text = mensaje;
+            MostrarError("Error al guardar: " + ex.Message);
         }
     }
+
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/GestionarProductos01.aspx");
+    }
+
+    private void MostrarError(string mensaje)
+    {
+        pnlMensaje.Visible = true;
+        litMensajeError.Text = mensaje;
+    }
+}
 }

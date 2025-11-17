@@ -13,18 +13,50 @@
             </div>
         </div>
 
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-3">
+                        <asp:DropDownList ID="ddlCriterio" runat="server" CssClass="form-select">
+                            <asp:ListItem Value="SKU">Buscar por SKU</asp:ListItem>
+                            <%--<asp:ListItem Value="ID">Buscar por ID</asp:ListItem>--%>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-md-5">
+                        <asp:TextBox ID="txtTerminoBusqueda" runat="server" CssClass="form-control" placeholder="Ingrese el término de búsqueda..."></asp:TextBox>
+                    </div>
+                    <div class="col-md-4">
+                        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" 
+                            CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+                        <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" 
+                            CssClass="btn btn-secondary" OnClick="btnLimpiar_Click" CausesValidation="false" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- FIN DE LA NUEVA SECCIÓN --%>
+
+        <asp:Panel ID="pnlMensaje" runat="server" Visible="false" CssClass="alert alert-danger mt-3" role="alert">
+            <asp:Literal ID="litMensajeError" runat="server"></asp:Literal>
+        </asp:Panel>
         <div class="row">
             <div class="col-md-12">
+                <%-- 
+                    CORRECCIÓN DEL GRIDVIEW:
+                    He re-añadido las columnas 'precio', 'stock' y 'activo'
+                    porque su proyecto "TA V2" SÍ las incluye en el modelo
+                    y en los procedimientos almacenados. El XML anterior era obsoleto.
+                --%>
                 <asp:GridView ID="gvProductos" runat="server"
                     CssClass="table table-hover table-striped"
                     AutoGenerateColumns="False"
                     DataKeyNames="id" 
                     AllowPaging="True"
-                    PageSize="15"
+                    PageSize="10"
                     OnPageIndexChanging="gvProductos_PageIndexChanging"
                     OnRowCommand="gvProductos_RowCommand">
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="ID" ItemStyle-CssClass="fw-bold" />
+                        <asp:BoundField DataField="SKU" HeaderText="SKU" ItemStyle-CssClass="fw-bold" />
                         <asp:BoundField DataField="nombre" HeaderText="Nombre del Producto" />
                         <asp:TemplateField HeaderText="Categoría">
                             <ItemTemplate>
@@ -32,16 +64,9 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         
-                        <asp:BoundField DataField="precio" HeaderText="Precio" DataFormatString="{0:C2}" />
-                        <asp:BoundField DataField="stock" HeaderText="Stock" />
-
-                        <asp:TemplateField HeaderText="Estado" ItemStyle-CssClass="text-center">
-                            <ItemTemplate>
-                                <span class='badge <%# (bool)Eval("activo") ? "bg-success" : "bg-danger" %>'>
-                                    <%# (bool)Eval("activo") ? "Activo" : "Inactivo" %>
-                                </span>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <%-- Estos campos SÍ existen en su proyecto TA V2 --%>
+                        <asp:BoundField DataField="precioRegular" HeaderText="Precio" DataFormatString="{0:C2}" />
+                        <asp:BoundField DataField="stockDisponible" HeaderText="Stock" />
                         
                         <asp:TemplateField HeaderText="Acciones">
                             <ItemTemplate>
@@ -58,10 +83,23 @@
                                     OnClientClick="return confirm('¿Está seguro de que desea eliminar este producto?');" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                    </Columns>
+                                        </Columns>
+                                        <PagerSettings 
+                            Mode="NumericFirstLast" 
+                            Position="Bottom"
+                            PageButtonCount="5"
+                            FirstPageText="&laquo; Primero"
+                            LastPageText="Último &raquo;"
+                            NextPageText="Siguiente &rsaquo;"
+                            PreviousPageText="&lsaquo; Anterior" />
+        
+                        <PagerStyle 
+                            CssClass="pagination-container" 
+                            HorizontalAlign="Center" />
+
                     <EmptyDataTemplate>
                         <div class="alert alert-info">
-                            No se encontraron productos registrados.
+                            No se encontraron productos para el criterio de búsqueda.
                         </div>
                     </EmptyDataTemplate>
                 </asp:GridView>

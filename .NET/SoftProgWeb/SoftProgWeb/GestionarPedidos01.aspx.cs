@@ -20,13 +20,13 @@ namespace SoftProgWeb
             }
         }
 
-        private void CargarPedidos()
+       private void CargarPedidos()
         {
             try
             {
                 ServicioOrdenCompraWS.ordenCompra[] pedidos = servicioOrdenCompra.listarOrdenCompra();
-
                 gvPedidos.DataSource = pedidos.OrderByDescending(p => p.fechaCreacion).ToList();
+
                 gvPedidos.DataBind();
             }
             catch (System.Exception ex)

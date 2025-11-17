@@ -12,55 +12,69 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="gvPedidos" runat="server"
-                    CssClass="table table-hover table-striped"
-                    AutoGenerateColumns="False"
-                    DataKeyNames="id" 
-                    AllowPaging="True"
-                    PageSize="20"
-                    OnPageIndexChanging="gvPedidos_PageIndexChanging"
-                    OnRowCommand="gvPedidos_RowCommand">
-                    <Columns>
-                        <asp:BoundField DataField="id" HeaderText="N° Pedido" ItemStyle-CssClass="fw-bold" />
-                        
-                        <asp:TemplateField HeaderText="Cliente">
-                            <ItemTemplate>
-                                <%# Eval("cliente.nombre") + " " + Eval("cliente.apellidoPaterno") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        
-                     
-                        <asp:BoundField DataField="fechaCreacion" HeaderText="Fecha de Creación" DataFormatString="{0:dd/MM/yyyy}" />
-                        
-                        
-                        <asp:BoundField DataField="totalFinal" HeaderText="Monto Total" DataFormatString="{0:C2}" />
+<asp:GridView ID="gvPedidos" runat="server"
+    CssClass="table table-hover table-striped"
+    AutoGenerateColumns="False"
+    DataKeyNames="id" 
+    AllowPaging="True"
+    PageSize="15"
+    OnPageIndexChanging="gvPedidos_PageIndexChanging"
+    OnRowCommand="gvPedidos_RowCommand">
+    <Columns>
+        <asp:BoundField DataField="id" HeaderText="N° Pedido" ItemStyle-CssClass="fw-bold" />
+        
+        <%-- CORRECTO: Usar "empresa.razonSocial" del XML --%>
+        <asp:TemplateField HeaderText="Empresa (Razón Social)">
+            <ItemTemplate>
+                <%# Eval("empresa.razonSocial") %>
+            </ItemTemplate>
+        </asp:TemplateField>
+        
+        <%-- 
+            CORRECTO: Usar "fechaCreacion" y añadir "NullDisplayText"
+            para manejar las fechas nulas de sus datos de prueba.
+        --%>
+        <asp:BoundField DataField="fechaCreacion" HeaderText="Fecha de Creación" 
+            DataFormatString="{0:dd/MM/yyyy}" NullDisplayText="-" />
+        
+        <%-- CORRECTO: Usar "totalFinal" del XML --%>
+        <asp:BoundField DataField="totalFinal" HeaderText="Monto Total" DataFormatString="{0:C2}" />
 
-       
-                        
-                        <asp:TemplateField HeaderText="Acciones">
-                            <ItemTemplate>
-                                <asp:Button ID="btnVerDetalle" runat="server" 
-                                    Text="Ver Detalle" 
-                                    CssClass="btn btn-primary btn-sm"
-                                    CommandName="VerDetalle"
-                                    CommandArgument='<%# Eval("id") %>' />
-
-                                <asp:Button ID="btnEliminar" runat="server" 
-                                    Text="Eliminar" 
-                                    CssClass="btn btn-danger btn-sm"
-                                    CommandName="Eliminar"
-                                    CommandArgument='<%# Eval("id") %>'
-                                    OnClientClick="return confirm('¿Está seguro de que desea eliminar este pedido? Esta acción es irreversible.');" />
-
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <EmptyDataTemplate>
-                        <div class="alert alert-info">
-                            No se encontraron pedidos registrados.
-                        </div>
-                    </EmptyDataTemplate>
-                </asp:GridView>
+        <%-- CORRECTO: Usar "estadoString" del XML --%>
+        <asp:TemplateField HeaderText="Estado" ItemStyle-CssClass="text-center">
+            <ItemTemplate>
+                <span class="badge bg-info text-dark"><%# Eval("estadoString") %></span>
+            </ItemTemplate>
+        </asp:TemplateField>
+        
+        <asp:TemplateField HeaderText="Acciones">
+            <ItemTemplate>
+                <asp:Button ID="btnVerDetalle" runat="server" 
+                    Text="Ver Detalle" 
+                    CssClass="btn btn-primary btn-sm"
+                    CommandName="VerDetalle"
+                    CommandArgument='<%# Eval("id") %>' />
+                <asp:Button ID="btnEliminar" runat="server" 
+                    Text="Eliminar" 
+                    CssClass="btn btn-danger btn-sm"
+                    CommandName="Eliminar"
+                    CommandArgument='<%# Eval("id") %>'
+                    OnClientClick="return confirm('¿Está seguro de que desea eliminar este pedido?');" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+    <EmptyDataTemplate>
+        <div class="alert alert-info">
+            No se encontraron pedidos registrados.
+        </div>
+    </EmptyDataTemplate>
+    
+    <PagerSettings Mode="NumericFirstLast" Position="Bottom" PageButtonCount="5"
+        FirstPageText="&laquo; Primero" LastPageText="Último &raquo;"
+        NextPageText="Siguiente &rsaquo;" PreviousPageText="&lsaquo; Anterior" />
+    <PagerStyle CssClass="pagination-container" HorizontalAlign="Center" />
+    
+</asp:GridView>
             </div>
         </div>
     </div>

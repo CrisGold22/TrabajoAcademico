@@ -122,14 +122,6 @@
   <xs:complexType name="validarEmpresaResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarEmpresasActivos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasActivosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarEmpresa">
     <xs:sequence>
       <xs:element minOccurs="0" name="empresa" type="tns:empresa" />
@@ -137,6 +129,14 @@
   </xs:complexType>
   <xs:complexType name="actualizarEmpresaResponse">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerEmpresa">
     <xs:sequence>
@@ -156,6 +156,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarEmpresa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="empresa" type="tns:empresa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarEmpresaResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="listarEmpresasPorCliente">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
@@ -165,14 +173,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarEmpresa">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="empresa" type="tns:empresa" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarEmpresaResponse">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarEmpresasPorClienteActivas">
     <xs:sequence>

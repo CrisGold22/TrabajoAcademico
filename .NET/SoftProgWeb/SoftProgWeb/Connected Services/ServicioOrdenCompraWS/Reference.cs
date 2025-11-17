@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace SoftProgWeb.ServicioOrdenCompraWS {
     
     
@@ -16,14 +18,42 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     public interface OrdenCompraWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenC" +
+            "ompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenC" +
+            "ompraResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse obtenerOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request);
+        SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse consultarPedidoPorFechasOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse> obtenerOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenC" +
+            "ompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenC" +
+            "ompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse> consultarPedidoPorFechasOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOr" +
+            "denCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOr" +
+            "denCompraResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse listarLineasOrdenCompraPorIdOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOr" +
+            "denCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOr" +
+            "denCompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse listarOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse> listarOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request);
         
         // CODEGEN: Parameter 'ordenCompra' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraResponse")]
@@ -44,14 +74,14 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.actualizarOrdenCompraRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse listarOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request);
+        SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse obtenerOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse> listarOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse> obtenerOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request);
         
         // CODEGEN: Parameter 'id' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraResponse")]
@@ -70,6 +100,20 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.eliminarOrdenCompraRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teOrdenCompraResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse consultarOrdenCompraPorIdClienteOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teOrdenCompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse> consultarOrdenCompraPorIdClienteOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest request);
     }
     
     /// <remarks/>
@@ -78,159 +122,14 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public partial class ordenCompra : registro {
+    public partial class date : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private cliente clienteField;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        private double descuentoTotalField;
-        
-        private detalleEnvio detalleEnvioField;
-        
-        private estadoOrdenCompra estadoField;
-        
-        private bool estadoFieldSpecified;
-        
-        private string estadoStringField;
-        
-        private System.DateTime fechaCreacionField;
-        
-        private bool fechaCreacionFieldSpecified;
-        
-        private lineaOrdenCompra[] lineasOrdenField;
-        
-        private double totalFinalField;
-        
-        private double totalParcialField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public cliente cliente {
-            get {
-                return this.clienteField;
-            }
-            set {
-                this.clienteField = value;
-                this.RaisePropertyChanged("cliente");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public double descuentoTotal {
-            get {
-                return this.descuentoTotalField;
-            }
-            set {
-                this.descuentoTotalField = value;
-                this.RaisePropertyChanged("descuentoTotal");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public detalleEnvio detalleEnvio {
-            get {
-                return this.detalleEnvioField;
-            }
-            set {
-                this.detalleEnvioField = value;
-                this.RaisePropertyChanged("detalleEnvio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public estadoOrdenCompra estado {
-            get {
-                return this.estadoField;
-            }
-            set {
-                this.estadoField = value;
-                this.RaisePropertyChanged("estado");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool estadoSpecified {
-            get {
-                return this.estadoFieldSpecified;
-            }
-            set {
-                this.estadoFieldSpecified = value;
-                this.RaisePropertyChanged("estadoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string estadoString {
-            get {
-                return this.estadoStringField;
-            }
-            set {
-                this.estadoStringField = value;
-                this.RaisePropertyChanged("estadoString");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public System.DateTime fechaCreacion {
-            get {
-                return this.fechaCreacionField;
-            }
-            set {
-                this.fechaCreacionField = value;
-                this.RaisePropertyChanged("fechaCreacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaCreacionSpecified {
-            get {
-                return this.fechaCreacionFieldSpecified;
-            }
-            set {
-                this.fechaCreacionFieldSpecified = value;
-                this.RaisePropertyChanged("fechaCreacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lineasOrden", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=6)]
-        public lineaOrdenCompra[] lineasOrden {
-            get {
-                return this.lineasOrdenField;
-            }
-            set {
-                this.lineasOrdenField = value;
-                this.RaisePropertyChanged("lineasOrden");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public double totalFinal {
-            get {
-                return this.totalFinalField;
-            }
-            set {
-                this.totalFinalField = value;
-                this.RaisePropertyChanged("totalFinal");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public double totalParcial {
-            get {
-                return this.totalParcialField;
-            }
-            set {
-                this.totalParcialField = value;
-                this.RaisePropertyChanged("totalParcial");
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -241,292 +140,32 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public partial class cliente : persona {
+    public partial class localDate : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private categoriaCliente categoriaField;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        private bool categoriaFieldSpecified;
-        
-        private string categoriaClienteField;
-        
-        private double lineaCreditoField;
-        
-        private int numeroPedidosHistoricoField;
-        
-        private int numeroPedidosMensualProField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public categoriaCliente categoria {
-            get {
-                return this.categoriaField;
-            }
-            set {
-                this.categoriaField = value;
-                this.RaisePropertyChanged("categoria");
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool categoriaSpecified {
-            get {
-                return this.categoriaFieldSpecified;
-            }
-            set {
-                this.categoriaFieldSpecified = value;
-                this.RaisePropertyChanged("categoriaSpecified");
-            }
+
+        internal string ToString(string v)
+        {
+            throw new NotImplementedException();
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string categoriaCliente {
-            get {
-                return this.categoriaClienteField;
-            }
-            set {
-                this.categoriaClienteField = value;
-                this.RaisePropertyChanged("categoriaCliente");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public double lineaCredito {
-            get {
-                return this.lineaCreditoField;
-            }
-            set {
-                this.lineaCreditoField = value;
-                this.RaisePropertyChanged("lineaCredito");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int numeroPedidosHistorico {
-            get {
-                return this.numeroPedidosHistoricoField;
-            }
-            set {
-                this.numeroPedidosHistoricoField = value;
-                this.RaisePropertyChanged("numeroPedidosHistorico");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public int numeroPedidosMensualPro {
-            get {
-                return this.numeroPedidosMensualProField;
-            }
-            set {
-                this.numeroPedidosMensualProField = value;
-                this.RaisePropertyChanged("numeroPedidosMensualPro");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public enum categoriaCliente {
-        
-        /// <remarks/>
-        DISTRIBUIDOR,
-        
-        /// <remarks/>
-        REVENDEDOR,
-        
-        /// <remarks/>
-        RESTAURANTE,
-        
-        /// <remarks/>
-        HOTEL,
-        
-        /// <remarks/>
-        CATERING,
-        
-        /// <remarks/>
-        GOBIERNO,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public partial class persona : registro {
-        
-        private string apellidoMaternoField;
-        
-        private string apellidoPaternoField;
-        
-        private string dniField;
-        
-        private System.DateTime fechaNacimientoField;
-        
-        private bool fechaNacimientoFieldSpecified;
-        
-        private genero generoField;
-        
-        private bool generoFieldSpecified;
-        
-        private string generoStringField;
-        
-        private string nombreField;
-        
-        private int telefonoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string apellidoMaterno {
-            get {
-                return this.apellidoMaternoField;
-            }
-            set {
-                this.apellidoMaternoField = value;
-                this.RaisePropertyChanged("apellidoMaterno");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string apellidoPaterno {
-            get {
-                return this.apellidoPaternoField;
-            }
-            set {
-                this.apellidoPaternoField = value;
-                this.RaisePropertyChanged("apellidoPaterno");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string dni {
-            get {
-                return this.dniField;
-            }
-            set {
-                this.dniField = value;
-                this.RaisePropertyChanged("dni");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public System.DateTime fechaNacimiento {
-            get {
-                return this.fechaNacimientoField;
-            }
-            set {
-                this.fechaNacimientoField = value;
-                this.RaisePropertyChanged("fechaNacimiento");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaNacimientoSpecified {
-            get {
-                return this.fechaNacimientoFieldSpecified;
-            }
-            set {
-                this.fechaNacimientoFieldSpecified = value;
-                this.RaisePropertyChanged("fechaNacimientoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public genero genero {
-            get {
-                return this.generoField;
-            }
-            set {
-                this.generoField = value;
-                this.RaisePropertyChanged("genero");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool generoSpecified {
-            get {
-                return this.generoFieldSpecified;
-            }
-            set {
-                this.generoFieldSpecified = value;
-                this.RaisePropertyChanged("generoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string generoString {
-            get {
-                return this.generoStringField;
-            }
-            set {
-                this.generoStringField = value;
-                this.RaisePropertyChanged("generoString");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public int telefono {
-            get {
-                return this.telefonoField;
-            }
-            set {
-                this.telefonoField = value;
-                this.RaisePropertyChanged("telefono");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public enum genero {
-        
-        /// <remarks/>
-        HOMBRE,
-        
-        /// <remarks/>
-        MUJER,
-        
-        /// <remarks/>
-        NO_ESPECIFICADO,
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(categoriaProducto))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(producto))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(carritoCompras))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(lineaOrdenCompra))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(detalleEnvio))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empresa))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cuentaUsuario))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(persona))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(carritoCompras))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ordenCompra))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
     [System.SerializableAttribute()]
@@ -634,15 +273,13 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         
         private double precioAlMayorField;
         
-        private double precioUnitarioField;
+        private double precioRegularField;
         
         private string sKUField;
         
         private int stockDisponibleField;
         
         private int stockMaximoField;
-        
-        private int stockMinimoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -742,13 +379,13 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public double precioUnitario {
+        public double precioRegular {
             get {
-                return this.precioUnitarioField;
+                return this.precioRegularField;
             }
             set {
-                this.precioUnitarioField = value;
-                this.RaisePropertyChanged("precioUnitario");
+                this.precioRegularField = value;
+                this.RaisePropertyChanged("precioRegular");
             }
         }
         
@@ -787,18 +424,6 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
                 this.RaisePropertyChanged("stockMaximo");
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
-        public int stockMinimo {
-            get {
-                return this.stockMinimoField;
-            }
-            set {
-                this.stockMinimoField = value;
-                this.RaisePropertyChanged("stockMinimo");
-            }
-        }
     }
     
     /// <remarks/>
@@ -830,6 +455,251 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         
         /// <remarks/>
         PACK,
+        
+        /// <remarks/>
+        UNIDAD,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public partial class lineaOrdenCompra : registro {
+        
+        private int cantidadField;
+        
+        private ordenCompra ordenCompraField;
+        
+        private double precioField;
+        
+        private producto productoField;
+        
+        private double subTotalField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                this.cantidadField = value;
+                this.RaisePropertyChanged("cantidad");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public ordenCompra ordenCompra {
+            get {
+                return this.ordenCompraField;
+            }
+            set {
+                this.ordenCompraField = value;
+                this.RaisePropertyChanged("ordenCompra");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public double precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                this.precioField = value;
+                this.RaisePropertyChanged("precio");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public producto producto {
+            get {
+                return this.productoField;
+            }
+            set {
+                this.productoField = value;
+                this.RaisePropertyChanged("producto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double subTotal {
+            get {
+                return this.subTotalField;
+            }
+            set {
+                this.subTotalField = value;
+                this.RaisePropertyChanged("subTotal");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public partial class ordenCompra : registro {
+        
+        private carritoCompras carritoComprasField;
+        
+        private cliente clienteField;
+        
+        private double descuentoTotalField;
+        
+        private empresa empresaField;
+        
+        private estadoOrdenCompra estadoField;
+        
+        private bool estadoFieldSpecified;
+        
+        private string estadoStringField;
+        
+        private localDate fechaCreacionField;
+        
+        private lineaOrdenCompra[] lineasOrdenField;
+        
+        private double totalFinalField;
+        
+        private double totalParcialField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public carritoCompras carritoCompras {
+            get {
+                return this.carritoComprasField;
+            }
+            set {
+                this.carritoComprasField = value;
+                this.RaisePropertyChanged("carritoCompras");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public cliente cliente {
+            get {
+                return this.clienteField;
+            }
+            set {
+                this.clienteField = value;
+                this.RaisePropertyChanged("cliente");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public double descuentoTotal {
+            get {
+                return this.descuentoTotalField;
+            }
+            set {
+                this.descuentoTotalField = value;
+                this.RaisePropertyChanged("descuentoTotal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public empresa empresa {
+            get {
+                return this.empresaField;
+            }
+            set {
+                this.empresaField = value;
+                this.RaisePropertyChanged("empresa");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public estadoOrdenCompra estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                this.estadoField = value;
+                this.RaisePropertyChanged("estado");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estadoSpecified {
+            get {
+                return this.estadoFieldSpecified;
+            }
+            set {
+                this.estadoFieldSpecified = value;
+                this.RaisePropertyChanged("estadoSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string estadoString {
+            get {
+                return this.estadoStringField;
+            }
+            set {
+                this.estadoStringField = value;
+                this.RaisePropertyChanged("estadoString");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public localDate fechaCreacion {
+            get {
+                return this.fechaCreacionField;
+            }
+            set {
+                this.fechaCreacionField = value;
+                this.RaisePropertyChanged("fechaCreacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("lineasOrden", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+        public lineaOrdenCompra[] lineasOrden {
+            get {
+                return this.lineasOrdenField;
+            }
+            set {
+                this.lineasOrdenField = value;
+                this.RaisePropertyChanged("lineasOrden");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public double totalFinal {
+            get {
+                return this.totalFinalField;
+            }
+            set {
+                this.totalFinalField = value;
+                this.RaisePropertyChanged("totalFinal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public double totalParcial {
+            get {
+                return this.totalParcialField;
+            }
+            set {
+                this.totalParcialField = value;
+                this.RaisePropertyChanged("totalParcial");
+            }
+        }
     }
     
     /// <remarks/>
@@ -842,15 +712,17 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         
         private cliente clienteField;
         
+        private double descuentoField;
+        
         private estadoCarrito estadoField;
         
         private bool estadoFieldSpecified;
         
         private string estadoStringField;
         
-        private double totalConDescuentoField;
+        private double montoFinalField;
         
-        private double totalParcialField;
+        private double subtotalField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -866,6 +738,18 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public double descuento {
+            get {
+                return this.descuentoField;
+            }
+            set {
+                this.descuentoField = value;
+                this.RaisePropertyChanged("descuento");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public estadoCarrito estado {
             get {
                 return this.estadoField;
@@ -889,7 +773,7 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public string estadoString {
             get {
                 return this.estadoStringField;
@@ -901,28 +785,349 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public double totalConDescuento {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double montoFinal {
             get {
-                return this.totalConDescuentoField;
+                return this.montoFinalField;
             }
             set {
-                this.totalConDescuentoField = value;
-                this.RaisePropertyChanged("totalConDescuento");
+                this.montoFinalField = value;
+                this.RaisePropertyChanged("montoFinal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public double subtotal {
+            get {
+                return this.subtotalField;
+            }
+            set {
+                this.subtotalField = value;
+                this.RaisePropertyChanged("subtotal");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public partial class cliente : persona {
+        
+        private categoriaCliente categoriaField;
+        
+        private bool categoriaFieldSpecified;
+        
+        private string categoriaClienteField;
+        
+        private cuentaUsuario cuentaField;
+        
+        private double lineaCreditoField;
+        
+        private int numeroPedidosHistoricoField;
+        
+        private int numeroPedidosMensualProField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public categoriaCliente categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                this.categoriaField = value;
+                this.RaisePropertyChanged("categoria");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool categoriaSpecified {
+            get {
+                return this.categoriaFieldSpecified;
+            }
+            set {
+                this.categoriaFieldSpecified = value;
+                this.RaisePropertyChanged("categoriaSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string categoriaCliente {
+            get {
+                return this.categoriaClienteField;
+            }
+            set {
+                this.categoriaClienteField = value;
+                this.RaisePropertyChanged("categoriaCliente");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public cuentaUsuario cuenta {
+            get {
+                return this.cuentaField;
+            }
+            set {
+                this.cuentaField = value;
+                this.RaisePropertyChanged("cuenta");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public double lineaCredito {
+            get {
+                return this.lineaCreditoField;
+            }
+            set {
+                this.lineaCreditoField = value;
+                this.RaisePropertyChanged("lineaCredito");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double totalParcial {
+        public int numeroPedidosHistorico {
             get {
-                return this.totalParcialField;
+                return this.numeroPedidosHistoricoField;
             }
             set {
-                this.totalParcialField = value;
-                this.RaisePropertyChanged("totalParcial");
+                this.numeroPedidosHistoricoField = value;
+                this.RaisePropertyChanged("numeroPedidosHistorico");
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public int numeroPedidosMensualPro {
+            get {
+                return this.numeroPedidosMensualProField;
+            }
+            set {
+                this.numeroPedidosMensualProField = value;
+                this.RaisePropertyChanged("numeroPedidosMensualPro");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public enum categoriaCliente {
+        
+        /// <remarks/>
+        DISTRIBUIDOR,
+        
+        /// <remarks/>
+        REVENDEDOR,
+        
+        /// <remarks/>
+        RESTAURANTE,
+        
+        /// <remarks/>
+        HOTEL,
+        
+        /// <remarks/>
+        CATERING,
+        
+        /// <remarks/>
+        GOBIERNO,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public partial class cuentaUsuario : registro {
+        
+        private string passwordField;
+        
+        private string usernameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+                this.RaisePropertyChanged("password");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                this.usernameField = value;
+                this.RaisePropertyChanged("username");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(cliente))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public partial class persona : registro {
+        
+        private string apellidoMaternoField;
+        
+        private string apellidoPaternoField;
+        
+        private string dniField;
+        
+        private localDate fechaNacimientoField;
+        
+        private genero generoField;
+        
+        private bool generoFieldSpecified;
+        
+        private string generoStringField;
+        
+        private string nombreField;
+        
+        private int telefonoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string apellidoMaterno {
+            get {
+                return this.apellidoMaternoField;
+            }
+            set {
+                this.apellidoMaternoField = value;
+                this.RaisePropertyChanged("apellidoMaterno");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string apellidoPaterno {
+            get {
+                return this.apellidoPaternoField;
+            }
+            set {
+                this.apellidoPaternoField = value;
+                this.RaisePropertyChanged("apellidoPaterno");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string dni {
+            get {
+                return this.dniField;
+            }
+            set {
+                this.dniField = value;
+                this.RaisePropertyChanged("dni");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public localDate fechaNacimiento {
+            get {
+                return this.fechaNacimientoField;
+            }
+            set {
+                this.fechaNacimientoField = value;
+                this.RaisePropertyChanged("fechaNacimiento");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public genero genero {
+            get {
+                return this.generoField;
+            }
+            set {
+                this.generoField = value;
+                this.RaisePropertyChanged("genero");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool generoSpecified {
+            get {
+                return this.generoFieldSpecified;
+            }
+            set {
+                this.generoFieldSpecified = value;
+                this.RaisePropertyChanged("generoSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string generoString {
+            get {
+                return this.generoStringField;
+            }
+            set {
+                this.generoStringField = value;
+                this.RaisePropertyChanged("generoString");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public int telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
+    public enum genero {
+        
+        /// <remarks/>
+        MASCULINO,
+        
+        /// <remarks/>
+        FEMENINO,
+        
+        /// <remarks/>
+        NO_ESPECIFICADO,
     }
     
     /// <remarks/>
@@ -965,174 +1170,79 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public partial class lineaOrdenCompra : registro {
+    public partial class empresa : registro {
         
-        private int cantidadField;
+        private cliente clienteField;
         
-        private carritoCompras carritoComprasField;
+        private string codigoPostalField;
         
-        private int codigoField;
+        private string departamentoField;
         
-        private double montoPagadoField;
+        private string direccionFiscalField;
         
-        private ordenCompra ordenCompraField;
+        private string distritoField;
         
-        private double precioUnitarioField;
+        private string emailField;
         
-        private producto productoField;
+        private string provinciaField;
         
-        private double subTotalField;
+        private string rUCField;
+        
+        private string razonSocialField;
+        
+        private string telefonoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int cantidad {
+        public cliente cliente {
             get {
-                return this.cantidadField;
+                return this.clienteField;
             }
             set {
-                this.cantidadField = value;
-                this.RaisePropertyChanged("cantidad");
+                this.clienteField = value;
+                this.RaisePropertyChanged("cliente");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public carritoCompras carritoCompras {
+        public string codigoPostal {
             get {
-                return this.carritoComprasField;
+                return this.codigoPostalField;
             }
             set {
-                this.carritoComprasField = value;
-                this.RaisePropertyChanged("carritoCompras");
+                this.codigoPostalField = value;
+                this.RaisePropertyChanged("codigoPostal");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int codigo {
+        public string departamento {
             get {
-                return this.codigoField;
+                return this.departamentoField;
             }
             set {
-                this.codigoField = value;
-                this.RaisePropertyChanged("codigo");
+                this.departamentoField = value;
+                this.RaisePropertyChanged("departamento");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public double montoPagado {
+        public string direccionFiscal {
             get {
-                return this.montoPagadoField;
+                return this.direccionFiscalField;
             }
             set {
-                this.montoPagadoField = value;
-                this.RaisePropertyChanged("montoPagado");
+                this.direccionFiscalField = value;
+                this.RaisePropertyChanged("direccionFiscal");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public ordenCompra ordenCompra {
-            get {
-                return this.ordenCompraField;
-            }
-            set {
-                this.ordenCompraField = value;
-                this.RaisePropertyChanged("ordenCompra");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public double precioUnitario {
-            get {
-                return this.precioUnitarioField;
-            }
-            set {
-                this.precioUnitarioField = value;
-                this.RaisePropertyChanged("precioUnitario");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public producto producto {
-            get {
-                return this.productoField;
-            }
-            set {
-                this.productoField = value;
-                this.RaisePropertyChanged("producto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public double subTotal {
-            get {
-                return this.subTotalField;
-            }
-            set {
-                this.subTotalField = value;
-                this.RaisePropertyChanged("subTotal");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public partial class detalleEnvio : registro {
-        
-        private string descripcionField;
-        
-        private string direccionField;
-        
-        private distrito distritoField;
-        
-        private bool distritoFieldSpecified;
-        
-        private string distritoStringField;
-        
-        private System.DateTime fechaEntregaField;
-        
-        private bool fechaEntregaFieldSpecified;
-        
-        private System.DateTime horarioEntregaField;
-        
-        private bool horarioEntregaFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string descripcion {
-            get {
-                return this.descripcionField;
-            }
-            set {
-                this.descripcionField = value;
-                this.RaisePropertyChanged("descripcion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string direccion {
-            get {
-                return this.direccionField;
-            }
-            set {
-                this.direccionField = value;
-                this.RaisePropertyChanged("direccion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public distrito distrito {
+        public string distrito {
             get {
                 return this.distritoField;
             }
@@ -1143,104 +1253,64 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool distritoSpecified {
-            get {
-                return this.distritoFieldSpecified;
-            }
-            set {
-                this.distritoFieldSpecified = value;
-                this.RaisePropertyChanged("distritoSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string distritoString {
-            get {
-                return this.distritoStringField;
-            }
-            set {
-                this.distritoStringField = value;
-                this.RaisePropertyChanged("distritoString");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public System.DateTime fechaEntrega {
-            get {
-                return this.fechaEntregaField;
-            }
-            set {
-                this.fechaEntregaField = value;
-                this.RaisePropertyChanged("fechaEntrega");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaEntregaSpecified {
-            get {
-                return this.fechaEntregaFieldSpecified;
-            }
-            set {
-                this.fechaEntregaFieldSpecified = value;
-                this.RaisePropertyChanged("fechaEntregaSpecified");
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public System.DateTime horarioEntrega {
+        public string email {
             get {
-                return this.horarioEntregaField;
+                return this.emailField;
             }
             set {
-                this.horarioEntregaField = value;
-                this.RaisePropertyChanged("horarioEntrega");
+                this.emailField = value;
+                this.RaisePropertyChanged("email");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool horarioEntregaSpecified {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string provincia {
             get {
-                return this.horarioEntregaFieldSpecified;
+                return this.provinciaField;
             }
             set {
-                this.horarioEntregaFieldSpecified = value;
-                this.RaisePropertyChanged("horarioEntregaSpecified");
+                this.provinciaField = value;
+                this.RaisePropertyChanged("provincia");
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.softprog.pucp.edu.pe/")]
-    public enum distrito {
         
         /// <remarks/>
-        PUEBLO_LIBRE,
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string RUC {
+            get {
+                return this.rUCField;
+            }
+            set {
+                this.rUCField = value;
+                this.RaisePropertyChanged("RUC");
+            }
+        }
         
         /// <remarks/>
-        SAN_MIGUEL,
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string razonSocial {
+            get {
+                return this.razonSocialField;
+            }
+            set {
+                this.razonSocialField = value;
+                this.RaisePropertyChanged("razonSocial");
+            }
+        }
         
         /// <remarks/>
-        SAN_BORJA,
-        
-        /// <remarks/>
-        SAN_LUIS,
-        
-        /// <remarks/>
-        LINCE,
-        
-        /// <remarks/>
-        CALLAO,
-        
-        /// <remarks/>
-        LA_VICTORIA,
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
     }
     
     /// <remarks/>
@@ -1274,17 +1344,63 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerOrdenCompraRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarPedidoPorFechasOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class consultarPedidoPorFechasOrdenCompraRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id;
         
-        public obtenerOrdenCompraRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.date fecha1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.date fecha2;
+        
+        public consultarPedidoPorFechasOrdenCompraRequest() {
         }
         
-        public obtenerOrdenCompraRequest(int id) {
+        public consultarPedidoPorFechasOrdenCompraRequest(int id, SoftProgWeb.ServicioOrdenCompraWS.date fecha1, SoftProgWeb.ServicioOrdenCompraWS.date fecha2) {
+            this.id = id;
+            this.fecha1 = fecha1;
+            this.fecha2 = fecha2;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarPedidoPorFechasOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class consultarPedidoPorFechasOrdenCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return;
+        
+        public consultarPedidoPorFechasOrdenCompraResponse() {
+        }
+        
+        public consultarPedidoPorFechasOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasOrdenCompraPorIdOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasOrdenCompraPorIdOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public listarLineasOrdenCompraPorIdOrdenCompraRequest() {
+        }
+        
+        public listarLineasOrdenCompraPorIdOrdenCompraRequest(int id) {
             this.id = id;
         }
     }
@@ -1292,17 +1408,45 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerOrdenCompraResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasOrdenCompraPorIdOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasOrdenCompraPorIdOrdenCompraResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.lineaOrdenCompra[] @return;
         
-        public obtenerOrdenCompraResponse() {
+        public listarLineasOrdenCompraPorIdOrdenCompraResponse() {
         }
         
-        public obtenerOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.ordenCompra @return) {
+        public listarLineasOrdenCompraPorIdOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.lineaOrdenCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenCompraRequest {
+        
+        public listarOrdenCompraRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return;
+        
+        public listarOrdenCompraResponse() {
+        }
+        
+        public listarOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return) {
             this.@return = @return;
         }
     }
@@ -1366,27 +1510,35 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenCompraRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerOrdenCompraRequest {
         
-        public listarOrdenCompraRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public obtenerOrdenCompraRequest() {
+        }
+        
+        public obtenerOrdenCompraRequest(int id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenCompraResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerOrdenCompraResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra @return;
         
-        public listarOrdenCompraResponse() {
+        public obtenerOrdenCompraResponse() {
         }
         
-        public listarOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return) {
+        public obtenerOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.ordenCompra @return) {
             this.@return = @return;
         }
     }
@@ -1447,6 +1599,42 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarOrdenCompraPorIdClienteOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class consultarOrdenCompraPorIdClienteOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public consultarOrdenCompraPorIdClienteOrdenCompraRequest() {
+        }
+        
+        public consultarOrdenCompraPorIdClienteOrdenCompraRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarOrdenCompraPorIdClienteOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class consultarOrdenCompraPorIdClienteOrdenCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return;
+        
+        public consultarOrdenCompraPorIdClienteOrdenCompraResponse() {
+        }
+        
+        public consultarOrdenCompraPorIdClienteOrdenCompraResponse(SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface OrdenCompraWSChannel : SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS, System.ServiceModel.IClientChannel {
     }
@@ -1475,26 +1663,74 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.obtenerOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request) {
-            return base.Channel.obtenerOrdenCompra(request);
+        SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.consultarPedidoPorFechasOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest request) {
+            return base.Channel.consultarPedidoPorFechasOrdenCompra(request);
         }
         
-        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra obtenerOrdenCompra(int id) {
-            SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest();
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] consultarPedidoPorFechasOrdenCompra(int id, SoftProgWeb.ServicioOrdenCompraWS.date fecha1, SoftProgWeb.ServicioOrdenCompraWS.date fecha2) {
+            SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest();
             inValue.id = id;
-            SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).obtenerOrdenCompra(inValue);
+            inValue.fecha1 = fecha1;
+            inValue.fecha2 = fecha2;
+            SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).consultarPedidoPorFechasOrdenCompra(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.obtenerOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request) {
-            return base.Channel.obtenerOrdenCompraAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.consultarPedidoPorFechasOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest request) {
+            return base.Channel.consultarPedidoPorFechasOrdenCompraAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse> obtenerOrdenCompraAsync(int id) {
-            SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest();
+        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse> consultarPedidoPorFechasOrdenCompraAsync(int id, SoftProgWeb.ServicioOrdenCompraWS.date fecha1, SoftProgWeb.ServicioOrdenCompraWS.date fecha2) {
+            SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraRequest();
             inValue.id = id;
-            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).obtenerOrdenCompraAsync(inValue);
+            inValue.fecha1 = fecha1;
+            inValue.fecha2 = fecha2;
+            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).consultarPedidoPorFechasOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request) {
+            return base.Channel.listarLineasOrdenCompraPorIdOrdenCompra(request);
+        }
+        
+        public SoftProgWeb.ServicioOrdenCompraWS.lineaOrdenCompra[] listarLineasOrdenCompraPorIdOrdenCompra(int id) {
+            SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
+            inValue.id = id;
+            SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).listarLineasOrdenCompraPorIdOrdenCompra(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request) {
+            return base.Channel.listarLineasOrdenCompraPorIdOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(int id) {
+            SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).listarLineasOrdenCompraPorIdOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.listarOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request) {
+            return base.Channel.listarOrdenCompra(request);
+        }
+        
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] listarOrdenCompra() {
+            SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest();
+            SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).listarOrdenCompra(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.listarOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request) {
+            return base.Channel.listarOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse> listarOrdenCompraAsync() {
+            SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest();
+            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).listarOrdenCompraAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1542,24 +1778,26 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.listarOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request) {
-            return base.Channel.listarOrdenCompra(request);
+        SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.obtenerOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request) {
+            return base.Channel.obtenerOrdenCompra(request);
         }
         
-        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] listarOrdenCompra() {
-            SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest();
-            SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).listarOrdenCompra(inValue);
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra obtenerOrdenCompra(int id) {
+            SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest();
+            inValue.id = id;
+            SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).obtenerOrdenCompra(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.listarOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest request) {
-            return base.Channel.listarOrdenCompraAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.obtenerOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest request) {
+            return base.Channel.obtenerOrdenCompraAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse> listarOrdenCompraAsync() {
-            SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraRequest();
-            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).listarOrdenCompraAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse> obtenerOrdenCompraAsync(int id) {
+            SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).obtenerOrdenCompraAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1604,6 +1842,29 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
             SoftProgWeb.ServicioOrdenCompraWS.eliminarOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.eliminarOrdenCompraRequest();
             inValue.id = id;
             return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).eliminarOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompra(SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest request) {
+            return base.Channel.consultarOrdenCompraPorIdClienteOrdenCompra(request);
+        }
+        
+        public SoftProgWeb.ServicioOrdenCompraWS.ordenCompra[] consultarOrdenCompraPorIdClienteOrdenCompra(int id) {
+            SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest();
+            inValue.id = id;
+            SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse retVal = ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).consultarOrdenCompraPorIdClienteOrdenCompra(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse> SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraAsync(SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest request) {
+            return base.Channel.consultarOrdenCompraPorIdClienteOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse> consultarOrdenCompraPorIdClienteOrdenCompraAsync(int id) {
+            SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest inValue = new SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.ServicioOrdenCompraWS.OrdenCompraWS)(this)).consultarOrdenCompraPorIdClienteOrdenCompraAsync(inValue);
         }
     }
 }
