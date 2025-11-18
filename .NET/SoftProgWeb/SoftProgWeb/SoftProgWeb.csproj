@@ -711,9 +711,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorMarcaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -844,6 +841,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ObtenerLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioRegularResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />

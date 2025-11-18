@@ -5,41 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/OrdenCompraWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="consultarPedidoPorFechasOrdenCompra">
-    <part name="parameters" element="tns:consultarPedidoPorFechasOrdenCompra" />
-  </message>
-  <message name="consultarPedidoPorFechasOrdenCompraResponse">
-    <part name="parameters" element="tns:consultarPedidoPorFechasOrdenCompraResponse" />
-  </message>
-  <message name="listarLineasOrdenCompraPorIdOrdenCompra">
-    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
-  </message>
-  <message name="listarLineasOrdenCompraPorIdOrdenCompraResponse">
-    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
-  </message>
   <message name="listarOrdenCompra">
     <part name="parameters" element="tns:listarOrdenCompra" />
   </message>
   <message name="listarOrdenCompraResponse">
     <part name="parameters" element="tns:listarOrdenCompraResponse" />
-  </message>
-  <message name="insertarOrdenCompra">
-    <part name="parameters" element="tns:insertarOrdenCompra" />
-  </message>
-  <message name="insertarOrdenCompraResponse">
-    <part name="parameters" element="tns:insertarOrdenCompraResponse" />
-  </message>
-  <message name="actualizarOrdenCompra">
-    <part name="parameters" element="tns:actualizarOrdenCompra" />
-  </message>
-  <message name="actualizarOrdenCompraResponse">
-    <part name="parameters" element="tns:actualizarOrdenCompraResponse" />
-  </message>
-  <message name="obtenerOrdenCompra">
-    <part name="parameters" element="tns:obtenerOrdenCompra" />
-  </message>
-  <message name="obtenerOrdenCompraResponse">
-    <part name="parameters" element="tns:obtenerOrdenCompraResponse" />
   </message>
   <message name="desactivarOrdenCompra">
     <part name="parameters" element="tns:desactivarOrdenCompra" />
@@ -47,11 +17,29 @@
   <message name="desactivarOrdenCompraResponse">
     <part name="parameters" element="tns:desactivarOrdenCompraResponse" />
   </message>
+  <message name="consultarPedidoPorFechasOrdenCompra">
+    <part name="parameters" element="tns:consultarPedidoPorFechasOrdenCompra" />
+  </message>
+  <message name="consultarPedidoPorFechasOrdenCompraResponse">
+    <part name="parameters" element="tns:consultarPedidoPorFechasOrdenCompraResponse" />
+  </message>
+  <message name="insertarOrdenCompra">
+    <part name="parameters" element="tns:insertarOrdenCompra" />
+  </message>
+  <message name="insertarOrdenCompraResponse">
+    <part name="parameters" element="tns:insertarOrdenCompraResponse" />
+  </message>
   <message name="eliminarOrdenCompra">
     <part name="parameters" element="tns:eliminarOrdenCompra" />
   </message>
   <message name="eliminarOrdenCompraResponse">
     <part name="parameters" element="tns:eliminarOrdenCompraResponse" />
+  </message>
+  <message name="actualizarOrdenCompra">
+    <part name="parameters" element="tns:actualizarOrdenCompra" />
+  </message>
+  <message name="actualizarOrdenCompraResponse">
+    <part name="parameters" element="tns:actualizarOrdenCompraResponse" />
   </message>
   <message name="consultarOrdenCompraPorIdClienteOrdenCompra">
     <part name="parameters" element="tns:consultarOrdenCompraPorIdClienteOrdenCompra" />
@@ -59,92 +47,59 @@
   <message name="consultarOrdenCompraPorIdClienteOrdenCompraResponse">
     <part name="parameters" element="tns:consultarOrdenCompraPorIdClienteOrdenCompraResponse" />
   </message>
+  <message name="listarLineasOrdenCompraPorIdOrdenCompra">
+    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
+  </message>
+  <message name="listarLineasOrdenCompraPorIdOrdenCompraResponse">
+    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
+  </message>
+  <message name="obtenerOrdenCompra">
+    <part name="parameters" element="tns:obtenerOrdenCompra" />
+  </message>
+  <message name="obtenerOrdenCompraResponse">
+    <part name="parameters" element="tns:obtenerOrdenCompraResponse" />
+  </message>
   <portType name="OrdenCompraWS">
-    <operation name="consultarPedidoPorFechasOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenCompraRequest" message="tns:consultarPedidoPorFechasOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenCompraResponse" message="tns:consultarPedidoPorFechasOrdenCompraResponse" />
-    </operation>
-    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraRequest" message="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraResponse" message="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
-    </operation>
     <operation name="listarOrdenCompra">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest" message="tns:listarOrdenCompra" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse" message="tns:listarOrdenCompraResponse" />
-    </operation>
-    <operation name="insertarOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraRequest" message="tns:insertarOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraResponse" message="tns:insertarOrdenCompraResponse" />
-    </operation>
-    <operation name="actualizarOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraRequest" message="tns:actualizarOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraResponse" message="tns:actualizarOrdenCompraResponse" />
-    </operation>
-    <operation name="obtenerOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest" message="tns:obtenerOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse" message="tns:obtenerOrdenCompraResponse" />
     </operation>
     <operation name="desactivarOrdenCompra">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraRequest" message="tns:desactivarOrdenCompra" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraResponse" message="tns:desactivarOrdenCompraResponse" />
     </operation>
+    <operation name="consultarPedidoPorFechasOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenCompraRequest" message="tns:consultarPedidoPorFechasOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasOrdenCompraResponse" message="tns:consultarPedidoPorFechasOrdenCompraResponse" />
+    </operation>
+    <operation name="insertarOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraRequest" message="tns:insertarOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraResponse" message="tns:insertarOrdenCompraResponse" />
+    </operation>
     <operation name="eliminarOrdenCompra">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest" message="tns:eliminarOrdenCompra" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse" message="tns:eliminarOrdenCompraResponse" />
+    </operation>
+    <operation name="actualizarOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraRequest" message="tns:actualizarOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraResponse" message="tns:actualizarOrdenCompraResponse" />
     </operation>
     <operation name="consultarOrdenCompraPorIdClienteOrdenCompra">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClienteOrdenCompraRequest" message="tns:consultarOrdenCompraPorIdClienteOrdenCompra" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClienteOrdenCompraResponse" message="tns:consultarOrdenCompraPorIdClienteOrdenCompraResponse" />
     </operation>
+    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraRequest" message="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraResponse" message="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
+    </operation>
+    <operation name="obtenerOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest" message="tns:obtenerOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse" message="tns:obtenerOrdenCompraResponse" />
+    </operation>
   </portType>
   <binding name="OrdenCompraWSPortBinding" type="tns:OrdenCompraWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="consultarPedidoPorFechasOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="actualizarOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerOrdenCompra">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -162,6 +117,24 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="consultarPedidoPorFechasOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarOrdenCompra">
       <soap:operation soapAction="" />
       <input>
@@ -171,7 +144,34 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="actualizarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="consultarOrdenCompraPorIdClienteOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerOrdenCompra">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

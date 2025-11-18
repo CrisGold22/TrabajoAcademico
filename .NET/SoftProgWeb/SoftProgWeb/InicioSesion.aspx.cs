@@ -14,7 +14,7 @@ namespace SoftProgWeb
         {
             if (!IsPostBack)
             {
-                
+
             }
         }
 
@@ -39,6 +39,7 @@ namespace SoftProgWeb
                 return;
             }
 
+
             ClienteWSClient clienteWS = new ClienteWSClient();
             var clientes = clienteWS.listarCliente();
 
@@ -52,5 +53,7 @@ namespace SoftProgWeb
                 return;
             }
         }
+
+
     }
 }

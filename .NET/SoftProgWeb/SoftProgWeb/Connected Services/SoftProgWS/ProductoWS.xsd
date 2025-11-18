@@ -12,8 +12,10 @@
   <xs:element name="listarfiltrarProductoPorDescuentoResponse" type="tns:listarfiltrarProductoPorDescuentoResponse" />
   <xs:element name="listarfiltrarProductoPorMarca" type="tns:listarfiltrarProductoPorMarca" />
   <xs:element name="listarfiltrarProductoPorMarcaResponse" type="tns:listarfiltrarProductoPorMarcaResponse" />
-  <xs:element name="listarfiltrarProductoPorPrecio" type="tns:listarfiltrarProductoPorPrecio" />
-  <xs:element name="listarfiltrarProductoPorPrecioResponse" type="tns:listarfiltrarProductoPorPrecioResponse" />
+  <xs:element name="listarfiltrarProductoPorPrecioAlMayor" type="tns:listarfiltrarProductoPorPrecioAlMayor" />
+  <xs:element name="listarfiltrarProductoPorPrecioAlMayorResponse" type="tns:listarfiltrarProductoPorPrecioAlMayorResponse" />
+  <xs:element name="listarfiltrarProductoPorPrecioRegular" type="tns:listarfiltrarProductoPorPrecioRegular" />
+  <xs:element name="listarfiltrarProductoPorPrecioRegularResponse" type="tns:listarfiltrarProductoPorPrecioRegularResponse" />
   <xs:element name="obtenerPorSku" type="tns:obtenerPorSku" />
   <xs:element name="obtenerPorSkuResponse" type="tns:obtenerPorSkuResponse" />
   <xs:element name="obtenerProducto" type="tns:obtenerProducto" />
@@ -62,6 +64,7 @@
   </xs:complexType>
   <xs:complexType name="registro">
     <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
       <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -76,6 +79,18 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorPrecioRegular">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element name="rangoPrecio1" type="xs:double" />
+      <xs:element name="rangoPrecio2" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorPrecioRegularResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="verificarStockSuficientePorID">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int" />
@@ -85,6 +100,18 @@
   <xs:complexType name="verificarStockSuficientePorIDResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorPrecioAlMayor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element name="rangoPrecio1" type="xs:double" />
+      <xs:element name="rangoPrecio2" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarfiltrarProductoPorPrecioAlMayorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerProducto">
@@ -104,18 +131,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarfiltrarProductoPorMarcaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarfiltrarProductoPorPrecio">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element name="rangoPrecio1" type="xs:double" />
-      <xs:element name="rangoPrecio2" type="xs:double" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarfiltrarProductoPorPrecioResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>

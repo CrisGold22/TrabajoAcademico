@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftProgInicio.Master" AutoEventWireup="true" CodeBehind="InicioSesion.aspx.cs" Inherits="SoftProgWeb.InicioSesion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftProgInicio.Master"
+    AutoEventWireup="true" CodeBehind="InicioSesion.aspx.cs"
+    Inherits="SoftProgWeb.InicioSesion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">

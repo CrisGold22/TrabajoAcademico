@@ -18,11 +18,11 @@ namespace SoftProgWeb
             set { ViewState["lineasCarrito"] = value; }
         }
 
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             carritoWS = new CarritoComprasWSClient();
 
             if (!IsPostBack)

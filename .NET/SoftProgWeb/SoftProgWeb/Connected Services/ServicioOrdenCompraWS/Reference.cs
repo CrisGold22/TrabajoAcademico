@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace SoftProgWeb.ServicioOrdenCompraWS {
     
     
@@ -147,6 +149,11 @@ namespace SoftProgWeb.ServicioOrdenCompraWS {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        internal string ToString(string v)
+        {
+            throw new NotImplementedException();
         }
     }
     

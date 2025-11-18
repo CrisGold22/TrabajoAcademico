@@ -1,14 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\TrabajoAcademico\\.NET\\SoftProgWeb\\",
+  "WorkspaceRootPath": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|e:\\trabajoacademico\\.net\\softprogweb\\softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|e:\\trabajoacademico\\.net\\softprogweb\\softprogweb\\cambiarcontrasena.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\cambiarcontrasena.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|d:\\.pucp\\2025-2\\progra 3\\proyecto\\lab13\\trabajoacademico-proyecto\\.net\\softprogweb\\softprogweb\\iniciosesion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +22,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MiCarrito.aspx.cs",
+              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
+              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAuwHkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T23:42:44.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InicioSesion.aspx",
+              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx",
+              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx",
+              "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-17T22:59:02.14Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -30,28 +56,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "InicioSesion.aspx.cs",
-              "DocumentMoniker": "E:\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
+              "DocumentMoniker": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ToolTip": "E:\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
+              "ToolTip": "D:\\.PUCP\\2025-2\\Progra 3\\proyecto\\Lab13\\TrabajoAcademico-proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAADgvyEAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowCUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T16:21:42.977Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CambiarContrasena.aspx",
-              "DocumentMoniker": "E:\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\CambiarContrasena.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\CambiarContrasena.aspx",
-              "ToolTip": "E:\\TrabajoAcademico\\.NET\\SoftProgWeb\\SoftProgWeb\\CambiarContrasena.aspx",
-              "RelativeToolTip": "SoftProgWeb\\CambiarContrasena.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-17T16:18:49.049Z",
               "EditorCaption": ""
             }
           ]
