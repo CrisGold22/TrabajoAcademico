@@ -4,7 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 
 /**
@@ -13,28 +13,32 @@ import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
  */
 public class CuentaUsuario extends Registro{
     private String username;
+    private String correo;
     private String password;
     private String resetToken;      // token temporal
     private Timestamp resetTokenExpira;
-
+    
     public CuentaUsuario(){
         
     }
-
-    public CuentaUsuario(String username, String password) {
+    
+    public CuentaUsuario(String username, String correo, String password, String resetToken, Timestamp resetTokenExpira) {
         this.username = username;
+        this.correo = correo;
         this.password = password;
-
+        this.resetToken = resetToken;
+        this.resetTokenExpira = resetTokenExpira;
     }
 
-    public CuentaUsuario(String username, String password, int id, boolean activo) {
+    public CuentaUsuario(String username, String correo, String password, String resetToken, Timestamp resetTokenExpira, int id, boolean activo) {
         super(id, activo);
         this.username = username;
+        this.correo = correo;
         this.password = password;
+        this.resetToken = resetToken;
+        this.resetTokenExpira = resetTokenExpira;
     }
 
-    
-    
     public String getUsername() {
         return username;
     }
@@ -65,6 +69,14 @@ public class CuentaUsuario extends Registro{
 
     public void setResetTokenExpira(Timestamp resetTokenExpira) {
         this.resetTokenExpira = resetTokenExpira;
+    }
+    
+    public void setCorreo(String correo){
+        this.correo = correo;
+    }
+    
+    public String getCorreo(){
+        return this.correo;
     }
   
 }

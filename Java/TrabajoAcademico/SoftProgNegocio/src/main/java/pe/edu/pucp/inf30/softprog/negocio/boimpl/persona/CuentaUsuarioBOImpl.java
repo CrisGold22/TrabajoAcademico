@@ -5,6 +5,7 @@
 package pe.edu.pucp.inf30.softprog.negocio.boimpl.persona;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.persona.CuentaUsuarioDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.persona.CuentaUsuarioDAOImpl;
@@ -170,5 +171,70 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
         }
 
         return true;
+    }
+
+    @Override
+    public CuentaUsuario obtenerCuentaUsuarioPorCorreo(String correo) {
+        return cuentaDAO.obtenerPorCorreo(correo);
+    }
+
+    @Override
+    public CuentaUsuario obtenerCuentaUsuarioPorUserName(String username) {
+        return cuentaDAO.obtenerPorUsername(username);
+    }
+
+    @Override
+    public CuentaUsuario obtenerPorResetToken(String token) {
+        return cuentaDAO.obtenerPorResetToken(token);
+    }
+
+    @Override
+    public void resetPasswordConToken(String token, String nuevaPassword) {
+        if (token == null || token.isBlank() || nuevaPassword == null || nuevaPassword.isBlank()) {
+            throw new IllegalArgumentException("Datos inválidos.");
+        }
+
+        CuentaUsuario cuenta = cuentaDAO.obtenerPorResetToken(token);
+        if (cuenta == null) {
+            throw new RuntimeException("Token inválido.");
+        }
+
+        // Validar expiración
+        Timestamp ahora = Timestamp.valueOf(java.time.LocalDateTime.now());
+        if (cuenta.getResetTokenExpira() == null || cuenta.getResetTokenExpira().before(ahora)) {
+            throw new RuntimeException("El enlace de recuperación ha expirado.");
+        }
+
+        // Hashear nueva contraseña
+        String hashNuevo = PasswordUtils.hashPassword(nuevaPassword);
+
+        // Actualizar password y limpiar token
+        boolean ok = cuentaDAO.actualizarPasswordYLimpiarToken(
+                cuenta.getId(), hashNuevo
+        );
+        if (!ok) {
+            throw new RuntimeException("No se pudo actualizar la contraseña.");
+        }
+    }
+
+    @Override
+    public boolean validarTokenRecuperacion(String token) {
+        if (token == null || token.isBlank()) {
+            return false;
+        }
+
+        CuentaUsuario cuenta = cuentaDAO.obtenerPorResetToken(token);
+        if (cuenta == null) {
+            return false; // token no existe
+        }
+
+        Timestamp ahora = Timestamp.valueOf(LocalDateTime.now());
+
+        // Si no hay fecha o ya expiró → inválido
+        if (cuenta.getResetTokenExpira() == null || cuenta.getResetTokenExpira().before(ahora)) {
+            return false;
+        }
+
+        return true; // existe y no expiró
     }
 }

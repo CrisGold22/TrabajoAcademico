@@ -14,5 +14,10 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
 public interface CuentaUsuarioBO extends Gestionable<CuentaUsuario> {
     boolean login(String email, String password);
     void solicitarRecuperacionPassword(String correo);
+    CuentaUsuario obtenerCuentaUsuarioPorCorreo(String correo);
+    CuentaUsuario obtenerCuentaUsuarioPorUserName(String username);
+    CuentaUsuario obtenerPorResetToken(String token);
     boolean cambiarPassword(String username, String passwordActual, String passwordNueva);
+    void resetPasswordConToken(String token, String nuevaPassword);
+    boolean validarTokenRecuperacion(String token);
 }

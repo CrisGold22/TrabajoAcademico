@@ -199,7 +199,7 @@ public class SoftProgPruebas {
     public static void pruebaConEmpresa() {
 
         CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
-        CuentaUsuario cuenta = new CuentaUsuario("cristhianhoracio22@gmail.com", "Killzone2003", 1, true);
+        CuentaUsuario cuenta = new CuentaUsuario();
         cuentaBO.insertar(cuenta);
     
         //Cliente

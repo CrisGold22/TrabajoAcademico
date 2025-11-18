@@ -25,8 +25,11 @@ DROP TABLE IF EXISTS CuentaUsuario;
 CREATE TABLE IF NOT EXISTS CuentaUsuario (
     idCuentaUsuario INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     userName VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(50) NOT NULL,
-    activo TINYINT NOT NULL DEFAULT 1
+    password VARCHAR(100) NOT NULL,
+    activo TINYINT NOT NULL DEFAULT 1, 
+    correo  VARCHAR(150) NOT NULL UNIQUE, 
+    reset_token VARCHAR(100),
+    reset_token_expira  timestamp
 );
 
 -- Tabla Cliente

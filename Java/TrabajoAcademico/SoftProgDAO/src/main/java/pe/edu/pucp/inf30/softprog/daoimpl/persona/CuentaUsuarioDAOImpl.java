@@ -25,13 +25,14 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, CuentaUsuario modelo) throws SQLException {
-        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?)}";
+        String sql = "{CALL insertarCuentaUsuario(?, ?, ?, ?, ?)}";
 
         CallableStatement cmd = conn.prepareCall(sql);
 
         cmd.setString("p_userName", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
         cmd.setInt("p_activo", modelo.getActivo());
+        cmd.setString("p_correo", modelo.getCorreo());
         cmd.registerOutParameter("p_id", Types.INTEGER);
 
         return cmd;
@@ -39,7 +40,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     protected PreparedStatement comandoActualizar(Connection conn, CuentaUsuario modelo) throws SQLException {
-        String sql = "{CALL modificarCuentaUsuario(?, ?, ?, ?)}";
+        String sql = "{CALL modificarCuentaUsuario(?, ?, ?, ?, ?)}";
 
         CallableStatement cmd = conn.prepareCall(sql);
 
@@ -47,6 +48,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
         cmd.setString("p_userName", modelo.getUsername());
         cmd.setString("p_password", modelo.getPassword());
         cmd.setInt("p_activo", modelo.getActivo());
+        cmd.setString("p_correo", modelo.getCorreo());
 
         return cmd;
     }
@@ -91,6 +93,11 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
         cuenta.setPassword(rs.getString("password"));
         cuenta.setActivoInt(rs.getInt("activo"));
 
+        // Nuevos campos
+        cuenta.setCorreo(rs.getString("correo"));
+        cuenta.setResetToken(rs.getString("reset_token"));
+        cuenta.setResetTokenExpira(rs.getTimestamp("reset_token_expira"));
+
         return cuenta;
     }
 
@@ -102,7 +109,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
             String password) throws SQLException {
         String sql = "{CALL loginUsuario(?,?,?)}";
         CallableStatement cmd = conn.prepareCall(sql);
-        cmd.setString("p_username", email);
+        cmd.setString("p_correo", email);
         cmd.setString("p_password", password);
         cmd.registerOutParameter("p_valido", Types.BOOLEAN);
 
@@ -219,10 +226,10 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     public CuentaUsuario obtenerPorCorreo(String correo) {
-        String sql = "SELECT * FROM cuentausuario WHERE username = ?";
+        String sql = "SELECT * FROM cuentausuario WHERE correo = ?";
         DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, username);
+            ps.setString(1, correo);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return mapearModelo(rs); // ya está en BaseDAO
@@ -237,3 +244,4 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     }
 
 }
+

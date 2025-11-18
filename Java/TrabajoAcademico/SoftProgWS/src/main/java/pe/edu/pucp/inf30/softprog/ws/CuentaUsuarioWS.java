@@ -142,12 +142,12 @@ public class CuentaUsuarioWS {
         return response.statusCode() == 200;
     }
     
-    @WebMethod(operationName = "cambiarPassword")
-    public boolean cambiarPassword(
-        @WebParam(name = "username") String username,
-        @WebParam(name = "passwordActual") String passwordActual,
-        @WebParam(name = "passwordNueva") String passwordNueva
-    ) {
-        return cuentaUsuarioBO.cambiarPassword(username, passwordActual, passwordNueva);
-    }
+//    @WebMethod(operationName = "cambiarPassword")
+//    public boolean cambiarPassword(
+//        @WebParam(name = "username") String username,
+//        @WebParam(name = "passwordActual") String passwordActual,
+//        @WebParam(name = "passwordNueva") String passwordNueva
+//    ) {
+//        return cuenta.cambiarPassword(username, passwordActual, passwordNueva);
+//    }
 }
