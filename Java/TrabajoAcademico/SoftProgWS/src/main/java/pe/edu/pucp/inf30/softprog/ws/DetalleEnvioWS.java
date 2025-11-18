@@ -1,11 +1,19 @@
 package pe.edu.pucp.inf30.softprog.ws;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import pe.edu.pucp.inf30.softprog.negocio.bo.venta.DetalleEnvioBO;
-import pe.edu.pucp.inf30.softprog.negocio.boimpl.venta.DetalleEnvioBOImpl;
+import java.util.ResourceBundle;
+import java.util.TimeZone;
 import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvio;
 
 /**
@@ -15,31 +23,94 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.DetalleEnvio;
 @WebService(serviceName = "DetalleEnvioWS",
         targetNamespace = "http://services.softprog.pucp.edu.pe/")
 public class DetalleEnvioWS {
-    private final DetalleEnvioBO detalleEnvioBO;
+    private final ResourceBundle config;
+    private final String urlBase;
+    private final HttpClient client = HttpClient.newHttpClient();
+    private final String NOMBRE_RESOURCE = "detalle";
+    private final ObjectMapper mapper;
     public DetalleEnvioWS(){
-        this.detalleEnvioBO = new DetalleEnvioBOImpl();
+        this.config = ResourceBundle.getBundle("app");
+        this.urlBase = this.config.getString("app.services.rest.baseurl");
+        
+        this.mapper= new ObjectMapper();
+        SimpleDateFormat df = 
+                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        this.mapper.setDateFormat(df);
     }
 
     @WebMethod(operationName = "listarDetalleEnvio")
-    public List<DetalleEnvio> listarDetalleEnvio() {
-        return detalleEnvioBO.listar();
+    public List<DetalleEnvio> listarDetalleEnvio() 
+         throws IOException, InterruptedException {
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+        
+        HttpResponse<String> response = 
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+        String json = response.body();
+        List<DetalleEnvio> detalleEnvios = 
+                mapper.readValue(json, new TypeReference<List<DetalleEnvio>>() {});
+        return detalleEnvios;
     }
     @WebMethod(operationName = "insertarDetalleEnvio")
     public void insertarDetalleEnvio(@WebParam(name = "detalleEnvio")
-            DetalleEnvio detalleEnvio) {
-        detalleEnvioBO.insertar(detalleEnvio);
+            DetalleEnvio detalleEnvio) throws JsonProcessingException, IOException, InterruptedException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(detalleEnvio);
+        String url;
+        HttpRequest request;
+        url = this.urlBase + "/" + this.NOMBRE_RESOURCE;
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+        client.send(request, HttpResponse.BodyHandlers.ofString());
     }
     @WebMethod(operationName = "actualizarDetalleEnvio")
     public void actualizarDetalleEnvio(@WebParam(name = "detalleEnvio")
-            DetalleEnvio detalleEnvio)  {
-        detalleEnvioBO.actualizar(detalleEnvio);
+            DetalleEnvio detalleEnvio) throws JsonProcessingException, IOException, InterruptedException  {
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(detalleEnvio);
+        String url;
+        HttpRequest request;
+        url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/" + detalleEnvio.getId();
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("Content-Type", "application/json")
+                    .PUT(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+        client.send(request, HttpResponse.BodyHandlers.ofString());
     }
+   
+    
     @WebMethod(operationName = "obtenerDetalleEnvio")
-    public DetalleEnvio obtenerDetalleEnvio(@WebParam(name = "id")int id) {
-        return detalleEnvioBO.obtener(id);
+    public DetalleEnvio obtenerDetalleEnvio(@WebParam(name = "id")int id)throws IOException, InterruptedException {
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/" + id;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+        
+        HttpResponse<String> response = 
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+        String json = response.body();
+        ObjectMapper mapper= new ObjectMapper();
+        DetalleEnvio detalleEnvio = mapper.readValue(json, DetalleEnvio.class);
+        return detalleEnvio;
     }
     @WebMethod(operationName = "eliminarDetalleEnvio")
-    public void eliminarDetalleEnvio(@WebParam(name = "id")int id)  {
-        detalleEnvioBO.eliminar(id);
+    public void eliminarDetalleEnvio(@WebParam(name = "id")int id)  throws IOException, InterruptedException {
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/" + id;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .DELETE()
+                .build();
+        client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 }

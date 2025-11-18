@@ -20,6 +20,7 @@ public class LineaCarritoBOImpl implements LineaCarritoBO {
     public LineaCarritoBOImpl(){
         lineaCarritoDAO = new LineaCarritoDAOImpl();
     }
+    //NO IMPLEMENTAR EN EL WS,SINO SE CAE LOS LIST
     @Override
     public List<LineaCarrito> listar() {
         return this.lineaCarritoDAO.leerTodos();
@@ -44,9 +45,10 @@ public class LineaCarritoBOImpl implements LineaCarritoBO {
     public void eliminar(int id) {
         this.lineaCarritoDAO.eliminar(id);
     }
-    
+    ///NO TOCAR
     @Override
     public List<LineaCarrito> listarPorIdCarrito(int id) {
         return this.lineaCarritoDAO.listarPorIdCarrito(id);
     }
+    
 }

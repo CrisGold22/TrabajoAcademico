@@ -18,5 +18,5 @@ public interface EmpresaBO extends Gestionable<Empresa>{
     List<Empresa> listarEmpresasPorCliente(int id);
     List<Empresa> listarEmpresasPorClienteActivas(int id);
     List<Empresa> listarEmpresasPorClienteNoActivas(int id);
-    void validarEmpresa(int id);
+    boolean validarEmpresa(int id);
 }
