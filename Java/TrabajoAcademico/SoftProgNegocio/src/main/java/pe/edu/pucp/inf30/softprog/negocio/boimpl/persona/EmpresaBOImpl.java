@@ -145,8 +145,8 @@ public class EmpresaBOImpl implements EmpresaBO{
     }
 
     @Override
-    public void validarEmpresa(int id) {
-        this.empresaDAO.validarEmpresa(id);
+    public boolean validarEmpresa(int id) {
+        return this.empresaDAO.validarEmpresa(id);
     }
 
 
