@@ -48,6 +48,7 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.pago.LineaComprobantePagoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.AdministradorSistemaBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.ClienteBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
+import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmailService;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmpresaBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.DescuentoBO;
@@ -62,6 +63,7 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.pago.LineaComprobantePagoBOImpl
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.AdministradorSistemaBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.ClienteBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.CuentaUsuarioBOImpl;
+import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.EmailServiceImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.EmpresaBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.CategoriaProductoBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.DescuentoBOImpl;
@@ -88,9 +90,19 @@ public class SoftProgPruebas {
 //        pruebaConEmpresa();
 //        pruebaListar();
 //        pruebaDemasFunciones();
+        pruebaCorreo();
     
     }
 
+    public static void pruebaCorreo() {
+        EmailService emailService = new EmailServiceImpl();
+        emailService.enviarCorreo(
+                "correo.destino@gmail.com",
+                "Prueba desde SoftProg",
+                "<h1>Hola 😄</h1><p>Este es un correo de prueba.</p>"
+        );
+    }
+    
     public static void pruebaDemasFunciones(){
         CarritoCompras carrito = new CarritoComprasBOImpl().obtenerCarritoComprasPorIdCliente(1);
         

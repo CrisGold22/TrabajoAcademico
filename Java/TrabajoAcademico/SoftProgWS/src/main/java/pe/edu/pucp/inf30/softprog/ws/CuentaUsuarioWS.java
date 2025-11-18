@@ -52,4 +52,13 @@ public class CuentaUsuarioWS {
     ){
         return cuentaUsuarioBO.login(email, password);
     }
+    
+    @WebMethod(operationName = "cambiarPassword")
+    public boolean cambiarPassword(
+        @WebParam(name = "username") String username,
+        @WebParam(name = "passwordActual") String passwordActual,
+        @WebParam(name = "passwordNueva") String passwordNueva
+    ) {
+        return cuentaUsuarioBO.cambiarPassword(username, passwordActual, passwordNueva);
+    }
 }

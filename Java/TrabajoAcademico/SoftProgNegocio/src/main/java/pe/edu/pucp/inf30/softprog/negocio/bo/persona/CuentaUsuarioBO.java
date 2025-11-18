@@ -13,4 +13,6 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
  */
 public interface CuentaUsuarioBO extends Gestionable<CuentaUsuario> {
     boolean login(String email, String password);
+    void solicitarRecuperacionPassword(String correo);
+    boolean cambiarPassword(String username, String passwordActual, String passwordNueva);
 }

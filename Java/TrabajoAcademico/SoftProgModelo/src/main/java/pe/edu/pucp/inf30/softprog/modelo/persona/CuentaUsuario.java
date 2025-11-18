@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
+import java.security.Timestamp;
 import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 
 /**
@@ -13,6 +14,8 @@ import pe.edu.pucp.inf30.softprog.modelo.base.Registro;
 public class CuentaUsuario extends Registro{
     private String username;
     private String password;
+    private String resetToken;      // token temporal
+    private Timestamp resetTokenExpira;
 
     public CuentaUsuario(){
         
@@ -48,6 +51,20 @@ public class CuentaUsuario extends Registro{
         this.password = password;
     }
     
-    
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
+
+    public Timestamp getResetTokenExpira() {
+        return resetTokenExpira;
+    }
+
+    public void setResetTokenExpira(Timestamp resetTokenExpira) {
+        this.resetTokenExpira = resetTokenExpira;
+    }
   
 }

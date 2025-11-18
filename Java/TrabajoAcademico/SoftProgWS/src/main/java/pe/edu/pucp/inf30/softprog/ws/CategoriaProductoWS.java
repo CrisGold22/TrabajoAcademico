@@ -26,21 +26,25 @@ public class CategoriaProductoWS {
     public List<CategoriaProducto> listarCategoriaProducto()  {
         return categoriaProductoBO.listar();
     }
+    
     @WebMethod(operationName = "insertarCategoriaProducto")
     public void insertarCategoriaProducto(@WebParam(name = "categoriaProducto")
             CategoriaProducto categoriaProducto)  {
         categoriaProductoBO.insertar(categoriaProducto);
     }
+    
     @WebMethod(operationName = "actualizarCategoriaProducto")
     public void actualizarCategoriaProducto(@WebParam(name = "categoriaProducto")
             CategoriaProducto categoriaProducto)  {
         categoriaProductoBO.actualizar(categoriaProducto);
     }
+    
     @WebMethod(operationName = "obtenerCategoriaProducto")
     public CategoriaProducto obtenerCategoriaProducto(@WebParam(name = "id")
             int id) {
         return categoriaProductoBO.obtener(id);
     }
+    
     @WebMethod(operationName = "eliminarCategoriaProducto")
     public void eliminarCategoriaProducto(@WebParam(name = "id")int id)  {
         categoriaProductoBO.eliminar(id);
