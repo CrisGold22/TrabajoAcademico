@@ -95,7 +95,7 @@ public class SoftProgPruebas {
     
 //        pruebaFiltroPorPrecio();
 //        pruebaObtenerMarcasPorCategoria();
-        pruebaObtenerProductosPorCategoria();
+//        pruebaObtenerProductosPorCategoria();
     }
     
     public static void pruebaObtenerProductosPorCategoria(){
@@ -163,7 +163,7 @@ public class SoftProgPruebas {
     public static void pruebaCorreo() {
         EmailService emailService = new EmailServiceImpl();
         emailService.enviarCorreo(
-                "correo.destino@gmail.com",
+                "cristhianhoracio22@gmail.com",
                 "Prueba desde SoftProg",
                 "<h1>Hola 😄</h1><p>Este es un correo de prueba.</p>"
         );

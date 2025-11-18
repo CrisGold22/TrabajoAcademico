@@ -21,10 +21,10 @@ public class EmailServiceImpl implements EmailService {
     private static final int SMTP_PORT = 587;
 
     // TU CORREO DE GMAIL
-    private static final String GMAIL_CORREO = "tucorreo@gmail.com";
+    private static final String GMAIL_CORREO = "galileodevscorp@gmail.com";
 
     // CONTRASEÑA DE APLICACIÓN (NO la normal)
-    private static final String GMAIL_APP_PASSWORD = "abcd efgh ijkl mnop";
+    private static final String GMAIL_APP_PASSWORD = "doeq jdxy cbvh dpkt";
 
     @Override
     public void enviarCorreo(String para, String asunto, String cuerpoHtml) {
