@@ -25,28 +25,24 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <%-- CORRECCIÓN 1: Usamos los datos del cliente, no de la empresa --%>
                     <div class="col-md-6">
                         <label><b>Cliente:</b></label>
                         <asp:Label ID="lblCliente" runat="server"></asp:Label>
                     </div>
                     <div class="col-md-6">
                         <label><b>DNI:</b></label>
-                        <asp:Label ID="lblDNI" runat="server"></asp:Label> <%-- Cambiado de RUC a DNI --%>
+                        <asp:Label ID="lblDNI" runat="server"></asp:Label>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <%-- CORRECCIÓN 2: Usamos 'fechaCreacion' --%>
                     <div class="col-md-4">
                         <label><b>Fecha de Creación:</b></label>
                         <asp:Label ID="lblFecha" runat="server"></asp:Label>
                     </div>
-                    <%-- CORRECCIÓN 3: Ocultamos el estado, o lo dejamos en blanco si no viene --%>
                     <div class="col-md-4">
                         <label><b>Estado:</b></label>
                         <asp:Label ID="lblEstado" runat="server" CssClass="badge bg-info text-dark" Text="No disponible"></asp:Label>
                     </div>
-                    <%-- CORRECCIÓN 4: Usamos 'totalFinal' --%>
                     <div class="col-md-4">
                         <label><b>Monto Total:</b></label>
                         <asp:Label ID="lblTotal" runat="server" CssClass="fw-bold fs-5"></asp:Label>
@@ -58,8 +54,6 @@
         <hr />
         
         <h4 class="mt-4">Líneas del Pedido</h4>
-        <%-- El GridView de líneas de pedido probablemente esté correcto, asumiendo que 
-             el objeto 'lineasOrdenCompra' viene dentro del pedido --%>
         <asp:GridView ID="gvLineasPedido" runat="server"
             CssClass="table table-sm"
             AutoGenerateColumns="False">

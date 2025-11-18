@@ -83,5 +83,20 @@ public class CategoriaProductoBOImpl implements CategoriaProductoBO {
         
         this.categoriaProductoDAO.eliminar(id);
     }
+
+    @Override
+    public List<String> obtenerMarcasPorCategoria(Integer idCategoria) {
+        if(idCategoria<=0){
+            throw new IllegalArgumentException("Categoria Producto con ID inválido");       
+        }
+        
+        CategoriaProducto categoria = this.categoriaProductoDAO.leer(idCategoria);
+        
+        if(categoria == null){
+            throw new RuntimeException("No se encontro a la Categoria Producto con ID: "+ idCategoria);
+        }
+        
+        return this.categoriaProductoDAO.obtenerMarcasPorCategoria(idCategoria);
+    }
     
 }

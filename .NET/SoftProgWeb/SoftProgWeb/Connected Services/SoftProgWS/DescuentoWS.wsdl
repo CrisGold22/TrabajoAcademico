@@ -5,11 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/DescuentoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarDescuento">
-    <part name="parameters" element="tns:listarDescuento" />
+  <message name="actualizarDescuento">
+    <part name="parameters" element="tns:actualizarDescuento" />
   </message>
-  <message name="listarDescuentoResponse">
-    <part name="parameters" element="tns:listarDescuentoResponse" />
+  <message name="actualizarDescuentoResponse">
+    <part name="parameters" element="tns:actualizarDescuentoResponse" />
+  </message>
+  <message name="actualizarPrecioDescuentoProducto">
+    <part name="parameters" element="tns:actualizarPrecioDescuentoProducto" />
+  </message>
+  <message name="actualizarPrecioDescuentoProductoResponse">
+    <part name="parameters" element="tns:actualizarPrecioDescuentoProductoResponse" />
   </message>
   <message name="insertarDescuento">
     <part name="parameters" element="tns:insertarDescuento" />
@@ -17,11 +23,11 @@
   <message name="insertarDescuentoResponse">
     <part name="parameters" element="tns:insertarDescuentoResponse" />
   </message>
-  <message name="obtenerDescuento">
-    <part name="parameters" element="tns:obtenerDescuento" />
+  <message name="listarDescuento">
+    <part name="parameters" element="tns:listarDescuento" />
   </message>
-  <message name="obtenerDescuentoResponse">
-    <part name="parameters" element="tns:obtenerDescuentoResponse" />
+  <message name="listarDescuentoResponse">
+    <part name="parameters" element="tns:listarDescuentoResponse" />
   </message>
   <message name="eliminarDescuento">
     <part name="parameters" element="tns:eliminarDescuento" />
@@ -29,37 +35,50 @@
   <message name="eliminarDescuentoResponse">
     <part name="parameters" element="tns:eliminarDescuentoResponse" />
   </message>
-  <message name="actualizarDescuento">
-    <part name="parameters" element="tns:actualizarDescuento" />
+  <message name="obtenerDescuento">
+    <part name="parameters" element="tns:obtenerDescuento" />
   </message>
-  <message name="actualizarDescuentoResponse">
-    <part name="parameters" element="tns:actualizarDescuentoResponse" />
+  <message name="obtenerDescuentoResponse">
+    <part name="parameters" element="tns:obtenerDescuentoResponse" />
   </message>
   <portType name="DescuentoWS">
-    <operation name="listarDescuento">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest" message="tns:listarDescuento" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse" message="tns:listarDescuentoResponse" />
+    <operation name="actualizarDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoRequest" message="tns:actualizarDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse" />
+    </operation>
+    <operation name="actualizarPrecioDescuentoProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarPrecioDescuentoProductoRequest" message="tns:actualizarPrecioDescuentoProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarPrecioDescuentoProductoResponse" message="tns:actualizarPrecioDescuentoProductoResponse" />
     </operation>
     <operation name="insertarDescuento">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/insertarDescuentoRequest" message="tns:insertarDescuento" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/insertarDescuentoResponse" message="tns:insertarDescuentoResponse" />
     </operation>
-    <operation name="obtenerDescuento">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest" message="tns:obtenerDescuento" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse" message="tns:obtenerDescuentoResponse" />
+    <operation name="listarDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest" message="tns:listarDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse" message="tns:listarDescuentoResponse" />
     </operation>
     <operation name="eliminarDescuento">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoRequest" message="tns:eliminarDescuento" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoResponse" message="tns:eliminarDescuentoResponse" />
     </operation>
-    <operation name="actualizarDescuento">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoRequest" message="tns:actualizarDescuento" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse" />
+    <operation name="obtenerDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest" message="tns:obtenerDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse" message="tns:obtenerDescuentoResponse" />
     </operation>
   </portType>
   <binding name="DescuentoWSPortBinding" type="tns:DescuentoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarDescuento">
+    <operation name="actualizarDescuento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarPrecioDescuentoProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,7 +96,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerDescuento">
+    <operation name="listarDescuento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarDescuento">
+    <operation name="obtenerDescuento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

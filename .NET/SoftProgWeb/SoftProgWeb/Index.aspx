@@ -48,7 +48,10 @@
                       <p class="card-text">Por RedCom</p>
                       <p class="card-text">Unidad: Saco 50Kg</p>
                       <p class="card-text"><strong>A partir de S/ 209</strong></p>
-                      <a href="#" class="btn btn-primary button-add-1">Agregar</a>
+                      <input type="hidden" id="productoId" value="101" />
+                      <asp:Button ID="btnAgregarProducto" CssClass="btn btn-primary button-add-1" runat="server" Text="Agregar" OnClick="btnAgregarProducto_Click" />
+                      <%--<a href="#" class="btn btn-primary button-add-1">Agregar</a>--%>
+
                     </div>
                   </div>
                 </div>

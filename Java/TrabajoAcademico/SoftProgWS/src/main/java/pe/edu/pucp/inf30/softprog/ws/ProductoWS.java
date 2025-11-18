@@ -47,12 +47,20 @@ public class ProductoWS {
     public Producto obtenerPorSku(@WebParam(name = "sku")String sku)  {
         return productoBO.obtenerPorSku(sku);
     }
-    @WebMethod(operationName = "listarfiltrarProductoPorPrecio")
+    @WebMethod(operationName = "listarfiltrarProductoPorPrecioRegular")
     
-    public List<Producto> listarfiltrarProductoPorPrecio(@WebParam(name = "id")
+    public List<Producto> listarfiltrarProductoPorPrecioRegular(@WebParam(name = "id")
             Integer id,@WebParam(name = "rangoPrecio1")double RangoPrecio1,
             @WebParam(name = "rangoPrecio2")double RangoPrecio2)  {
-        return productoBO.filtrarProductoPorPrecio(id, RangoPrecio1, RangoPrecio2);
+        return productoBO.filtrarProductoPorPrecioRegular(id, RangoPrecio1, RangoPrecio2);
+    }
+    
+    @WebMethod(operationName = "listarfiltrarProductoPorPrecioAlMayor")
+    
+    public List<Producto> listarfiltrarProductoPorPrecioAlMayor(@WebParam(name = "id")
+            Integer id,@WebParam(name = "rangoPrecio1")double RangoPrecio1,
+            @WebParam(name = "rangoPrecio2")double RangoPrecio2)  {
+        return productoBO.filtrarProductoPorPrecioAlMayor(id, RangoPrecio1, RangoPrecio2);
     }
     
     

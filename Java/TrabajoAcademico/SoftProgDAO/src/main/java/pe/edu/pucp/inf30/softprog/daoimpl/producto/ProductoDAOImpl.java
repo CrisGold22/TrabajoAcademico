@@ -146,10 +146,10 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
     }
     
     
-     protected PreparedStatement comandoFiltrarProductoPorPrecio(Connection conn,
+     protected PreparedStatement comandoFiltrarProductoPorPrecioRegular(Connection conn,
              Integer id,double RangoPrecio1,double RangoPrecio2) throws SQLException {
          
-        String sql = "{CALL filtrarProductoPorPrecio(?,?,?)}";
+        String sql = "{CALL filtrarProductoPorPrecioRegular(?,?,?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
 
@@ -161,9 +161,9 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
     }     
      
     @Override
-    public List<Producto> filtrarProductoPorPrecio(Integer id,double RangoPrecio1,double RangoPrecio2){
+    public List<Producto> filtrarProductoPorPrecioRegular(Integer id,double RangoPrecio1,double RangoPrecio2){
         return ejecutarComando(conn -> {
-            try (PreparedStatement cmd = this.comandoFiltrarProductoPorPrecio(conn,id,RangoPrecio1,RangoPrecio2)) {
+            try (PreparedStatement cmd = this.comandoFiltrarProductoPorPrecioRegular(conn,id,RangoPrecio1,RangoPrecio2)) {
                 ResultSet rs = cmd.executeQuery();
 
                 List<Producto> modelos = new ArrayList<>();
@@ -176,6 +176,36 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         });        
     }
     
+    @Override
+    public List<Producto> filtrarProductoPorPrecioAlMayor(Integer id,double RangoPrecio1,double RangoPrecio2){
+        return ejecutarComando(conn -> {
+            try (PreparedStatement cmd = this.comandoFiltrarProductoPorPrecioAlMayor(conn,id,RangoPrecio1,RangoPrecio2)) {
+                ResultSet rs = cmd.executeQuery();
+
+                List<Producto> modelos = new ArrayList<>();
+                while (rs.next()) {
+                    modelos.add(this.mapearModelo(rs));
+                }
+
+                return modelos;
+            }
+        });        
+    }  
+    
+     protected PreparedStatement comandoFiltrarProductoPorPrecioAlMayor(Connection conn,
+             Integer id,double RangoPrecio1,double RangoPrecio2) throws SQLException {
+         
+        String sql = "{CALL filtrarProductoPorPrecioAlMayor(?,?,?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+
+        cmd.setInt("p_idCategoriaProducto", id);
+        cmd.setDouble("p_Filtro1", RangoPrecio1);
+        cmd.setDouble("p_Filtro2", RangoPrecio2);
+        
+        return cmd; 
+    }     
+
     protected PreparedStatement comandoFiltrarProductoPorMarca(Connection conn,
              Integer id,String marca) throws SQLException {
          
@@ -313,4 +343,35 @@ public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO {
         
         return cmd; 
     }      
+
+    
+    protected PreparedStatement comandoObtenerProductosPorCategoria(Connection conn,
+            Integer idCategoria) throws SQLException {
+         
+        String sql = "{CALL obtenerProductosPorCategoria(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+
+        cmd.setInt("p_idCategoriaProducto", idCategoria);
+
+        return cmd; 
+    }         
+    
+    
+    @Override
+    public List<Producto> obtenerProductosPorCategoria(Integer idCategoria) {
+        return ejecutarComando(conn -> {
+            try (PreparedStatement cmd = this.comandoObtenerProductosPorCategoria(conn,idCategoria)) {
+                ResultSet rs = cmd.executeQuery();
+
+                List<Producto> modelos = new ArrayList<>();
+                while (rs.next()) {
+                    modelos.add(this.mapearModelo(rs));
+                }
+
+                return modelos;
+            }
+        });           
+    }
 }
+

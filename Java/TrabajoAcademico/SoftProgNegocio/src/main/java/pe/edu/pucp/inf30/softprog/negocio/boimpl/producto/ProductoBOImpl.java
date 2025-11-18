@@ -109,7 +109,7 @@ public class ProductoBOImpl implements ProductoBO{
     }
 
     @Override
-    public List<Producto> filtrarProductoPorPrecio(Integer id, double RangoPrecio1, double RangoPrecio2) {
+    public List<Producto> filtrarProductoPorPrecioRegular(Integer id, double RangoPrecio1, double RangoPrecio2) {
         if(id <= 0){
             throw new IllegalArgumentException("Categoria Producto con ID invalido");
         }
@@ -120,7 +120,7 @@ public class ProductoBOImpl implements ProductoBO{
             throw new RuntimeException("No se encontro la Categoria Producto a buscar con ID : "+ id);
         }
         
-        return this.productoDAO.filtrarProductoPorPrecio(id,RangoPrecio1, RangoPrecio2);
+        return this.productoDAO.filtrarProductoPorPrecioRegular(id,RangoPrecio1, RangoPrecio2);
     }
 
     @Override
@@ -178,6 +178,36 @@ public class ProductoBOImpl implements ProductoBO{
         }        
                 
         return this.productoDAO.verificarStockSuficientePorSKU(sku, cantidadSolicitada);
+    }
+
+    @Override
+    public List<Producto> filtrarProductoPorPrecioAlMayor(Integer id, double RangoPrecio1, double RangoPrecio2) {
+        if(id <= 0){
+            throw new IllegalArgumentException("Categoria Producto con ID invalido");
+        }
+        
+        CategoriaProducto categoria = this.categoriaDAO.leer(id);
+        
+        if(categoria == null){
+            throw new RuntimeException("No se encontro la Categoria Producto a buscar con ID : "+ id);
+        }
+        
+        return this.productoDAO.filtrarProductoPorPrecioAlMayor(id,RangoPrecio1, RangoPrecio2);        
+    }
+
+    @Override
+    public List<Producto> obtenerProductosPorCategoria(Integer idCategoria) {
+        if(idCategoria <= 0){
+            throw new IllegalArgumentException("Categoria Producto con ID invalido");
+        }
+        
+        CategoriaProducto categoria = this.categoriaDAO.leer(idCategoria);
+        
+        if(categoria == null){
+            throw new RuntimeException("No se encontro la Categoria Producto a buscar con ID : "+ idCategoria);
+        }        
+        
+        return this.productoDAO.obtenerProductosPorCategoria(idCategoria);
     }
     
 }

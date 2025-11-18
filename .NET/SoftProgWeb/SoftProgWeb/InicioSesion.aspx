@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftProgInicio.Master" AutoEventWireup="true" CodeBehind="InicioSesion.aspx.cs" Inherits="SoftProgWeb.InicioSesion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SoftProgInicio.Master"
+    AutoEventWireup="true" CodeBehind="InicioSesion.aspx.cs"
+    Inherits="SoftProgWeb.InicioSesion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
@@ -13,9 +15,9 @@
     <!-- Pantalla 1: Formulario Vacío -->
     <div id="pantallaLogin" class="login-card">
         <div class="form-group">
-            <label class="form-label">Email</label>
+            <label class="form-label">Usuario</label>
             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control-custom" 
-                TextMode="Email" placeholder="" onkeyup="checkInputs()"></asp:TextBox>
+                TextMode="SingleLine" placeholder="" onkeyup="checkInputs()"></asp:TextBox>
         </div>
 
         <div class="form-group">
@@ -84,13 +86,13 @@
                 // Usuario cliente
                 mostrarBienvenida('Cliente', 'Index.aspx');
             } else {
-                alert('Credenciales incorrectas');
+                //alert('Credenciales incorrectas');
             }
         }
 
         function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
+            alert('Ingrese un usuario válido');
+            return;
         }
 
         function mostrarBienvenida(nombre, destino) {
@@ -109,10 +111,10 @@
         }
 
         // Permitir presionar Enter para iniciar sesión
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const inputs = document.querySelectorAll('.form-control-custom');
             inputs.forEach(input => {
-                input.addEventListener('keypress', function(e) {
+                input.addEventListener('keypress', function (e) {
                     if (e.key === 'Enter') {
                         iniciarSesion();
                     }

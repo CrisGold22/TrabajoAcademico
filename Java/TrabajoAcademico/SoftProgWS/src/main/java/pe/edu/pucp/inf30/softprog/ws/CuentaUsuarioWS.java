@@ -47,10 +47,10 @@ public class CuentaUsuarioWS {
     }
     @WebMethod(operationName = "login")
     public boolean login(
-            @WebParam(name = "email")String email,
+            @WebParam(name = "username")String username,
             @WebParam(name = "password")String password
     ){
-        return cuentaUsuarioBO.login(email, password);
+        return cuentaUsuarioBO.login(username, password);
     }
     
     @WebMethod(operationName = "cambiarPassword")

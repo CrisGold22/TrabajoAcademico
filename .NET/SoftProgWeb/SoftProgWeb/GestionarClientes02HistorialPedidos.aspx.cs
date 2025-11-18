@@ -30,7 +30,7 @@ namespace SoftProgWeb
         {
 
             lblRUC.Text = ruc;
-            lblRazonSocial.Text = "TELEFONICA DEL PERU S.A.A."; // Datos estaticos
+            lblRazonSocial.Text = "TELEFONICA DEL PERU S.A.A.";
 
             var historial = new List<object>
             {

@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.producto.CategoriaProductoDAO;
 import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
@@ -109,6 +111,34 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         }
         
         return categoria;
+    }
+    
+    @Override
+    public List<String> obtenerMarcasPorCategoria(Integer idCategoria){
+        return ejecutarComando(conn -> {
+            try (PreparedStatement cmd = this.comandoObtenerMarcasPorCategorias(conn, idCategoria)) {
+                ResultSet rs = cmd.executeQuery();
+
+                List<String> modelos = new ArrayList<String>();
+                while (rs.next()) {
+                    modelos.add(rs.getString("marca"));
+                }
+
+                return modelos;
+            }
+        });           
+    }
+    
+    protected PreparedStatement comandoObtenerMarcasPorCategorias(Connection conn,
+            Integer idCategoria) throws SQLException{
+   
+        String sql = "{CALL obtenerMarcasPorCategoria(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+
+        cmd.setInt("p_idCategoriaProducto", idCategoria);
+        
+        return cmd;
     }
     
 }
