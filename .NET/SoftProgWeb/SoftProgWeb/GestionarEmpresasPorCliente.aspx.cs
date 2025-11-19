@@ -1,5 +1,4 @@
-﻿using SoftProgWeb.ServiceioEmpresaWS;
-using SoftProgWeb.ServicioClienteWS;
+﻿using SoftProgWeb.SoftProgWS;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
@@ -11,13 +10,13 @@ namespace SoftProgWeb
 {
     public partial class GestionarEmpresasPorCliente : System.Web.UI.Page
     {
-        private ServicioClienteWS.ClienteWSClient _servicioCliente;
-        private ServiceioEmpresaWS.EmpresaWSClient _servicioEmpresa;
+        private ClienteWSClient _servicioCliente;
+        private EmpresaWSClient _servicioEmpresa;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _servicioEmpresa = new ServiceioEmpresaWS.EmpresaWSClient();
-            _servicioCliente = new ServicioClienteWS.ClienteWSClient();
+            _servicioEmpresa = new EmpresaWSClient();
+            _servicioCliente = new ClienteWSClient();
             pnlMensaje.Visible = false;
 
             if (!Page.IsPostBack)
@@ -37,7 +36,7 @@ namespace SoftProgWeb
         {
             try
             {
-                ServicioClienteWS.cliente cli = _servicioCliente.obtenerCliente(idCliente);
+                cliente cli = _servicioCliente.obtenerCliente(idCliente);
 
                 if (cli != null)
                 {
@@ -47,7 +46,7 @@ namespace SoftProgWeb
 
                     if (listaEmpresas != null && listaEmpresas.Length > 0)
                     {
-                        ServiceioEmpresaWS.empresa primeraEmpresa = listaEmpresas[0];
+                        empresa primeraEmpresa = listaEmpresas[0];
                         LitUsuario.Text = primeraEmpresa.cliente.cuenta.username;
                         //litEmail.Text = primeraEmpresa.cliente..ToString();
                         litTelefono.Text = primeraEmpresa.cliente.telefono.ToString();

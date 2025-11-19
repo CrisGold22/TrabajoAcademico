@@ -25,11 +25,14 @@ namespace SoftProgWeb
                 case "GestionarProductos01.aspx":
                     lnkProductos.Attributes["class"] += " active";
                     break;
+                case "GestionarClientes01.aspx":
+                    lnkClientes.Attributes["class"] += " active";
+                    break;
                 case "GestionarPedidos01.aspx":
                     lnkPedidos.Attributes["class"] += " active";
                     break;
                 case "Default.aspx":
-                    lnkInicio.Attributes["class"] += " active";
+                    lnkProductos.Attributes["class"] += " active";
                     break;
             }
         }

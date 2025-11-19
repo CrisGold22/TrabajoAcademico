@@ -10,6 +10,15 @@
             </div>
         </div>
 
+       <div class="row mb-3">
+    <div class="col-md-6">
+        <asp:Button ID="btnGenerarReporte" runat="server"
+            Text="Generar Reporte"
+            CssClass="btn btn-success" />
+    </div>
+</div>
+
+
         <div class="row">
             <div class="col-md-12">
 <asp:GridView ID="gvPedidos" runat="server"
@@ -23,29 +32,23 @@
     <Columns>
         <asp:BoundField DataField="id" HeaderText="N° Pedido" ItemStyle-CssClass="fw-bold" />
         
-        <%-- CORRECTO: Usar "empresa.razonSocial" del XML --%>
         <asp:TemplateField HeaderText="Empresa (Razón Social)">
             <ItemTemplate>
                 <%# Eval("empresa.razonSocial") %>
             </ItemTemplate>
         </asp:TemplateField>
         
-        <%-- 
-            CORRECTO: Usar "fechaCreacion" y añadir "NullDisplayText"
-            para manejar las fechas nulas de sus datos de prueba.
-        --%>
         <asp:BoundField DataField="fechaCreacion" HeaderText="Fecha de Creación" 
             DataFormatString="{0:dd/MM/yyyy}" NullDisplayText="-" />
         
-        <%-- CORRECTO: Usar "totalFinal" del XML --%>
         <asp:BoundField DataField="totalFinal" HeaderText="Monto Total" DataFormatString="{0:C2}" />
 
-        <%-- CORRECTO: Usar "estadoString" del XML --%>
-        <asp:TemplateField HeaderText="Estado" ItemStyle-CssClass="text-center">
+        <asp:TemplateField HeaderText="    Estado" ItemStyle-CssClass="text-center">
             <ItemTemplate>
                 <span class="badge bg-info text-dark"><%# Eval("estadoString") %></span>
             </ItemTemplate>
         </asp:TemplateField>
+
         
         <asp:TemplateField HeaderText="Acciones">
             <ItemTemplate>

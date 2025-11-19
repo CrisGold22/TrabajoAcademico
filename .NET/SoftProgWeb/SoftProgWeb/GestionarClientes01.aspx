@@ -4,19 +4,29 @@
     
     <div class="container-fluid">
         <div class="row mb-3">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h2><i class="fas fa-users"></i> Gestión de Clientes</h2>
-                     <div class="col-md-4">
+
+            </div>
+
+           <div class="col-md-6 text-end">
                         <asp:Button ID="btnAtenderSolicitudes" runat="server" 
                             Text="Atender Solicitudes Pendientes" 
                             CssClass="btn btn-warning" 
                             OnClick="btnAtenderSolicitudes_Click" 
                             CausesValidation="false" />
                     </div>
-                
-                <hr />
-            </div>
+
         </div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <asp:Button ID="btnGenerarReporte" runat="server"
+            Text="Generar Reporte"
+            CssClass="btn btn-success" />
+    </div>
+</div>
+
 
         <div class="card mb-3">
             <div class="card-body">
