@@ -95,7 +95,8 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
         carrito.setId(rs.getInt("id_CarritoDeCompras"));
         carrito.setSubtotal(rs.getDouble("subtotal"));
         carrito.setEstadoString(rs.getString("estado"));
-        carrito.setDescuento(rs.getDouble("montoFinal"));
+        carrito.setMontoFinal(rs.getDouble("montoFinal"));
+        carrito.setDescuento(rs.getDouble("descuento"));
         carrito.setCliente(new ClienteDAOImpl().leer(rs.getInt("cliente_idCliente")));
         carrito.setActivoInt(rs.getInt("activo"));
         
@@ -112,7 +113,7 @@ public class CarritoComprasDAOImpl extends TransaccionalBaseDAO<CarritoCompras> 
     }
     
     @Override
-    public CarritoCompras obtenerCarritoPorIdCliente(int id) {
+    public CarritoCompras obtenerCarritoEnProcesoPorIdCliente(int id) {
         return ejecutarComando(conn -> {
             try(PreparedStatement cmd = this.comandoObtenerCarritoComprasPorIdCliente(conn, id)){
                 ResultSet rs = cmd.executeQuery();

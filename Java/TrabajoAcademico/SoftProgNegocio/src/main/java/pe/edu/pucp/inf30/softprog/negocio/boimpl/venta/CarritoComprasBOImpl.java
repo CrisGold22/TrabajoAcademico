@@ -143,8 +143,8 @@ public class CarritoComprasBOImpl implements CarritoComprasBO{
     }
 
     @Override
-    public CarritoCompras obtenerCarritoComprasPorIdCliente(int idCliente) {
-        return carritoCompras.obtenerCarritoPorIdCliente(idCliente);
+    public CarritoCompras obtenerCarritoComprasEnProcesoPorIdCliente(int idCliente) {
+        return carritoCompras.obtenerCarritoEnProcesoPorIdCliente(idCliente);
     }
     
 }

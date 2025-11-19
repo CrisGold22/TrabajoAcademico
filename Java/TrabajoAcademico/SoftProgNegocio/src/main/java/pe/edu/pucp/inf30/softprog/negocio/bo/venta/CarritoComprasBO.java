@@ -15,5 +15,5 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
  */
 public interface CarritoComprasBO extends Gestionable<CarritoCompras>{
     List<LineaCarrito> listarLineaCarritoPorIdCarrito(int idCarritoCompras);
-    CarritoCompras obtenerCarritoComprasPorIdCliente(int idCliente);
+    CarritoCompras obtenerCarritoComprasEnProcesoPorIdCliente(int idCliente);
 }

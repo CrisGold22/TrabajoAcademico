@@ -94,8 +94,8 @@ public class SoftProgPruebas {
 //        pruebaListar();
 //        pruebaDemasFunciones();
 //        pruebaCorreo();
-//        pruebaNotificaciones();
-        pruebaMeOlvideContrasena();
+        pruebaNotificaciones();
+//        pruebaMeOlvideContrasena();
     
 //        pruebaFiltroPorPrecio();
 //        pruebaObtenerMarcasPorCategoria();
@@ -114,25 +114,16 @@ public class SoftProgPruebas {
     
     public static void pruebaNotificaciones(){
         
-//        String correo = "cristhianhoracio22@gmail.com";
-//        OrdenCompra ordenCompra = new OrdenCompra();
-//        
-//       
-//        
-//        Notificacion notificacion = new NotificacionImpl();
-        
-        CuentaUsuario cuenta = new CuentaUsuario();
-        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
-        
-        cuentaBO.eliminar(17);
-        
-        cuenta.setCorreo("cristhianhoracio22@gmail.com");
-        cuenta.setPassword("Killzone2003");
-        cuenta.setUsername("CrisGold22");
-        cuenta.setActivo(true);
+        String correo = "cristhianhoracio22@gmail.com";
+        OrdenCompra ordenCompra = new OrdenCompra();
+        OrdenCompraBO ordenBO = new OrdenCompraBOImpl();
        
-        cuentaBO.insertar(cuenta);
+        ordenCompra = ordenBO.obtener(2);
         
+        Notificacion notificacion = new NotificacionImpl();
+        
+        notificacion.enviarMensajeOrdenCompra(ordenCompra, correo);
+        System.out.println("El correo se envio con exito");
     }
     
     public static void pruebaObtenerProductosPorCategoria(){
@@ -207,7 +198,7 @@ public class SoftProgPruebas {
     }
     
     public static void pruebaDemasFunciones(){
-        CarritoCompras carrito = new CarritoComprasBOImpl().obtenerCarritoComprasPorIdCliente(1);
+        CarritoCompras carrito = new CarritoComprasBOImpl().obtenerCarritoComprasEnProcesoPorIdCliente(1);
         
         System.out.println(carrito.getId() + "    " + carrito.getCliente().getNombre());
         

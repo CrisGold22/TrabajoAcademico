@@ -106,8 +106,8 @@ public class CarritoCompraResource {
     ///Sí
     @GET
     @Path("obtenerCarritoIDCliente/{idCliente}")
-    public Response obtenerCarritoDeCliente(@PathParam("idCliente") int idCliente){
-        CarritoCompras carritoCompras=carritoComprasBO.obtenerCarritoComprasPorIdCliente(idCliente);
+    public Response obtenerCarritoEnProcesoDeCliente(@PathParam("idCliente") int idCliente){
+        CarritoCompras carritoCompras=carritoComprasBO.obtenerCarritoComprasEnProcesoPorIdCliente(idCliente);
         if(carritoCompras==null){
             return Response.status(Response.Status.NOT_FOUND)
                     .entity(Map.of("error", "carritoCompras: " + idCliente + ", no encontrada"))

@@ -21,6 +21,10 @@ public class NotificacionImpl implements Notificacion {
 
     private EmailServiceImpl emailService;
 
+    public NotificacionImpl(){
+        emailService = new EmailServiceImpl();
+    }
+    
     @Override
     public void enviarMensajeOrdenCompra(OrdenCompra orden, String correo) {
         if (orden == null) {

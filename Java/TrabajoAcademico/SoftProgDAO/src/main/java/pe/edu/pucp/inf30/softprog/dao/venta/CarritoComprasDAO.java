@@ -15,5 +15,5 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.LineaCarrito;
  * @author Cristhian Horacio
  */
 public interface CarritoComprasDAO extends PersistibleTransaccional<CarritoCompras, Integer> {
-    CarritoCompras obtenerCarritoPorIdCliente(int id);
+    CarritoCompras obtenerCarritoEnProcesoPorIdCliente(int id);
 }
