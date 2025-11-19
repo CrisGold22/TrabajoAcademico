@@ -21,17 +21,17 @@ namespace SoftProgWeb
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
-            string username = txtEmail.Text.Trim();
+            string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 Response.Write("<script>alert('Por favor complete todos los campos');</script>");
                 return;
             }
 
             CuentaUsuarioWSClient cuentaWS = new CuentaUsuarioWSClient();
-            bool loginValido = cuentaWS.login(username, password);
+            bool loginValido = cuentaWS.login(email, password);
 
             if (!loginValido)
             {
@@ -43,7 +43,7 @@ namespace SoftProgWeb
             ClienteWSClient clienteWS = new ClienteWSClient();
             var clientes = clienteWS.listarCliente();
 
-            var cliente = clientes.FirstOrDefault(c => c.cuenta != null && c.cuenta.username == username);
+            var cliente = clientes.FirstOrDefault(c => c.cuenta != null && c.cuenta.correo == email);
 
             if (cliente != null)
             {

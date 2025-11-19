@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="Exception" type="tns:Exception" />
+  <xs:element name="IOException" type="tns:IOException" />
+  <xs:element name="InterruptedException" type="tns:InterruptedException" />
+  <xs:element name="JsonProcessingException" type="tns:JsonProcessingException" />
   <xs:element name="actualizarCliente" type="tns:actualizarCliente" />
   <xs:element name="actualizarClienteResponse" type="tns:actualizarClienteResponse" />
   <xs:element name="buscarPorDni" type="tns:buscarPorDni" />
   <xs:element name="buscarPorDniResponse" type="tns:buscarPorDniResponse" />
-  <xs:element name="eEliminarCliente" type="tns:eEliminarCliente" />
-  <xs:element name="eEliminarClienteResponse" type="tns:eEliminarClienteResponse" />
+  <xs:element name="eliminarCliente" type="tns:eliminarCliente" />
+  <xs:element name="eliminarClienteResponse" type="tns:eliminarClienteResponse" />
   <xs:element name="insertarCliente" type="tns:insertarCliente" />
   <xs:element name="insertarClienteResponse" type="tns:insertarClienteResponse" />
   <xs:element name="listarCliente" type="tns:listarCliente" />
@@ -55,7 +58,6 @@
   </xs:complexType>
   <xs:complexType name="registro">
     <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
       <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -63,14 +65,32 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:registro">
         <xs:sequence>
+          <xs:element minOccurs="0" name="correo" type="xs:string" />
           <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="resetToken" type="xs:string" />
+          <xs:element minOccurs="0" name="resetTokenExpira" type="tns:timestamp" />
           <xs:element minOccurs="0" name="username" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="timestamp">
+    <xs:sequence>
+      <xs:element name="nanos" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="localDate" final="extension restriction">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InterruptedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarCliente">
     <xs:sequence>
@@ -101,12 +121,23 @@
   <xs:complexType name="actualizarClienteResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="eEliminarCliente">
+  <xs:complexType name="JsonProcessingException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="location" type="tns:jsonLocation" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="originalMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="processor" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="jsonLocation">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarCliente">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eEliminarClienteResponse">
+  <xs:complexType name="eliminarClienteResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="buscarPorDni">
