@@ -51,6 +51,7 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.persona.ClienteBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmailService;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmpresaBO;
+import pe.edu.pucp.inf30.softprog.negocio.bo.persona.Notificacion;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.DescuentoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.ProductoBO;
@@ -66,6 +67,7 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.ClienteBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.CuentaUsuarioBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.EmailServiceImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.EmpresaBOImpl;
+import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.NotificacionImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.CategoriaProductoBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.DescuentoBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.ProductoBOImpl;
@@ -91,11 +93,46 @@ public class SoftProgPruebas {
 //        pruebaConEmpresa();
 //        pruebaListar();
 //        pruebaDemasFunciones();
-        pruebaCorreo();
+//        pruebaCorreo();
+//        pruebaNotificaciones();
+        pruebaMeOlvideContrasena();
     
 //        pruebaFiltroPorPrecio();
 //        pruebaObtenerMarcasPorCategoria();
 //        pruebaObtenerProductosPorCategoria();
+    }
+    
+    public static void pruebaMeOlvideContrasena(){
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
+
+        String correoUsuario = "cristhianhoracio22@gmail.com"; // el que está en la BD
+
+        cuentaBO.solicitarRecuperacionPassword(correoUsuario);
+
+        System.out.println("Se pidió recuperación. Revisa tu correo y/o la BD para ver el token.");
+    }
+    
+    public static void pruebaNotificaciones(){
+        
+//        String correo = "cristhianhoracio22@gmail.com";
+//        OrdenCompra ordenCompra = new OrdenCompra();
+//        
+//       
+//        
+//        Notificacion notificacion = new NotificacionImpl();
+        
+        CuentaUsuario cuenta = new CuentaUsuario();
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
+        
+        cuentaBO.eliminar(17);
+        
+        cuenta.setCorreo("cristhianhoracio22@gmail.com");
+        cuenta.setPassword("Killzone2003");
+        cuenta.setUsername("CrisGold22");
+        cuenta.setActivo(true);
+       
+        cuentaBO.insertar(cuenta);
+        
     }
     
     public static void pruebaObtenerProductosPorCategoria(){

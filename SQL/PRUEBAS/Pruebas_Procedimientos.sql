@@ -2,38 +2,22 @@ USE REDCOM;
 
 DELIMITER //
 
-CAll insertarCuentaUsuario('jpz', 'passSADAS123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('jperez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('mgarcia', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('lrodriguez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('acastro', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('plopez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('rmartinez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('dsanchez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('mgonzalez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('ctorres', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('jramirez', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('admin1', 'admin123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('admin2', 'admin123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('admin3', 'admin123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('cflores', 'pass123', 1,@nuevo_id);
-//
-CAll insertarCuentaUsuario('avargas', 'pass123', 1,@nuevo_id);
-
+CALL insertarCuentaUsuario('jpz',        'passSADAS123', 1, 'jpz@example.com',        @nuevo_id);
+CALL insertarCuentaUsuario('jperez',     'pass123',      1, 'jperez@example.com',     @nuevo_id);
+CALL insertarCuentaUsuario('mgarcia',    'pass123',      1, 'mgarcia@example.com',    @nuevo_id);
+CALL insertarCuentaUsuario('lrodriguez', 'pass123',      1, 'lrodriguez@example.com', @nuevo_id);
+CALL insertarCuentaUsuario('acastro',    'pass123',      1, 'acastro@example.com',    @nuevo_id);
+CALL insertarCuentaUsuario('plopez',     'pass123',      1, 'plopez@example.com',     @nuevo_id);
+CALL insertarCuentaUsuario('rmartinez',  'pass123',      1, 'rmartinez@example.com',  @nuevo_id);
+CALL insertarCuentaUsuario('dsanchez',   'pass123',      1, 'dsanchez@example.com',   @nuevo_id);
+CALL insertarCuentaUsuario('mgonzalez',  'pass123',      1, 'mgonzalez@example.com',  @nuevo_id);
+CALL insertarCuentaUsuario('ctorres',    'pass123',      1, 'ctorres@example.com',    @nuevo_id);
+CALL insertarCuentaUsuario('jramirez',   'pass123',      1, 'jramirez@example.com',   @nuevo_id);
+CALL insertarCuentaUsuario('admin1',     'admin123',     1, 'admin1@example.com',     @nuevo_id);
+CALL insertarCuentaUsuario('admin2',     'admin123',     1, 'admin2@example.com',     @nuevo_id);
+CALL insertarCuentaUsuario('admin3',     'admin123',     1, 'admin3@example.com',     @nuevo_id);
+CALL insertarCuentaUsuario('cflores',    'pass123',      1, 'cflores@example.com',    @nuevo_id);
+CALL insertarCuentaUsuario('avargas',    'pass123',      1, 'avargas@example.com',    @nuevo_id);
 
 //
 

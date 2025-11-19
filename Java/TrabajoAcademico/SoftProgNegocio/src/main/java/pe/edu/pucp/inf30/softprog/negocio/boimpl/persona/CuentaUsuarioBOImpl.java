@@ -19,17 +19,19 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmailService;
  *
  * @author Cristhian Horacio
  */
-public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
+public class CuentaUsuarioBOImpl implements CuentaUsuarioBO {
+
     private final CuentaUsuarioDAO cuentaDAO;
     private final EmailService emailService;
-    
+
     private static final int MINUTOS_EXPIRACION = 60;
     private static final String BASE_URL_RESET = "https://mi-sistema.com/reset-password?token=";
-    
+
     @Override
     public void solicitarRecuperacionPassword(String correo) {
-        if (correo == null || correo.isBlank())
+        if (correo == null || correo.isBlank()) {
             throw new IllegalArgumentException("Debe indicar el correo.");
+        }
 
         // 1. Buscar usuario por correo
         CuentaUsuario cuenta = cuentaDAO.obtenerPorCorreo(correo);
@@ -51,7 +53,9 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
         boolean ok = cuentaDAO.actualizarTokenRecuperacion(
                 cuenta.getId(), token, expira
         );
-        if (!ok) throw new RuntimeException("No se pudo registrar el token de recuperación.");
+        if (!ok) {
+            throw new RuntimeException("No se pudo registrar el token de recuperación.");
+        }
 
         // 4. Construir link y enviar correo
         String link = BASE_URL_RESET + token;
@@ -66,12 +70,12 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
 
         emailService.enviarCorreo(correo, asunto, cuerpo);
     }
-    
-    public CuentaUsuarioBOImpl(){
+
+    public CuentaUsuarioBOImpl() {
         cuentaDAO = new CuentaUsuarioDAOImpl();
         this.emailService = new EmailServiceImpl();
     }
-    
+
     @Override
     public List<CuentaUsuario> listar() {
         return this.cuentaDAO.leerTodos();
@@ -79,70 +83,98 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO{
 
     @Override
     public void insertar(CuentaUsuario modelo) {
-        if(modelo == null){
-            throw new IllegalArgumentException("La Cuenta Usuario  no puede ser nula");
-        }     
-        
-        this.cuentaDAO.crear(modelo);
+        if (modelo == null) {
+            throw new IllegalArgumentException("La cuenta de usuario no puede ser nula.");
+        }
+
+        if (modelo.getUsername() == null || modelo.getUsername().isBlank()) {
+            throw new IllegalArgumentException("El username es obligatorio.");
+        }
+
+        if (modelo.getPassword() == null || modelo.getPassword().isBlank()) {
+            throw new IllegalArgumentException("La contraseña es obligatoria.");
+        }
+
+        if (modelo.getCorreo() == null || modelo.getCorreo().isBlank()) {
+            throw new IllegalArgumentException("El correo es obligatorio.");
+        }
+
+        // 1. Tomamos la contraseña en texto plano
+        String passwordPlano = modelo.getPassword();
+
+        // 2. La hasheamos (BCrypt)
+        String passwordHash = PasswordUtils.hashPassword(passwordPlano);
+
+        // 3. Guardamos el hash en el modelo (ya no el texto plano)
+        modelo.setPassword(passwordHash);
+
+        // 4. Delegamos al DAO (que llamará al procedure insertarCuentaUsuario)
+        cuentaDAO.crear(modelo);
     }
 
     @Override
     public void actualizar(CuentaUsuario modelo) {
-        if(modelo == null){
+        if (modelo == null) {
             throw new IllegalArgumentException("La Cuenta Usuario  no puede ser nula");
-        } 
-        
-        if(modelo.getId() <= 0){
-             throw new IllegalArgumentException("Cuenta Usuario con ID inválido");     
+        }
+
+        if (modelo.getId() <= 0) {
+            throw new IllegalArgumentException("Cuenta Usuario con ID inválido");
         }
 
         CuentaUsuario cuentaModelo = this.cuentaDAO.leer(modelo.getId());
-        
-        if(cuentaModelo == null){
-            throw new RuntimeException("No se encontro a la Cuenta Usuario con id : "+modelo.getId());
+
+        if (cuentaModelo == null) {
+            throw new RuntimeException("No se encontro a la Cuenta Usuario con id : " + modelo.getId());
         }
-        
+
+        if (modelo.getPassword() != null && !modelo.getPassword().isBlank()) {
+            String hashNuevo = PasswordUtils.hashPassword(modelo.getPassword());
+            modelo.setPassword(hashNuevo);
+        }
+
         this.cuentaDAO.actualizar(modelo);
     }
 
     @Override
     public CuentaUsuario obtener(int id) {
-        if(id <= 0){
-             throw new IllegalArgumentException("Cuenta Usuario con ID inválido");     
+        if (id <= 0) {
+            throw new IllegalArgumentException("Cuenta Usuario con ID inválido");
         }
-        
+
         CuentaUsuario cuentaModelo = this.cuentaDAO.leer(id);
-        
-        if(cuentaModelo == null){
-            throw new RuntimeException("No se encontro a la Cuenta Usuario con id : "+id);
+
+        if (cuentaModelo == null) {
+            throw new RuntimeException("No se encontro a la Cuenta Usuario con id : " + id);
         }
-        
+
         return cuentaModelo;
     }
 
     @Override
     public void eliminar(int id) {
-        if(id <= 0){
-             throw new IllegalArgumentException("Cuenta Usuario con ID inválido");     
+        if (id <= 0) {
+            throw new IllegalArgumentException("Cuenta Usuario con ID inválido");
         }
-        
+
         CuentaUsuario cuentaModelo = this.cuentaDAO.leer(id);
-        
-        if(cuentaModelo == null){
-            throw new RuntimeException("No se encontro a la Cuenta Usuario con id : "+id);
+
+        if (cuentaModelo == null) {
+            throw new RuntimeException("No se encontro a la Cuenta Usuario con id : " + id);
         }
-                
+
         this.cuentaDAO.eliminar(id);
     }
+
     @Override
-    public boolean login(String email, String password){
-        if(email.isEmpty() || email.isBlank() || password.isBlank() || password.isEmpty()){
+    public boolean login(String email, String password) {
+        if (email.isEmpty() || email.isBlank() || password.isBlank() || password.isEmpty()) {
             throw new IllegalArgumentException("Usuario o password inválido");
         }
-        
+
         return this.cuentaDAO.login(email, password);
     }
-    
+
     @Override
     public boolean cambiarPassword(String username, String passwordActual, String passwordNueva) {
         if (username == null || passwordActual == null || passwordNueva == null) {

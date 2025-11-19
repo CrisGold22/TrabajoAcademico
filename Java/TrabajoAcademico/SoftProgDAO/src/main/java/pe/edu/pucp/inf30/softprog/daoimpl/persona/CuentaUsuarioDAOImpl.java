@@ -16,6 +16,7 @@ import pe.edu.pucp.inf30.softprog.daoimpl.BaseDAO;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBFactoryProvider;
 import pe.edu.pucp.inf30.softprog.dbmanager.DBManager;
 import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
+import pe.edu.pucp.inf30.softprog.modelo.persona.utils.PasswordUtils;
 
 /**
  *
@@ -119,7 +120,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     @Override
     public boolean login(String email, String password) {
         return ejecutarComando(conn -> {
-            try (PreparedStatement cmd = this.comandoLogin(conn, email, password)) {
+            String contrasena = PasswordUtils.hashPassword(password);
+            try (PreparedStatement cmd = this.comandoLogin(conn, email, contrasena)) {
                 if (cmd instanceof CallableStatement callableCmd) {
                     callableCmd.execute();
                     boolean valido = callableCmd.getBoolean("p_valido");
