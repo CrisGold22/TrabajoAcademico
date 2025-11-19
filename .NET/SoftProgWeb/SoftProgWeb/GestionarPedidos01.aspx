@@ -10,12 +10,12 @@
             </div>
         </div>
 
-       <div class="row mb-3">
+    <%--<div class="row mb-3">
     <div class="col-md-6">
         <asp:Button ID="btnGenerarReporte" runat="server"
             Text="Generar Reporte"
             CssClass="btn btn-success" />
-    </div>
+    </div>--%>
 </div>
 
 
@@ -80,6 +80,6 @@
 </asp:GridView>
             </div>
         </div>
-    </div>
+   
 
 </asp:Content>

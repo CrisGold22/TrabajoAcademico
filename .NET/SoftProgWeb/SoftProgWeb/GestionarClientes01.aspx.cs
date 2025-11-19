@@ -89,6 +89,10 @@ namespace SoftProgWeb
             }
         }
 
+        protected void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:8080/SoftProgReportes/ReporteClientes?autor=miraya");
+        }
         protected void btnAtenderSolicitudes_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionarEmpresasPendientes.aspx");

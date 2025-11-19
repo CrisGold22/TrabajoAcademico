@@ -17,7 +17,8 @@
     <div class="col-md-6">
         <asp:Button ID="btnGenerarReporte" runat="server"
             Text="Generar Reporte"
-            CssClass="btn btn-success" />
+            CssClass="btn btn-success"
+            OnClick="btnGenerarReporte_Click" />
     </div>
 </div>
 
