@@ -120,8 +120,8 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     @Override
     public boolean login(String email, String password) {
         return ejecutarComando(conn -> {
-            String contrasena = PasswordUtils.hashPassword(password);
-            try (PreparedStatement cmd = this.comandoLogin(conn, email, contrasena)) {
+            //String contrasena = PasswordUtils.hashPassword(password);
+            try (PreparedStatement cmd = this.comandoLogin(conn, email, password)) {
                 if (cmd instanceof CallableStatement callableCmd) {
                     callableCmd.execute();
                     boolean valido = callableCmd.getBoolean("p_valido");

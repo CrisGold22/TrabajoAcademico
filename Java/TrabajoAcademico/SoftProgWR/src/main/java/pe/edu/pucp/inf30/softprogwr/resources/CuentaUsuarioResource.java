@@ -114,7 +114,7 @@ public class CuentaUsuarioResource {
     public Response login(CuentaUsuario cuenta) {
         boolean success = 
                 this.cuentaUsuarioBO.login(
-                        cuenta.getUsername(), 
+                        cuenta.getCorreo(), 
                         cuenta.getPassword());
         
         if (success) {
