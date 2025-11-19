@@ -83,6 +83,59 @@ BEGIN
     SELECT * FROM OrdenCompra;
 END //
 
+CREATE PROCEDURE reporteOrdenCompra(
+	IN p_id INT
+)
+DELIMITER //
+
+DELIMITER //
+CREATE PROCEDURE listarOrdenesCompraPorCuenta(IN p_cuenta VARCHAR(50))
+BEGIN
+    SELECT O.*
+    FROM OrdenCompra AS O
+    INNER JOIN Cliente AS C ON C.idCliente = O.cliente_idCliente
+    INNER JOIN CuentaUsuario AS CU ON CU.idCuentaUsuario = C.idCuentaUsuario
+    WHERE CU.userName = p_cuenta;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE reporteOrdenCompra(
+	IN p_id INT
+)
+BEGIN 
+	SELECT 
+		O.idOrdenCompra, C.dni, C.nombre, C.apellidoPaterno, O.total_final, O.total_parcial, O.descuentoTotal
+	FROM 
+		OrdenCompra AS O
+	INNER JOIN Cliente AS C
+		ON O.cliente_idCliente = C.idCliente
+	WHERE O.idOrdenCompra = p_id;
+END //
+DELIMITER //;
+
+
+DELIMITER //
+CREATE PROCEDURE reporteDetalleOrdenCompra(
+	IN p_id INT
+)
+BEGIN
+	SELECT 
+		L.idLineaOrdenCompra, P.nombre, P.precioRegular, L.cantidad, L.subTotal
+    FROM 
+		LineaOrdenCompra AS L
+    INNER JOIN 
+		OrdenCompra AS O
+        ON O.idOrdenCompra = L.ordenCompra_IdPedido
+	INNER JOIN 
+		Producto AS P
+        ON L.producto_ID_Producto = P.id_Producto
+	WHERE O.idOrdenCompra = p_id;
+END //
+DELIMITER //;
+
+		
+
 CREATE PROCEDURE consultarPedidoPorFechas(
     IN p_Cliente INT,
     IN p_Filtro1 DATE,
