@@ -57,3 +57,7 @@ C:\Users\Diego\Documents\TA\TA RevC\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWe
 C:\Users\Diego\Documents\TA\TA RevC\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProg.E1BD1A85.Up2Date
 C:\Users\Diego\Documents\TA\TA RevC\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
 C:\Users\Diego\Documents\TA\TA RevC\TrabajoAcademico\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab13\TrabajoAcademico-proyecto\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.AssemblyReference.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab13\TrabajoAcademico-proyecto\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.csproj.CoreCompileInputs.cache
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab13\TrabajoAcademico-proyecto\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.dll
+D:\.PUCP\2025-2\Progra 3\proyecto\Lab13\TrabajoAcademico-proyecto\.NET\SoftProgWeb\SoftProgWeb\obj\Debug\SoftProgWeb.pdb

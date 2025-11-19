@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-//using SoftProgWeb.ServicioOrdenCompraWS;
 using SoftProgWeb.SoftProgWS;
 
 namespace SoftProgWeb
@@ -13,6 +8,7 @@ namespace SoftProgWeb
     {
         OrdenCompraWSClient ordenWS = new OrdenCompraWSClient();
         DetalleEnvioWSClient detalleWS = new DetalleEnvioWSClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,10 +17,9 @@ namespace SoftProgWeb
             }
         }
 
-
         private int ObtenerIdClienteActual()
         {
-            return 1; // ID CLIENTE HARDCODE PARA PRUEBAS
+            return 1;
         }
 
         private void CargarSeguimiento()
@@ -38,32 +33,18 @@ namespace SoftProgWeb
                 return;
             }
 
-            
             var orden = ordenes.OrderByDescending(o => o.fechaCreacion).First();
 
             var detalles = detalleWS.listarDetalleEnvio();
             var detalle = detalles.FirstOrDefault(d => d.ordenCompra.id == orden.id);
 
-            if (detalle == null)
-            {
-                // No hay detalle de envío
-                return;
-            }
+            if (detalle == null) return;
 
-            // MOSTRAR DATOS
-            
             lblCodigoOrden.Text = orden.id.ToString();
-
-            var fecha = detalle.fechaEntrega;
-            DateTime fechaEntregaConvertida = DateTime.Parse(fecha.ToString());
-            lblFechaEntrega.Text = fechaEntregaConvertida.ToString("dd/MM/yyyy");
-
-            var hora = detalle.horarioEntrega;
-            DateTime horaEntregaConvertida = DateTime.Parse(fecha.ToString());
-            lblHorarioEntrega.Text = horaEntregaConvertida.ToString("HH:mm");
+            lblFechaEntrega.Text = detalle.fechaEntrega.ToString();
+            lblHorarioEntrega.Text = detalle.horarioEntrega.ToString();
             lblDireccion.Text = detalle.direccion;
 
-            // TRACKING SEGÚN ESTADO
             ActualizarTracking(orden.estado);
         }
 
@@ -79,18 +60,15 @@ namespace SoftProgWeb
                 case estadoOrdenCompra.PAGADO:
                     step1.Attributes["class"] += " active";
                     break;
-
                 case estadoOrdenCompra.EN_PREPARACION:
                     step1.Attributes["class"] += " active";
                     step2.Attributes["class"] += " active";
                     break;
-
                 case estadoOrdenCompra.ENVIADO:
                     step1.Attributes["class"] += " active";
                     step2.Attributes["class"] += " active";
                     step3.Attributes["class"] += " active";
                     break;
-
                 case estadoOrdenCompra.ENTREGADO:
                     step1.Attributes["class"] += " active";
                     step2.Attributes["class"] += " active";

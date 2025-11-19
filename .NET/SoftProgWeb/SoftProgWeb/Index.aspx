@@ -18,7 +18,7 @@
                             <img src="images/portada2.png" class="d-block w-100" alt="Promoción 2" >
                         </div>
                         <div class="carousel-item">
-                            <img src="images/portada3.png" class="d-block w-100" alt="Promoción 3">
+                            <img  src="images/portada3.png" class="d-block w-100" alt="Promoción 3">
                         </div>
                     </div>
                     

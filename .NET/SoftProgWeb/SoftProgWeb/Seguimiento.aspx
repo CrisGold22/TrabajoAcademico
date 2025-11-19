@@ -130,7 +130,7 @@
             setTimeout(function () {
                 document.getElementById('pantallaCancelado').classList.remove('show');
                 // Redirigir o volver al inicio
-                window.location.href = 'Home.aspx';
+                window.location.href  = 'Home.aspx';
             }, 2000);
         }
     </script>
