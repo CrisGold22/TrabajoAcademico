@@ -61,7 +61,7 @@ public class EmpresaWS {
     @WebMethod(operationName = "insertarEmpresa")
     public void insertarEmpresa(@WebParam(name = "empresa")
             Empresa empresa) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(empresa);
         String url;
         HttpRequest request;
@@ -77,7 +77,7 @@ public class EmpresaWS {
     @WebMethod(operationName = "actualizarEmpresa")
     public void actualizarEmpresa(@WebParam(name = "empresa")
             Empresa empresa) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(empresa);
         String url;
         HttpRequest request;

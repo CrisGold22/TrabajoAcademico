@@ -59,7 +59,8 @@ public class AdministradorSistemaWS {
     @WebMethod(operationName = "insertarAdministrador")
     public void insertarAdministrador(@WebParam(name = "administradorsistema")
             AdministradorSistema administradorsistema) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(administradorsistema);
         String url;
         HttpRequest request;
@@ -77,7 +78,7 @@ public class AdministradorSistemaWS {
     @WebMethod(operationName = "actualizarAdministradorPorId")
     public void actualizarAdministradorPorId(@WebParam(name = "admistradorsistema") 
             AdministradorSistema admistradorsistema) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(admistradorsistema);
         String url;
         HttpRequest request;
@@ -102,7 +103,7 @@ public class AdministradorSistemaWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         AdministradorSistema administradorSistema = mapper.readValue(json, AdministradorSistema.class);
         return administradorSistema;
     }

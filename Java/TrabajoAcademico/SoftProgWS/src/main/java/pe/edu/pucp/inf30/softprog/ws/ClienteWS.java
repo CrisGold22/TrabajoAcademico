@@ -96,7 +96,7 @@ public class ClienteWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         Cliente cliente = mapper.readValue(json, Cliente.class);
         return cliente;
     }

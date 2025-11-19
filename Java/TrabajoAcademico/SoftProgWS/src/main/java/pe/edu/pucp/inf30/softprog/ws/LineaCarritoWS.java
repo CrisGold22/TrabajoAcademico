@@ -57,7 +57,7 @@ public class LineaCarritoWS {
     @WebMethod(operationName = "InsertarLineaCarrito")
     public void InsertarLineaCarrito(@WebParam(name = "lineaCarrito")
             LineaCarrito lineaCarrito) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lineaCarrito);
         String url;
         HttpRequest request;
@@ -73,7 +73,7 @@ public class LineaCarritoWS {
     @WebMethod(operationName = "ActualizarLineaCarrito")
     public void ActualizarLineaCarrito(@WebParam(name = "lineaCarrito")
             LineaCarrito lineaCarrito) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lineaCarrito);
         String url;
         HttpRequest request;

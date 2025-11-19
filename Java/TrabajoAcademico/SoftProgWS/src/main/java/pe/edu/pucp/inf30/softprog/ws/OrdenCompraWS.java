@@ -59,7 +59,7 @@ public class OrdenCompraWS {
     @WebMethod(operationName = "insertarOrdenCompra")
     public void insertarOrdenCompra(@WebParam(name = "ordenCompra")
             OrdenCompra ordenCompra) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(ordenCompra);
         String url;
         HttpRequest request;
@@ -75,7 +75,7 @@ public class OrdenCompraWS {
     @WebMethod(operationName = "actualizarOrdenCompra")
     public void actualizarOrdenCompra(@WebParam(name = "ordenCompra")
             OrdenCompra ordenCompra) throws JsonProcessingException, IOException, InterruptedException {
-         ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(ordenCompra);
         String url;
         HttpRequest request;
@@ -100,7 +100,7 @@ public class OrdenCompraWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         OrdenCompra ordenCompra = mapper.readValue(json, OrdenCompra.class);
         return ordenCompra;
     }

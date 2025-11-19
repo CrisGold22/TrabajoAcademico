@@ -58,7 +58,7 @@ public class DetalleEnvioWS {
     @WebMethod(operationName = "insertarDetalleEnvio")
     public void insertarDetalleEnvio(@WebParam(name = "detalleEnvio")
             DetalleEnvio detalleEnvio) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(detalleEnvio);
         String url;
         HttpRequest request;
@@ -74,7 +74,7 @@ public class DetalleEnvioWS {
     @WebMethod(operationName = "actualizarDetalleEnvio")
     public void actualizarDetalleEnvio(@WebParam(name = "detalleEnvio")
             DetalleEnvio detalleEnvio) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(detalleEnvio);
         String url;
         HttpRequest request;
@@ -100,7 +100,7 @@ public class DetalleEnvioWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         DetalleEnvio detalleEnvio = mapper.readValue(json, DetalleEnvio.class);
         return detalleEnvio;
     }

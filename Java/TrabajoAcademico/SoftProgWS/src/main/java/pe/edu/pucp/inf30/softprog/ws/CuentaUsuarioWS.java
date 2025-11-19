@@ -59,7 +59,7 @@ public class CuentaUsuarioWS {
     @WebMethod(operationName = "insertarCuentaUsuario")
     public void insertarCuentaUsuario(@WebParam(name = "cuentaUsuario")
                                         CuentaUsuario cuentaUsuario) throws JsonProcessingException, IOException, InterruptedException{
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cuentaUsuario);
         String url;
         HttpRequest request;
@@ -77,7 +77,7 @@ public class CuentaUsuarioWS {
     @WebMethod(operationName = "actualizarCuentaUsuario")
     public void actualizarCuentaUsuario(@WebParam(name = "cuentaUsuario")
                                         CuentaUsuario cuentaUsuario) throws JsonProcessingException, IOException, InterruptedException{
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cuentaUsuario);
         String url;
         HttpRequest request;
@@ -103,7 +103,7 @@ public class CuentaUsuarioWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         CuentaUsuario cuentaUsuario = mapper.readValue(json, CuentaUsuario.class);
         return cuentaUsuario;
     }
@@ -127,7 +127,7 @@ public class CuentaUsuarioWS {
         cuenta.setUsername(email);
         cuenta.setPassword(password);
         
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cuenta);
         
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/login";

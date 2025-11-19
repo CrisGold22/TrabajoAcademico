@@ -59,7 +59,7 @@ private final ResourceBundle config;
     @WebMethod(operationName = "insertarCategoriaProducto")
     public void insertarCategoriaProducto(@WebParam(name = "categoriaProducto")
             CategoriaProducto categoriaProducto) throws IOException, InterruptedException  {
-    ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(categoriaProducto);
         String url;
         HttpRequest request;
@@ -77,7 +77,7 @@ private final ResourceBundle config;
     @WebMethod(operationName = "actualizarCategoriaProducto")
     public void actualizarCategoriaProducto(@WebParam(name = "categoriaProducto")
             CategoriaProducto categoriaProducto) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(categoriaProducto);
         String url;
         HttpRequest request;
@@ -104,7 +104,7 @@ private final ResourceBundle config;
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         CategoriaProducto categoriaProducto = mapper.readValue(json, CategoriaProducto.class);
         return categoriaProducto;
     }

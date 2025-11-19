@@ -70,14 +70,14 @@ public class CarritoComprasWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        ////http://localhost:8080/SoftProgWR/api/v1/administrador/1
         CarritoCompras carritoCompras = mapper.readValue(json, CarritoCompras.class);
         return carritoCompras;
     }
     @WebMethod(operationName = "insertarCarritoCompras")
     public void insertarCarritoCompras(@WebParam(name = "carritoCompras") 
             CarritoCompras carritoCompras) throws IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(carritoCompras);
         String url;
         HttpRequest request;
@@ -107,7 +107,7 @@ public class CarritoComprasWS {
     @WebMethod(operationName = "actualizarCarritoCompras")
     public void actualizarCarritoCompras(@WebParam(name = "carritoCompras") 
             CarritoCompras carritoCompras) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(carritoCompras);
 
         String url;
@@ -149,7 +149,7 @@ public class CarritoComprasWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        
         CarritoCompras carritoCompras = mapper.readValue(json, CarritoCompras.class);
         return carritoCompras;
     }

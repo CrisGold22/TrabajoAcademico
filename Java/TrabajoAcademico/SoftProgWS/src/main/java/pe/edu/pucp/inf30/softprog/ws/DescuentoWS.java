@@ -58,7 +58,7 @@ public class DescuentoWS {
     @WebMethod(operationName = "insertarDescuento")
     public void insertarDescuento(@WebParam(name = "descuento")
             Descuento descuento) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(descuento);
         String url;
         HttpRequest request;
@@ -76,7 +76,7 @@ public class DescuentoWS {
     @WebMethod(operationName = "actualizarDescuento")
     public void actualizarDescuento(@WebParam(name = "descuento")
             Descuento descuento) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(descuento);
         String url;
         HttpRequest request;
@@ -101,7 +101,7 @@ public class DescuentoWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         Descuento descuento = mapper.readValue(json, Descuento.class);
         return descuento;
     }
@@ -125,7 +125,7 @@ public class DescuentoWS {
         descuento.setProducto(producto);
         descuento.setPrecioPorVolumen(nuevoprecio);
         
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(descuento);
         String url;
         HttpRequest request;
