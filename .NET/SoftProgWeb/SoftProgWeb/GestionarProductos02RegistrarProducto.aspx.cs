@@ -1,7 +1,4 @@
-﻿using SoftProgWeb.ServicioCategoriaWS;
-using SoftProgWeb.ServicioDescuentoWS;
-using SoftProgWeb.ServiceioProductoWS;
-using SoftProgWeb.SoftProgWS;
+﻿using SoftProgWeb.SoftProgWS;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,13 +7,13 @@ namespace SoftProgWeb
 {
     public partial class GestionarProductos02RegistrarProducto : System.Web.UI.Page
     {
-    private ServiceioProductoWS.ProductoWSClient _servicioProducto;
-    private ServicioCategoriaWS.CategoriaProductoWSClient _servicioCategoria;
+    private ProductoWSClient _servicioProducto;
+    private CategoriaProductoWSClient _servicioCategoria;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        _servicioProducto = new ServiceioProductoWS.ProductoWSClient();
-        _servicioCategoria = new ServicioCategoriaWS.CategoriaProductoWSClient();
+        _servicioProducto = new ProductoWSClient();
+        _servicioCategoria = new CategoriaProductoWSClient();
 
         pnlMensaje.Visible = false;
 
@@ -49,7 +46,7 @@ namespace SoftProgWeb
             ddlCategoria.DataBind();
             ddlCategoria.Items.Insert(0, new ListItem("-- Seleccionar Categoría --", "0"));
 
-            ddlUnidadMedida.DataSource = Enum.GetNames(typeof(ServiceioProductoWS.unidadMedida));
+            ddlUnidadMedida.DataSource = Enum.GetNames(typeof(unidadMedida));
             ddlUnidadMedida.DataBind();
         }
         catch (System.Exception ex)
@@ -62,7 +59,7 @@ namespace SoftProgWeb
     {
         try
         {
-            ServiceioProductoWS.producto prod = _servicioProducto.obtenerProducto(idProducto);
+            producto prod = _servicioProducto.obtenerProducto(idProducto);
             if (prod != null)
             {
                 txtNombre.Text = prod.nombre;
@@ -82,7 +79,7 @@ namespace SoftProgWeb
         }
     }
 
-        protected ServiceioProductoWS.ProductoWSClient Get_servicioProducto()
+        protected ProductoWSClient Get_servicioProducto()
         {
             return _servicioProducto;
         }
@@ -91,7 +88,7 @@ namespace SoftProgWeb
     {
         try
         {
-            ServiceioProductoWS.producto prod = new ServiceioProductoWS.producto();
+            producto prod = new producto();
 
             prod.nombre = txtNombre.Text;
             prod.SKU = txtSKU.Text;
@@ -99,9 +96,9 @@ namespace SoftProgWeb
             prod.descripcion = txtDescripcion.Text;
             prod.precioRegular = double.Parse(txtPrecioRegular.Text);
             prod.stockDisponible = int.Parse(txtStockDisponible.Text);
-            prod.categoria = new ServiceioProductoWS.categoriaProducto();
+            prod.categoria = new categoriaProducto();
             prod.categoria.id = int.Parse(ddlCategoria.SelectedValue);
-            prod.medidaAlMayor = (ServiceioProductoWS.unidadMedida)Enum.Parse(typeof(ServiceioProductoWS.unidadMedida), ddlUnidadMedida.SelectedValue);
+            prod.medidaAlMayor = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
             prod.medidaAlMayorSpecified = true;
 
             int idProducto = (int)ViewState["ProductoID"];

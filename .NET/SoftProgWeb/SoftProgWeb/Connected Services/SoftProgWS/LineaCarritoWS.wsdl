@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/LineaCarritoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="InsertarLineaCarrito">
-    <part name="parameters" element="tns:InsertarLineaCarrito" />
+  <message name="ActualizarLineaCarrito">
+    <part name="parameters" element="tns:ActualizarLineaCarrito" />
   </message>
-  <message name="InsertarLineaCarritoResponse">
-    <part name="parameters" element="tns:InsertarLineaCarritoResponse" />
+  <message name="ActualizarLineaCarritoResponse">
+    <part name="parameters" element="tns:ActualizarLineaCarritoResponse" />
   </message>
   <message name="JsonProcessingException">
     <part name="fault" element="tns:JsonProcessingException" />
@@ -20,17 +20,17 @@
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
   </message>
+  <message name="InsertarLineaCarrito">
+    <part name="parameters" element="tns:InsertarLineaCarrito" />
+  </message>
+  <message name="InsertarLineaCarritoResponse">
+    <part name="parameters" element="tns:InsertarLineaCarritoResponse" />
+  </message>
   <message name="ObtenerLineaCarrito">
     <part name="parameters" element="tns:ObtenerLineaCarrito" />
   </message>
   <message name="ObtenerLineaCarritoResponse">
     <part name="parameters" element="tns:ObtenerLineaCarritoResponse" />
-  </message>
-  <message name="ActualizarLineaCarrito">
-    <part name="parameters" element="tns:ActualizarLineaCarrito" />
-  </message>
-  <message name="ActualizarLineaCarritoResponse">
-    <part name="parameters" element="tns:ActualizarLineaCarritoResponse" />
   </message>
   <message name="EliminarLineaCarrito">
     <part name="parameters" element="tns:EliminarLineaCarrito" />
@@ -39,6 +39,13 @@
     <part name="parameters" element="tns:EliminarLineaCarritoResponse" />
   </message>
   <portType name="LineaCarritoWS">
+    <operation name="ActualizarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoRequest" message="tns:ActualizarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoResponse" message="tns:ActualizarLineaCarritoResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarrito/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarrito/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarrito/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="InsertarLineaCarrito">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/InsertarLineaCarritoRequest" message="tns:InsertarLineaCarrito" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/InsertarLineaCarritoResponse" message="tns:InsertarLineaCarritoResponse" />
@@ -52,13 +59,6 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarrito/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarrito/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="ActualizarLineaCarrito">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoRequest" message="tns:ActualizarLineaCarrito" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoResponse" message="tns:ActualizarLineaCarritoResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarrito/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarrito/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarrito/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
     <operation name="EliminarLineaCarrito">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoRequest" message="tns:EliminarLineaCarrito" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoResponse" message="tns:EliminarLineaCarritoResponse" />
@@ -68,6 +68,24 @@
   </portType>
   <binding name="LineaCarritoWSPortBinding" type="tns:LineaCarritoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ActualizarLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="JsonProcessingException">
+        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
+      </fault>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
     <operation name="InsertarLineaCarrito">
       <soap:operation soapAction="" />
       <input>
@@ -94,24 +112,6 @@
       <output>
         <soap:body use="literal" />
       </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="ActualizarLineaCarrito">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="JsonProcessingException">
-        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
-      </fault>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>

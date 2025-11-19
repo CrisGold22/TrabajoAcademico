@@ -71,266 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CambiarContrasena.aspx" />
-    <None Include="Connected Services\CuentaUsuarioWS\CuentaUsuarioWS.wsdl" />
-    <None Include="Connected Services\CuentaUsuarioWS\CuentaUsuarioWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.actualizarCuentaUsuarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.cuentaUsuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.eliminarCuentaUsuarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.insertarCuentaUsuarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.listarCuentaUsuarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.loginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CuentaUsuarioWS\SoftProgWeb.CuentaUsuarioWS.obtenerCuentaUsuarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\CuentaUsuarioWS\configuration91.svcinfo" />
-    <None Include="Connected Services\CuentaUsuarioWS\configuration.svcinfo" />
-    <None Include="Connected Services\CuentaUsuarioWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceioEmpresaWS\EmpresaWS.wsdl" />
-    <None Include="Connected Services\ServiceioEmpresaWS\EmpresaWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.actualizarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.eliminarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.empresa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.insertarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.listarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.listarEmpresasActivosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.listarEmpresasNoActivosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.listarEmpresasPorClienteActivasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.listarEmpresasPorClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.listarEmpresasPorClientesNoActivasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.obtenerEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioEmpresaWS\SoftProgWeb.ServiceioEmpresaWS.validarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\ServiceioProductoWS\ProductoWS.wsdl" />
-    <None Include="Connected Services\ServiceioProductoWS\ProductoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.actualizarProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.eliminarProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.insertarProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorMarcaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorPrecioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.listarProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.obtenerPorSkuResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.obtenerProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.producto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.listarfiltrarProductoPorDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorIDResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceioProductoWS\SoftProgWeb.ServiceioProductoWS.verificarStockSuficientePorSKUResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\ServicioCategoriaWS\CategoriaProductoWS.wsdl" />
-    <None Include="Connected Services\ServicioCategoriaWS\CategoriaProductoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceioEmpresaWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceioEmpresaWS\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceioEmpresaWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServiceioProductoWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceioProductoWS\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceioProductoWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\ServicioCategoriaWS\SoftProgWeb.ServicioCategoriaWS.actualizarCategoriaProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioCategoriaWS\SoftProgWeb.ServicioCategoriaWS.categoriaProducto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioCategoriaWS\SoftProgWeb.ServicioCategoriaWS.eliminarCategoriaProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioCategoriaWS\SoftProgWeb.ServicioCategoriaWS.insertarCategoriaProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioCategoriaWS\SoftProgWeb.ServicioCategoriaWS.listarCategoriaProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioCategoriaWS\SoftProgWeb.ServicioCategoriaWS.obtenerCategoriaProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\ServicioClienteWS\ClienteWS.wsdl" />
-    <None Include="Connected Services\ServicioClienteWS\ClienteWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.actualizarClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.buscarPorDniResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.cliente.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.eEliminarClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.insertarClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.listarClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioClienteWS\SoftProgWeb.ServicioClienteWS.obtenerClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\ServicioDescuentoWS\DescuentoWS.wsdl" />
-    <None Include="Connected Services\ServicioDescuentoWS\DescuentoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioCategoriaWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ServicioCategoriaWS\configuration.svcinfo" />
-    <None Include="Connected Services\ServicioCategoriaWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\ServicioClienteWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ServicioClienteWS\configuration.svcinfo" />
-    <None Include="Connected Services\ServicioClienteWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\ServicioDescuentoWS\SoftProgWeb.ServicioDescuentoWS.actualizarDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioDescuentoWS\SoftProgWeb.ServicioDescuentoWS.descuento.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioDescuentoWS\SoftProgWeb.ServicioDescuentoWS.eliminarDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioDescuentoWS\SoftProgWeb.ServicioDescuentoWS.insertarDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioDescuentoWS\SoftProgWeb.ServicioDescuentoWS.listarDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioDescuentoWS\SoftProgWeb.ServicioDescuentoWS.obtenerDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\ServicioOrdenCompraWS\OrdenCompraWS.wsdl" />
-    <None Include="Connected Services\ServicioOrdenCompraWS\OrdenCompraWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioDescuentoWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ServicioDescuentoWS\configuration.svcinfo" />
-    <None Include="Connected Services\ServicioDescuentoWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.actualizarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.desactivarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.eliminarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.insertarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.listarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.obtenerOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.ordenCompra.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.consultarOrdenCompraPorIdClienteOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.consultarPedidoPorFechasOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.lineaOrdenCompra.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServicioOrdenCompraWS\SoftProgWeb.ServicioOrdenCompraWS.listarLineasOrdenCompraPorIdOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="CategoriaAbarrotes.aspx" />
-    <Content Include="CategoriaAperitivos.aspx" />
-    <Content Include="CategoriaBebidas.aspx" />
-    <Content Include="CategoriaConservasYEnlatados.aspx" />
-    <Content Include="CategoriaCuidadoPersonal.aspx" />
-    <Content Include="CategoriaLacteos.aspx" />
-    <Content Include="CategoriaMascota.aspx" />
-    <None Include="Connected Services\ServicioOrdenCompraWS\configuration91.svcinfo" />
-    <None Include="Connected Services\ServicioOrdenCompraWS\configuration.svcinfo" />
-    <None Include="Connected Services\ServicioOrdenCompraWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\SoftProgWS\AdministradorSistemaWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\AdministradorSistemaWS.xsd">
       <SubType>Designer</SubType>
@@ -338,14 +78,9 @@
     <None Include="Connected Services\SoftProgWS\CarritoComprasWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SoftProgWS\CategoriaProductoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Connected Services\SoftProgWS\CategoriaProductoWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\ClienteWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\CuentaUsuarioWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\DescuentoWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\DetalleEnvioWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\DetalleEnvioWS.xsd">
+    <None Include="Connected Services\SoftProgWS\ClienteWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SoftProgWS\EmpresaWS.wsdl" />
@@ -356,14 +91,6 @@
     <None Include="Connected Services\SoftProgWS\LineaCarritoWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SoftProgWS\OrdenCompraWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\OrdenCompraWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SoftProgWS\ProductoWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\ProductoWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\SoftProgWS\serviciosredcom.disco" />
     <None Include="Connected Services\SoftProgWS\configuration91.svcinfo" />
     <None Include="Connected Services\SoftProgWS\configuration.svcinfo" />
@@ -371,6 +98,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="CategoriaAbarrotes.aspx" />
+    <Content Include="CategoriaAperitivos.aspx" />
+    <Content Include="CategoriaBebidas.aspx" />
+    <Content Include="CategoriaConservasYEnlatados.aspx" />
+    <Content Include="CategoriaCuidadoPersonal.aspx" />
+    <Content Include="CategoriaLacteos.aspx" />
+    <Content Include="CategoriaMascota.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -513,14 +247,27 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\SoftProgWS\CarritoComprasWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\CategoriaProductoWS.wsdl" />
-    <None Include="Connected Services\SoftProgWS\ClienteWS.xsd">
+    <None Include="Connected Services\SoftProgWS\CategoriaProductoWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SoftProgWS\CuentaUsuarioWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\CuentaUsuarioWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SoftProgWS\DescuentoWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\DescuentoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SoftProgWS\DetalleEnvioWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\DetalleEnvioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SoftProgWS\OrdenCompraWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\OrdenCompraWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SoftProgWS\ProductoWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\ProductoWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarAdministradorPorIdResponse.datasource">
@@ -544,16 +291,7 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ActualizarLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarPrecioDescuentoProductoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarProductoResponse.datasource">
@@ -574,16 +312,7 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.cuentaUsuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.descuento.datasource">
@@ -601,9 +330,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarCategoriaProductoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -613,19 +339,10 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.EliminarLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.empresa.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarAdministradorResponse.datasource">
@@ -647,12 +364,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarDetalleEnvioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.InsertarLineaCarritoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse.datasource">
@@ -682,40 +393,7 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarDetalleEnvioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasNoActivosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteNoActivasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorMarcaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioRegularResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarOrdenCompraResponse.datasource">
@@ -739,9 +417,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCarritoComprasResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -757,12 +432,6 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ObtenerLineaCarritoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -772,13 +441,55 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerProductoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ordenCompra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.producto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarPrecioDescuentoProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.empresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasNoActivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerEmpresaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.validarEmpresaResponse.datasource">
@@ -788,6 +499,42 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.verificarStockSuficientePorSKUResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ActualizarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.EliminarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.InsertarLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.ObtenerLineaCarritoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioRegularResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.eliminarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarEmpresasPorClienteNoActivasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
@@ -854,41 +601,6 @@
     </Compile>
     <Compile Include="CategoriaMascota.aspx.designer.cs">
       <DependentUpon>CategoriaMascota.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\CuentaUsuarioWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceioEmpresaWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServiceioProductoWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServicioCategoriaWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServicioClienteWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServicioDescuentoWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ServicioOrdenCompraWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\SoftProgWS\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -1088,13 +800,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\CuentaUsuarioWS\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceioEmpresaWS\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceioProductoWS\" />
-    <WCFMetadataStorage Include="Connected Services\ServicioCategoriaWS\" />
-    <WCFMetadataStorage Include="Connected Services\ServicioClienteWS\" />
-    <WCFMetadataStorage Include="Connected Services\ServicioDescuentoWS\" />
-    <WCFMetadataStorage Include="Connected Services\ServicioOrdenCompraWS\" />
     <WCFMetadataStorage Include="Connected Services\SoftProgWS\" />
   </ItemGroup>
   <PropertyGroup>

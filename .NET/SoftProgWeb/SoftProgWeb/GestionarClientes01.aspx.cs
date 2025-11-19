@@ -1,4 +1,4 @@
-﻿using SoftProgWeb.ServicioClienteWS;
+﻿using SoftProgWeb.SoftProgWS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +9,11 @@ namespace SoftProgWeb
 {
     public partial class GestionarClientes01 : System.Web.UI.Page
     {
-        private ServicioClienteWS.ClienteWSClient _servicioCliente;
+        private ClienteWSClient _servicioCliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _servicioCliente = new ServicioClienteWS.ClienteWSClient();
+            _servicioCliente = new ClienteWSClient();
             pnlMensaje.Visible = false;
 
             if (!Page.IsPostBack)
@@ -22,7 +22,7 @@ namespace SoftProgWeb
             }
         }
 
-        private void EnlazarGrilla(IEnumerable<ServicioClienteWS.cliente> clientes)
+        private void EnlazarGrilla(IEnumerable<cliente> clientes)
         {
             gvClientes.DataSource = clientes.OrderBy(c => c.apellidoPaterno).ToList();
             gvClientes.DataBind();
@@ -32,7 +32,7 @@ namespace SoftProgWeb
         {
             try
             {
-                ServicioClienteWS.cliente[] clientes = _servicioCliente.listarCliente();
+                cliente[] clientes = _servicioCliente.listarCliente();
                 EnlazarGrilla(clientes);
             }
             catch (System.Exception ex)
@@ -54,8 +54,8 @@ namespace SoftProgWeb
             {
                 int idProducto = int.Parse(id);
 
-                ServicioClienteWS.cliente cli = _servicioCliente.obtenerCliente(idProducto);
-                var listaResultados = new List<ServicioClienteWS.cliente>();
+                cliente cli = _servicioCliente.obtenerCliente(idProducto);
+                var listaResultados = new List<cliente>();
                 if (cli != null && cli.id > 0)
                 {
                     listaResultados.Add(cli);
@@ -64,7 +64,7 @@ namespace SoftProgWeb
             }
             catch (System.Exception ex)
             {
-                EnlazarGrilla(new List<ServicioClienteWS.cliente>());
+                EnlazarGrilla(new List<cliente>());
                 MostrarError(ex.Message);
             }
         }
