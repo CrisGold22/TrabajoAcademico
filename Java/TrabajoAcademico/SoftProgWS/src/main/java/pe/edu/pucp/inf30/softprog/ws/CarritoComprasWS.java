@@ -142,7 +142,7 @@ public class CarritoComprasWS {
         return carritoCompras;
     }
 
-    @WebMethod(operationName = "obtenerCarritoDeCliente")
+    @WebMethod(operationName = "obtenerCarritoEnProcesoDeCliente")
     public CarritoCompras obtenerCarritoEnProcesoDeCliente(@WebParam(name = "idCliente") int idCliente) throws IOException, InterruptedException {
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE
                 + "/obtenerCarritoIDCliente/" + idCliente;
