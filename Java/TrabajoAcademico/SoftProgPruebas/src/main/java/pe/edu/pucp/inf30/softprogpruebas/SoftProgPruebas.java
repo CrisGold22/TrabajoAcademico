@@ -94,12 +94,20 @@ public class SoftProgPruebas {
 //        pruebaListar();
 //        pruebaDemasFunciones();
 //        pruebaCorreo();
-        pruebaNotificaciones();
+//        pruebaNotificaciones();
 //        pruebaMeOlvideContrasena();
     
 //        pruebaFiltroPorPrecio();
 //        pruebaObtenerMarcasPorCategoria();
 //        pruebaObtenerProductosPorCategoria();
+        pruebaEliminarOrdenCompra();
+    }
+    
+    public static void pruebaEliminarOrdenCompra(){
+        OrdenCompraBO ordenBO = new OrdenCompraBOImpl();
+        
+        ordenBO.eliminar(1);
+        System.out.println("Se elimino con exito la orden compra con sus lineas orden de compra");
     }
     
     public static void pruebaMeOlvideContrasena(){
@@ -565,6 +573,7 @@ public class SoftProgPruebas {
         cuenta.setId(1);
         cuenta.setActivo(true);
         cuenta.setUsername("CrisGold");
+        cuenta.setCorreo("cristhianhoracio22@gmail.com");
         cuenta.setPassword("Killzone2003");
 
         cuentaBO.insertar(cuenta);
@@ -573,7 +582,9 @@ public class SoftProgPruebas {
         cuentaBO.actualizar(cuenta);
         System.out.println("La cuenta se ha actualizado exitosamente");
         CuentaUsuario cuenta2 = cuentaBO.obtener(1);
-        cuenta.setId(2);
+        cuenta2.setUsername("CrisGold2");
+        cuenta2.setCorreo("cristhianhoracio21@gmail.com");
+        cuenta2.setId(2);
         System.out.println("La cuenta se llamo al backend de manera correcta");
         cuentaBO.insertar(cuenta2);
         List<CuentaUsuario> listaCuentas = cuentaBO.listar();
@@ -613,7 +624,8 @@ public class SoftProgPruebas {
         System.out.println("El Administrador se ha actualizado exitosamente");
         AdministradorSistema admin2 = adminBO.obtener(1);
         System.out.println("El Administrador se llamo al backend de manera correcta");
-        admin.setId(2);
+        admin2.setId(2);
+        admin2.setDni("72233418");
         adminBO.insertar(admin2);
         List<AdministradorSistema> listaAdmin = adminBO.listar();
         System.out.println("Se listo con exito todos los admins\n");
@@ -847,7 +859,9 @@ public class SoftProgPruebas {
         System.out.println("El producto se ha actualizado exitosamente");
         Producto producto2 = productoBO.obtener(producto.getId());
         System.out.println("El producto se llamo al backend de manera correcta\n");
+        producto2.setId(2);
         producto2.setCategoria(categoria2);
+        producto2.setSKU("SEL-133");
         productoBO.insertar(producto2);
         List<Producto> listaProductos = productoBO.listar();
         System.out.println("Se listo con exito todos los productos");

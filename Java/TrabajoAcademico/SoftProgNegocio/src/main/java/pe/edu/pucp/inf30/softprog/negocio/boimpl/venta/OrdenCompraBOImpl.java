@@ -27,15 +27,16 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.pago.ComprobantePagoBOImpl;
  *
  * @author Cristhian Horacio
  */
-public class OrdenCompraBOImpl implements OrdenCompraBO{
+public class OrdenCompraBOImpl implements OrdenCompraBO {
+
     private final OrdenCompraDAO ordenCompraDAO;
     private final LineaOrdenCompraDAO lineaOrdenCompraDAO;
-    
-    public OrdenCompraBOImpl(){
+
+    public OrdenCompraBOImpl() {
         ordenCompraDAO = new OrdenCompraDAOImpl();
         lineaOrdenCompraDAO = new LineaOrdenCompraDAOImpl();
     }
-    
+
     @Override
     public List<OrdenCompra> listar() {
         return this.ordenCompraDAO.leerTodos();
@@ -44,19 +45,19 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     @Override
     public void insertar(OrdenCompra modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
-        
-        try(Connection conn = dbManager.getConnection()){
+
+        try (Connection conn = dbManager.getConnection()) {
             conn.setAutoCommit(false);
-            
-            try{
+
+            try {
                 int idOrden = this.ordenCompraDAO.crear(modelo, conn);
                 modelo.setId(idOrden);
-                
-                for(LineaOrdenCompra linea : modelo.getLineasOrden()){
+
+                for (LineaOrdenCompra linea : modelo.getLineasOrden()) {
                     linea.setOrdenCompra(modelo);
                     lineaOrdenCompraDAO.crear(linea, conn);
                 }
-                
+
                 conn.commit();
             } catch (SQLException ex) {
                 conn.rollback();
@@ -71,22 +72,21 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     @Override
     public void actualizar(OrdenCompra modelo) {
         DBManager dbManager = DBFactoryProvider.getManager();
-        
-        try(Connection conn = dbManager.getConnection()){
+
+        try (Connection conn = dbManager.getConnection()) {
             conn.setAutoCommit(false);
-            
-            try{
+
+            try {
                 ordenCompraDAO.actualizar(modelo, conn);
-                for(LineaOrdenCompra linea : modelo.getLineasOrden()){
-                    if(linea.getId() == 0){
+                for (LineaOrdenCompra linea : modelo.getLineasOrden()) {
+                    if (linea.getId() == 0) {
                         linea.setOrdenCompra(modelo);
                         lineaOrdenCompraDAO.crear(linea, conn);
-                    }
-                    else{
+                    } else {
                         lineaOrdenCompraDAO.actualizar(linea, conn);
                     }
                 }
-                
+
                 conn.commit();
             } catch (SQLException ex) {
                 conn.rollback();
@@ -101,7 +101,9 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     @Override
     public OrdenCompra obtener(int id) {
         OrdenCompra orden = ordenCompraDAO.leer(id);
-        if(orden == null) return null;
+        if (orden == null) {
+            return null;
+        }
         List<LineaOrdenCompra> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(id);
         orden.setLineasOrden(lineas);
         return orden;
@@ -110,28 +112,32 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     @Override
     public void eliminar(int id) {
         DBManager dbManager = DBFactoryProvider.getManager();
-        
-        try(Connection conn = dbManager.getConnection()){
+
+        try (Connection conn = dbManager.getConnection()) {
             conn.setAutoCommit(false);
-            
-            try{
+
+            try {
+                // 1. Eliminar las líneas de la orden
                 List<LineaOrdenCompra> lineas = lineaOrdenCompraDAO.listarPorIdOrdenCompra(conn, id);
-                for(LineaOrdenCompra linea : lineas){
-                    if(linea.getOrdenCompra().getId() == id){
+                for (LineaOrdenCompra linea : lineas) {
+                    // por seguridad verificas que la línea pertenece a esa orden
+                    if (linea.getOrdenCompra() != null
+                            && linea.getOrdenCompra().getId() == id) {
                         lineaOrdenCompraDAO.eliminar(linea.getId(), conn);
                     }
                 }
-                
-                if(!lineaOrdenCompraDAO.eliminar(id, conn)){
-                    throw new RuntimeException("El comprobante: " + id + ", " + "no se pudo eliminar");
+
+                // 2. Eliminar la orden de compra (cabecera)
+                if (!ordenCompraDAO.eliminar(id, conn)) {   // 👈 AQUÍ el DAO correcto
+                    throw new RuntimeException("El comprobante: " + id + ", no se pudo eliminar");
                 }
+
                 conn.commit();
             } catch (SQLException ex) {
                 conn.rollback();
-                throw new RuntimeException("Error eliminando comprobante " + "con id=" + id, ex);
+                throw new RuntimeException("Error eliminando comprobante con id=" + id, ex);
             }
-            
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(OrdenCompraBOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -156,9 +162,8 @@ public class OrdenCompraBOImpl implements OrdenCompraBO{
     @Override
     public List<LineaOrdenCompra> listarLineasOrdenCompraPorIdOrdenCompra(int id) {
         List<LineaOrdenCompra> lista = new LineaOrdenCompraDAOImpl().listarPorIdOrdenCompra(id);
-        
+
         return lista;
     }
-    
-    
+
 }
