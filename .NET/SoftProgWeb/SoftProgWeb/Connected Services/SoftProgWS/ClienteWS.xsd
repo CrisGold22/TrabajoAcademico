@@ -92,14 +92,6 @@
       <xs:element minOccurs="0" name="message" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarCliente">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarClienteResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="listarCliente">
     <xs:sequence />
   </xs:complexType>
@@ -112,6 +104,14 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="message" type="xs:string" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarClienteResponse">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="actualizarCliente">
     <xs:sequence>

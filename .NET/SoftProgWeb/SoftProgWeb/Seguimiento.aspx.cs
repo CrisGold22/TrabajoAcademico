@@ -12,6 +12,10 @@ namespace SoftProgWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //if (!IsPostBack)
+            //{
+            //    pantallaSeguimiento.Style["display"] = "block";
+            //}
         }
     }
 }

@@ -4,9 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div>
+    
     <!-- Pantalla 5: Seguimiento del Pedido -->
-    <div id="pantallaSeguimiento" class="screen-content" style="display: none;">
+    <div id="pantallaSeguimiento" class="screen-content" >
         <div class="row">
             <div class="col-12">
                 <!-- Botón Seguir Comprando -->
