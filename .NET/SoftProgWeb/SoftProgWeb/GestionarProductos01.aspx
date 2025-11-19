@@ -8,10 +8,19 @@
                 <h2><i class="fas fa-boxes"></i> Gestión de Productos</h2>
             </div>
             <div class="col-md-6 text-end">
-                <asp:Button ID="btnNuevo" runat="server" Text="Nuevo Producto" 
-                    CssClass="btn btn-success" OnClick="btnNuevo_Click" />
+                <asp:Button runat="server" Text="Nuevo Producto" 
+                    CssClass="btn btn-warning"  OnClick="btnNuevo_Click" />
             </div>
         </div>
+
+       <div class="row mb-3">
+    <div class="col-md-6">
+        <asp:Button ID="btnGenerarReporte" runat="server"
+            Text="Generar Reporte"
+            CssClass="btn btn-success" />
+    </div>
+</div>
+
 
         <div class="card mb-3">
             <div class="card-body">
@@ -34,19 +43,12 @@
                 </div>
             </div>
         </div>
-        <%-- FIN DE LA NUEVA SECCIÓN --%>
 
         <asp:Panel ID="pnlMensaje" runat="server" Visible="false" CssClass="alert alert-danger mt-3" role="alert">
             <asp:Literal ID="litMensajeError" runat="server"></asp:Literal>
         </asp:Panel>
         <div class="row">
             <div class="col-md-12">
-                <%-- 
-                    CORRECCIÓN DEL GRIDVIEW:
-                    He re-añadido las columnas 'precio', 'stock' y 'activo'
-                    porque su proyecto "TA V2" SÍ las incluye en el modelo
-                    y en los procedimientos almacenados. El XML anterior era obsoleto.
-                --%>
                 <asp:GridView ID="gvProductos" runat="server"
                     CssClass="table table-hover table-striped"
                     AutoGenerateColumns="False"
@@ -64,7 +66,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         
-                        <%-- Estos campos SÍ existen en su proyecto TA V2 --%>
                         <asp:BoundField DataField="precioRegular" HeaderText="Precio" DataFormatString="{0:C2}" />
                         <asp:BoundField DataField="stockDisponible" HeaderText="Stock" />
                         

@@ -35,14 +35,17 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-4">
-                        <label><b>Fecha de Creación:</b></label>
-                        <asp:Label ID="lblFecha" runat="server"></asp:Label>
-                    </div>
-                    <div class="col-md-4">
-                        <label><b>Estado:</b></label>
-                        <asp:Label ID="lblEstado" runat="server" CssClass="badge bg-info text-dark" Text="No disponible"></asp:Label>
-                    </div>
+                <div class="col-md-4">
+    <label><b>Estado del Pedido:</b></label>
+    <div class="input-group">
+        <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-select form-select-sm">
+        </asp:DropDownList>
+        <asp:Button ID="btnCambiarEstado" runat="server" Text="Actualizar" 
+                        CssClass="btn btn-warning btn-sm" OnClick="btnCambiarEstado_Click" 
+                        OnClientClick="return confirm('¿Está seguro de cambiar el estado manualmente?');"/>
+                </div>
+            </div>
+                </div>
                     <div class="col-md-4">
                         <label><b>Monto Total:</b></label>
                         <asp:Label ID="lblTotal" runat="server" CssClass="fw-bold fs-5"></asp:Label>
@@ -54,18 +57,36 @@
         <hr />
         
         <h4 class="mt-4">Líneas del Pedido</h4>
-        <asp:GridView ID="gvLineasPedido" runat="server"
-            CssClass="table table-sm"
-            AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="producto.id" HeaderText="ID Prod." />
-                <asp:BoundField DataField="producto.nombre" HeaderText="Producto" />
-                <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-                <asp:BoundField DataField="producto.precio" HeaderText="P. Unit." DataFormatString="{0:C2}" />
-                <asp:BoundField DataField="subtotal" HeaderText="Subtotal" DataFormatString="{0:C2}" />
-            </Columns>
-        </asp:GridView>
+<asp:GridView ID="gvLineasPedido" runat="server"
+    CssClass="table table-sm table-bordered"
+    AutoGenerateColumns="False">
+    <Columns>
+        <asp:TemplateField HeaderText="ID Prod.">
+            <ItemTemplate>
+                <%# Eval("producto.id") %>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Producto">
+            <ItemTemplate>
+                <%# Eval("producto.nombre") %>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
 
-    </div>
+        <asp:TemplateField HeaderText="P. Unit.">
+            <ItemTemplate>
+                <%# Eval("producto.precio", "{0:C2}") %>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="subTotal" HeaderText="Subtotal" DataFormatString="{0:C2}" />
+    </Columns>
+    
+    <EmptyDataTemplate>
+        <div class="alert alert-warning">
+            Este pedido no tiene líneas registradas o no se pudieron cargar.
+        </div>
+    </EmptyDataTemplate>
+</asp:GridView>
+
 
 </asp:Content>

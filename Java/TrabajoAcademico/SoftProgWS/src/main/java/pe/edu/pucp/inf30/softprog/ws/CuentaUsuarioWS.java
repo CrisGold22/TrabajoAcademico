@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
+import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
+import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.CuentaUsuarioBOImpl;
 
 /**
  *
@@ -23,13 +25,15 @@ import pe.edu.pucp.inf30.softprog.modelo.persona.CuentaUsuario;
 @WebService(serviceName = "CuentaUsuarioWS",
         targetNamespace = "http://services.softprog.pucp.edu.pe/")
 public class CuentaUsuarioWS {
-     private final ResourceBundle config;
+    private final CuentaUsuarioBO cuentaBO;
+    private final ResourceBundle config;
     private final String urlBase;
     private final HttpClient client = HttpClient.newHttpClient();
     private final String NOMBRE_RESOURCE = "cuentas";
     private final ObjectMapper mapper;
     
     public CuentaUsuarioWS(){
+        cuentaBO = new CuentaUsuarioBOImpl();
         this.config = ResourceBundle.getBundle("app");
         this.urlBase = this.config.getString("app.services.rest.baseurl");
         
@@ -59,7 +63,7 @@ public class CuentaUsuarioWS {
     @WebMethod(operationName = "insertarCuentaUsuario")
     public void insertarCuentaUsuario(@WebParam(name = "cuentaUsuario")
                                         CuentaUsuario cuentaUsuario) throws JsonProcessingException, IOException, InterruptedException{
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cuentaUsuario);
         String url;
         HttpRequest request;
@@ -77,7 +81,7 @@ public class CuentaUsuarioWS {
     @WebMethod(operationName = "actualizarCuentaUsuario")
     public void actualizarCuentaUsuario(@WebParam(name = "cuentaUsuario")
                                         CuentaUsuario cuentaUsuario) throws JsonProcessingException, IOException, InterruptedException{
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cuentaUsuario);
         String url;
         HttpRequest request;
@@ -103,7 +107,7 @@ public class CuentaUsuarioWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         CuentaUsuario cuentaUsuario = mapper.readValue(json, CuentaUsuario.class);
         return cuentaUsuario;
     }
@@ -124,10 +128,10 @@ public class CuentaUsuarioWS {
     )throws IOException, InterruptedException {
         
         CuentaUsuario cuenta = new CuentaUsuario();
-        cuenta.setUsername(email);
+        cuenta.setCorreo(email);
         cuenta.setPassword(password);
         
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cuenta);
         
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/login";
@@ -142,12 +146,51 @@ public class CuentaUsuarioWS {
         return response.statusCode() == 200;
     }
     
-//    @WebMethod(operationName = "cambiarPassword")
-//    public boolean cambiarPassword(
-//        @WebParam(name = "username") String username,
-//        @WebParam(name = "passwordActual") String passwordActual,
-//        @WebParam(name = "passwordNueva") String passwordNueva
-//    ) {
-//        return cuenta.cambiarPassword(username, passwordActual, passwordNueva);
-//    }
+    @WebMethod(operationName = "cambiarPassword")
+    public boolean cambiarPassword(
+        @WebParam(name = "username") String username,
+        @WebParam(name = "passwordActual") String passwordActual,
+        @WebParam(name = "passwordNueva") String passwordNueva
+    ) {
+        return cuentaBO.cambiarPassword(username, passwordActual, passwordNueva);
+    }
+    
+    @WebMethod(operationName = "solicitarRecuperacionPassword")
+    public void solicitarRecuperacionPassword(
+        @WebParam(name = "correo") String correo
+    ) {
+        cuentaBO.solicitarRecuperacionPassword(correo);
+    }
+    
+    @WebMethod(operationName = "obtenerCuentaUsuarioPorCorreo")
+    public CuentaUsuario obtenerCuentaUsuarioPorCorreo(
+        @WebParam(name = "correo") String correo
+    ) {
+        return cuentaBO.obtenerCuentaUsuarioPorCorreo(correo);
+    }
+    @WebMethod(operationName = "obtenerCuentaUsuarioPorUserName")
+    public CuentaUsuario obtenerCuentaUsuarioPorUserName(
+        @WebParam(name = "username") String username
+    ) {
+        return cuentaBO.obtenerCuentaUsuarioPorUserName(username);
+    }
+    @WebMethod(operationName = "obtenerPorResetToken")
+    public CuentaUsuario obtenerPorResetToken(
+        @WebParam(name = "token") String token
+    ) {
+        return cuentaBO.obtenerPorResetToken(token);
+    }
+    @WebMethod(operationName = "resetPasswordConToken")
+    public void resetPasswordConToken(
+        @WebParam(name = "token") String token,
+        @WebParam(name = "nuevaPassword") String nuevaPassword
+    ) {
+        cuentaBO.resetPasswordConToken(token, nuevaPassword);
+    }
+    @WebMethod(operationName = "validarTokenRecuperacion")
+    public boolean validarTokenRecuperacion(
+        @WebParam(name = "token") String token
+    ) {
+        return cuentaBO.validarTokenRecuperacion(token);
+    }
 }

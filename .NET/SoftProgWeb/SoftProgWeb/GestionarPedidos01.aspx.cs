@@ -1,5 +1,4 @@
-﻿using SoftProgWeb.ServicioOrdenCompraWS;
-using SoftProgWeb.SoftProgWS;
+﻿using SoftProgWeb.SoftProgWS;
 using System;
 using System.Linq;
 using System.Web.UI;
@@ -9,23 +8,46 @@ namespace SoftProgWeb
 {
     public partial class GestionarPedidos01 : System.Web.UI.Page
     {
-        private ServicioOrdenCompraWS.OrdenCompraWSClient servicioOrdenCompra;
+        private OrdenCompraWSClient servicioOrdenCompra;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            servicioOrdenCompra = new ServicioOrdenCompraWS.OrdenCompraWSClient();
+
+            servicioOrdenCompra = new OrdenCompraWSClient();
             if (!Page.IsPostBack)
             {
                 CargarPedidos();
             }
         }
 
-       private void CargarPedidos()
+        protected string FormatearFecha(object objFecha)
+            {
+                if (objFecha == null)
+                {
+                    return "-";
+                }
+
+                try
+                {
+                    localDate fechaObj = (localDate)objFecha;
+
+                    return fechaObj.ToString();
+                }
+                catch
+                {
+                    return "Error Fmt";
+                }
+            }
+
+
+
+    private void CargarPedidos()
         {
             try
             {
-                ServicioOrdenCompraWS.ordenCompra[] pedidos = servicioOrdenCompra.listarOrdenCompra();
-                gvPedidos.DataSource = pedidos.OrderByDescending(p => p.fechaCreacion).ToList();
+                ordenCompra[] pedidos = servicioOrdenCompra.listarOrdenCompra();
+
+                gvPedidos.DataSource = pedidos.OrderByDescending(p => p.id).ToList();
 
                 gvPedidos.DataBind();
             }
@@ -41,7 +63,7 @@ namespace SoftProgWeb
 
             if (e.CommandName == "VerDetalle")
             {
-                Response.Redirect(string.Format("~/GestionarPedidos02Detalle.aspx?id={0}", idPedido));
+                Response.Redirect(string.Format("~/GestionarPedidos02DetallesPedido.aspx?id={0}", idPedido));
             }
             else if (e.CommandName == "Eliminar")
             {

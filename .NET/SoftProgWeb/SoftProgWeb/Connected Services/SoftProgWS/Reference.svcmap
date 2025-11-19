@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="301c2dd1-305a-4541-9379-c9229e56fc6a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="a8b0fbb4-cc6d-4ee7-8eb1-072e94e87cfd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,9 +9,7 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
-    </CollectionMappings>
+    <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -24,29 +22,29 @@
     <MetadataSource Address="http://localhost:8080/SoftProgWS/serviciosredcom.disco" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ClienteWS.xsd" MetadataType="Schema" ID="dd97adaa-0173-40ad-8f04-06e066990898" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ClienteWS?xsd=1" />
-    <MetadataFile FileName="CarritoComprasWS.wsdl" MetadataType="Wsdl" ID="e5c6c866-3a7c-40f6-be20-afd2d457b9d3" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CarritoComprasWS?wsdl" />
-    <MetadataFile FileName="CategoriaProductoWS.wsdl" MetadataType="Wsdl" ID="fc27ab6c-25d0-4fc0-9913-4442efd535a5" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CategoriaProductoWS?wsdl" />
-    <MetadataFile FileName="CuentaUsuarioWS.xsd" MetadataType="Schema" ID="8a8b544e-4386-4a82-8277-5842ea65c828" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CuentaUsuarioWS?xsd=1" />
-    <MetadataFile FileName="DescuentoWS.xsd" MetadataType="Schema" ID="9063bd0c-4e10-45c3-b49e-67710adfc9a5" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DescuentoWS?xsd=1" />
-    <MetadataFile FileName="serviciosredcom.disco" MetadataType="Disco" ID="015bd45f-24b2-43dd-a18a-b8bd5ff0767d" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/serviciosredcom.disco" />
-    <MetadataFile FileName="OrdenCompraWS.xsd" MetadataType="Schema" ID="25687398-ba41-4ef8-9cf4-d3ea8afc629a" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/OrdenCompraWS?xsd=1" />
-    <MetadataFile FileName="ProductoWS.wsdl" MetadataType="Wsdl" ID="8f6465cc-6a71-46aa-9269-6891edd79b32" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ProductoWS?wsdl" />
-    <MetadataFile FileName="LineaCarritoWS.wsdl" MetadataType="Wsdl" ID="1ba9f909-be4e-49ec-a909-1bb75cb8d455" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/LineaCarritoWS?wsdl" />
-    <MetadataFile FileName="DescuentoWS.wsdl" MetadataType="Wsdl" ID="3c0cc738-d2d7-4533-9ccf-7aeb85bdc756" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DescuentoWS?wsdl" />
-    <MetadataFile FileName="ProductoWS.xsd" MetadataType="Schema" ID="f8ea7431-1bdb-4294-838f-7358ca3bde8d" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ProductoWS?xsd=1" />
-    <MetadataFile FileName="EmpresaWS.wsdl" MetadataType="Wsdl" ID="7b670c52-cfd9-4cfe-86b4-dac168caaa59" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/EmpresaWS?wsdl" />
-    <MetadataFile FileName="CarritoComprasWS.xsd" MetadataType="Schema" ID="9b14d15f-4efd-446e-b583-4ef2d6574fb9" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CarritoComprasWS?xsd=1" />
-    <MetadataFile FileName="EmpresaWS.xsd" MetadataType="Schema" ID="ffcd78be-7675-4a40-a36f-6d6a03dd46de" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/EmpresaWS?xsd=1" />
-    <MetadataFile FileName="AdministradorSistemaWS.wsdl" MetadataType="Wsdl" ID="18965598-f865-442c-862a-08d75ea3087a" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/AdministradorSistemaWS?wsdl" />
-    <MetadataFile FileName="ClienteWS.wsdl" MetadataType="Wsdl" ID="b0d52e39-2687-46ff-b530-5a81b303ab7f" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ClienteWS?wsdl" />
-    <MetadataFile FileName="CuentaUsuarioWS.wsdl" MetadataType="Wsdl" ID="7299b11c-88bb-4f6a-ae0d-057d2f319f7b" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CuentaUsuarioWS?wsdl" />
-    <MetadataFile FileName="CategoriaProductoWS.xsd" MetadataType="Schema" ID="a67cdd0f-7cd6-4b17-973a-566fa60f3d83" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CategoriaProductoWS?xsd=1" />
-    <MetadataFile FileName="OrdenCompraWS.wsdl" MetadataType="Wsdl" ID="0bb2b87c-1034-4d2b-bd62-5c5719160c2a" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/OrdenCompraWS?wsdl" />
-    <MetadataFile FileName="AdministradorSistemaWS.xsd" MetadataType="Schema" ID="c5451508-1cfb-4d26-931a-bcac682a9343" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/AdministradorSistemaWS?xsd=1" />
-    <MetadataFile FileName="DetalleEnvioWS.wsdl" MetadataType="Wsdl" ID="5f449ade-ead5-4b35-b3f6-f02accb7d381" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DetalleEnvioWS?wsdl" />
-    <MetadataFile FileName="DetalleEnvioWS.xsd" MetadataType="Schema" ID="8a7b028d-3ed0-4fec-a8db-8d75aec60fb1" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DetalleEnvioWS?xsd=1" />
-    <MetadataFile FileName="LineaCarritoWS.xsd" MetadataType="Schema" ID="553e15d1-b51d-4208-b494-0ccede1c3441" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/LineaCarritoWS?xsd=1" />
+    <MetadataFile FileName="ClienteWS.xsd" MetadataType="Schema" ID="39efbfd3-fdd0-4b3e-aa1f-0a4130fabbb6" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ClienteWS?xsd=1" />
+    <MetadataFile FileName="CarritoComprasWS.wsdl" MetadataType="Wsdl" ID="60d371dc-0f7a-4f0e-a065-21b69e67320b" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CarritoComprasWS?wsdl" />
+    <MetadataFile FileName="CategoriaProductoWS.wsdl" MetadataType="Wsdl" ID="07294a56-7f2a-4151-b190-68837bcee30c" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CategoriaProductoWS?wsdl" />
+    <MetadataFile FileName="CuentaUsuarioWS.xsd" MetadataType="Schema" ID="960128e7-953f-4f97-a979-a560b76f001f" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CuentaUsuarioWS?xsd=1" />
+    <MetadataFile FileName="DescuentoWS.xsd" MetadataType="Schema" ID="818db04c-5ae2-4b26-8e0c-96ff4e8de69e" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DescuentoWS?xsd=1" />
+    <MetadataFile FileName="serviciosredcom.disco" MetadataType="Disco" ID="8315c459-6bdc-4bfe-9777-595f88f9bb2a" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/serviciosredcom.disco" />
+    <MetadataFile FileName="OrdenCompraWS.xsd" MetadataType="Schema" ID="d7ed49e7-3952-4d3b-ab2c-e821c3351e06" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/OrdenCompraWS?xsd=1" />
+    <MetadataFile FileName="ProductoWS.wsdl" MetadataType="Wsdl" ID="03a2e1d6-1ed3-4260-9a13-73672dd37b23" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ProductoWS?wsdl" />
+    <MetadataFile FileName="LineaCarritoWS.wsdl" MetadataType="Wsdl" ID="04e49462-dde7-4005-bcef-3c7f3096be18" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/LineaCarritoWS?wsdl" />
+    <MetadataFile FileName="DescuentoWS.wsdl" MetadataType="Wsdl" ID="b74f260d-9101-45c4-84e3-8c745dffd372" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DescuentoWS?wsdl" />
+    <MetadataFile FileName="ProductoWS.xsd" MetadataType="Schema" ID="e90c1fc4-33a1-4a3b-b3bc-4ee621126060" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ProductoWS?xsd=1" />
+    <MetadataFile FileName="EmpresaWS.wsdl" MetadataType="Wsdl" ID="cfeb0ad3-4984-4825-ae19-d99d4b6badb2" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/EmpresaWS?wsdl" />
+    <MetadataFile FileName="CarritoComprasWS.xsd" MetadataType="Schema" ID="74564b80-5fd4-4944-8642-5a776144e6db" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CarritoComprasWS?xsd=1" />
+    <MetadataFile FileName="EmpresaWS.xsd" MetadataType="Schema" ID="2bcca99d-8f8a-4c5f-abcc-0a738f353850" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/EmpresaWS?xsd=1" />
+    <MetadataFile FileName="AdministradorSistemaWS.wsdl" MetadataType="Wsdl" ID="a74d688b-6b48-489f-b38e-9a4b51bc5530" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/AdministradorSistemaWS?wsdl" />
+    <MetadataFile FileName="ClienteWS.wsdl" MetadataType="Wsdl" ID="a90d2ac3-a298-43ff-a97e-a0d5e83d5e61" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/ClienteWS?wsdl" />
+    <MetadataFile FileName="CuentaUsuarioWS.wsdl" MetadataType="Wsdl" ID="7ae291b9-262b-483e-a0df-c895777f1be2" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CuentaUsuarioWS?wsdl" />
+    <MetadataFile FileName="CategoriaProductoWS.xsd" MetadataType="Schema" ID="5936c12e-3799-439e-a008-dafcbfcd058d" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/CategoriaProductoWS?xsd=1" />
+    <MetadataFile FileName="OrdenCompraWS.wsdl" MetadataType="Wsdl" ID="3d71ee31-c833-4152-89fc-824eb103ca54" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/OrdenCompraWS?wsdl" />
+    <MetadataFile FileName="AdministradorSistemaWS.xsd" MetadataType="Schema" ID="29e1b0ac-1be8-482e-945a-92578a50a2d4" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/AdministradorSistemaWS?xsd=1" />
+    <MetadataFile FileName="DetalleEnvioWS.wsdl" MetadataType="Wsdl" ID="cdc1515e-3b2f-460d-a1db-b5bbc9853a32" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DetalleEnvioWS?wsdl" />
+    <MetadataFile FileName="DetalleEnvioWS.xsd" MetadataType="Schema" ID="1235d885-5f6b-467e-8555-a1dff4ec8ee6" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/DetalleEnvioWS?xsd=1" />
+    <MetadataFile FileName="LineaCarritoWS.xsd" MetadataType="Schema" ID="0b7925c1-454e-473c-976b-5f477c825769" SourceId="1" SourceUrl="http://localhost:8080/SoftProgWS/LineaCarritoWS?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

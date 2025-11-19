@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SoftProgWeb.SoftProgWS;
@@ -10,6 +11,7 @@ namespace SoftProgWeb
 {
     public partial class MiCarrito : System.Web.UI.Page
     {
+        private LineaCarritoWSClient lineaWS;
         private CarritoComprasWSClient carritoWS;
 
         private BindingList<lineaCarrito> lineasCarrito
@@ -22,7 +24,7 @@ namespace SoftProgWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lineaWS = new LineaCarritoWSClient();
             carritoWS = new CarritoComprasWSClient();
 
             if (!IsPostBack)
@@ -49,25 +51,28 @@ namespace SoftProgWeb
 
         protected void gvCarrito_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int index = Convert.ToInt32(e.CommandArgument);
+            var linea = lineasCarrito[index];
+
             if (e.CommandName == "Incrementar" || e.CommandName == "Decrementar")
             {
-                int index = Convert.ToInt32(e.CommandArgument);
-                var linea = lineasCarrito[index];
+                // Recuperar la línea completa desde el WS
+                var lineaCompleta = lineaWS.ObtenerLineaCarrito(linea.id);
 
+                // Actualizar cantidad
                 if (e.CommandName == "Incrementar")
-                {
-                    linea.cantidad++;
-                }
-                else if (e.CommandName == "Decrementar" && linea.cantidad > 1)
-                {
-                    linea.cantidad--;
-                }
+                    lineaCompleta.cantidad++;
+                else if (e.CommandName == "Decrementar" && lineaCompleta.cantidad > 1)
+                    lineaCompleta.cantidad--;
 
                 // Recalcular subtotal
-                linea.subTotal = linea.cantidad * linea.precio;
+                lineaCompleta.subTotal = lineaCompleta.cantidad * lineaCompleta.precio;
 
                 // Actualizar en BD 
-                carritoWS.actualizarCarritoCompras(linea.carritoCompras);
+                lineaWS.ActualizarLineaCarrito(lineaCompleta);
+
+                // Reemplazar en memoria
+                lineasCarrito[index] = lineaCompleta;
 
                 // Refrescar tabla
                 gvCarrito.DataSource = lineasCarrito;
@@ -79,12 +84,8 @@ namespace SoftProgWeb
             {
                 int idLinea = Convert.ToInt32(e.CommandArgument);
 
-                // Nuevo método en CarritoComprasWS
-                carritoWS.eliminarCarritoCompras(idLinea);
-
-                // Quitar de lista local
-                var linea = lineasCarrito.First(x => x.id == idLinea);
-                lineasCarrito.Remove(linea);
+                lineaWS.EliminarLineaCarrito(idLinea);
+                lineasCarrito.RemoveAt(index);
 
                 gvCarrito.DataSource = lineasCarrito;
                 gvCarrito.DataBind();
@@ -106,13 +107,15 @@ namespace SoftProgWeb
 
         private int ObtenerIdCarritoDelClienteActual()
         {
+            ////para mis pruebas:
+            //return 1;
             if (Session["IdCliente"] != null)
             {
                 int idCliente = (int)Session["IdCliente"];
 
                 carritoWS = new CarritoComprasWSClient();
 
-                var carrito = carritoWS.obtenerCarritoDeCliente(idCliente);
+                var carrito = carritoWS.obtenerCarritoEnProcesoDeCliente(idCliente);
 
                 return carrito.id;
             }

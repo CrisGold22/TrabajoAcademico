@@ -18,7 +18,7 @@
                             <img src="images/portada2.png" class="d-block w-100" alt="Promoción 2" >
                         </div>
                         <div class="carousel-item">
-                            <img src="images/portada3.png" class="d-block w-100" alt="Promoción 3">
+                            <img  src="images/portada3.png" class="d-block w-100" alt="Promoción 3">
                         </div>
                     </div>
                     
@@ -48,8 +48,13 @@
                       <p class="card-text">Por RedCom</p>
                       <p class="card-text">Unidad: Saco 50Kg</p>
                       <p class="card-text"><strong>A partir de S/ 209</strong></p>
-                      <input type="hidden" id="productoId" value="101" />
-                      <asp:Button ID="btnAgregarProducto" CssClass="btn btn-primary button-add-1" runat="server" Text="Agregar" OnClick="btnAgregarProducto_Click" />
+                      <asp:Button ID="btnAgregarProducto" 
+                        CssClass="btn btn-primary button-add-1" 
+                        runat="server" 
+                        Text="Agregar" 
+                        OnClick="btnAgregarProducto_Click"
+                        CommandArgument="101" />
+
                       <%--<a href="#" class="btn btn-primary button-add-1">Agregar</a>--%>
 
                     </div>
@@ -147,13 +152,17 @@
                     </div>
                 </div>
 
+                <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger"></asp:Label>
+                <asp:Label ID="lblMiniCarrito" runat="server" CssClass="mini-cart"></asp:Label>
+
+
               </div>
               <div class="text-center">
                 <a href="#" class="btn btn-link">Ver todo</a>
               </div>
             </div>
            
-
+</div>
 
     <script>
         function irACategoria(categoria) {

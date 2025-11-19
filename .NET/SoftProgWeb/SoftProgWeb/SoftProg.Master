@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
+    
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/estilo.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Content/estilo3.css" rel="stylesheet" />
+    <link href="Content/pagos.css" rel="stylesheet" />
     <script src="Scripts/bootstrapt.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>

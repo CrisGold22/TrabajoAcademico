@@ -3,6 +3,7 @@ package pe.edu.pucp.inf30.softprog.ws;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
@@ -40,6 +41,7 @@ public class ProductoWS {
                 new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         this.mapper.setDateFormat(df);
+        this.mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     }
            
     @WebMethod(operationName = "listarProducto")
@@ -59,7 +61,7 @@ public class ProductoWS {
     }
     @WebMethod(operationName = "insertarProducto")
     public void insertarProducto(@WebParam(name = "producto")Producto producto) throws IOException, InterruptedException  {
-    ObjectMapper mapper = new ObjectMapper();
+    //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(producto);
         String url;
         HttpRequest request;
@@ -75,7 +77,7 @@ public class ProductoWS {
     }
     @WebMethod(operationName = "actualizarProducto")
     public void actualizarProducto(@WebParam(name = "producto")Producto producto) throws JsonProcessingException, IOException, InterruptedException {
-         ObjectMapper mapper = new ObjectMapper();
+         //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(producto);
         String url;
         HttpRequest request;
@@ -101,7 +103,7 @@ public class ProductoWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         Producto producto = mapper.readValue(json, Producto.class);
         return producto;
     }

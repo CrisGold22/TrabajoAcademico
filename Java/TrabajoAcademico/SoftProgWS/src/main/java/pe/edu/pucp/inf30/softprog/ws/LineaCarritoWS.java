@@ -1,7 +1,10 @@
 package pe.edu.pucp.inf30.softprog.ws;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -32,12 +35,23 @@ public class LineaCarritoWS {
     public LineaCarritoWS(){
         this.config = ResourceBundle.getBundle("app");
         this.urlBase = this.config.getString("app.services.rest.baseurl");
-        
-        this.mapper= new ObjectMapper();
-        SimpleDateFormat df = 
+
+        this.mapper = new ObjectMapper();
+
+        // Soporte para java.time (LocalDate, etc.)
+        this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        // Para que no falle con SKU vs sku, etc.
+        this.mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+
+        // Si también usas java.util.Date en otros lados
+        /*
+        SimpleDateFormat df =
                 new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         this.mapper.setDateFormat(df);
+        */
     }
 //    @WebMethod(operationName = "listarLineaCarrito")
 //    public List<LineaCarrito> listarLineaCarrito() throws IOException, InterruptedException {
@@ -57,7 +71,7 @@ public class LineaCarritoWS {
     @WebMethod(operationName = "InsertarLineaCarrito")
     public void InsertarLineaCarrito(@WebParam(name = "lineaCarrito")
             LineaCarrito lineaCarrito) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lineaCarrito);
         String url;
         HttpRequest request;
@@ -73,7 +87,7 @@ public class LineaCarritoWS {
     @WebMethod(operationName = "ActualizarLineaCarrito")
     public void ActualizarLineaCarrito(@WebParam(name = "lineaCarrito")
             LineaCarrito lineaCarrito) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(lineaCarrito);
         String url;
         HttpRequest request;

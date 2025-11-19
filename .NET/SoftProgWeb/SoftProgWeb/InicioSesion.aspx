@@ -15,7 +15,7 @@
     <!-- Pantalla 1: Formulario Vacío -->
     <div id="pantallaLogin" class="login-card">
         <div class="form-group">
-            <label class="form-label">Usuario</label>
+            <label class="form-label">Correo</label>
             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control-custom" 
                 TextMode="SingleLine" placeholder="" onkeyup="checkInputs()"></asp:TextBox>
         </div>

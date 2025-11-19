@@ -133,7 +133,7 @@ END //
 
 CREATE PROCEDURE filtrarProductoPorDescuento(IN p_idCategoriaProducto INT,IN p_NombreCategoria VARCHAR(45))
 BEGIN
-	IF UPPER(p_NombreCategoria) = 'CON DESCUENTO' THEN
+	IF UPPER(p_NombreCategoria) = 'CON_DESCUENTO' THEN
         SELECT 
             p.*
         FROM Producto p

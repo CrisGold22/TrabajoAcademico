@@ -1,7 +1,10 @@
 package pe.edu.pucp.inf30.softprog.ws;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -33,10 +36,9 @@ public class DetalleEnvioWS {
         this.urlBase = this.config.getString("app.services.rest.baseurl");
         
         this.mapper= new ObjectMapper();
-        SimpleDateFormat df = 
-                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.mapper.setDateFormat(df);
+        this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        this.mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     }
 
     @WebMethod(operationName = "listarDetalleEnvio")
@@ -58,7 +60,7 @@ public class DetalleEnvioWS {
     @WebMethod(operationName = "insertarDetalleEnvio")
     public void insertarDetalleEnvio(@WebParam(name = "detalleEnvio")
             DetalleEnvio detalleEnvio) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(detalleEnvio);
         String url;
         HttpRequest request;
@@ -74,7 +76,7 @@ public class DetalleEnvioWS {
     @WebMethod(operationName = "actualizarDetalleEnvio")
     public void actualizarDetalleEnvio(@WebParam(name = "detalleEnvio")
             DetalleEnvio detalleEnvio) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(detalleEnvio);
         String url;
         HttpRequest request;
@@ -100,7 +102,7 @@ public class DetalleEnvioWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         DetalleEnvio detalleEnvio = mapper.readValue(json, DetalleEnvio.class);
         return detalleEnvio;
     }

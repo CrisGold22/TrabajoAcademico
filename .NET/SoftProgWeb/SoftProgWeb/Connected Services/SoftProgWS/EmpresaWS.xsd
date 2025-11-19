@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="IOException" type="tns:IOException" />
+  <xs:element name="InterruptedException" type="tns:InterruptedException" />
+  <xs:element name="JsonProcessingException" type="tns:JsonProcessingException" />
   <xs:element name="actualizarEmpresa" type="tns:actualizarEmpresa" />
   <xs:element name="actualizarEmpresaResponse" type="tns:actualizarEmpresaResponse" />
   <xs:element name="eliminarEmpresa" type="tns:eliminarEmpresa" />
@@ -15,19 +18,19 @@
   <xs:element name="listarEmpresasPorCliente" type="tns:listarEmpresasPorCliente" />
   <xs:element name="listarEmpresasPorClienteActivas" type="tns:listarEmpresasPorClienteActivas" />
   <xs:element name="listarEmpresasPorClienteActivasResponse" type="tns:listarEmpresasPorClienteActivasResponse" />
+  <xs:element name="listarEmpresasPorClienteNoActivas" type="tns:listarEmpresasPorClienteNoActivas" />
+  <xs:element name="listarEmpresasPorClienteNoActivasResponse" type="tns:listarEmpresasPorClienteNoActivasResponse" />
   <xs:element name="listarEmpresasPorClienteResponse" type="tns:listarEmpresasPorClienteResponse" />
-  <xs:element name="listarEmpresasPorClientesNoActivas" type="tns:listarEmpresasPorClientesNoActivas" />
-  <xs:element name="listarEmpresasPorClientesNoActivasResponse" type="tns:listarEmpresasPorClientesNoActivasResponse" />
   <xs:element name="obtenerEmpresa" type="tns:obtenerEmpresa" />
   <xs:element name="obtenerEmpresaResponse" type="tns:obtenerEmpresaResponse" />
   <xs:element name="validarEmpresa" type="tns:validarEmpresa" />
   <xs:element name="validarEmpresaResponse" type="tns:validarEmpresaResponse" />
-  <xs:complexType name="listarEmpresasPorClientesNoActivas">
+  <xs:complexType name="listarEmpresasPorClienteNoActivas">
     <xs:sequence>
       <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpresasPorClientesNoActivasResponse">
+  <xs:complexType name="listarEmpresasPorClienteNoActivasResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
@@ -52,7 +55,6 @@
   </xs:complexType>
   <xs:complexType name="registro">
     <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
       <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -90,14 +92,32 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:registro">
         <xs:sequence>
+          <xs:element minOccurs="0" name="correo" type="xs:string" />
           <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="resetToken" type="xs:string" />
+          <xs:element minOccurs="0" name="resetTokenExpira" type="tns:timestamp" />
           <xs:element minOccurs="0" name="username" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="timestamp">
+    <xs:sequence>
+      <xs:element name="nanos" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="localDate" final="extension restriction">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InterruptedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarEmpresa">
     <xs:sequence>
@@ -121,7 +141,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="validarEmpresaResponse">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEmpresa">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEmpresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:empresa" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarEmpresasActivos">
     <xs:sequence />
@@ -139,30 +171,21 @@
   <xs:complexType name="actualizarEmpresaResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="obtenerEmpresa">
+  <xs:complexType name="JsonProcessingException">
     <xs:sequence>
-      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="location" type="tns:jsonLocation" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="originalMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="processor" type="xs:anyType" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerEmpresaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:empresa" />
-    </xs:sequence>
+  <xs:complexType name="jsonLocation">
+    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarEmpresa">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarEmpresaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasPorCliente">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasPorClienteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
@@ -174,6 +197,16 @@
   </xs:complexType>
   <xs:complexType name="insertarEmpresaResponse">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasPorCliente">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasPorClienteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarEmpresasPorClienteActivas">
     <xs:sequence>

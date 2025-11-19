@@ -3,6 +3,8 @@ package pe.edu.pucp.inf30.softprog.ws;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -34,10 +36,8 @@ public class AdministradorSistemaWS {
         this.urlBase = this.config.getString("app.services.rest.baseurl");
         
         this.mapper= new ObjectMapper();
-        SimpleDateFormat df = 
-                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.mapper.setDateFormat(df);
+        this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
     @WebMethod(operationName = "listarTodosAdminstradores")
     public List<AdministradorSistema>listarTodosAdminstradores() throws IOException, InterruptedException{
@@ -59,7 +59,8 @@ public class AdministradorSistemaWS {
     @WebMethod(operationName = "insertarAdministrador")
     public void insertarAdministrador(@WebParam(name = "administradorsistema")
             AdministradorSistema administradorsistema) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(administradorsistema);
         String url;
         HttpRequest request;
@@ -77,7 +78,7 @@ public class AdministradorSistemaWS {
     @WebMethod(operationName = "actualizarAdministradorPorId")
     public void actualizarAdministradorPorId(@WebParam(name = "admistradorsistema") 
             AdministradorSistema admistradorsistema) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(admistradorsistema);
         String url;
         HttpRequest request;
@@ -102,7 +103,7 @@ public class AdministradorSistemaWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         AdministradorSistema administradorSistema = mapper.readValue(json, AdministradorSistema.class);
         return administradorSistema;
     }

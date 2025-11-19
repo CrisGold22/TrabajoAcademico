@@ -1,7 +1,10 @@
 package pe.edu.pucp.inf30.softprog.ws;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -34,10 +37,9 @@ public class DescuentoWS {
         this.config = ResourceBundle.getBundle("app");
         this.urlBase = this.config.getString("app.services.rest.baseurl");
         this.mapper= new ObjectMapper();
-        SimpleDateFormat df = 
-                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.mapper.setDateFormat(df);
+        this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        this.mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     }
     
     @WebMethod(operationName = "listarDescuento")
@@ -58,7 +60,7 @@ public class DescuentoWS {
     @WebMethod(operationName = "insertarDescuento")
     public void insertarDescuento(@WebParam(name = "descuento")
             Descuento descuento) throws JsonProcessingException, IOException, InterruptedException  {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(descuento);
         String url;
         HttpRequest request;
@@ -76,7 +78,7 @@ public class DescuentoWS {
     @WebMethod(operationName = "actualizarDescuento")
     public void actualizarDescuento(@WebParam(name = "descuento")
             Descuento descuento) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(descuento);
         String url;
         HttpRequest request;
@@ -101,7 +103,7 @@ public class DescuentoWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         Descuento descuento = mapper.readValue(json, Descuento.class);
         return descuento;
     }
@@ -125,7 +127,7 @@ public class DescuentoWS {
         descuento.setProducto(producto);
         descuento.setPrecioPorVolumen(nuevoprecio);
         
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(descuento);
         String url;
         HttpRequest request;

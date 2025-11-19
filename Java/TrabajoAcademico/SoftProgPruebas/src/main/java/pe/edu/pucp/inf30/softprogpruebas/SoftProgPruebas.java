@@ -51,6 +51,7 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.persona.ClienteBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.CuentaUsuarioBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmailService;
 import pe.edu.pucp.inf30.softprog.negocio.bo.persona.EmpresaBO;
+import pe.edu.pucp.inf30.softprog.negocio.bo.persona.Notificacion;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.DescuentoBO;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.ProductoBO;
@@ -66,6 +67,7 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.ClienteBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.CuentaUsuarioBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.EmailServiceImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.EmpresaBOImpl;
+import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.NotificacionImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.CategoriaProductoBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.DescuentoBOImpl;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.ProductoBOImpl;
@@ -91,11 +93,45 @@ public class SoftProgPruebas {
 //        pruebaConEmpresa();
 //        pruebaListar();
 //        pruebaDemasFunciones();
-        pruebaCorreo();
+//        pruebaCorreo();
+//        pruebaNotificaciones();
+//        pruebaMeOlvideContrasena();
     
 //        pruebaFiltroPorPrecio();
 //        pruebaObtenerMarcasPorCategoria();
 //        pruebaObtenerProductosPorCategoria();
+        pruebaEliminarOrdenCompra();
+    }
+    
+    public static void pruebaEliminarOrdenCompra(){
+        OrdenCompraBO ordenBO = new OrdenCompraBOImpl();
+        
+        ordenBO.eliminar(1);
+        System.out.println("Se elimino con exito la orden compra con sus lineas orden de compra");
+    }
+    
+    public static void pruebaMeOlvideContrasena(){
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
+
+        String correoUsuario = "cristhianhoracio22@gmail.com"; // el que está en la BD
+
+        cuentaBO.solicitarRecuperacionPassword(correoUsuario);
+
+        System.out.println("Se pidió recuperación. Revisa tu correo y/o la BD para ver el token.");
+    }
+    
+    public static void pruebaNotificaciones(){
+        
+        String correo = "cristhianhoracio22@gmail.com";
+        OrdenCompra ordenCompra = new OrdenCompra();
+        OrdenCompraBO ordenBO = new OrdenCompraBOImpl();
+       
+        ordenCompra = ordenBO.obtener(2);
+        
+        Notificacion notificacion = new NotificacionImpl();
+        
+        notificacion.enviarMensajeOrdenCompra(ordenCompra, correo);
+        System.out.println("El correo se envio con exito");
     }
     
     public static void pruebaObtenerProductosPorCategoria(){
@@ -170,7 +206,7 @@ public class SoftProgPruebas {
     }
     
     public static void pruebaDemasFunciones(){
-        CarritoCompras carrito = new CarritoComprasBOImpl().obtenerCarritoComprasPorIdCliente(1);
+        CarritoCompras carrito = new CarritoComprasBOImpl().obtenerCarritoComprasEnProcesoPorIdCliente(1);
         
         System.out.println(carrito.getId() + "    " + carrito.getCliente().getNombre());
         
@@ -537,6 +573,7 @@ public class SoftProgPruebas {
         cuenta.setId(1);
         cuenta.setActivo(true);
         cuenta.setUsername("CrisGold");
+        cuenta.setCorreo("cristhianhoracio22@gmail.com");
         cuenta.setPassword("Killzone2003");
 
         cuentaBO.insertar(cuenta);
@@ -545,7 +582,9 @@ public class SoftProgPruebas {
         cuentaBO.actualizar(cuenta);
         System.out.println("La cuenta se ha actualizado exitosamente");
         CuentaUsuario cuenta2 = cuentaBO.obtener(1);
-        cuenta.setId(2);
+        cuenta2.setUsername("CrisGold2");
+        cuenta2.setCorreo("cristhianhoracio21@gmail.com");
+        cuenta2.setId(2);
         System.out.println("La cuenta se llamo al backend de manera correcta");
         cuentaBO.insertar(cuenta2);
         List<CuentaUsuario> listaCuentas = cuentaBO.listar();
@@ -585,7 +624,8 @@ public class SoftProgPruebas {
         System.out.println("El Administrador se ha actualizado exitosamente");
         AdministradorSistema admin2 = adminBO.obtener(1);
         System.out.println("El Administrador se llamo al backend de manera correcta");
-        admin.setId(2);
+        admin2.setId(2);
+        admin2.setDni("72233418");
         adminBO.insertar(admin2);
         List<AdministradorSistema> listaAdmin = adminBO.listar();
         System.out.println("Se listo con exito todos los admins\n");
@@ -819,7 +859,9 @@ public class SoftProgPruebas {
         System.out.println("El producto se ha actualizado exitosamente");
         Producto producto2 = productoBO.obtener(producto.getId());
         System.out.println("El producto se llamo al backend de manera correcta\n");
+        producto2.setId(2);
         producto2.setCategoria(categoria2);
+        producto2.setSKU("SEL-133");
         productoBO.insertar(producto2);
         List<Producto> listaProductos = productoBO.listar();
         System.out.println("Se listo con exito todos los productos");

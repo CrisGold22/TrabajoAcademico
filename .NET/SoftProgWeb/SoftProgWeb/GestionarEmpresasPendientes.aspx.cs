@@ -3,17 +3,17 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SoftProgWeb;
-using SoftProgWeb.ServiceioEmpresaWS;
+using SoftProgWeb.SoftProgWS;
 
 namespace SoftProgWeb
 {
     public partial class GestionarEmpresasPendientes : System.Web.UI.Page
     {
-        private  ServiceioEmpresaWS.EmpresaWSClient servicioEmpresa;
+        private EmpresaWSClient servicioEmpresa;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            servicioEmpresa = new ServiceioEmpresaWS.EmpresaWSClient();
+            servicioEmpresa = new EmpresaWSClient();
 
             if (!Page.IsPostBack)
             {
@@ -32,7 +32,7 @@ namespace SoftProgWeb
                 gvEmpresas.DataSource = empresasPendientes;
                 gvEmpresas.DataBind();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error al cargar empresas: " + ex.Message);
             }

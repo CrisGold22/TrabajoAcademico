@@ -11,6 +11,7 @@ DROP PROCEDURE IF EXISTS eliminarEmpresa;
 DROP PROCEDURE IF EXISTS buscarEmpresaPorId;
 DROP PROCEDURE IF EXISTS listarEmpresas;
 DROP PROCEDURE IF EXISTS listarEmpresasActivos;
+DROP PROCEDURE IF EXISTS validarEmpresa;
 DROP PROCEDURE IF EXISTS listarEmpresasNoActivos;
 DROP PROCEDURE IF EXISTS listarEmpresasPorCliente;
 DROP PROCEDURE IF EXISTS listarEmpresasPorClienteActivas;

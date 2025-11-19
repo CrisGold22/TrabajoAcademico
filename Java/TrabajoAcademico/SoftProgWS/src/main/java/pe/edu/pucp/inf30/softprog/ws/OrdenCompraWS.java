@@ -2,7 +2,10 @@
 package pe.edu.pucp.inf30.softprog.ws;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -36,10 +39,9 @@ public class OrdenCompraWS {
         this.urlBase = this.config.getString("app.services.rest.baseurl");
         
         this.mapper= new ObjectMapper();
-        SimpleDateFormat df = 
-                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.mapper.setDateFormat(df);
+        this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        this.mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     }
     @WebMethod(operationName = "listarOrdenCompra")
     public List<OrdenCompra> listarOrdenCompra()  throws IOException, InterruptedException {
@@ -59,7 +61,7 @@ public class OrdenCompraWS {
     @WebMethod(operationName = "insertarOrdenCompra")
     public void insertarOrdenCompra(@WebParam(name = "ordenCompra")
             OrdenCompra ordenCompra) throws JsonProcessingException, IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(ordenCompra);
         String url;
         HttpRequest request;
@@ -75,7 +77,7 @@ public class OrdenCompraWS {
     @WebMethod(operationName = "actualizarOrdenCompra")
     public void actualizarOrdenCompra(@WebParam(name = "ordenCompra")
             OrdenCompra ordenCompra) throws JsonProcessingException, IOException, InterruptedException {
-         ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(ordenCompra);
         String url;
         HttpRequest request;
@@ -100,7 +102,7 @@ public class OrdenCompraWS {
         HttpResponse<String> response = 
                 client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        ObjectMapper mapper= new ObjectMapper();
+        //ObjectMapper mapper= new ObjectMapper();
         OrdenCompra ordenCompra = mapper.readValue(json, OrdenCompra.class);
         return ordenCompra;
     }
