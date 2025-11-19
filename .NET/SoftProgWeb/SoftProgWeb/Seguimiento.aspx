@@ -22,10 +22,10 @@
             <div class="col-lg-8 col-md-10">
                 <!-- Información del Pedido -->
                 <div class="order-info">
-                    <p><strong>Código orden de compra:</strong> 9739234</p>
-                    <p><strong>Fecha de la entrega:</strong> 10/10/2025</p>
-                    <p><strong>Hora estimada de la entrega:</strong> 7:00 p.m.</p>
-                    <p><strong>Lugar de entrega:</strong> Local San Miguel</p>
+                    <p><strong>Código orden de compra:</strong> <asp:Label ID="lblCodigoOrden" runat="server" /></p>
+                    <p><strong>Fecha de la entrega:</strong> <asp:Label ID="lblFechaEntrega" runat="server" /></p>
+                    <p><strong>Hora estimada de la entrega:</strong> <asp:Label ID="lblHorarioEntrega" runat="server" /></p>
+                    <p><strong>Lugar de entrega:</strong> <asp:Label ID="lblDireccion" runat="server" /></p>
                     <p class="mb-0">
                         <i class="fa-solid fa-check-circle text-success me-2"></i>
                         <strong class="text-success">Orden pagada</strong>
@@ -36,7 +36,7 @@
                 <div class="tracking-container">
                     <h5 class="mb-4 fw-bold">SIGUE TU PEDIDO:</h5>
 
-                    <div class="tracking-step active">
+                    <div id="step1" runat="server" class="tracking-step">
                         <div class="tracking-circle filled">
                             <i class="fa-solid fa-circle text-white"></i>
                         </div>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="tracking-step">
+                    <div id="step2" runat="server" class="tracking-step">
                         <div class="tracking-circle">
                             <i class="fa-regular fa-circle text-muted"></i>
                         </div>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                    <div class="tracking-step">
+                    <div id="step3" runat="server" class="tracking-step">
                         <div class="tracking-circle">
                             <i class="fa-regular fa-circle text-muted"></i>
                         </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="tracking-step">
+                    <div id="step4" runat="server" class="tracking-step">
                         <div class="tracking-circle">
                             <i class="fa-regular fa-circle text-muted"></i>
                         </div>

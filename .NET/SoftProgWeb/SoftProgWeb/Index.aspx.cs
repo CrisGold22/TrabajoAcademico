@@ -30,7 +30,7 @@ namespace SoftProgWeb
                 }
 
                 int idCliente = (int)Session["idCliente"];
-                carritoCompras carrito= carritoWS.obtenerCarritoDeCliente(idCliente);
+                carritoCompras carrito= carritoWS.obtenerCarritoEnProcesoDeCliente(idCliente);
                 int idCarrito = carrito.id;
 
                 var lista = carritoWS.listarLineaCarritoPorIdCarrito(idCarrito);
@@ -68,7 +68,7 @@ namespace SoftProgWeb
                 int idCliente = (int)Session["idCliente"];
 
                 // Obtener el carrito completo del cliente
-                var carrito = carritoWS.obtenerCarritoDeCliente(idCliente);
+                var carrito = carritoWS.obtenerCarritoEnProcesoDeCliente(idCliente);
 
                 if (carrito == null)
                 {

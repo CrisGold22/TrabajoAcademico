@@ -115,7 +115,7 @@ namespace SoftProgWeb
 
                 carritoWS = new CarritoComprasWSClient();
 
-                var carrito = carritoWS.obtenerCarritoDeCliente(idCliente);
+                var carrito = carritoWS.obtenerCarritoEnProcesoDeCliente(idCliente);
 
                 return carrito.id;
             }
