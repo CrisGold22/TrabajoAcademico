@@ -98,7 +98,10 @@ namespace SoftProgWeb
                 MostrarError(ex.Message);
             }
         }
-
+        protected void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:8080/SoftProgReportes/ReporteProductos?autor=miraya");
+        }
         private void EnlazarGrilla(IEnumerable<producto> productos)
         {
             if (productos != null)
