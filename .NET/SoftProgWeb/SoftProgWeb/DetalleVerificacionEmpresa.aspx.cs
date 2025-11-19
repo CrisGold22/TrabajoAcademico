@@ -1,4 +1,4 @@
-﻿using SoftProgWeb.ServiceioEmpresaWS;
+﻿using SoftProgWeb.SoftProgWS;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -7,7 +7,7 @@ namespace SoftProgWeb
 {
     public partial class DetalleVerificacionEmpresa : System.Web.UI.Page
     {
-        private ServiceioEmpresaWS.EmpresaWSClient servicioEmpresa;
+        private EmpresaWSClient servicioEmpresa;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace SoftProgWeb
                     btnRechazar.Enabled = false;
                 }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 MostrarError("Error al cargar datos: " + ex.Message);
                 btnAprobar.Enabled = false;
@@ -71,7 +71,7 @@ namespace SoftProgWeb
                 Response.Redirect("~/GestionarEmpresasPendientes.aspx");
 
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 MostrarError("Error al aprobar: " + ex.Message);
             }
@@ -88,7 +88,7 @@ namespace SoftProgWeb
                 Response.Redirect("~/GestionarEmpresasPendientes.aspx");
                 
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 MostrarError("Error al rechazar/eliminar: " + ex.Message);
             }
