@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="IOException" type="tns:IOException" />
+  <xs:element name="InterruptedException" type="tns:InterruptedException" />
+  <xs:element name="JsonProcessingException" type="tns:JsonProcessingException" />
+  <xs:element name="actualizarCuentaUsuario" type="tns:actualizarCuentaUsuario" />
+  <xs:element name="actualizarCuentaUsuarioResponse" type="tns:actualizarCuentaUsuarioResponse" />
+  <xs:element name="cambiarPassword" type="tns:cambiarPassword" />
+  <xs:element name="cambiarPasswordResponse" type="tns:cambiarPasswordResponse" />
+  <xs:element name="eliminarCuentaUsuario" type="tns:eliminarCuentaUsuario" />
+  <xs:element name="eliminarCuentaUsuarioResponse" type="tns:eliminarCuentaUsuarioResponse" />
+  <xs:element name="insertarCuentaUsuario" type="tns:insertarCuentaUsuario" />
+  <xs:element name="insertarCuentaUsuarioResponse" type="tns:insertarCuentaUsuarioResponse" />
+  <xs:element name="listarCuentaUsuario" type="tns:listarCuentaUsuario" />
+  <xs:element name="listarCuentaUsuarioResponse" type="tns:listarCuentaUsuarioResponse" />
+  <xs:element name="login" type="tns:login" />
+  <xs:element name="loginResponse" type="tns:loginResponse" />
+  <xs:element name="obtenerCuentaUsuario" type="tns:obtenerCuentaUsuario" />
+  <xs:element name="obtenerCuentaUsuarioPorCorreo" type="tns:obtenerCuentaUsuarioPorCorreo" />
+  <xs:element name="obtenerCuentaUsuarioPorCorreoResponse" type="tns:obtenerCuentaUsuarioPorCorreoResponse" />
+  <xs:element name="obtenerCuentaUsuarioPorUserName" type="tns:obtenerCuentaUsuarioPorUserName" />
+  <xs:element name="obtenerCuentaUsuarioPorUserNameResponse" type="tns:obtenerCuentaUsuarioPorUserNameResponse" />
+  <xs:element name="obtenerCuentaUsuarioResponse" type="tns:obtenerCuentaUsuarioResponse" />
+  <xs:element name="obtenerPorResetToken" type="tns:obtenerPorResetToken" />
+  <xs:element name="obtenerPorResetTokenResponse" type="tns:obtenerPorResetTokenResponse" />
+  <xs:element name="resetPasswordConToken" type="tns:resetPasswordConToken" />
+  <xs:element name="resetPasswordConTokenResponse" type="tns:resetPasswordConTokenResponse" />
+  <xs:element name="solicitarRecuperacionPassword" type="tns:solicitarRecuperacionPassword" />
+  <xs:element name="solicitarRecuperacionPasswordResponse" type="tns:solicitarRecuperacionPasswordResponse" />
+  <xs:element name="validarTokenRecuperacion" type="tns:validarTokenRecuperacion" />
+  <xs:element name="validarTokenRecuperacionResponse" type="tns:validarTokenRecuperacionResponse" />
+  <xs:complexType name="insertarCuentaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuentaUsuario" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cuentaUsuario">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="correo" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="resetToken" type="xs:string" />
+          <xs:element minOccurs="0" name="resetTokenExpira" type="tns:timestamp" />
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="registro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="activoInt" type="xs:int" />
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timestamp">
+    <xs:sequence>
+      <xs:element name="nanos" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCuentaUsuarioResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="JsonProcessingException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="location" type="tns:jsonLocation" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="originalMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="processor" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="jsonLocation">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InterruptedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solicitarRecuperacionPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solicitarRecuperacionPasswordResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="resetPasswordConToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="nuevaPassword" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resetPasswordConTokenResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCuentaUsuario">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCuentaUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorResetToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorResetTokenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarTokenRecuperacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarTokenRecuperacionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuarioPorCorreo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuarioPorCorreoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarCuentaUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarCuentaUsuarioResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiarPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+      <xs:element minOccurs="0" name="passwordActual" type="xs:string" />
+      <xs:element minOccurs="0" name="passwordNueva" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiarPasswordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuentaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cuentaUsuario" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuentaUsuarioResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuarioPorUserName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaUsuarioPorUserNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

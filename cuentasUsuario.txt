@@ -1,0 +1,17 @@
+idCuentaUsuario,userName,password,activo,correo,reset_token,reset_token_expira
+1,jpz,passSADAS123,1,jpz@example.com,NULL,NULL
+2,jperez,pass123,1,jperez@example.com,NULL,NULL
+3,mgarcia,pass123,1,mgarcia@example.com,NULL,NULL
+4,lrodriguez,pass123,1,lrodriguez@example.com,NULL,NULL
+5,acastro,pass123,1,acastro@example.com,NULL,NULL
+6,plopez,pass123,1,plopez@example.com,NULL,NULL
+7,rmartinez,pass123,1,rmartinez@example.com,NULL,NULL
+8,dsanchez,pass123,1,dsanchez@example.com,NULL,NULL
+9,mgonzalez,pass123,1,mgonzalez@example.com,NULL,NULL
+10,ctorres,pass123,1,ctorres@example.com,NULL,NULL
+11,jramirez,pass123,1,jramirez@example.com,NULL,NULL
+12,admin1,admin123,1,admin1@example.com,NULL,NULL
+13,admin2,admin123,1,admin2@example.com,NULL,NULL
+14,admin3,admin123,1,admin3@example.com,NULL,NULL
+15,cflores,pass123,1,cflores@example.com,NULL,NULL
+16,avargas,pass123,1,avargas@example.com,NULL,NULL

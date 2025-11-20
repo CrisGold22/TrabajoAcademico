@@ -1,0 +1,12 @@
+pe\edu\pucp\inf30\softprogwr\resources\CategoriaProductoResource.class
+pe\edu\pucp\inf30\softprogwr\resources\AdministradorSistemaResource.class
+pe\edu\pucp\inf30\softprogwr\resources\OrdenCompraResource.class
+pe\edu\pucp\inf30\softprogwr\resources\ClienteResource.class
+pe\edu\pucp\inf30\softprogwr\resources\RestApplication.class
+pe\edu\pucp\inf30\softprogwr\resources\DescuentoResource.class
+pe\edu\pucp\inf30\softprogwr\resources\CarritoCompraResource.class
+pe\edu\pucp\inf30\softprogwr\resources\LineaCarritoResource.class
+pe\edu\pucp\inf30\softprogwr\resources\ProductoResource.class
+pe\edu\pucp\inf30\softprogwr\resources\DetalleEnvioResource.class
+pe\edu\pucp\inf30\softprogwr\resources\EmpresaResources.class
+pe\edu\pucp\inf30\softprogwr\resources\CuentaUsuarioResource.class
