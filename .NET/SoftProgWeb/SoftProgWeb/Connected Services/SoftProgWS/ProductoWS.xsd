@@ -31,6 +31,27 @@
   <xs:element name="verificarStockSuficientePorIDResponse" type="tns:verificarStockSuficientePorIDResponse" />
   <xs:element name="verificarStockSuficientePorSKU" type="tns:verificarStockSuficientePorSKU" />
   <xs:element name="verificarStockSuficientePorSKUResponse" type="tns:verificarStockSuficientePorSKUResponse" />
+  <xs:complexType name="verificarStockSuficientePorSKU">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sku" type="xs:string" />
+      <xs:element minOccurs="0" name="cantidadSolicitada" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarStockSuficientePorSKUResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InterruptedException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarfiltrarProductoPorDescuento">
     <xs:sequence>
       <xs:element minOccurs="0" name="idCategoria" type="xs:int" />
@@ -79,27 +100,6 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="IOException">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InterruptedException">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="verificarStockSuficientePorSKU">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="sku" type="xs:string" />
-      <xs:element minOccurs="0" name="cantidadSolicitada" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="verificarStockSuficientePorSKUResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:boolean" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarProducto">
     <xs:sequence />

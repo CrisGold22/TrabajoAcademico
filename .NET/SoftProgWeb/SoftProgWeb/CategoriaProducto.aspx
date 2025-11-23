@@ -18,13 +18,21 @@
                     <ItemTemplate>
                         <div class="col-md-3 mb-4">
                             <div class="card">
-                                <%--<img src='<%# ResolveUrl("~/images/" + Eval("ImageUrl")) %>' class="card-img-top" alt="<%# Eval("Name") %>">--%>
-                                <%--<img src="<%# Eval("ImageUrl") %>" class="card-img-top" alt="<%# Eval("Name") %>">--%>
+                                <img src='<%# ResolveUrl("~/images/" + Eval("ImagenUrl")) %>' class="card-img-top" alt="<%# Eval("nombre") %>">
+                                <%--<img src="<%# Eval("") %>" class="card-img-top" alt="<%# Eval("Name") %>">--%>
                                 <div class="card-body">
-                                    <h5 class="card-title"><%# Eval("Name") %></h5>
-                                    <p class="card-text"><%# Eval("Description") %></p>
-                                    <p class="card-text"><strong>A partir de S/ <%# Eval("Price") %></strong></p>
-                                    <a href="#" class="btn btn-primary button-add-1">Agregar</a>
+                                    <h5 class="card-title"><%# Eval("nombre") %></h5>
+                                    <p class="card-text"><%# Eval("descripcion") %></p>
+                                    <p class="card-text"><strong>A partir de S/ <%# Eval("precioRegular") %></strong></p>
+                                    
+                                    <asp:Button 
+                                                ID="btnAgregarCarrito" 
+                                                runat="server"  
+                                                Text="Agregar" 
+                                                CssClass="btn btn-primary button-add-1" 
+                                                CommandArgument='<%# Eval("id") %>' 
+                                                OnClick="btnAgregarCarrito_Click" />
+
                                 </div>
                             </div>
                         </div>
@@ -35,3 +43,5 @@
     </div>
 
 </asp:Content>
+<%--CommandArgument="<%# Eval("id") %>"--%> 
+<%--<a href="#" class="btn btn-primary button-add-1">Agregar</a>--%>

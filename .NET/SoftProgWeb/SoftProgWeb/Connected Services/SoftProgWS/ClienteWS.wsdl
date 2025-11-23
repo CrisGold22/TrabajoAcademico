@@ -5,6 +5,18 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/ClienteWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="insertarCliente">
+    <part name="parameters" element="tns:insertarCliente" />
+  </message>
+  <message name="insertarClienteResponse">
+    <part name="parameters" element="tns:insertarClienteResponse" />
+  </message>
+  <message name="IOException">
+    <part name="fault" element="tns:IOException" />
+  </message>
+  <message name="InterruptedException">
+    <part name="fault" element="tns:InterruptedException" />
+  </message>
   <message name="listarCliente">
     <part name="parameters" element="tns:listarCliente" />
   </message>
@@ -23,29 +35,17 @@
   <message name="JsonProcessingException">
     <part name="fault" element="tns:JsonProcessingException" />
   </message>
-  <message name="IOException">
-    <part name="fault" element="tns:IOException" />
+  <message name="obtenerCliente">
+    <part name="parameters" element="tns:obtenerCliente" />
   </message>
-  <message name="InterruptedException">
-    <part name="fault" element="tns:InterruptedException" />
+  <message name="obtenerClienteResponse">
+    <part name="parameters" element="tns:obtenerClienteResponse" />
   </message>
   <message name="eliminarCliente">
     <part name="parameters" element="tns:eliminarCliente" />
   </message>
   <message name="eliminarClienteResponse">
     <part name="parameters" element="tns:eliminarClienteResponse" />
-  </message>
-  <message name="insertarCliente">
-    <part name="parameters" element="tns:insertarCliente" />
-  </message>
-  <message name="insertarClienteResponse">
-    <part name="parameters" element="tns:insertarClienteResponse" />
-  </message>
-  <message name="obtenerCliente">
-    <part name="parameters" element="tns:obtenerCliente" />
-  </message>
-  <message name="obtenerClienteResponse">
-    <part name="parameters" element="tns:obtenerClienteResponse" />
   </message>
   <message name="buscarPorDni">
     <part name="parameters" element="tns:buscarPorDni" />
@@ -54,6 +54,12 @@
     <part name="parameters" element="tns:buscarPorDniResponse" />
   </message>
   <portType name="ClienteWS">
+    <operation name="insertarCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest" message="tns:insertarCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse" message="tns:insertarClienteResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="listarCliente">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteRequest" message="tns:listarCliente" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteResponse" message="tns:listarClienteResponse" />
@@ -66,23 +72,17 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarCliente/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="eliminarCliente">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteRequest" message="tns:eliminarCliente" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteResponse" message="tns:eliminarClienteResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="insertarCliente">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest" message="tns:insertarCliente" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse" message="tns:insertarClienteResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
     <operation name="obtenerCliente">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteRequest" message="tns:obtenerCliente" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteResponse" message="tns:obtenerClienteResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerCliente/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="eliminarCliente">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteRequest" message="tns:eliminarCliente" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteResponse" message="tns:eliminarClienteResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="buscarPorDni">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ClienteWS/buscarPorDniRequest" message="tns:buscarPorDni" />
@@ -93,6 +93,21 @@
   </portType>
   <binding name="ClienteWSPortBinding" type="tns:ClienteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
     <operation name="listarCliente">
       <soap:operation soapAction="" />
       <input>
@@ -123,37 +138,22 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="eliminarCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="insertarCliente">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
     <operation name="obtenerCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="eliminarCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
