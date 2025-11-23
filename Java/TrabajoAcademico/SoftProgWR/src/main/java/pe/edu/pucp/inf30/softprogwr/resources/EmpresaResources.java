@@ -149,6 +149,37 @@ public class EmpresaResources {
         boolean resultado = empresaBO.validarEmpresa(id);
         return Response.ok(resultado).build(); // :v     true o false
     }
+    
+    
+    @POST
+    @Path("crearValidandoCodigoPostal")
+    public Response crearValidandoCodigoPostal(Empresa empresa){
+            if(empresa==null || 
+                    empresa.getCodigoPostal()==null || 
+                    empresa.getDepartamento()==null || empresa.getDepartamento().isBlank() ||
+                    empresa.getDireccionFiscal()==null || empresa.getDireccionFiscal().isBlank()||
+                    empresa.getDistrito()==null || empresa.getDistrito().isBlank()||
+                    empresa.getEmail()==null || empresa.getEmail().isBlank()||
+                    empresa.getProvincia()==null || empresa.getProvincia().isBlank()||
+                    empresa.getRuc()==null || empresa.getRuc().isBlank()||
+                    empresa.getRazonSocial()==null || empresa.getRazonSocial().isBlank()||
+                    empresa.getTelefono()==null || empresa.getTelefono().isBlank()
+                    ){
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("La empresa no esta creado")
+                    .build();
+            }
+        //faltar guardar
+        this.empresaBO.insertarEmpresaValidandoCodigoPostal(empresa);
+        
+        return Response.status(Response.Status.CREATED)
+                .entity(empresa)
+                .build();
+        //URI location= URI.create("/SoftProgWR/api/v1/empresa/" + empresa.getId());
+//        return Response.created(location)
+//                .entity(empresa)
+//                .build();
+    }    
   //  @Override
 //    public List<Empresa> listarEmpresasActivos() {
 //        return this.empresaDAO.listarEmpresasActivos();

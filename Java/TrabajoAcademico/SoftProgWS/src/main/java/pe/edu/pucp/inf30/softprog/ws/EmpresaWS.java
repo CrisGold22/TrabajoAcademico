@@ -76,6 +76,24 @@ public class EmpresaWS {
 
         client.send(request, HttpResponse.BodyHandlers.ofString());
     }
+    
+    @WebMethod(operationName = "crearEmpresaValidandoCodigoPostal")
+    public void crearEmpresaValidandoCodigoPostal(@WebParam (name = "empresa")
+        Empresa empresa) throws JsonProcessingException, IOException, InterruptedException{
+        
+        String json = mapper.writeValueAsString(empresa);
+        String url;
+        HttpRequest request;
+        url = this.urlBase+"/"+this.NOMBRE_RESOURCE+"/crearValidandoCodigoPostal";
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();   
+            
+        client.send(request,HttpResponse.BodyHandlers.ofString());        
+    }
+    
     @WebMethod(operationName = "actualizarEmpresa")
     public void actualizarEmpresa(@WebParam(name = "empresa")
             Empresa empresa) throws JsonProcessingException, IOException, InterruptedException  {

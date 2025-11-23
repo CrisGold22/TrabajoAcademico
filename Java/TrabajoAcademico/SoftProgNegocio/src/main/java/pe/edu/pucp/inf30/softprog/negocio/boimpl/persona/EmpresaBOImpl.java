@@ -149,6 +149,12 @@ public class EmpresaBOImpl implements EmpresaBO{
         return this.empresaDAO.validarEmpresa(id);
     }
 
-
-
+    @Override
+    public void insertarEmpresaValidandoCodigoPostal(Empresa modelo) {
+        if(modelo == null){
+            throw new IllegalArgumentException("La Empresa no puede ser nula");
+        }    
+        
+        this.empresaDAO.insertarEmpresaValidandoCodigoPostal(modelo);
+    }
 }

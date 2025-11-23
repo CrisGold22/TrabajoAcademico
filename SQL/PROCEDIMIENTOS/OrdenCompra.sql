@@ -307,6 +307,8 @@ BEGIN
         SET p_Mensaje = 'Error: La orden de compra no existe';
     ELSEIF v_Activo = 0 THEN
         SET p_Mensaje = 'Error: La orden de compra ya está inactiva';
+	ELSEIF v_estado != 'PAGADO' THEN
+		SET p_Mensaje = "La orden de compra no ha sido pagada , por tal motivo no se puede cancelar";
     ELSE
         SET v_HoraCreacion = TIME(v_FechaCreacion);
         
