@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ActualizarLineaCarrito" type="tns:ActualizarLineaCarrito" />
+  <xs:element name="ActualizarLineaCarritoResponse" type="tns:ActualizarLineaCarritoResponse" />
+  <xs:element name="EliminarLineaCarrito" type="tns:EliminarLineaCarrito" />
+  <xs:element name="EliminarLineaCarritoResponse" type="tns:EliminarLineaCarritoResponse" />
+  <xs:element name="InsertarLineaCarrito" type="tns:InsertarLineaCarrito" />
+  <xs:element name="InsertarLineaCarritoResponse" type="tns:InsertarLineaCarritoResponse" />
+  <xs:element name="ListarLineaCarritoPorIdCarrito" type="tns:ListarLineaCarritoPorIdCarrito" />
+  <xs:element name="ListarLineaCarritoPorIdCarritoResponse" type="tns:ListarLineaCarritoPorIdCarritoResponse" />
+  <xs:element name="ObtenerLineaCarrito" type="tns:ObtenerLineaCarrito" />
+  <xs:element name="ObtenerLineaCarritoResponse" type="tns:ObtenerLineaCarritoResponse" />
+  <xs:element name="listarLineaCarrito" type="tns:listarLineaCarrito" />
+  <xs:element name="listarLineaCarritoResponse" type="tns:listarLineaCarritoResponse" />
+  <xs:complexType name="ActualizarLineaCarrito">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineaCarrito" type="tns:lineaCarrito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lineaCarrito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element name="cantidad" type="xs:int" />
+          <xs:element minOccurs="0" name="carritoCompras" type="tns:carritoCompras" />
+          <xs:element name="precioVolumen" type="xs:double" />
+          <xs:element minOccurs="0" name="producto" type="tns:producto" />
+          <xs:element name="subTotal" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="registro">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="carritoCompras">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cliente" type="tns:cliente" />
+          <xs:element minOccurs="0" name="estado" type="tns:estadoCarrito" />
+          <xs:element minOccurs="0" name="estadoString" type="xs:string" />
+          <xs:element name="totalConDescuento" type="xs:double" />
+          <xs:element name="totalParcial" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="cliente">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoria" type="tns:categoriaCliente" />
+          <xs:element minOccurs="0" name="categoriaCliente" type="xs:string" />
+          <xs:element name="lineaCredito" type="xs:double" />
+          <xs:element name="numeroPedidosHistorico" type="xs:int" />
+          <xs:element name="numeroPedidosMensualPro" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="persona">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="apellidoMaterno" type="xs:string" />
+          <xs:element minOccurs="0" name="apellidoPaterno" type="xs:string" />
+          <xs:element minOccurs="0" name="dni" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="genero" type="tns:genero" />
+          <xs:element minOccurs="0" name="generoString" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element name="telefono" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="producto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoria" type="tns:categoriaProducto" />
+          <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+          <xs:element minOccurs="0" name="marca" type="xs:string" />
+          <xs:element minOccurs="0" name="medidaAlMayor" type="tns:unidadMedida" />
+          <xs:element minOccurs="0" name="medidaAlMayorString" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+          <xs:element name="precioAlMayor" type="xs:double" />
+          <xs:element name="precioUnitario" type="xs:double" />
+          <xs:element minOccurs="0" name="SKU" type="xs:string" />
+          <xs:element name="stockDisponible" type="xs:int" />
+          <xs:element name="stockMaximo" type="xs:int" />
+          <xs:element name="stockMinimo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="categoriaProducto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoriaPadre" type="tns:categoriaProducto" />
+          <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+          <xs:element minOccurs="0" name="nombre" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ActualizarLineaCarritoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="EliminarLineaCarrito">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EliminarLineaCarritoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="InsertarLineaCarrito">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineaCarrito" type="tns:lineaCarrito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertarLineaCarritoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ListarLineaCarritoPorIdCarrito">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ListarLineaCarritoPorIdCarritoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaCarrito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerLineaCarrito">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerLineaCarritoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:lineaCarrito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineaCarrito">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarLineaCarritoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaCarrito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="categoriaCliente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DISTRIBUIDOR" />
+      <xs:enumeration value="REVENDEDOR" />
+      <xs:enumeration value="RESTAURANTE" />
+      <xs:enumeration value="HOTEL" />
+      <xs:enumeration value="CATERING" />
+      <xs:enumeration value="GOBIERNO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="genero">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HOMBRE" />
+      <xs:enumeration value="MUJER" />
+      <xs:enumeration value="NO_ESPECIFICADO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="estadoCarrito">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VACIO" />
+      <xs:enumeration value="EN_PROCESO" />
+      <xs:enumeration value="EN_REVISION" />
+      <xs:enumeration value="CONFIRMADO" />
+      <xs:enumeration value="CANCELADO" />
+      <xs:enumeration value="EXPIRADO" />
+      <xs:enumeration value="COMPLETADO" />
+      <xs:enumeration value="PENDIENTE" />
+      <xs:enumeration value="PROCESADO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="unidadMedida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KILOGRAMO" />
+      <xs:enumeration value="LITRO" />
+      <xs:enumeration value="GALON" />
+      <xs:enumeration value="BOTELLA" />
+      <xs:enumeration value="CAJA" />
+      <xs:enumeration value="PAQUETE" />
+      <xs:enumeration value="SACO" />
+      <xs:enumeration value="PACK" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

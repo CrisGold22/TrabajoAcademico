@@ -1,0 +1,148 @@
+.button-menu {
+    background-color: white; /* Fondo gris */
+    color: black; /* Texto blanco */
+    border: 1px solid #DE2C2C; /* Borde gris, igual que el fondo */
+    padding: 5px 15px; /* Espaciado dentro del botón (alto y ancho) */
+    font-size: 16px; /* Tamaño del texto */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease; /* Transición suave para el hover */
+    margin-right: 30px;
+}
+
+    /* Efecto al pasar el mouse por encima (hover) */
+    .button-menu:hover {
+        background-color: #DE2C2C; 
+        border-color: #DE2C2C; 
+    }
+
+
+/* Estilo de los elementos dentro del menú desplegable */
+.dropdown-menu {
+    background-color: #ffffff; 
+    color: black; /* Texto blanco */
+}
+
+/* Cambiar color de los elementos del menú al hacer hover */
+.dropdown-item {
+    color: black;
+}
+
+    /* Estilo para los elementos activos (seleccionados) */
+    .dropdown-item.active, .dropdown-item:active {
+        background-color: #DE2C2C;
+        color: white; 
+    }
+
+    /* Estilo para los elementos del menú cuando el mouse pasa por encima (hover) */
+    .dropdown-item:hover {
+        background-color: #DE2C2C; 
+        color: white; 
+    }
+.button-menu:focus, .button-menu:active {
+    background-color: #DE2C2C; /* Fondo rojo cuando está en foco o activo */
+    border-color: #DE2C2C; /* Borde rojo cuando está en foco o activo */
+    color: white; /* Texto blanco cuando está en foco o activo */
+}
+.button-menu:hover {
+    background-color: #DE2C2C; /* Fondo rojo en hover */
+    border-color: #DE2C2C; /* Borde rojo en hover */
+    color: white; /* Texto blanco en hover */
+}
+
+
+
+button.btn-outline-success {
+    
+    background-color: #28a745; /* Fondo verde */
+    color: white;              /* Texto blanco */
+    border: none;              /* Sin borde */
+}
+
+button.btn-outline-success:hover {
+    background-color: #218838; /* Fondo verde más oscuro al pasar el mouse */
+}
+
+
+.button-add-1 {
+    border-color: #DE2C2C;
+    background-color: #DE2C2C !important;
+}
+    .button-add-1:hover {
+        border-color: #D61111;
+        background-color: #D61111;
+    }
+
+    .button-add-1:focus, .button-add-1:active {
+        border-color: #D61111 !important;
+        /*outline: 3px solid #D61111 !important;*/ /* Borde rojo cuando el botón está enfocado o activo */
+        box-shadow: 0 0 5px rgba(214, 17, 17, 0.5); /* Opción para agregar un efecto de sombra (opcional) */
+    }
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Esto garantiza que el botón esté al final */
+}
+.card-img-top {
+    margin-top: 10px;
+    max-height: 200px;
+    object-fit: contain; /* Mantener la proporción de la imagen */
+    display: block !important; /* Hace que la imagen se comporte como un bloque */
+    margin-left: auto !important; /* Centra la imagen horizontalmente */
+    margin-right: auto !important; /* Centra la imagen horizontalmente */
+}
+.card {
+    height: 100%; /* Hace que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+}
+
+.container-right{
+    display: flex;
+    justify-content: flex-end;
+}
+/* Barra lateral fija dentro del contenedor */
+.sidebar {
+    position: absolute; /* Asegura que la barra esté dentro del contenedor */
+    width: 250px; /* Establece un ancho para la barra lateral */
+    height: auto; /* La altura se ajusta al contenido */
+    background-color: #f8f9fa;
+    border-color: #F0F1F2 !important;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    margin-right: 30px; /* Margen a la derecha para espacio */
+    margin-top:20px;
+    border-radius:10px;
+}
+
+    .sidebar h4 {
+        margin-bottom: 20px;
+    }
+
+    .sidebar .list-group-item {
+        cursor: pointer;
+    }
+
+        .sidebar .list-group-item:hover {
+            background-color: #f1f1f1;
+        }
+
+/* Estilo para el contenido principal */
+.content {
+    margin-left: 270px; /* Deja espacio a la izquierda para la barra lateral */
+    padding: 20px;
+}
+
+/* Responsividad: cuando la pantalla es pequeña */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* La barra lateral ocupa el 100% del ancho */
+        height: auto; /* Ajusta la altura */
+        margin-right: 0; /* Elimina el margen en pantallas pequeñas */
+    }
+
+    .content {
+        margin-left: 0; /* El contenido ocupa todo el ancho disponible */
+    }
+}

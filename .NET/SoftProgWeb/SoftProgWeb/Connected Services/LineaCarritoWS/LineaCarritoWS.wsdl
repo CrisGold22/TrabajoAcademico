@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.softprog.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="LineaCarritoWS" targetNamespace="http://services.softprog.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/LineaCarritoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="ListarLineaCarritoPorIdCarrito">
+    <part name="parameters" element="tns:ListarLineaCarritoPorIdCarrito" />
+  </message>
+  <message name="ListarLineaCarritoPorIdCarritoResponse">
+    <part name="parameters" element="tns:ListarLineaCarritoPorIdCarritoResponse" />
+  </message>
+  <message name="InsertarLineaCarrito">
+    <part name="parameters" element="tns:InsertarLineaCarrito" />
+  </message>
+  <message name="InsertarLineaCarritoResponse">
+    <part name="parameters" element="tns:InsertarLineaCarritoResponse" />
+  </message>
+  <message name="listarLineaCarrito">
+    <part name="parameters" element="tns:listarLineaCarrito" />
+  </message>
+  <message name="listarLineaCarritoResponse">
+    <part name="parameters" element="tns:listarLineaCarritoResponse" />
+  </message>
+  <message name="ActualizarLineaCarrito">
+    <part name="parameters" element="tns:ActualizarLineaCarrito" />
+  </message>
+  <message name="ActualizarLineaCarritoResponse">
+    <part name="parameters" element="tns:ActualizarLineaCarritoResponse" />
+  </message>
+  <message name="EliminarLineaCarrito">
+    <part name="parameters" element="tns:EliminarLineaCarrito" />
+  </message>
+  <message name="EliminarLineaCarritoResponse">
+    <part name="parameters" element="tns:EliminarLineaCarritoResponse" />
+  </message>
+  <message name="ObtenerLineaCarrito">
+    <part name="parameters" element="tns:ObtenerLineaCarrito" />
+  </message>
+  <message name="ObtenerLineaCarritoResponse">
+    <part name="parameters" element="tns:ObtenerLineaCarritoResponse" />
+  </message>
+  <portType name="LineaCarritoWS">
+    <operation name="ListarLineaCarritoPorIdCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ListarLineaCarritoPorIdCarritoRequest" message="tns:ListarLineaCarritoPorIdCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ListarLineaCarritoPorIdCarritoResponse" message="tns:ListarLineaCarritoPorIdCarritoResponse" />
+    </operation>
+    <operation name="InsertarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/InsertarLineaCarritoRequest" message="tns:InsertarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/InsertarLineaCarritoResponse" message="tns:InsertarLineaCarritoResponse" />
+    </operation>
+    <operation name="listarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoRequest" message="tns:listarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoResponse" message="tns:listarLineaCarritoResponse" />
+    </operation>
+    <operation name="ActualizarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoRequest" message="tns:ActualizarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ActualizarLineaCarritoResponse" message="tns:ActualizarLineaCarritoResponse" />
+    </operation>
+    <operation name="EliminarLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoRequest" message="tns:EliminarLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/EliminarLineaCarritoResponse" message="tns:EliminarLineaCarritoResponse" />
+    </operation>
+    <operation name="ObtenerLineaCarrito">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarritoRequest" message="tns:ObtenerLineaCarrito" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/ObtenerLineaCarritoResponse" message="tns:ObtenerLineaCarritoResponse" />
+    </operation>
+  </portType>
+  <binding name="LineaCarritoWSPortBinding" type="tns:LineaCarritoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ListarLineaCarritoPorIdCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="InsertarLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ActualizarLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="EliminarLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ObtenerLineaCarrito">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="LineaCarritoWS">
+    <port name="LineaCarritoWSPort" binding="tns:LineaCarritoWSPortBinding">
+      <soap:address location="http://localhost:8080/SoftProgWS/LineaCarritoWS" />
+    </port>
+  </service>
+</definitions>
