@@ -21,4 +21,5 @@ public interface OrdenCompraBO extends Gestionable<OrdenCompra> {
     
     void desactivarOrdenCompra(Integer id);
     List<LineaOrdenCompra> listarLineasOrdenCompraPorIdOrdenCompra(int id);
+    void desactivarOrdenCompraPorHorario(Integer id);
 }

@@ -174,4 +174,10 @@ public class OrdenCompraBOImpl implements OrdenCompraBO {
         return lista;
     }
 
+    @Override
+    public void desactivarOrdenCompraPorHorario(Integer id) {
+        String mensaje = this.ordenCompraDAO.desactivarOrdenCompraPorHorario(id);
+        System.out.println(mensaje);
+        
+    }
 }

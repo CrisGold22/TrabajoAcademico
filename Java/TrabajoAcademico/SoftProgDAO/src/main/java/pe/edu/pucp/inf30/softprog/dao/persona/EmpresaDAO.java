@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.dao.persona;
 
+import java.sql.Connection;
 import java.util.List;
 import pe.edu.pucp.inf30.softprog.dao.Persistible;
 import pe.edu.pucp.inf30.softprog.modelo.persona.Empresa;
@@ -19,4 +20,6 @@ public interface EmpresaDAO extends Persistible<Empresa, Integer>{
     List<Empresa> listarEmpresasPorClienteActivas(int id);
     List<Empresa> listarEmpresasPorClienteNoActivas(int id);
     public boolean validarEmpresa(int id) ;
+    Integer insertarEmpresaValidandoCodigoPostal(Empresa modelo);
+    Integer insertarEmpresaValidandoCodigoPostal(Connection conn, Empresa modelo);
 }

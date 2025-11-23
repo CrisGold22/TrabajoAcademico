@@ -268,5 +268,59 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
             }
         });
     }
+
+    
+    
+    protected PreparedStatement comandoinsertarEmpresaValidandoCodigoPostal(Connection conn,Empresa modelo) throws SQLException{
+        String sql = "{CALL insertarEmpresaValidandoCodigoPostal(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setString("p_ruc", modelo.getRuc());
+        cmd.setString("p_razonsocial", modelo.getRazonSocial());
+        cmd.setString("p_direccionFiscal", modelo.getDireccionFiscal());
+        cmd.setString("p_departamento", modelo.getDepartamento());
+        cmd.setString("p_provincia", modelo.getProvincia());
+        cmd.setString("p_distrito", modelo.getDistrito());
+        cmd.setString("p_telefono", modelo.getTelefono());
+        cmd.setString("p_email", modelo.getEmail());
+        cmd.setString("p_codigoPostal", modelo.getCodigoPostal());
+        cmd.setInt("p_Activo", modelo.getActivoInt());
+        cmd.setInt("p_idCliente", modelo.getCliente().getId());
+        cmd.registerOutParameter("p_id", Types.INTEGER);
+        
+        return cmd;        
+    }
+    
+    
+    @Override
+    public Integer insertarEmpresaValidandoCodigoPostal(Empresa modelo) {
+        return ejecutarComando(conn -> insertarEmpresaValidandoCodigoPostal(conn, modelo));
+    }
+
+    @Override
+    public Integer insertarEmpresaValidandoCodigoPostal(Connection conn, Empresa modelo) {
+        try (PreparedStatement cmd = this.comandoinsertarEmpresaValidandoCodigoPostal(conn, modelo)) {
+            if (cmd.executeUpdate() == 0) {
+                return null;
+            }
+
+            if (cmd instanceof CallableStatement callableCmd) {
+                return callableCmd.getInt("p_id");
+            }
+
+            try (ResultSet rs = cmd.getGeneratedKeys()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+
+            return null;
+        } 
+        catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+            throw new RuntimeException(e);
+        }    
+    }
     
 }

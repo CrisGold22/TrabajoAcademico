@@ -249,6 +249,39 @@ public class OrdenCompraWS {
 
         return "Respuesta con codigo no esperado";
     }
+    
+    @WebMethod(operationName = "desactivarOrdenCompraPorHorario")
+    public String desactivarOrdenCompraPorHorario(@WebParam(name = "id") Integer id) throws IOException, InterruptedException {
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/desactivarPorHorario/" + id;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .PUT(HttpRequest.BodyPublishers.noBody()) // No se envía cuerpo si el REST no lo requiere
+                .build();
+        //.PUT(HttpRequest.BodyPublishers.noBody())
+
+        System.err.println("URL : " + url);
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        int statusCode = response.statusCode();
+
+        if (statusCode >= 200 && statusCode < 300) {
+            return "Orden Cancelada exitosamente";
+        }
+
+        if (statusCode >= 400 && statusCode < 500) {
+            throw new RuntimeException("ERROR HTTP CLIENTE");
+        }
+
+        if (statusCode >= 500) {
+            throw new RuntimeException("ERROR HTTP SERVIDOR");
+        }
+
+        return "Respuesta con codigo no esperado";
+    }
+    
+    
 
     @WebMethod(operationName = "listarLineasOrdenCompraPorIdOrdenCompra")
     public List<LineaOrdenCompra> listarLineasOrdenCompraPorIdOrdenCompra(@WebParam(name = "id") int id) throws IOException, InterruptedException {

@@ -26,4 +26,7 @@ public interface OrdenCompraDAO extends PersistibleTransaccional<OrdenCompra, In
     String desactivarOrdenCompra(Integer id);
     String desactivarOrdenCompra(Integer id, Connection conn);
     
+    String desactivarOrdenCompraPorHorario(Integer id);
+    String desactivarOrdenCompraPorHorario(Integer id, Connection conn);
+    
 }

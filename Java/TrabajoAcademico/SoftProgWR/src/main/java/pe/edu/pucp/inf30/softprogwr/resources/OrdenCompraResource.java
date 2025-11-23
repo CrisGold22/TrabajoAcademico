@@ -183,6 +183,14 @@ public class OrdenCompraResource {
         return Response.ok(id).build();
     }
 
+    @PUT
+    @Path("desactivarPorHorario/{id}")
+    public Response desactivarPorHorario(@PathParam("id") Integer id){
+        ordenCompraBO.desactivarOrdenCompraPorHorario(id);
+        return Response.ok(id).build();
+    }
+    
+    
     //si
     @GET
     @Path("listarIdOrdenCompra/{id}")

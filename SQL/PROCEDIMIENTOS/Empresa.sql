@@ -18,7 +18,6 @@ DROP PROCEDURE IF EXISTS listarEmpresasPorClienteActivas;
 DROP PROCEDURE IF EXISTS listarEmpresasPorClienteNoActivas;
 DROP PROCEDURE IF EXISTS insertarEmpresaValidandoCodigoPostal;
 
-
 DELIMITER //
 
 CREATE PROCEDURE insertarEmpresa (

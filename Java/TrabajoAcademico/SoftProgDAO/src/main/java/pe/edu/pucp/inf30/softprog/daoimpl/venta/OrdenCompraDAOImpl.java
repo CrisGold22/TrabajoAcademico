@@ -211,4 +211,34 @@ public class OrdenCompraDAOImpl extends TransaccionalBaseDAO<OrdenCompra> implem
         }
     }
 
+    protected CallableStatement comandoDesactivarOrdenCompraPorHorario(Connection conn, Integer id) throws SQLException {
+
+        String sql = "{CALL DesactivarOrdenCompraPorHorario(?, ?)}";
+
+        CallableStatement cmd = conn.prepareCall(sql);
+
+        cmd.setInt("p_IdPedido", id);
+        cmd.registerOutParameter("p_Mensaje", Types.VARCHAR);
+
+        return cmd;
+    }    
+        
+    @Override
+    public String desactivarOrdenCompraPorHorario(Integer id) {
+        return ejecutarComando(conn -> desactivarOrdenCompraPorHorario(id, conn));
+    }
+
+    @Override
+    public String desactivarOrdenCompraPorHorario(Integer id, Connection conn) {
+        try (CallableStatement cmd = this.comandoDesactivarOrdenCompraPorHorario(conn, id)) {
+            cmd.execute();
+            String mensaje = cmd.getString("p_Mensaje");
+
+            return mensaje;
+
+        } catch (SQLException ex) {
+            System.err.println("Error SQL: " + ex.getMessage());
+            throw new RuntimeException(ex);
+        }    }
+
 }
