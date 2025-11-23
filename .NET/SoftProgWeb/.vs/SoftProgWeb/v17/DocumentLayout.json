@@ -3,6 +3,21 @@
   "WorkspaceRootPath": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Cristhian Horacio\\Downloads\\Registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\registro.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\registro.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,17 +29,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Registro.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Registro.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Registro.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Registro.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\Registro.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAO8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T19:08:41.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Registro.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\Registro.aspx.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Downloads\\Registro.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\Registro.aspx.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Downloads\\Registro.aspx.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAgwO0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T19:08:35.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Registro.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Registro.aspx.designer.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Registro.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Registro.aspx.designer.cs",
+              "RelativeToolTip": "SoftProgWeb\\Registro.aspx.designer.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAgwI4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T19:07:47.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Registro.aspx",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Registro.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Registro.aspx",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Registro.aspx",
+              "RelativeToolTip": "SoftProgWeb\\Registro.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-23T19:07:40.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "InicioSesion.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx.cs",
               "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwCMAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAQwCMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T10:42:58.547Z",
               "EditorCaption": ""

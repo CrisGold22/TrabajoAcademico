@@ -18,7 +18,6 @@ namespace SoftProgWeb
         {
             if (!IsPostBack)
             {
-                // Inicialización si es necesaria
             }
         }
 
@@ -36,19 +35,20 @@ namespace SoftProgWeb
                 }
 
                 // lógica para guardar en la base de datos
-                bool registroExitoso = RegistrarEmpresa(cuenta, cliente);
+                bool registroExitoso = RegistrarUser(cuenta, cliente);
 
                 if (registroExitoso)
                 {
                     // Mostrar el modal de éxito
                     ScriptManager.RegisterStartupScript(this, GetType(), "showModal",
                         "showSuccessModal();", true);
+                    LimpiarFormulario();
                 }
                 else
                 {
                     // Mostrar mensaje de error
                     ScriptManager.RegisterStartupScript(this, GetType(), "alert",
-                        "alert('Hubo un error al registrar la empresa. Por favor, intente nuevamente.');", true);
+                        "alert('Hubo un error al registrar el usuario. Por favor, intente nuevamente.');", true);
                 }
             }
             catch (System.Exception ex)
@@ -61,28 +61,16 @@ namespace SoftProgWeb
 
         private bool ValidarDatos(cuentaUsuario cuenta, cliente cliente)
         {
-            // Validar Paso 1
-            if (string.IsNullOrWhiteSpace(txtRUC.Text))
-            {
-                MostrarError("El RUC es obligatorio.");
-                return false;
-            }
-
-            if (txtRUC.Text.Trim().Length != 11)
-            {
-                MostrarError("El RUC debe tener 11 dígitos.");
-                return false;
-            }
-
-            if (ddlTipoDocumento.SelectedIndex == 0)
-            {
-                MostrarError("Debe seleccionar un tipo de documento.");
-                return false;
-            }
 
             if (string.IsNullOrWhiteSpace(txtNumeroDocumento.Text))
             {
-                MostrarError("El número de documento es obligatorio.");
+                MostrarError("El número de DNI es obligatorio.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                MostrarError("El usuario es obligatorio.");
                 return false;
             }
 
@@ -148,15 +136,49 @@ namespace SoftProgWeb
             }
 
             //Settear los valores de cuenta
-            //cuenta.username = txtUserName.Text;
-            cuenta.correo = txtCorreo.Text;
-            cuenta.password = txtPassword.Text;
+            cuenta.username = txtUsuario.Text.Trim();
+            cuenta.correo = txtCorreo.Text.Trim();
+            cuenta.password = txtPassword.Text.Trim();
+            cuenta.activo = true;
 
             //Settear los valores de Cliente
-            cliente.activo = true;
-            //cliente.fechaNacimiento = ;
+            cliente.dni = txtNumeroDocumento.Text.Trim();
+            cliente.nombre = txtNombre.Text.Trim();
+            cliente.apellidoPaterno = txtApellidoPaterno.Text.Trim();
+            cliente.apellidoMaterno = txtApellidoMaterno.Text.Trim();
+            cliente.categoria = categoriaCliente.REVENDEDOR;
+            var prop = cliente.GetType().GetProperty("categoriaCliente");
+            if (prop != null)
+            {
+                prop.SetValue(cliente, categoriaCliente.REVENDEDOR);
+            }
+            int telefonoInt = 0;
+            if (int.TryParse(System.Text.RegularExpressions.Regex.Replace(txtTelefono.Text, @"\D", ""), out telefonoInt))
+            {
+                try { cliente.telefono = telefonoInt; } catch { }
+            }
+            else
+            {
+                try { cliente.telefono = 0; } catch { }
+            }
 
-            var fecha = cliente.fechaNacimiento;
+            string gen = ddlGenero.SelectedValue; // "M", "F", "O"
+            string generoParaWs = "NO_ESPECIFICADO";
+            if (gen == "M") generoParaWs = "MASCULINO";
+            else if (gen == "F") generoParaWs = "FEMENINO";
+            else generoParaWs = "NO_ESPECIFICADO";
+            try
+            { cliente.genero = (genero)Enum.Parse(typeof(genero), generoParaWs); }
+            catch { }
+
+            DateTime fechaNacimiento;
+            if (!string.IsNullOrWhiteSpace(txtFechaNacimiento.Text) && DateTime.TryParse(txtFechaNacimiento.Text, out fechaNacimiento))
+            {
+                cliente.fechaNacimiento = fechaNacimiento.ToString("yyyy-MM-ddTHH:mm:ss");
+            }
+
+            cliente.activo = true;
+            cliente.cuenta = cuenta;
 
             return true;
         }
@@ -180,26 +202,28 @@ namespace SoftProgWeb
                 $"alert('{mensaje}');", true);
         }
 
-        private bool RegistrarEmpresa(cuentaUsuario cuenta, cliente cliente)
+        private bool RegistrarUser(cuentaUsuario cuenta, cliente cliente)
         {
             try
             {
-                // Por ahora, simular que se guardó en nuestra base de datos
+                clienteWS.insertarCliente(cliente);
+                cuentaUsuarioWS.insertarCuentaUsuario(cuenta);
                 return true;
             }
             catch (System.Exception ex)
             {
                 // Log del error
-                System.Diagnostics.Debug.WriteLine($"Error en RegistrarEmpresa: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Error en Registrar Usuario: {ex.Message}");
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert",
+                    $"alert('Error al comunicarse con el servicio: {ex.Message}');", true);
                 return false;
             }
         }
 
         private void LimpiarFormulario()
         {
-            txtRUC.Text = string.Empty;
-            ddlTipoDocumento.SelectedIndex = 0;
             txtNumeroDocumento.Text = string.Empty;
+            txtUsuario.Text = string.Empty;
             txtCorreo.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             txtPassword.Text = string.Empty;
@@ -208,6 +232,7 @@ namespace SoftProgWeb
             txtApellidoPaterno.Text = string.Empty;
             ddlGenero.SelectedIndex = 0;
             txtDireccion.Text = string.Empty;
+            txtFechaNacimiento.Text = string.Empty;
             chkTerms1.Checked = false;
             chkTerms3.Checked = false;
         }
