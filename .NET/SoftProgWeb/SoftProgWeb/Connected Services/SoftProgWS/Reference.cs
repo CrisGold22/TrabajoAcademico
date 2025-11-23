@@ -1430,9 +1430,9 @@ namespace SoftProgWeb.SoftProgWS {
         
         private string provinciaField;
         
-        private string rUCField;
-        
         private string razonSocialField;
+        
+        private string rucField;
         
         private string telefonoField;
         
@@ -1522,18 +1522,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string RUC {
-            get {
-                return this.rUCField;
-            }
-            set {
-                this.rUCField = value;
-                this.RaisePropertyChanged("RUC");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string razonSocial {
             get {
                 return this.razonSocialField;
@@ -1541,6 +1529,18 @@ namespace SoftProgWeb.SoftProgWS {
             set {
                 this.razonSocialField = value;
                 this.RaisePropertyChanged("razonSocial");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string ruc {
+            get {
+                return this.rucField;
+            }
+            set {
+                this.rucField = value;
+                this.RaisePropertyChanged("ruc");
             }
         }
         
@@ -1890,58 +1890,22 @@ namespace SoftProgWeb.SoftProgWS {
     public interface CarritoComprasWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteResp" +
-            "onse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeCliente/Fau" +
-            "lt/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeCliente/Fau" +
-            "lt/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
+            "sponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoCompras/F" +
+            "ault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoCompras/F" +
+            "ault/InterruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse obtenerCarritoDeCliente(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request);
+        SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse listarTodosCarritoCompras(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteResp" +
-            "onse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse> obtenerCarritoDeClienteAsync(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
-            "itoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
-            "itoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
-            "ito/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
-            "ito/Fault/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse listarLineaCarritoPorIdCarrito(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
-            "itoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
-            "itoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse> listarLineaCarritoPorIdCarritoAsync(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasReques" +
-            "t", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRespon" +
-            "se")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoCompras/Fault" +
-            "/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoCompras/Fault" +
-            "/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerCarritoComprasResponse obtenerCarritoCompras(SoftProgWeb.SoftProgWS.obtenerCarritoComprasRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasReques" +
-            "t", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRespon" +
-            "se")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoComprasResponse> obtenerCarritoComprasAsync(SoftProgWeb.SoftProgWS.obtenerCarritoComprasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
+            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse> listarTodosCarritoComprasAsync(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request);
         
         // CODEGEN: Parameter 'carritoCompras' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/actualizarCarritoComprasReq" +
@@ -1962,6 +1926,24 @@ namespace SoftProgWeb.SoftProgWS {
             "ponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse> actualizarCarritoComprasAsync(SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest request);
         
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasReques" +
+            "t", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRespon" +
+            "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoCompras/Fault" +
+            "/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoCompras/Fault" +
+            "/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerCarritoComprasResponse obtenerCarritoCompras(SoftProgWeb.SoftProgWS.obtenerCarritoComprasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasReques" +
+            "t", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoComprasRespon" +
+            "se")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoComprasResponse> obtenerCarritoComprasAsync(SoftProgWeb.SoftProgWS.obtenerCarritoComprasRequest request);
+        
         // CODEGEN: Parameter 'carritoCompras' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasReque" +
             "st", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/insertarCarritoComprasRespo" +
@@ -1980,22 +1962,22 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarCarritoComprasResponse> insertarCarritoComprasAsync(SoftProgWeb.SoftProgWS.insertarCarritoComprasRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
-            "sponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoCompras/F" +
-            "ault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoCompras/F" +
-            "ault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteResp" +
+            "onse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeCliente/Fau" +
+            "lt/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeCliente/Fau" +
+            "lt/InterruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse listarTodosCarritoCompras(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request);
+        SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse obtenerCarritoDeCliente(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
-            "quest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarTodosCarritoComprasRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse> listarTodosCarritoComprasAsync(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/obtenerCarritoDeClienteResp" +
+            "onse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse> obtenerCarritoDeClienteAsync(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/eliminarCarritoComprasReque" +
@@ -2014,77 +1996,79 @@ namespace SoftProgWeb.SoftProgWS {
             "st", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/eliminarCarritoComprasRespo" +
             "nse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarCarritoComprasResponse> eliminarCarritoComprasAsync(SoftProgWeb.SoftProgWS.eliminarCarritoComprasRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
+            "itoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
+            "itoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
+            "ito/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
+            "ito/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse listarLineaCarritoPorIdCarrito(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
+            "itoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CarritoComprasWS/listarLineaCarritoPorIdCarr" +
+            "itoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse> listarLineaCarritoPorIdCarritoAsync(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCarritoDeCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCarritoDeClienteRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCarritoCompras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarTodosCarritoComprasRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idCliente;
-        
-        public obtenerCarritoDeClienteRequest() {
-        }
-        
-        public obtenerCarritoDeClienteRequest(int idCliente) {
-            this.idCliente = idCliente;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCarritoDeClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCarritoDeClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.carritoCompras @return;
-        
-        public obtenerCarritoDeClienteResponse() {
-        }
-        
-        public obtenerCarritoDeClienteResponse(SoftProgWeb.SoftProgWS.carritoCompras @return) {
-            this.@return = @return;
+        public listarTodosCarritoComprasRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineaCarritoPorIdCarrito", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineaCarritoPorIdCarritoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public listarLineaCarritoPorIdCarritoRequest() {
-        }
-        
-        public listarLineaCarritoPorIdCarritoRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineaCarritoPorIdCarritoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineaCarritoPorIdCarritoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCarritoComprasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarTodosCarritoComprasResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.lineaCarrito[] @return;
+        public SoftProgWeb.SoftProgWS.carritoCompras[] @return;
         
-        public listarLineaCarritoPorIdCarritoResponse() {
+        public listarTodosCarritoComprasResponse() {
         }
         
-        public listarLineaCarritoPorIdCarritoResponse(SoftProgWeb.SoftProgWS.lineaCarrito[] @return) {
+        public listarTodosCarritoComprasResponse(SoftProgWeb.SoftProgWS.carritoCompras[] @return) {
             this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCarritoCompras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCarritoComprasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.carritoCompras carritoCompras;
+        
+        public actualizarCarritoComprasRequest() {
+        }
+        
+        public actualizarCarritoComprasRequest(SoftProgWeb.SoftProgWS.carritoCompras carritoCompras) {
+            this.carritoCompras = carritoCompras;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCarritoComprasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCarritoComprasResponse {
+        
+        public actualizarCarritoComprasResponse() {
         }
     }
     
@@ -2127,34 +2111,6 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCarritoCompras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCarritoComprasRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.carritoCompras carritoCompras;
-        
-        public actualizarCarritoComprasRequest() {
-        }
-        
-        public actualizarCarritoComprasRequest(SoftProgWeb.SoftProgWS.carritoCompras carritoCompras) {
-            this.carritoCompras = carritoCompras;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCarritoComprasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCarritoComprasResponse {
-        
-        public actualizarCarritoComprasResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCarritoCompras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class insertarCarritoComprasRequest {
         
@@ -2183,27 +2139,35 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCarritoCompras", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarTodosCarritoComprasRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCarritoDeCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCarritoDeClienteRequest {
         
-        public listarTodosCarritoComprasRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idCliente;
+        
+        public obtenerCarritoDeClienteRequest() {
+        }
+        
+        public obtenerCarritoDeClienteRequest(int idCliente) {
+            this.idCliente = idCliente;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosCarritoComprasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarTodosCarritoComprasResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCarritoDeClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCarritoDeClienteResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.carritoCompras[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.carritoCompras @return;
         
-        public listarTodosCarritoComprasResponse() {
+        public obtenerCarritoDeClienteResponse() {
         }
         
-        public listarTodosCarritoComprasResponse(SoftProgWeb.SoftProgWS.carritoCompras[] @return) {
+        public obtenerCarritoDeClienteResponse(SoftProgWeb.SoftProgWS.carritoCompras @return) {
             this.@return = @return;
         }
     }
@@ -2244,6 +2208,42 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineaCarritoPorIdCarrito", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineaCarritoPorIdCarritoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public listarLineaCarritoPorIdCarritoRequest() {
+        }
+        
+        public listarLineaCarritoPorIdCarritoRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineaCarritoPorIdCarritoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineaCarritoPorIdCarritoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.lineaCarrito[] @return;
+        
+        public listarLineaCarritoPorIdCarritoResponse() {
+        }
+        
+        public listarLineaCarritoPorIdCarritoResponse(SoftProgWeb.SoftProgWS.lineaCarrito[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CarritoComprasWSChannel : SoftProgWeb.SoftProgWS.CarritoComprasWS, System.ServiceModel.IClientChannel {
     }
@@ -2272,49 +2272,46 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.obtenerCarritoDeCliente(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request) {
-            return base.Channel.obtenerCarritoDeCliente(request);
+        SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.listarTodosCarritoCompras(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request) {
+            return base.Channel.listarTodosCarritoCompras(request);
         }
         
-        public SoftProgWeb.SoftProgWS.carritoCompras obtenerCarritoDeCliente(int idCliente) {
-            SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest();
-            inValue.idCliente = idCliente;
-            SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).obtenerCarritoDeCliente(inValue);
+        public SoftProgWeb.SoftProgWS.carritoCompras[] listarTodosCarritoCompras() {
+            SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest();
+            SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarTodosCarritoCompras(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.obtenerCarritoDeClienteAsync(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request) {
-            return base.Channel.obtenerCarritoDeClienteAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.listarTodosCarritoComprasAsync(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request) {
+            return base.Channel.listarTodosCarritoComprasAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse> obtenerCarritoDeClienteAsync(int idCliente) {
-            SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest();
-            inValue.idCliente = idCliente;
-            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).obtenerCarritoDeClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.listarLineaCarritoPorIdCarrito(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request) {
-            return base.Channel.listarLineaCarritoPorIdCarrito(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.lineaCarrito[] listarLineaCarritoPorIdCarrito(int id) {
-            SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest inValue = new SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarLineaCarritoPorIdCarrito(inValue);
-            return retVal.@return;
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse> listarTodosCarritoComprasAsync() {
+            SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest();
+            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarTodosCarritoComprasAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.listarLineaCarritoPorIdCarritoAsync(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request) {
-            return base.Channel.listarLineaCarritoPorIdCarritoAsync(request);
+        SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.actualizarCarritoCompras(SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest request) {
+            return base.Channel.actualizarCarritoCompras(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse> listarLineaCarritoPorIdCarritoAsync(int id) {
-            SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest inValue = new SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarLineaCarritoPorIdCarritoAsync(inValue);
+        public void actualizarCarritoCompras(SoftProgWeb.SoftProgWS.carritoCompras carritoCompras) {
+            SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest();
+            inValue.carritoCompras = carritoCompras;
+            SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).actualizarCarritoCompras(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.actualizarCarritoComprasAsync(SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest request) {
+            return base.Channel.actualizarCarritoComprasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse> actualizarCarritoComprasAsync(SoftProgWeb.SoftProgWS.carritoCompras carritoCompras) {
+            SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest();
+            inValue.carritoCompras = carritoCompras;
+            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).actualizarCarritoComprasAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2341,28 +2338,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.actualizarCarritoCompras(SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest request) {
-            return base.Channel.actualizarCarritoCompras(request);
-        }
-        
-        public void actualizarCarritoCompras(SoftProgWeb.SoftProgWS.carritoCompras carritoCompras) {
-            SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest();
-            inValue.carritoCompras = carritoCompras;
-            SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).actualizarCarritoCompras(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.actualizarCarritoComprasAsync(SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest request) {
-            return base.Channel.actualizarCarritoComprasAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCarritoComprasResponse> actualizarCarritoComprasAsync(SoftProgWeb.SoftProgWS.carritoCompras carritoCompras) {
-            SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCarritoComprasRequest();
-            inValue.carritoCompras = carritoCompras;
-            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).actualizarCarritoComprasAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.insertarCarritoComprasResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.insertarCarritoCompras(SoftProgWeb.SoftProgWS.insertarCarritoComprasRequest request) {
             return base.Channel.insertarCarritoCompras(request);
         }
@@ -2385,24 +2360,26 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.listarTodosCarritoCompras(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request) {
-            return base.Channel.listarTodosCarritoCompras(request);
+        SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.obtenerCarritoDeCliente(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request) {
+            return base.Channel.obtenerCarritoDeCliente(request);
         }
         
-        public SoftProgWeb.SoftProgWS.carritoCompras[] listarTodosCarritoCompras() {
-            SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest();
-            SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarTodosCarritoCompras(inValue);
+        public SoftProgWeb.SoftProgWS.carritoCompras obtenerCarritoDeCliente(int idCliente) {
+            SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest();
+            inValue.idCliente = idCliente;
+            SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).obtenerCarritoDeCliente(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.listarTodosCarritoComprasAsync(SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest request) {
-            return base.Channel.listarTodosCarritoComprasAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.obtenerCarritoDeClienteAsync(SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest request) {
+            return base.Channel.obtenerCarritoDeClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarTodosCarritoComprasResponse> listarTodosCarritoComprasAsync() {
-            SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest inValue = new SoftProgWeb.SoftProgWS.listarTodosCarritoComprasRequest();
-            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarTodosCarritoComprasAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteResponse> obtenerCarritoDeClienteAsync(int idCliente) {
+            SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCarritoDeClienteRequest();
+            inValue.idCliente = idCliente;
+            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).obtenerCarritoDeClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2427,11 +2404,71 @@ namespace SoftProgWeb.SoftProgWS {
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).eliminarCarritoComprasAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse SoftProgWeb.SoftProgWS.CarritoComprasWS.listarLineaCarritoPorIdCarrito(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request) {
+            return base.Channel.listarLineaCarritoPorIdCarrito(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.lineaCarrito[] listarLineaCarritoPorIdCarrito(int id) {
+            SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest inValue = new SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse retVal = ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarLineaCarritoPorIdCarrito(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse> SoftProgWeb.SoftProgWS.CarritoComprasWS.listarLineaCarritoPorIdCarritoAsync(SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest request) {
+            return base.Channel.listarLineaCarritoPorIdCarritoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoResponse> listarLineaCarritoPorIdCarritoAsync(int id) {
+            SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest inValue = new SoftProgWeb.SoftProgWS.listarLineaCarritoPorIdCarritoRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.CarritoComprasWS)(this)).listarLineaCarritoPorIdCarritoAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SoftProgWS.CategoriaProductoWS")]
     public interface CategoriaProductoWS {
+        
+        // CODEGEN: Parameter 'categoriaProducto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "ctoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "ctoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "cto/Fault/JsonProcessingException", Name="JsonProcessingException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "cto/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "cto/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse actualizarCategoriaProducto(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "ctoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
+            "ctoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
+            "Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
+            "/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
+            "/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse obtenerCategoriaProducto(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
+            "Response")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse> obtenerCategoriaProductoAsync(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoR" +
@@ -2485,43 +2522,70 @@ namespace SoftProgWeb.SoftProgWS {
             "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/eliminarCategoriaProduct" +
             "oResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarCategoriaProductoResponse> eliminarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.eliminarCategoriaProductoRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCategoriaProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCategoriaProductoRequest {
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
-            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
-            "Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
-            "/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
-            "/Fault/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse obtenerCategoriaProducto(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
-            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto" +
-            "Response")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse> obtenerCategoriaProductoAsync(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request);
+        public actualizarCategoriaProductoRequest() {
+        }
         
-        // CODEGEN: Parameter 'categoriaProducto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "ctoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "ctoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "cto/Fault/JsonProcessingException", Name="JsonProcessingException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "cto/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "cto/Fault/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse actualizarCategoriaProducto(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request);
+        public actualizarCategoriaProductoRequest(SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto) {
+            this.categoriaProducto = categoriaProducto;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCategoriaProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarCategoriaProductoResponse {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "ctoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProdu" +
-            "ctoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request);
+        public actualizarCategoriaProductoResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCategoriaProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCategoriaProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public obtenerCategoriaProductoRequest() {
+        }
+        
+        public obtenerCategoriaProductoRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCategoriaProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCategoriaProductoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.categoriaProducto @return;
+        
+        public obtenerCategoriaProductoResponse() {
+        }
+        
+        public obtenerCategoriaProductoResponse(SoftProgWeb.SoftProgWS.categoriaProducto @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2616,70 +2680,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCategoriaProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCategoriaProductoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerCategoriaProductoRequest() {
-        }
-        
-        public obtenerCategoriaProductoRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCategoriaProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCategoriaProductoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.categoriaProducto @return;
-        
-        public obtenerCategoriaProductoResponse() {
-        }
-        
-        public obtenerCategoriaProductoResponse(SoftProgWeb.SoftProgWS.categoriaProducto @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCategoriaProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCategoriaProductoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto;
-        
-        public actualizarCategoriaProductoRequest() {
-        }
-        
-        public actualizarCategoriaProductoRequest(SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto) {
-            this.categoriaProducto = categoriaProducto;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCategoriaProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarCategoriaProductoResponse {
-        
-        public actualizarCategoriaProductoResponse() {
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CategoriaProductoWSChannel : SoftProgWeb.SoftProgWS.CategoriaProductoWS, System.ServiceModel.IClientChannel {
     }
@@ -2705,6 +2705,51 @@ namespace SoftProgWeb.SoftProgWS {
         
         public CategoriaProductoWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse SoftProgWeb.SoftProgWS.CategoriaProductoWS.actualizarCategoriaProducto(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request) {
+            return base.Channel.actualizarCategoriaProducto(request);
+        }
+        
+        public void actualizarCategoriaProducto(SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto) {
+            SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest();
+            inValue.categoriaProducto = categoriaProducto;
+            SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse retVal = ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).actualizarCategoriaProducto(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> SoftProgWeb.SoftProgWS.CategoriaProductoWS.actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request) {
+            return base.Channel.actualizarCategoriaProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto) {
+            SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest();
+            inValue.categoriaProducto = categoriaProducto;
+            return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).actualizarCategoriaProductoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse SoftProgWeb.SoftProgWS.CategoriaProductoWS.obtenerCategoriaProducto(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request) {
+            return base.Channel.obtenerCategoriaProducto(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.categoriaProducto obtenerCategoriaProducto(int id) {
+            SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse retVal = ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).obtenerCategoriaProducto(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse> SoftProgWeb.SoftProgWS.CategoriaProductoWS.obtenerCategoriaProductoAsync(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request) {
+            return base.Channel.obtenerCategoriaProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse> obtenerCategoriaProductoAsync(int id) {
+            SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).obtenerCategoriaProductoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2772,88 +2817,11 @@ namespace SoftProgWeb.SoftProgWS {
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).eliminarCategoriaProductoAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse SoftProgWeb.SoftProgWS.CategoriaProductoWS.obtenerCategoriaProducto(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request) {
-            return base.Channel.obtenerCategoriaProducto(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.categoriaProducto obtenerCategoriaProducto(int id) {
-            SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse retVal = ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).obtenerCategoriaProducto(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse> SoftProgWeb.SoftProgWS.CategoriaProductoWS.obtenerCategoriaProductoAsync(SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest request) {
-            return base.Channel.obtenerCategoriaProductoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCategoriaProductoResponse> obtenerCategoriaProductoAsync(int id) {
-            SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCategoriaProductoRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).obtenerCategoriaProductoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse SoftProgWeb.SoftProgWS.CategoriaProductoWS.actualizarCategoriaProducto(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request) {
-            return base.Channel.actualizarCategoriaProducto(request);
-        }
-        
-        public void actualizarCategoriaProducto(SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto) {
-            SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest();
-            inValue.categoriaProducto = categoriaProducto;
-            SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse retVal = ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).actualizarCategoriaProducto(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> SoftProgWeb.SoftProgWS.CategoriaProductoWS.actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request) {
-            return base.Channel.actualizarCategoriaProductoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.categoriaProducto categoriaProducto) {
-            SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest();
-            inValue.categoriaProducto = categoriaProducto;
-            return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).actualizarCategoriaProductoAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SoftProgWS.ProductoWS")]
     public interface ProductoWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRespons" +
-            "e")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/" +
-            "IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/" +
-            "InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse listaProductosPorCategoria(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRespons" +
-            "e")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse> listaProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProducto/Fault/IOExceptio" +
-            "n", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProducto/Fault/Interrupte" +
-            "dException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.eliminarProductoResponse eliminarProducto(SoftProgWeb.SoftProgWS.eliminarProductoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarProductoResponse> eliminarProductoAsync(SoftProgWeb.SoftProgWS.eliminarProductoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse")]
@@ -2868,6 +2836,20 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductoResponse> obtenerProductoAsync(SoftProgWeb.SoftProgWS.obtenerProductoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProducto/Fault/IOExceptio" +
+            "n", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProducto/Fault/Interrupte" +
+            "dException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.eliminarProductoResponse eliminarProducto(SoftProgWeb.SoftProgWS.eliminarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarProductoResponse> eliminarProductoAsync(SoftProgWeb.SoftProgWS.eliminarProductoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoResponse")]
@@ -2924,40 +2906,22 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorSkuResponse> obtenerPorSkuAsync(SoftProgWeb.SoftProgWS.obtenerPorSkuRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResp" +
-            "onse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fau" +
-            "lt/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fau" +
-            "lt/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRespons" +
+            "e")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/" +
+            "IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/" +
+            "InterruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse verificarStockSuficientePorID(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request);
+        SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse listaProductosPorCategoria(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResp" +
-            "onse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse> verificarStockSuficientePorIDAsync(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
-            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
-            "Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
-            "/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
-            "/Fault/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse listarfiltrarProductoPorDescuento(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
-            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
-            "Response")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse> listarfiltrarProductoPorDescuentoAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRespons" +
+            "e")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse> listaProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequ" +
@@ -2978,22 +2942,22 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorMarcaResponse> listarfiltrarProductoPorMarcaAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorMarcaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaReque" +
-            "st", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaRespo" +
-            "nse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Faul" +
-            "t/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Faul" +
-            "t/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "/Fault/InterruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse obtenerProductosPorCategoria(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request);
+        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse listarfiltrarProductoPorDescuento(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaReque" +
-            "st", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse> obtenerProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Request", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento" +
+            "Response")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse> listarfiltrarProductoPorDescuentoAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKUReq" +
@@ -3014,22 +2978,40 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorSKUResponse> verificarStockSuficientePorSKUAsync(SoftProgWeb.SoftProgWS.verificarStockSuficientePorSKURequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
-            "ayorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
-            "ayorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
-            "ayor/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
-            "ayor/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResp" +
+            "onse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fau" +
+            "lt/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fau" +
+            "lt/InterruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse listarfiltrarProductoPorPrecioAlMayor(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request);
+        SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse verificarStockSuficientePorID(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
-            "ayorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
-            "ayorResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse> listarfiltrarProductoPorPrecioAlMayorAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResp" +
+            "onse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse> verificarStockSuficientePorIDAsync(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaReque" +
+            "st", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaRespo" +
+            "nse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Faul" +
+            "t/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Faul" +
+            "t/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse obtenerProductosPorCategoria(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaReque" +
+            "st", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse> obtenerProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioReg" +
@@ -3048,40 +3030,58 @@ namespace SoftProgWeb.SoftProgWS {
             "ularRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioReg" +
             "ularResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioRegularResponse> listarfiltrarProductoPorPrecioRegularAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioRegularRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
+            "ayorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
+            "ayorResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
+            "ayor/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
+            "ayor/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse listarfiltrarProductoPorPrecioAlMayor(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
+            "ayorRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlM" +
+            "ayorResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse> listarfiltrarProductoPorPrecioAlMayorAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listaProductosPorCategoria", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listaProductosPorCategoriaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerProductoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombreCategoria;
+        public int id;
         
-        public listaProductosPorCategoriaRequest() {
+        public obtenerProductoRequest() {
         }
         
-        public listaProductosPorCategoriaRequest(string nombreCategoria) {
-            this.nombreCategoria = nombreCategoria;
+        public obtenerProductoRequest(int id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listaProductosPorCategoriaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listaProductosPorCategoriaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerProductoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.producto[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.producto @return;
         
-        public listaProductosPorCategoriaResponse() {
+        public obtenerProductoResponse() {
         }
         
-        public listaProductosPorCategoriaResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
+        public obtenerProductoResponse(SoftProgWeb.SoftProgWS.producto @return) {
             this.@return = @return;
         }
     }
@@ -3118,42 +3118,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         public eliminarProductoResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProducto", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerProductoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerProductoRequest() {
-        }
-        
-        public obtenerProductoRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProductoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerProductoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.producto @return;
-        
-        public obtenerProductoResponse() {
-        }
-        
-        public obtenerProductoResponse(SoftProgWeb.SoftProgWS.producto @return) {
             this.@return = @return;
         }
     }
@@ -3281,63 +3245,17 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorID", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class verificarStockSuficientePorIDRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listaProductosPorCategoria", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listaProductosPorCategoriaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int cantidadSolicitada;
-        
-        public verificarStockSuficientePorIDRequest() {
-        }
-        
-        public verificarStockSuficientePorIDRequest(int id, int cantidadSolicitada) {
-            this.id = id;
-            this.cantidadSolicitada = cantidadSolicitada;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorIDResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class verificarStockSuficientePorIDResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool @return;
-        
-        public verificarStockSuficientePorIDResponse() {
-        }
-        
-        public verificarStockSuficientePorIDResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarfiltrarProductoPorDescuentoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idCategoria;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string nombreCategoria;
         
-        public listarfiltrarProductoPorDescuentoRequest() {
+        public listaProductosPorCategoriaRequest() {
         }
         
-        public listarfiltrarProductoPorDescuentoRequest(int idCategoria, string nombreCategoria) {
-            this.idCategoria = idCategoria;
+        public listaProductosPorCategoriaRequest(string nombreCategoria) {
             this.nombreCategoria = nombreCategoria;
         }
     }
@@ -3345,17 +3263,17 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarfiltrarProductoPorDescuentoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listaProductosPorCategoriaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listaProductosPorCategoriaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.SoftProgWS.producto[] @return;
         
-        public listarfiltrarProductoPorDescuentoResponse() {
+        public listaProductosPorCategoriaResponse() {
         }
         
-        public listarfiltrarProductoPorDescuentoResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
+        public listaProductosPorCategoriaResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -3404,35 +3322,40 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProductosPorCategoria", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerProductosPorCategoriaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorDescuentoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idCategoria;
         
-        public obtenerProductosPorCategoriaRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombreCategoria;
+        
+        public listarfiltrarProductoPorDescuentoRequest() {
         }
         
-        public obtenerProductosPorCategoriaRequest(int idCategoria) {
+        public listarfiltrarProductoPorDescuentoRequest(int idCategoria, string nombreCategoria) {
             this.idCategoria = idCategoria;
+            this.nombreCategoria = nombreCategoria;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProductosPorCategoriaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerProductosPorCategoriaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorDescuentoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.SoftProgWS.producto[] @return;
         
-        public obtenerProductosPorCategoriaResponse() {
+        public listarfiltrarProductoPorDescuentoResponse() {
         }
         
-        public obtenerProductosPorCategoriaResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
+        public listarfiltrarProductoPorDescuentoResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -3481,8 +3404,8 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorPrecioAlMayor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarfiltrarProductoPorPrecioAlMayorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorID", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficientePorIDRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -3490,36 +3413,67 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double RangoPrecio1;
+        public int cantidadSolicitada;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public double RangoPrecio2;
-        
-        public listarfiltrarProductoPorPrecioAlMayorRequest() {
+        public verificarStockSuficientePorIDRequest() {
         }
         
-        public listarfiltrarProductoPorPrecioAlMayorRequest(int id, double RangoPrecio1, double RangoPrecio2) {
+        public verificarStockSuficientePorIDRequest(int id, int cantidadSolicitada) {
             this.id = id;
-            this.RangoPrecio1 = RangoPrecio1;
-            this.RangoPrecio2 = RangoPrecio2;
+            this.cantidadSolicitada = cantidadSolicitada;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorPrecioAlMayorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarfiltrarProductoPorPrecioAlMayorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficientePorIDResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficientePorIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public verificarStockSuficientePorIDResponse() {
+        }
+        
+        public verificarStockSuficientePorIDResponse(bool @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProductosPorCategoria", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerProductosPorCategoriaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idCategoria;
+        
+        public obtenerProductosPorCategoriaRequest() {
+        }
+        
+        public obtenerProductosPorCategoriaRequest(int idCategoria) {
+            this.idCategoria = idCategoria;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerProductosPorCategoriaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerProductosPorCategoriaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.SoftProgWS.producto[] @return;
         
-        public listarfiltrarProductoPorPrecioAlMayorResponse() {
+        public obtenerProductosPorCategoriaResponse() {
         }
         
-        public listarfiltrarProductoPorPrecioAlMayorResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
+        public obtenerProductosPorCategoriaResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
             this.@return = @return;
         }
     }
@@ -3570,6 +3524,52 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorPrecioAlMayor", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorPrecioAlMayorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double RangoPrecio1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public double RangoPrecio2;
+        
+        public listarfiltrarProductoPorPrecioAlMayorRequest() {
+        }
+        
+        public listarfiltrarProductoPorPrecioAlMayorRequest(int id, double RangoPrecio1, double RangoPrecio2) {
+            this.id = id;
+            this.RangoPrecio1 = RangoPrecio1;
+            this.RangoPrecio2 = RangoPrecio2;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarfiltrarProductoPorPrecioAlMayorResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarfiltrarProductoPorPrecioAlMayorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.producto[] @return;
+        
+        public listarfiltrarProductoPorPrecioAlMayorResponse() {
+        }
+        
+        public listarfiltrarProductoPorPrecioAlMayorResponse(SoftProgWeb.SoftProgWS.producto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductoWSChannel : SoftProgWeb.SoftProgWS.ProductoWS, System.ServiceModel.IClientChannel {
     }
@@ -3598,26 +3598,26 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse SoftProgWeb.SoftProgWS.ProductoWS.listaProductosPorCategoria(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request) {
-            return base.Channel.listaProductosPorCategoria(request);
+        SoftProgWeb.SoftProgWS.obtenerProductoResponse SoftProgWeb.SoftProgWS.ProductoWS.obtenerProducto(SoftProgWeb.SoftProgWS.obtenerProductoRequest request) {
+            return base.Channel.obtenerProducto(request);
         }
         
-        public SoftProgWeb.SoftProgWS.producto[] listaProductosPorCategoria(string nombreCategoria) {
-            SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest();
-            inValue.nombreCategoria = nombreCategoria;
-            SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listaProductosPorCategoria(inValue);
+        public SoftProgWeb.SoftProgWS.producto obtenerProducto(int id) {
+            SoftProgWeb.SoftProgWS.obtenerProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductoRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.obtenerProductoResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProducto(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse> SoftProgWeb.SoftProgWS.ProductoWS.listaProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request) {
-            return base.Channel.listaProductosPorCategoriaAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductoResponse> SoftProgWeb.SoftProgWS.ProductoWS.obtenerProductoAsync(SoftProgWeb.SoftProgWS.obtenerProductoRequest request) {
+            return base.Channel.obtenerProductoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse> listaProductosPorCategoriaAsync(string nombreCategoria) {
-            SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest();
-            inValue.nombreCategoria = nombreCategoria;
-            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listaProductosPorCategoriaAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductoResponse> obtenerProductoAsync(int id) {
+            SoftProgWeb.SoftProgWS.obtenerProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductoRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProductoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3641,29 +3641,6 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.eliminarProductoRequest inValue = new SoftProgWeb.SoftProgWS.eliminarProductoRequest();
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).eliminarProductoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerProductoResponse SoftProgWeb.SoftProgWS.ProductoWS.obtenerProducto(SoftProgWeb.SoftProgWS.obtenerProductoRequest request) {
-            return base.Channel.obtenerProducto(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.producto obtenerProducto(int id) {
-            SoftProgWeb.SoftProgWS.obtenerProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductoRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.obtenerProductoResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProducto(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductoResponse> SoftProgWeb.SoftProgWS.ProductoWS.obtenerProductoAsync(SoftProgWeb.SoftProgWS.obtenerProductoRequest request) {
-            return base.Channel.obtenerProductoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductoResponse> obtenerProductoAsync(int id) {
-            SoftProgWeb.SoftProgWS.obtenerProductoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductoRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProductoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3755,53 +3732,26 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse SoftProgWeb.SoftProgWS.ProductoWS.verificarStockSuficientePorID(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request) {
-            return base.Channel.verificarStockSuficientePorID(request);
+        SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse SoftProgWeb.SoftProgWS.ProductoWS.listaProductosPorCategoria(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request) {
+            return base.Channel.listaProductosPorCategoria(request);
         }
         
-        public bool verificarStockSuficientePorID(int id, int cantidadSolicitada) {
-            SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest inValue = new SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest();
-            inValue.id = id;
-            inValue.cantidadSolicitada = cantidadSolicitada;
-            SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).verificarStockSuficientePorID(inValue);
+        public SoftProgWeb.SoftProgWS.producto[] listaProductosPorCategoria(string nombreCategoria) {
+            SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest();
+            inValue.nombreCategoria = nombreCategoria;
+            SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listaProductosPorCategoria(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse> SoftProgWeb.SoftProgWS.ProductoWS.verificarStockSuficientePorIDAsync(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request) {
-            return base.Channel.verificarStockSuficientePorIDAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse> SoftProgWeb.SoftProgWS.ProductoWS.listaProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest request) {
+            return base.Channel.listaProductosPorCategoriaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse> verificarStockSuficientePorIDAsync(int id, int cantidadSolicitada) {
-            SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest inValue = new SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest();
-            inValue.id = id;
-            inValue.cantidadSolicitada = cantidadSolicitada;
-            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).verificarStockSuficientePorIDAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorDescuento(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request) {
-            return base.Channel.listarfiltrarProductoPorDescuento(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.producto[] listarfiltrarProductoPorDescuento(int idCategoria, string nombreCategoria) {
-            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest();
-            inValue.idCategoria = idCategoria;
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listaProductosPorCategoriaResponse> listaProductosPorCategoriaAsync(string nombreCategoria) {
+            SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.listaProductosPorCategoriaRequest();
             inValue.nombreCategoria = nombreCategoria;
-            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorDescuento(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse> SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorDescuentoAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request) {
-            return base.Channel.listarfiltrarProductoPorDescuentoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse> listarfiltrarProductoPorDescuentoAsync(int idCategoria, string nombreCategoria) {
-            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest();
-            inValue.idCategoria = idCategoria;
-            inValue.nombreCategoria = nombreCategoria;
-            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorDescuentoAsync(inValue);
+            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listaProductosPorCategoriaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3830,26 +3780,28 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse SoftProgWeb.SoftProgWS.ProductoWS.obtenerProductosPorCategoria(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request) {
-            return base.Channel.obtenerProductosPorCategoria(request);
+        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorDescuento(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request) {
+            return base.Channel.listarfiltrarProductoPorDescuento(request);
         }
         
-        public SoftProgWeb.SoftProgWS.producto[] obtenerProductosPorCategoria(int idCategoria) {
-            SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest();
+        public SoftProgWeb.SoftProgWS.producto[] listarfiltrarProductoPorDescuento(int idCategoria, string nombreCategoria) {
+            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest();
             inValue.idCategoria = idCategoria;
-            SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProductosPorCategoria(inValue);
+            inValue.nombreCategoria = nombreCategoria;
+            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorDescuento(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse> SoftProgWeb.SoftProgWS.ProductoWS.obtenerProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request) {
-            return base.Channel.obtenerProductosPorCategoriaAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse> SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorDescuentoAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest request) {
+            return base.Channel.listarfiltrarProductoPorDescuentoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse> obtenerProductosPorCategoriaAsync(int idCategoria) {
-            SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest();
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoResponse> listarfiltrarProductoPorDescuentoAsync(int idCategoria, string nombreCategoria) {
+            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorDescuentoRequest();
             inValue.idCategoria = idCategoria;
-            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProductosPorCategoriaAsync(inValue);
+            inValue.nombreCategoria = nombreCategoria;
+            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorDescuentoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3878,30 +3830,51 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorPrecioAlMayor(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request) {
-            return base.Channel.listarfiltrarProductoPorPrecioAlMayor(request);
+        SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse SoftProgWeb.SoftProgWS.ProductoWS.verificarStockSuficientePorID(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request) {
+            return base.Channel.verificarStockSuficientePorID(request);
         }
         
-        public SoftProgWeb.SoftProgWS.producto[] listarfiltrarProductoPorPrecioAlMayor(int id, double RangoPrecio1, double RangoPrecio2) {
-            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest();
+        public bool verificarStockSuficientePorID(int id, int cantidadSolicitada) {
+            SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest inValue = new SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest();
             inValue.id = id;
-            inValue.RangoPrecio1 = RangoPrecio1;
-            inValue.RangoPrecio2 = RangoPrecio2;
-            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorPrecioAlMayor(inValue);
+            inValue.cantidadSolicitada = cantidadSolicitada;
+            SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).verificarStockSuficientePorID(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse> SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorPrecioAlMayorAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request) {
-            return base.Channel.listarfiltrarProductoPorPrecioAlMayorAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse> SoftProgWeb.SoftProgWS.ProductoWS.verificarStockSuficientePorIDAsync(SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest request) {
+            return base.Channel.verificarStockSuficientePorIDAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse> listarfiltrarProductoPorPrecioAlMayorAsync(int id, double RangoPrecio1, double RangoPrecio2) {
-            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest();
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDResponse> verificarStockSuficientePorIDAsync(int id, int cantidadSolicitada) {
+            SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest inValue = new SoftProgWeb.SoftProgWS.verificarStockSuficientePorIDRequest();
             inValue.id = id;
-            inValue.RangoPrecio1 = RangoPrecio1;
-            inValue.RangoPrecio2 = RangoPrecio2;
-            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorPrecioAlMayorAsync(inValue);
+            inValue.cantidadSolicitada = cantidadSolicitada;
+            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).verificarStockSuficientePorIDAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse SoftProgWeb.SoftProgWS.ProductoWS.obtenerProductosPorCategoria(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request) {
+            return base.Channel.obtenerProductosPorCategoria(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.producto[] obtenerProductosPorCategoria(int idCategoria) {
+            SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest();
+            inValue.idCategoria = idCategoria;
+            SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProductosPorCategoria(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse> SoftProgWeb.SoftProgWS.ProductoWS.obtenerProductosPorCategoriaAsync(SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest request) {
+            return base.Channel.obtenerProductosPorCategoriaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaResponse> obtenerProductosPorCategoriaAsync(int idCategoria) {
+            SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest inValue = new SoftProgWeb.SoftProgWS.obtenerProductosPorCategoriaRequest();
+            inValue.idCategoria = idCategoria;
+            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).obtenerProductosPorCategoriaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3930,6 +3903,33 @@ namespace SoftProgWeb.SoftProgWS {
             inValue.RangoPrecio2 = RangoPrecio2;
             return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorPrecioRegularAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorPrecioAlMayor(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request) {
+            return base.Channel.listarfiltrarProductoPorPrecioAlMayor(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.producto[] listarfiltrarProductoPorPrecioAlMayor(int id, double RangoPrecio1, double RangoPrecio2) {
+            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest();
+            inValue.id = id;
+            inValue.RangoPrecio1 = RangoPrecio1;
+            inValue.RangoPrecio2 = RangoPrecio2;
+            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse retVal = ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorPrecioAlMayor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse> SoftProgWeb.SoftProgWS.ProductoWS.listarfiltrarProductoPorPrecioAlMayorAsync(SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest request) {
+            return base.Channel.listarfiltrarProductoPorPrecioAlMayorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorResponse> listarfiltrarProductoPorPrecioAlMayorAsync(int id, double RangoPrecio1, double RangoPrecio2) {
+            SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest inValue = new SoftProgWeb.SoftProgWS.listarfiltrarProductoPorPrecioAlMayorRequest();
+            inValue.id = id;
+            inValue.RangoPrecio1 = RangoPrecio1;
+            inValue.RangoPrecio2 = RangoPrecio2;
+            return ((SoftProgWeb.SoftProgWS.ProductoWS)(this)).listarfiltrarProductoPorPrecioAlMayorAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3949,6 +3949,25 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/listarLineaCarritoResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoResponse> listarLineaCarritoAsync(SoftProgWeb.SoftProgWS.listarLineaCarritoRequest request);
+        
+        // CODEGEN: Parameter 'lineaCarrito' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRespons" +
+            "e")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarrito/Fault/" +
+            "JsonProcessingException", Name="JsonProcessingException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarrito/Fault/" +
+            "IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarrito/Fault/" +
+            "InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse actualizarLineaCarrito(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRespons" +
+            "e")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse> actualizarLineaCarritoAsync(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request);
         
         // CODEGEN: Parameter 'lineaCarrito' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/insertarLineaCarritoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/insertarLineaCarritoResponse")]
@@ -3992,25 +4011,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/eliminarLineaCarritoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/eliminarLineaCarritoResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarLineaCarritoResponse> eliminarLineaCarritoAsync(SoftProgWeb.SoftProgWS.eliminarLineaCarritoRequest request);
-        
-        // CODEGEN: Parameter 'lineaCarrito' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRespons" +
-            "e")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarrito/Fault/" +
-            "JsonProcessingException", Name="JsonProcessingException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarrito/Fault/" +
-            "IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarrito/Fault/" +
-            "InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse actualizarLineaCarrito(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/LineaCarritoWS/actualizarLineaCarritoRespons" +
-            "e")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse> actualizarLineaCarritoAsync(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4038,6 +4038,34 @@ namespace SoftProgWeb.SoftProgWS {
         
         public listarLineaCarritoResponse(SoftProgWeb.SoftProgWS.lineaCarrito[] @return) {
             this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLineaCarrito", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarLineaCarritoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito;
+        
+        public actualizarLineaCarritoRequest() {
+        }
+        
+        public actualizarLineaCarritoRequest(SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito) {
+            this.lineaCarrito = lineaCarrito;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLineaCarritoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarLineaCarritoResponse {
+        
+        public actualizarLineaCarritoResponse() {
         }
     }
     
@@ -4141,34 +4169,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLineaCarrito", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarLineaCarritoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito;
-        
-        public actualizarLineaCarritoRequest() {
-        }
-        
-        public actualizarLineaCarritoRequest(SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito) {
-            this.lineaCarrito = lineaCarrito;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarLineaCarritoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarLineaCarritoResponse {
-        
-        public actualizarLineaCarritoResponse() {
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface LineaCarritoWSChannel : SoftProgWeb.SoftProgWS.LineaCarritoWS, System.ServiceModel.IClientChannel {
     }
@@ -4215,6 +4215,28 @@ namespace SoftProgWeb.SoftProgWS {
         public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineaCarritoResponse> listarLineaCarritoAsync() {
             SoftProgWeb.SoftProgWS.listarLineaCarritoRequest inValue = new SoftProgWeb.SoftProgWS.listarLineaCarritoRequest();
             return ((SoftProgWeb.SoftProgWS.LineaCarritoWS)(this)).listarLineaCarritoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse SoftProgWeb.SoftProgWS.LineaCarritoWS.actualizarLineaCarrito(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request) {
+            return base.Channel.actualizarLineaCarrito(request);
+        }
+        
+        public void actualizarLineaCarrito(SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito) {
+            SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest();
+            inValue.lineaCarrito = lineaCarrito;
+            SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse retVal = ((SoftProgWeb.SoftProgWS.LineaCarritoWS)(this)).actualizarLineaCarrito(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse> SoftProgWeb.SoftProgWS.LineaCarritoWS.actualizarLineaCarritoAsync(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request) {
+            return base.Channel.actualizarLineaCarritoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse> actualizarLineaCarritoAsync(SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito) {
+            SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest();
+            inValue.lineaCarrito = lineaCarrito;
+            return ((SoftProgWeb.SoftProgWS.LineaCarritoWS)(this)).actualizarLineaCarritoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4284,28 +4306,6 @@ namespace SoftProgWeb.SoftProgWS {
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.LineaCarritoWS)(this)).eliminarLineaCarritoAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse SoftProgWeb.SoftProgWS.LineaCarritoWS.actualizarLineaCarrito(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request) {
-            return base.Channel.actualizarLineaCarrito(request);
-        }
-        
-        public void actualizarLineaCarrito(SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito) {
-            SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest();
-            inValue.lineaCarrito = lineaCarrito;
-            SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse retVal = ((SoftProgWeb.SoftProgWS.LineaCarritoWS)(this)).actualizarLineaCarrito(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse> SoftProgWeb.SoftProgWS.LineaCarritoWS.actualizarLineaCarritoAsync(SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest request) {
-            return base.Channel.actualizarLineaCarritoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarLineaCarritoResponse> actualizarLineaCarritoAsync(SoftProgWeb.SoftProgWS.lineaCarrito lineaCarrito) {
-            SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarLineaCarritoRequest();
-            inValue.lineaCarrito = lineaCarrito;
-            return ((SoftProgWeb.SoftProgWS.LineaCarritoWS)(this)).actualizarLineaCarritoAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4313,18 +4313,32 @@ namespace SoftProgWeb.SoftProgWS {
     public interface DescuentoWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuento/Fault/IOExceptio" +
-            "n", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuento/Fault/Interrupte" +
-            "dException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuento/Fault/IOExcept" +
+            "ion", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuento/Fault/Interrup" +
+            "tedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarDescuentoResponse listarDescuento(SoftProgWeb.SoftProgWS.listarDescuentoRequest request);
+        SoftProgWeb.SoftProgWS.eliminarDescuentoResponse eliminarDescuento(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDescuentoResponse> listarDescuentoAsync(SoftProgWeb.SoftProgWS.listarDescuentoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDescuentoResponse> eliminarDescuentoAsync(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuento/Fault/IOExcepti" +
+            "on", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuento/Fault/Interrupt" +
+            "edException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerDescuentoResponse obtenerDescuento(SoftProgWeb.SoftProgWS.obtenerDescuentoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerDescuentoResponse> obtenerDescuentoAsync(SoftProgWeb.SoftProgWS.obtenerDescuentoRequest request);
         
         // CODEGEN: Parameter 'descuento' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/insertarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/insertarDescuentoResponse")]
@@ -4342,32 +4356,18 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarDescuentoResponse> insertarDescuentoAsync(SoftProgWeb.SoftProgWS.insertarDescuentoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuento/Fault/IOExcepti" +
-            "on", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuento/Fault/Interrupt" +
-            "edException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuento/Fault/IOExceptio" +
+            "n", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuento/Fault/Interrupte" +
+            "dException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerDescuentoResponse obtenerDescuento(SoftProgWeb.SoftProgWS.obtenerDescuentoRequest request);
+        SoftProgWeb.SoftProgWS.listarDescuentoResponse listarDescuento(SoftProgWeb.SoftProgWS.listarDescuentoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/obtenerDescuentoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerDescuentoResponse> obtenerDescuentoAsync(SoftProgWeb.SoftProgWS.obtenerDescuentoRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuento/Fault/IOExcept" +
-            "ion", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuento/Fault/Interrup" +
-            "tedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.eliminarDescuentoResponse eliminarDescuento(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/eliminarDescuentoResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDescuentoResponse> eliminarDescuentoAsync(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/listarDescuentoResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDescuentoResponse> listarDescuentoAsync(SoftProgWeb.SoftProgWS.listarDescuentoRequest request);
         
         // CODEGEN: Parameter 'descuento' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DescuentoWS/actualizarDescuentoResponse")]
@@ -4406,56 +4406,36 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarDescuentoRequest {
-        
-        public listarDescuentoRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarDescuentoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.descuento[] @return;
-        
-        public listarDescuentoResponse() {
-        }
-        
-        public listarDescuentoResponse(SoftProgWeb.SoftProgWS.descuento[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarDescuentoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarDescuentoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.descuento descuento;
+        public int id;
         
-        public insertarDescuentoRequest() {
+        public eliminarDescuentoRequest() {
         }
         
-        public insertarDescuentoRequest(SoftProgWeb.SoftProgWS.descuento descuento) {
-            this.descuento = descuento;
+        public eliminarDescuentoRequest(int id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarDescuentoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarDescuentoResponse {
         
-        public insertarDescuentoResponse() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
+        
+        public eliminarDescuentoResponse() {
+        }
+        
+        public eliminarDescuentoResponse(string @return) {
+            this.@return = @return;
         }
     }
     
@@ -4498,35 +4478,55 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarDescuentoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarDescuentoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
+        public SoftProgWeb.SoftProgWS.descuento descuento;
         
-        public eliminarDescuentoRequest() {
+        public insertarDescuentoRequest() {
         }
         
-        public eliminarDescuentoRequest(int id) {
-            this.id = id;
+        public insertarDescuentoRequest(SoftProgWeb.SoftProgWS.descuento descuento) {
+            this.descuento = descuento;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarDescuentoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarDescuentoResponse {
+        
+        public insertarDescuentoResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDescuento", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarDescuentoRequest {
+        
+        public listarDescuentoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarDescuentoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarDescuentoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.descuento[] @return;
         
-        public eliminarDescuentoResponse() {
+        public listarDescuentoResponse() {
         }
         
-        public eliminarDescuentoResponse(string @return) {
+        public listarDescuentoResponse(SoftProgWeb.SoftProgWS.descuento[] @return) {
             this.@return = @return;
         }
     }
@@ -4628,46 +4628,26 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarDescuentoResponse SoftProgWeb.SoftProgWS.DescuentoWS.listarDescuento(SoftProgWeb.SoftProgWS.listarDescuentoRequest request) {
-            return base.Channel.listarDescuento(request);
+        SoftProgWeb.SoftProgWS.eliminarDescuentoResponse SoftProgWeb.SoftProgWS.DescuentoWS.eliminarDescuento(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request) {
+            return base.Channel.eliminarDescuento(request);
         }
         
-        public SoftProgWeb.SoftProgWS.descuento[] listarDescuento() {
-            SoftProgWeb.SoftProgWS.listarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarDescuentoRequest();
-            SoftProgWeb.SoftProgWS.listarDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).listarDescuento(inValue);
+        public string eliminarDescuento(int id) {
+            SoftProgWeb.SoftProgWS.eliminarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDescuentoRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.eliminarDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).eliminarDescuento(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDescuentoResponse> SoftProgWeb.SoftProgWS.DescuentoWS.listarDescuentoAsync(SoftProgWeb.SoftProgWS.listarDescuentoRequest request) {
-            return base.Channel.listarDescuentoAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDescuentoResponse> SoftProgWeb.SoftProgWS.DescuentoWS.eliminarDescuentoAsync(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request) {
+            return base.Channel.eliminarDescuentoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDescuentoResponse> listarDescuentoAsync() {
-            SoftProgWeb.SoftProgWS.listarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarDescuentoRequest();
-            return ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).listarDescuentoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.insertarDescuentoResponse SoftProgWeb.SoftProgWS.DescuentoWS.insertarDescuento(SoftProgWeb.SoftProgWS.insertarDescuentoRequest request) {
-            return base.Channel.insertarDescuento(request);
-        }
-        
-        public void insertarDescuento(SoftProgWeb.SoftProgWS.descuento descuento) {
-            SoftProgWeb.SoftProgWS.insertarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.insertarDescuentoRequest();
-            inValue.descuento = descuento;
-            SoftProgWeb.SoftProgWS.insertarDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).insertarDescuento(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarDescuentoResponse> SoftProgWeb.SoftProgWS.DescuentoWS.insertarDescuentoAsync(SoftProgWeb.SoftProgWS.insertarDescuentoRequest request) {
-            return base.Channel.insertarDescuentoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarDescuentoResponse> insertarDescuentoAsync(SoftProgWeb.SoftProgWS.descuento descuento) {
-            SoftProgWeb.SoftProgWS.insertarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.insertarDescuentoRequest();
-            inValue.descuento = descuento;
-            return ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).insertarDescuentoAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDescuentoResponse> eliminarDescuentoAsync(int id) {
+            SoftProgWeb.SoftProgWS.eliminarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDescuentoRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).eliminarDescuentoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4694,26 +4674,46 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.eliminarDescuentoResponse SoftProgWeb.SoftProgWS.DescuentoWS.eliminarDescuento(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request) {
-            return base.Channel.eliminarDescuento(request);
+        SoftProgWeb.SoftProgWS.insertarDescuentoResponse SoftProgWeb.SoftProgWS.DescuentoWS.insertarDescuento(SoftProgWeb.SoftProgWS.insertarDescuentoRequest request) {
+            return base.Channel.insertarDescuento(request);
         }
         
-        public string eliminarDescuento(int id) {
-            SoftProgWeb.SoftProgWS.eliminarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDescuentoRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.eliminarDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).eliminarDescuento(inValue);
+        public void insertarDescuento(SoftProgWeb.SoftProgWS.descuento descuento) {
+            SoftProgWeb.SoftProgWS.insertarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.insertarDescuentoRequest();
+            inValue.descuento = descuento;
+            SoftProgWeb.SoftProgWS.insertarDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).insertarDescuento(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarDescuentoResponse> SoftProgWeb.SoftProgWS.DescuentoWS.insertarDescuentoAsync(SoftProgWeb.SoftProgWS.insertarDescuentoRequest request) {
+            return base.Channel.insertarDescuentoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarDescuentoResponse> insertarDescuentoAsync(SoftProgWeb.SoftProgWS.descuento descuento) {
+            SoftProgWeb.SoftProgWS.insertarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.insertarDescuentoRequest();
+            inValue.descuento = descuento;
+            return ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).insertarDescuentoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.listarDescuentoResponse SoftProgWeb.SoftProgWS.DescuentoWS.listarDescuento(SoftProgWeb.SoftProgWS.listarDescuentoRequest request) {
+            return base.Channel.listarDescuento(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.descuento[] listarDescuento() {
+            SoftProgWeb.SoftProgWS.listarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarDescuentoRequest();
+            SoftProgWeb.SoftProgWS.listarDescuentoResponse retVal = ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).listarDescuento(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDescuentoResponse> SoftProgWeb.SoftProgWS.DescuentoWS.eliminarDescuentoAsync(SoftProgWeb.SoftProgWS.eliminarDescuentoRequest request) {
-            return base.Channel.eliminarDescuentoAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDescuentoResponse> SoftProgWeb.SoftProgWS.DescuentoWS.listarDescuentoAsync(SoftProgWeb.SoftProgWS.listarDescuentoRequest request) {
+            return base.Channel.listarDescuentoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDescuentoResponse> eliminarDescuentoAsync(int id) {
-            SoftProgWeb.SoftProgWS.eliminarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDescuentoRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).eliminarDescuentoAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDescuentoResponse> listarDescuentoAsync() {
+            SoftProgWeb.SoftProgWS.listarDescuentoRequest inValue = new SoftProgWeb.SoftProgWS.listarDescuentoRequest();
+            return ((SoftProgWeb.SoftProgWS.DescuentoWS)(this)).listarDescuentoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4781,20 +4781,6 @@ namespace SoftProgWeb.SoftProgWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresaResponse> listarEmpresaAsync(SoftProgWeb.SoftProgWS.listarEmpresaRequest request);
         
-        // CODEGEN: Parameter 'empresa' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresa/Fault/JsonProcessi" +
-            "ngException", Name="JsonProcessingException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresa/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresa/Fault/InterruptedE" +
-            "xception", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.insertarEmpresaResponse insertarEmpresa(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarEmpresaResponse> insertarEmpresaAsync(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request);
-        
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresa/Fault/IOException", Name="IOException")]
@@ -4807,19 +4793,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerEmpresaResponse> obtenerEmpresaAsync(SoftProgWeb.SoftProgWS.obtenerEmpresaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresa/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresa/Fault/InterruptedE" +
-            "xception", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.eliminarEmpresaResponse eliminarEmpresa(SoftProgWeb.SoftProgWS.eliminarEmpresaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarEmpresaResponse> eliminarEmpresaAsync(SoftProgWeb.SoftProgWS.eliminarEmpresaRequest request);
         
         // CODEGEN: Parameter 'empresa' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaResponse")]
@@ -4837,18 +4810,44 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarEmpresaResponse> actualizarEmpresaAsync(SoftProgWeb.SoftProgWS.actualizarEmpresaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/IOExce" +
-            "ption", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/Interr" +
-            "uptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresa/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresa/Fault/InterruptedEx" +
+            "ception", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse listarEmpresasActivos(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request);
+        SoftProgWeb.SoftProgWS.validarEmpresaResponse validarEmpresa(SoftProgWeb.SoftProgWS.validarEmpresaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse> listarEmpresasActivosAsync(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarEmpresaResponse> validarEmpresaAsync(SoftProgWeb.SoftProgWS.validarEmpresaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresa/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresa/Fault/InterruptedE" +
+            "xception", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.eliminarEmpresaResponse eliminarEmpresa(SoftProgWeb.SoftProgWS.eliminarEmpresaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarEmpresaResponse> eliminarEmpresaAsync(SoftProgWeb.SoftProgWS.eliminarEmpresaRequest request);
+        
+        // CODEGEN: Parameter 'empresa' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresa/Fault/JsonProcessi" +
+            "ngException", Name="JsonProcessingException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresa/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresa/Fault/InterruptedE" +
+            "xception", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.insertarEmpresaResponse insertarEmpresa(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/insertarEmpresaResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarEmpresaResponse> insertarEmpresaAsync(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosResponse")]
@@ -4879,35 +4878,18 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteResponse> listarEmpresasPorClienteAsync(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresa/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresa/Fault/InterruptedEx" +
-            "ception", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/IOExce" +
+            "ption", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/Interr" +
+            "uptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.validarEmpresaResponse validarEmpresa(SoftProgWeb.SoftProgWS.validarEmpresaRequest request);
+        SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse listarEmpresasActivos(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresaResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarEmpresaResponse> validarEmpresaAsync(SoftProgWeb.SoftProgWS.validarEmpresaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasReq" +
-            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRes" +
-            "ponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fa" +
-            "ult/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fa" +
-            "ult/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse listarEmpresasPorClienteActivas(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasReq" +
-            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRes" +
-            "ponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse> listarEmpresasPorClienteActivasAsync(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse> listarEmpresasActivosAsync(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivasR" +
@@ -4926,6 +4908,24 @@ namespace SoftProgWeb.SoftProgWS {
             "equest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivasR" +
             "esponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteNoActivasResponse> listarEmpresasPorClienteNoActivasAsync(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteNoActivasRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasReq" +
+            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRes" +
+            "ponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fa" +
+            "ult/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fa" +
+            "ult/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse listarEmpresasPorClienteActivas(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasReq" +
+            "uest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse> listarEmpresasPorClienteActivasAsync(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4953,34 +4953,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         public listarEmpresaResponse(SoftProgWeb.SoftProgWS.empresa[] @return) {
             this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpresa", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEmpresaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.empresa empresa;
-        
-        public insertarEmpresaRequest() {
-        }
-        
-        public insertarEmpresaRequest(SoftProgWeb.SoftProgWS.empresa empresa) {
-            this.empresa = empresa;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpresaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEmpresaResponse {
-        
-        public insertarEmpresaResponse() {
         }
     }
     
@@ -5016,6 +4988,70 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         public obtenerEmpresaResponse(SoftProgWeb.SoftProgWS.empresa @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEmpresa", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarEmpresaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.empresa empresa;
+        
+        public actualizarEmpresaRequest() {
+        }
+        
+        public actualizarEmpresaRequest(SoftProgWeb.SoftProgWS.empresa empresa) {
+            this.empresa = empresa;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEmpresaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarEmpresaResponse {
+        
+        public actualizarEmpresaResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="validarEmpresa", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class validarEmpresaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public validarEmpresaRequest() {
+        }
+        
+        public validarEmpresaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="validarEmpresaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class validarEmpresaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public validarEmpresaResponse() {
+        }
+        
+        public validarEmpresaResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -5059,17 +5095,17 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEmpresa", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarEmpresaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpresa", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEmpresaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.SoftProgWS.empresa empresa;
         
-        public actualizarEmpresaRequest() {
+        public insertarEmpresaRequest() {
         }
         
-        public actualizarEmpresaRequest(SoftProgWeb.SoftProgWS.empresa empresa) {
+        public insertarEmpresaRequest(SoftProgWeb.SoftProgWS.empresa empresa) {
             this.empresa = empresa;
         }
     }
@@ -5077,38 +5113,10 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEmpresaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarEmpresaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpresaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEmpresaResponse {
         
-        public actualizarEmpresaResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasActivos", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEmpresasActivosRequest {
-        
-        public listarEmpresasActivosRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasActivosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEmpresasActivosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.empresa[] @return;
-        
-        public listarEmpresasActivosResponse() {
-        }
-        
-        public listarEmpresasActivosResponse(SoftProgWeb.SoftProgWS.empresa[] @return) {
-            this.@return = @return;
+        public insertarEmpresaResponse() {
         }
     }
     
@@ -5179,71 +5187,27 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="validarEmpresa", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class validarEmpresaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasActivos", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEmpresasActivosRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public validarEmpresaRequest() {
-        }
-        
-        public validarEmpresaRequest(int id) {
-            this.id = id;
+        public listarEmpresasActivosRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="validarEmpresaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class validarEmpresaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool @return;
-        
-        public validarEmpresaResponse() {
-        }
-        
-        public validarEmpresaResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasPorClienteActivas", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEmpresasPorClienteActivasRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public listarEmpresasPorClienteActivasRequest() {
-        }
-        
-        public listarEmpresasPorClienteActivasRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasPorClienteActivasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarEmpresasPorClienteActivasResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasActivosResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEmpresasActivosResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.SoftProgWS.empresa[] @return;
         
-        public listarEmpresasPorClienteActivasResponse() {
+        public listarEmpresasActivosResponse() {
         }
         
-        public listarEmpresasPorClienteActivasResponse(SoftProgWeb.SoftProgWS.empresa[] @return) {
+        public listarEmpresasActivosResponse(SoftProgWeb.SoftProgWS.empresa[] @return) {
             this.@return = @return;
         }
     }
@@ -5280,6 +5244,42 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         public listarEmpresasPorClienteNoActivasResponse(SoftProgWeb.SoftProgWS.empresa[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasPorClienteActivas", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEmpresasPorClienteActivasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public listarEmpresasPorClienteActivasRequest() {
+        }
+        
+        public listarEmpresasPorClienteActivasRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarEmpresasPorClienteActivasResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarEmpresasPorClienteActivasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.empresa[] @return;
+        
+        public listarEmpresasPorClienteActivasResponse() {
+        }
+        
+        public listarEmpresasPorClienteActivasResponse(SoftProgWeb.SoftProgWS.empresa[] @return) {
             this.@return = @return;
         }
     }
@@ -5333,28 +5333,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.insertarEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.insertarEmpresa(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request) {
-            return base.Channel.insertarEmpresa(request);
-        }
-        
-        public void insertarEmpresa(SoftProgWeb.SoftProgWS.empresa empresa) {
-            SoftProgWeb.SoftProgWS.insertarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.insertarEmpresaRequest();
-            inValue.empresa = empresa;
-            SoftProgWeb.SoftProgWS.insertarEmpresaResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).insertarEmpresa(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarEmpresaResponse> SoftProgWeb.SoftProgWS.EmpresaWS.insertarEmpresaAsync(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request) {
-            return base.Channel.insertarEmpresaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarEmpresaResponse> insertarEmpresaAsync(SoftProgWeb.SoftProgWS.empresa empresa) {
-            SoftProgWeb.SoftProgWS.insertarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.insertarEmpresaRequest();
-            inValue.empresa = empresa;
-            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).insertarEmpresaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.obtenerEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.obtenerEmpresa(SoftProgWeb.SoftProgWS.obtenerEmpresaRequest request) {
             return base.Channel.obtenerEmpresa(request);
         }
@@ -5375,6 +5353,51 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.obtenerEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.obtenerEmpresaRequest();
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).obtenerEmpresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.actualizarEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.actualizarEmpresa(SoftProgWeb.SoftProgWS.actualizarEmpresaRequest request) {
+            return base.Channel.actualizarEmpresa(request);
+        }
+        
+        public void actualizarEmpresa(SoftProgWeb.SoftProgWS.empresa empresa) {
+            SoftProgWeb.SoftProgWS.actualizarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.actualizarEmpresaRequest();
+            inValue.empresa = empresa;
+            SoftProgWeb.SoftProgWS.actualizarEmpresaResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).actualizarEmpresa(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarEmpresaResponse> SoftProgWeb.SoftProgWS.EmpresaWS.actualizarEmpresaAsync(SoftProgWeb.SoftProgWS.actualizarEmpresaRequest request) {
+            return base.Channel.actualizarEmpresaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarEmpresaResponse> actualizarEmpresaAsync(SoftProgWeb.SoftProgWS.empresa empresa) {
+            SoftProgWeb.SoftProgWS.actualizarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.actualizarEmpresaRequest();
+            inValue.empresa = empresa;
+            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).actualizarEmpresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.validarEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.validarEmpresa(SoftProgWeb.SoftProgWS.validarEmpresaRequest request) {
+            return base.Channel.validarEmpresa(request);
+        }
+        
+        public bool validarEmpresa(int id) {
+            SoftProgWeb.SoftProgWS.validarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.validarEmpresaRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.validarEmpresaResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).validarEmpresa(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarEmpresaResponse> SoftProgWeb.SoftProgWS.EmpresaWS.validarEmpresaAsync(SoftProgWeb.SoftProgWS.validarEmpresaRequest request) {
+            return base.Channel.validarEmpresaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarEmpresaResponse> validarEmpresaAsync(int id) {
+            SoftProgWeb.SoftProgWS.validarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.validarEmpresaRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).validarEmpresaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5401,46 +5424,25 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.actualizarEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.actualizarEmpresa(SoftProgWeb.SoftProgWS.actualizarEmpresaRequest request) {
-            return base.Channel.actualizarEmpresa(request);
+        SoftProgWeb.SoftProgWS.insertarEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.insertarEmpresa(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request) {
+            return base.Channel.insertarEmpresa(request);
         }
         
-        public void actualizarEmpresa(SoftProgWeb.SoftProgWS.empresa empresa) {
-            SoftProgWeb.SoftProgWS.actualizarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.actualizarEmpresaRequest();
+        public void insertarEmpresa(SoftProgWeb.SoftProgWS.empresa empresa) {
+            SoftProgWeb.SoftProgWS.insertarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.insertarEmpresaRequest();
             inValue.empresa = empresa;
-            SoftProgWeb.SoftProgWS.actualizarEmpresaResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).actualizarEmpresa(inValue);
+            SoftProgWeb.SoftProgWS.insertarEmpresaResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).insertarEmpresa(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarEmpresaResponse> SoftProgWeb.SoftProgWS.EmpresaWS.actualizarEmpresaAsync(SoftProgWeb.SoftProgWS.actualizarEmpresaRequest request) {
-            return base.Channel.actualizarEmpresaAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarEmpresaResponse> SoftProgWeb.SoftProgWS.EmpresaWS.insertarEmpresaAsync(SoftProgWeb.SoftProgWS.insertarEmpresaRequest request) {
+            return base.Channel.insertarEmpresaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarEmpresaResponse> actualizarEmpresaAsync(SoftProgWeb.SoftProgWS.empresa empresa) {
-            SoftProgWeb.SoftProgWS.actualizarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.actualizarEmpresaRequest();
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarEmpresaResponse> insertarEmpresaAsync(SoftProgWeb.SoftProgWS.empresa empresa) {
+            SoftProgWeb.SoftProgWS.insertarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.insertarEmpresaRequest();
             inValue.empresa = empresa;
-            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).actualizarEmpresaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasActivos(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request) {
-            return base.Channel.listarEmpresasActivos(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.empresa[] listarEmpresasActivos() {
-            SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest();
-            SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasActivos(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse> SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasActivosAsync(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request) {
-            return base.Channel.listarEmpresasActivosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse> listarEmpresasActivosAsync() {
-            SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest();
-            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasActivosAsync(inValue);
+            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).insertarEmpresaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5488,49 +5490,24 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.validarEmpresaResponse SoftProgWeb.SoftProgWS.EmpresaWS.validarEmpresa(SoftProgWeb.SoftProgWS.validarEmpresaRequest request) {
-            return base.Channel.validarEmpresa(request);
+        SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasActivos(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request) {
+            return base.Channel.listarEmpresasActivos(request);
         }
         
-        public bool validarEmpresa(int id) {
-            SoftProgWeb.SoftProgWS.validarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.validarEmpresaRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.validarEmpresaResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).validarEmpresa(inValue);
+        public SoftProgWeb.SoftProgWS.empresa[] listarEmpresasActivos() {
+            SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest();
+            SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasActivos(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarEmpresaResponse> SoftProgWeb.SoftProgWS.EmpresaWS.validarEmpresaAsync(SoftProgWeb.SoftProgWS.validarEmpresaRequest request) {
-            return base.Channel.validarEmpresaAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse> SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasActivosAsync(SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest request) {
+            return base.Channel.listarEmpresasActivosAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarEmpresaResponse> validarEmpresaAsync(int id) {
-            SoftProgWeb.SoftProgWS.validarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.validarEmpresaRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).validarEmpresaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasPorClienteActivas(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request) {
-            return base.Channel.listarEmpresasPorClienteActivas(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.empresa[] listarEmpresasPorClienteActivas(int id) {
-            SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasPorClienteActivas(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse> SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasPorClienteActivasAsync(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request) {
-            return base.Channel.listarEmpresasPorClienteActivasAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse> listarEmpresasPorClienteActivasAsync(int id) {
-            SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasPorClienteActivasAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasActivosResponse> listarEmpresasActivosAsync() {
+            SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasActivosRequest();
+            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasActivosAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5554,6 +5531,29 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.listarEmpresasPorClienteNoActivasRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasPorClienteNoActivasRequest();
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasPorClienteNoActivasAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasPorClienteActivas(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request) {
+            return base.Channel.listarEmpresasPorClienteActivas(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.empresa[] listarEmpresasPorClienteActivas(int id) {
+            SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasPorClienteActivas(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse> SoftProgWeb.SoftProgWS.EmpresaWS.listarEmpresasPorClienteActivasAsync(SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest request) {
+            return base.Channel.listarEmpresasPorClienteActivasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasResponse> listarEmpresasPorClienteActivasAsync(int id) {
+            SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest inValue = new SoftProgWeb.SoftProgWS.listarEmpresasPorClienteActivasRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).listarEmpresasPorClienteActivasAsync(inValue);
         }
     }
     
@@ -5665,6 +5665,42 @@ namespace SoftProgWeb.SoftProgWS {
     public interface AdministradorSistemaWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
+            "orIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
+            "orIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
+            "orId/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
+            "orId/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse obtenerAdministradorPorId(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
+            "orIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
+            "orIdResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse> obtenerAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
+            "PorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
+            "PorIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
+            "PorId/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
+            "PorId/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse eliminarAdministradorPorId(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
+            "PorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
+            "PorIdResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse> eliminarAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/listarTodosAdminstrad" +
             "oresRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/listarTodosAdminstrad" +
             "oresResponse")]
@@ -5701,42 +5737,6 @@ namespace SoftProgWeb.SoftProgWS {
             "Response")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarAdministradorResponse> insertarAdministradorAsync(SoftProgWeb.SoftProgWS.insertarAdministradorRequest request);
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
-            "PorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
-            "PorIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
-            "PorId/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
-            "PorId/Fault/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse eliminarAdministradorPorId(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
-            "PorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministrador" +
-            "PorIdResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse> eliminarAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
-            "orIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
-            "orIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
-            "orId/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
-            "orId/Fault/InterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse obtenerAdministradorPorId(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
-            "orIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorP" +
-            "orIdResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse> obtenerAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request);
-        
         // CODEGEN: Parameter 'admistradorsistema' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/actualizarAdministrad" +
             "orPorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/actualizarAdministrad" +
@@ -5755,6 +5755,78 @@ namespace SoftProgWeb.SoftProgWS {
             "orPorIdRequest", ReplyAction="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/actualizarAdministrad" +
             "orPorIdResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarAdministradorPorIdResponse> actualizarAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.actualizarAdministradorPorIdRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerAdministradorPorId", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerAdministradorPorIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public obtenerAdministradorPorIdRequest() {
+        }
+        
+        public obtenerAdministradorPorIdRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerAdministradorPorIdResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerAdministradorPorIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.administradorSistema @return;
+        
+        public obtenerAdministradorPorIdResponse() {
+        }
+        
+        public obtenerAdministradorPorIdResponse(SoftProgWeb.SoftProgWS.administradorSistema @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarAdministradorPorId", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarAdministradorPorIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public eliminarAdministradorPorIdRequest() {
+        }
+        
+        public eliminarAdministradorPorIdRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarAdministradorPorIdResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarAdministradorPorIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
+        
+        public eliminarAdministradorPorIdResponse() {
+        }
+        
+        public eliminarAdministradorPorIdResponse(string @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5816,78 +5888,6 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarAdministradorPorId", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarAdministradorPorIdRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public eliminarAdministradorPorIdRequest() {
-        }
-        
-        public eliminarAdministradorPorIdRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarAdministradorPorIdResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarAdministradorPorIdResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public eliminarAdministradorPorIdResponse() {
-        }
-        
-        public eliminarAdministradorPorIdResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerAdministradorPorId", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerAdministradorPorIdRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerAdministradorPorIdRequest() {
-        }
-        
-        public obtenerAdministradorPorIdRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerAdministradorPorIdResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerAdministradorPorIdResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.administradorSistema @return;
-        
-        public obtenerAdministradorPorIdResponse() {
-        }
-        
-        public obtenerAdministradorPorIdResponse(SoftProgWeb.SoftProgWS.administradorSistema @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarAdministradorPorId", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class actualizarAdministradorPorIdRequest {
         
@@ -5941,6 +5941,52 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse SoftProgWeb.SoftProgWS.AdministradorSistemaWS.obtenerAdministradorPorId(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request) {
+            return base.Channel.obtenerAdministradorPorId(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.administradorSistema obtenerAdministradorPorId(int id) {
+            SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse retVal = ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).obtenerAdministradorPorId(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse> SoftProgWeb.SoftProgWS.AdministradorSistemaWS.obtenerAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request) {
+            return base.Channel.obtenerAdministradorPorIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse> obtenerAdministradorPorIdAsync(int id) {
+            SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).obtenerAdministradorPorIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse SoftProgWeb.SoftProgWS.AdministradorSistemaWS.eliminarAdministradorPorId(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request) {
+            return base.Channel.eliminarAdministradorPorId(request);
+        }
+        
+        public string eliminarAdministradorPorId(int id) {
+            SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse retVal = ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).eliminarAdministradorPorId(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse> SoftProgWeb.SoftProgWS.AdministradorSistemaWS.eliminarAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request) {
+            return base.Channel.eliminarAdministradorPorIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse> eliminarAdministradorPorIdAsync(int id) {
+            SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).eliminarAdministradorPorIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.listarTodosAdminstradoresResponse SoftProgWeb.SoftProgWS.AdministradorSistemaWS.listarTodosAdminstradores(SoftProgWeb.SoftProgWS.listarTodosAdminstradoresRequest request) {
             return base.Channel.listarTodosAdminstradores(request);
         }
@@ -5984,52 +6030,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse SoftProgWeb.SoftProgWS.AdministradorSistemaWS.eliminarAdministradorPorId(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request) {
-            return base.Channel.eliminarAdministradorPorId(request);
-        }
-        
-        public string eliminarAdministradorPorId(int id) {
-            SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse retVal = ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).eliminarAdministradorPorId(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse> SoftProgWeb.SoftProgWS.AdministradorSistemaWS.eliminarAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest request) {
-            return base.Channel.eliminarAdministradorPorIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdResponse> eliminarAdministradorPorIdAsync(int id) {
-            SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.eliminarAdministradorPorIdRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).eliminarAdministradorPorIdAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse SoftProgWeb.SoftProgWS.AdministradorSistemaWS.obtenerAdministradorPorId(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request) {
-            return base.Channel.obtenerAdministradorPorId(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.administradorSistema obtenerAdministradorPorId(int id) {
-            SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse retVal = ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).obtenerAdministradorPorId(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse> SoftProgWeb.SoftProgWS.AdministradorSistemaWS.obtenerAdministradorPorIdAsync(SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest request) {
-            return base.Channel.obtenerAdministradorPorIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdResponse> obtenerAdministradorPorIdAsync(int id) {
-            SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest inValue = new SoftProgWeb.SoftProgWS.obtenerAdministradorPorIdRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.AdministradorSistemaWS)(this)).obtenerAdministradorPorIdAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.actualizarAdministradorPorIdResponse SoftProgWeb.SoftProgWS.AdministradorSistemaWS.actualizarAdministradorPorId(SoftProgWeb.SoftProgWS.actualizarAdministradorPorIdRequest request) {
             return base.Channel.actualizarAdministradorPorId(request);
         }
@@ -6056,6 +6056,17 @@ namespace SoftProgWeb.SoftProgWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SoftProgWS.ClienteWS")]
     public interface ClienteWS {
         
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.Exception), Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarCliente/Fault/Exception", Name="Exception")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.listarClienteResponse listarCliente(SoftProgWeb.SoftProgWS.listarClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarClienteResponse> listarClienteAsync(SoftProgWeb.SoftProgWS.listarClienteRequest request);
+        
         // CODEGEN: Parameter 'cliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarClienteResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarCliente/Fault/JsonProces" +
@@ -6070,6 +6081,31 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/actualizarClienteResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarClienteResponse> actualizarClienteAsync(SoftProgWeb.SoftProgWS.actualizarClienteRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/InterruptedE" +
+            "xception", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.eliminarClienteResponse eliminarCliente(SoftProgWeb.SoftProgWS.eliminarClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarClienteResponse> eliminarClienteAsync(SoftProgWeb.SoftProgWS.eliminarClienteRequest request);
+        
+        // CODEGEN: Parameter 'cliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/InterruptedE" +
+            "xception", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.insertarClienteResponse insertarCliente(SoftProgWeb.SoftProgWS.insertarClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarClienteResponse> insertarClienteAsync(SoftProgWeb.SoftProgWS.insertarClienteRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/obtenerClienteResponse")]
@@ -6096,42 +6132,34 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/buscarPorDniRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/buscarPorDniResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.buscarPorDniResponse> buscarPorDniAsync(SoftProgWeb.SoftProgWS.buscarPorDniRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarClienteRequest {
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.Exception), Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarCliente/Fault/Exception", Name="Exception")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.listarClienteResponse listarCliente(SoftProgWeb.SoftProgWS.listarClienteRequest request);
+        public listarClienteRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarClienteResponse {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/listarClienteResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarClienteResponse> listarClienteAsync(SoftProgWeb.SoftProgWS.listarClienteRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.cliente[] @return;
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarCliente/Fault/InterruptedE" +
-            "xception", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.eliminarClienteResponse eliminarCliente(SoftProgWeb.SoftProgWS.eliminarClienteRequest request);
+        public listarClienteResponse() {
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/eliminarClienteResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarClienteResponse> eliminarClienteAsync(SoftProgWeb.SoftProgWS.eliminarClienteRequest request);
-        
-        // CODEGEN: Parameter 'cliente' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarCliente/Fault/InterruptedE" +
-            "xception", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.insertarClienteResponse insertarCliente(SoftProgWeb.SoftProgWS.insertarClienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteRequest", ReplyAction="http://services.softprog.pucp.edu.pe/ClienteWS/insertarClienteResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarClienteResponse> insertarClienteAsync(SoftProgWeb.SoftProgWS.insertarClienteRequest request);
+        public listarClienteResponse(SoftProgWeb.SoftProgWS.cliente[] @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6159,6 +6187,70 @@ namespace SoftProgWeb.SoftProgWS {
     public partial class actualizarClienteResponse {
         
         public actualizarClienteResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public eliminarClienteRequest() {
+        }
+        
+        public eliminarClienteRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
+        
+        public eliminarClienteResponse() {
+        }
+        
+        public eliminarClienteResponse(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.cliente cliente;
+        
+        public insertarClienteRequest() {
+        }
+        
+        public insertarClienteRequest(SoftProgWeb.SoftProgWS.cliente cliente) {
+            this.cliente = cliente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarClienteResponse {
+        
+        public insertarClienteResponse() {
         }
     }
     
@@ -6234,98 +6326,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarClienteRequest {
-        
-        public listarClienteRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.cliente[] @return;
-        
-        public listarClienteResponse() {
-        }
-        
-        public listarClienteResponse(SoftProgWeb.SoftProgWS.cliente[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public eliminarClienteRequest() {
-        }
-        
-        public eliminarClienteRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public eliminarClienteResponse() {
-        }
-        
-        public eliminarClienteResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.cliente cliente;
-        
-        public insertarClienteRequest() {
-        }
-        
-        public insertarClienteRequest(SoftProgWeb.SoftProgWS.cliente cliente) {
-            this.cliente = cliente;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarClienteResponse {
-        
-        public insertarClienteResponse() {
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ClienteWSChannel : SoftProgWeb.SoftProgWS.ClienteWS, System.ServiceModel.IClientChannel {
     }
@@ -6354,6 +6354,27 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.listarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.listarCliente(SoftProgWeb.SoftProgWS.listarClienteRequest request) {
+            return base.Channel.listarCliente(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.cliente[] listarCliente() {
+            SoftProgWeb.SoftProgWS.listarClienteRequest inValue = new SoftProgWeb.SoftProgWS.listarClienteRequest();
+            SoftProgWeb.SoftProgWS.listarClienteResponse retVal = ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).listarCliente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarClienteResponse> SoftProgWeb.SoftProgWS.ClienteWS.listarClienteAsync(SoftProgWeb.SoftProgWS.listarClienteRequest request) {
+            return base.Channel.listarClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarClienteResponse> listarClienteAsync() {
+            SoftProgWeb.SoftProgWS.listarClienteRequest inValue = new SoftProgWeb.SoftProgWS.listarClienteRequest();
+            return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).listarClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.actualizarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.actualizarCliente(SoftProgWeb.SoftProgWS.actualizarClienteRequest request) {
             return base.Channel.actualizarCliente(request);
         }
@@ -6373,6 +6394,51 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.actualizarClienteRequest inValue = new SoftProgWeb.SoftProgWS.actualizarClienteRequest();
             inValue.cliente = cliente;
             return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).actualizarClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.eliminarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.eliminarCliente(SoftProgWeb.SoftProgWS.eliminarClienteRequest request) {
+            return base.Channel.eliminarCliente(request);
+        }
+        
+        public string eliminarCliente(int id) {
+            SoftProgWeb.SoftProgWS.eliminarClienteRequest inValue = new SoftProgWeb.SoftProgWS.eliminarClienteRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.eliminarClienteResponse retVal = ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).eliminarCliente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarClienteResponse> SoftProgWeb.SoftProgWS.ClienteWS.eliminarClienteAsync(SoftProgWeb.SoftProgWS.eliminarClienteRequest request) {
+            return base.Channel.eliminarClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarClienteResponse> eliminarClienteAsync(int id) {
+            SoftProgWeb.SoftProgWS.eliminarClienteRequest inValue = new SoftProgWeb.SoftProgWS.eliminarClienteRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).eliminarClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.insertarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.insertarCliente(SoftProgWeb.SoftProgWS.insertarClienteRequest request) {
+            return base.Channel.insertarCliente(request);
+        }
+        
+        public void insertarCliente(SoftProgWeb.SoftProgWS.cliente cliente) {
+            SoftProgWeb.SoftProgWS.insertarClienteRequest inValue = new SoftProgWeb.SoftProgWS.insertarClienteRequest();
+            inValue.cliente = cliente;
+            SoftProgWeb.SoftProgWS.insertarClienteResponse retVal = ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).insertarCliente(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarClienteResponse> SoftProgWeb.SoftProgWS.ClienteWS.insertarClienteAsync(SoftProgWeb.SoftProgWS.insertarClienteRequest request) {
+            return base.Channel.insertarClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarClienteResponse> insertarClienteAsync(SoftProgWeb.SoftProgWS.cliente cliente) {
+            SoftProgWeb.SoftProgWS.insertarClienteRequest inValue = new SoftProgWeb.SoftProgWS.insertarClienteRequest();
+            inValue.cliente = cliente;
+            return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).insertarClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6420,126 +6486,11 @@ namespace SoftProgWeb.SoftProgWS {
             inValue.dni = dni;
             return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).buscarPorDniAsync(inValue);
         }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.listarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.listarCliente(SoftProgWeb.SoftProgWS.listarClienteRequest request) {
-            return base.Channel.listarCliente(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.cliente[] listarCliente() {
-            SoftProgWeb.SoftProgWS.listarClienteRequest inValue = new SoftProgWeb.SoftProgWS.listarClienteRequest();
-            SoftProgWeb.SoftProgWS.listarClienteResponse retVal = ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).listarCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarClienteResponse> SoftProgWeb.SoftProgWS.ClienteWS.listarClienteAsync(SoftProgWeb.SoftProgWS.listarClienteRequest request) {
-            return base.Channel.listarClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarClienteResponse> listarClienteAsync() {
-            SoftProgWeb.SoftProgWS.listarClienteRequest inValue = new SoftProgWeb.SoftProgWS.listarClienteRequest();
-            return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).listarClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.eliminarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.eliminarCliente(SoftProgWeb.SoftProgWS.eliminarClienteRequest request) {
-            return base.Channel.eliminarCliente(request);
-        }
-        
-        public string eliminarCliente(int id) {
-            SoftProgWeb.SoftProgWS.eliminarClienteRequest inValue = new SoftProgWeb.SoftProgWS.eliminarClienteRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.eliminarClienteResponse retVal = ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).eliminarCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarClienteResponse> SoftProgWeb.SoftProgWS.ClienteWS.eliminarClienteAsync(SoftProgWeb.SoftProgWS.eliminarClienteRequest request) {
-            return base.Channel.eliminarClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarClienteResponse> eliminarClienteAsync(int id) {
-            SoftProgWeb.SoftProgWS.eliminarClienteRequest inValue = new SoftProgWeb.SoftProgWS.eliminarClienteRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).eliminarClienteAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.insertarClienteResponse SoftProgWeb.SoftProgWS.ClienteWS.insertarCliente(SoftProgWeb.SoftProgWS.insertarClienteRequest request) {
-            return base.Channel.insertarCliente(request);
-        }
-        
-        public void insertarCliente(SoftProgWeb.SoftProgWS.cliente cliente) {
-            SoftProgWeb.SoftProgWS.insertarClienteRequest inValue = new SoftProgWeb.SoftProgWS.insertarClienteRequest();
-            inValue.cliente = cliente;
-            SoftProgWeb.SoftProgWS.insertarClienteResponse retVal = ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).insertarCliente(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarClienteResponse> SoftProgWeb.SoftProgWS.ClienteWS.insertarClienteAsync(SoftProgWeb.SoftProgWS.insertarClienteRequest request) {
-            return base.Channel.insertarClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarClienteResponse> insertarClienteAsync(SoftProgWeb.SoftProgWS.cliente cliente) {
-            SoftProgWeb.SoftProgWS.insertarClienteRequest inValue = new SoftProgWeb.SoftProgWS.insertarClienteRequest();
-            inValue.cliente = cliente;
-            return ((SoftProgWeb.SoftProgWS.ClienteWS)(this)).insertarClienteAsync(inValue);
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.softprog.pucp.edu.pe/", ConfigurationName="SoftProgWS.CuentaUsuarioWS")]
     public interface CuentaUsuarioWS {
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionResp" +
-            "onse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse validarTokenRecuperacion(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionRequ" +
-            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionResp" +
-            "onse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse> validarTokenRecuperacionAsync(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenResponse" +
-            "")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse obtenerPorResetToken(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenResponse" +
-            "")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse> obtenerPorResetTokenAsync(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request);
-        
-        // CODEGEN: Parameter 'token' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRespons" +
-            "e")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse resetPasswordConToken(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRequest" +
-            "", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRespons" +
-            "e")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse> resetPasswordConTokenAsync(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.cambiarPasswordResponse cambiarPassword(SoftProgWeb.SoftProgWS.cambiarPasswordRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.cambiarPasswordResponse> cambiarPasswordAsync(SoftProgWeb.SoftProgWS.cambiarPasswordRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/loginRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/loginResponse")]
@@ -6555,45 +6506,26 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.loginResponse> loginAsync(SoftProgWeb.SoftProgWS.loginRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
-            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
-            "oResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse obtenerCuentaUsuarioPorCorreo(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request);
+        SoftProgWeb.SoftProgWS.cambiarPasswordResponse cambiarPassword(SoftProgWeb.SoftProgWS.cambiarPasswordRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
-            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
-            "oResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse> obtenerCuentaUsuarioPorCorreoAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.cambiarPasswordResponse> cambiarPasswordAsync(SoftProgWeb.SoftProgWS.cambiarPasswordRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
-            "ameRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
-            "ameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenResponse" +
+            "")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse obtenerCuentaUsuarioPorUserName(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request);
+        SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse obtenerPorResetToken(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
-            "ameRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
-            "ameResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse> obtenerCuentaUsuarioPorUserNameAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request);
-        
-        // CODEGEN: Parameter 'correo' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
-            "dRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
-            "dResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse solicitarRecuperacionPassword(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
-            "dRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
-            "dResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse> solicitarRecuperacionPasswordAsync(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenResponse" +
+            "")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse> obtenerPorResetTokenAsync(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request);
         
         // CODEGEN: Parameter 'cuentaUsuario' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioRequest" +
@@ -6615,22 +6547,6 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarCuentaUsuarioResponse> insertarCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.insertarCuentaUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioResponse" +
-            "")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuario/Fault/I" +
-            "OException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuario/Fault/I" +
-            "nterruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse obtenerCuentaUsuario(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioResponse" +
-            "")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse> obtenerCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuarioRequest" +
             "", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuarioRespons" +
             "e")]
@@ -6647,6 +6563,35 @@ namespace SoftProgWeb.SoftProgWS {
             "", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuarioRespons" +
             "e")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioResponse> eliminarCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioRequest request);
+        
+        // CODEGEN: Parameter 'token' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRespons" +
+            "e")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse resetPasswordConToken(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRequest" +
+            "", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRespons" +
+            "e")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse> resetPasswordConTokenAsync(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioResponse" +
+            "")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuario/Fault/I" +
+            "OException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuario/Fault/I" +
+            "nterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse obtenerCuentaUsuario(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioResponse" +
+            "")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse> obtenerCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuarioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuarioResponse")]
@@ -6680,110 +6625,101 @@ namespace SoftProgWeb.SoftProgWS {
             "st", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuarioRespo" +
             "nse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCuentaUsuarioResponse> actualizarCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.actualizarCuentaUsuarioRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionResp" +
+            "onse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse validarTokenRecuperacion(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionRequ" +
+            "est", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionResp" +
+            "onse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse> validarTokenRecuperacionAsync(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
+            "ameRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
+            "ameResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse obtenerCuentaUsuarioPorUserName(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
+            "ameRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserN" +
+            "ameResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse> obtenerCuentaUsuarioPorUserNameAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
+            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
+            "oResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse obtenerCuentaUsuarioPorCorreo(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
+            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorre" +
+            "oResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse> obtenerCuentaUsuarioPorCorreoAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request);
+        
+        // CODEGEN: Parameter 'correo' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
+            "dRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
+            "dResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse solicitarRecuperacionPassword(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
+            "dRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswor" +
+            "dResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse> solicitarRecuperacionPasswordAsync(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="validarTokenRecuperacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class validarTokenRecuperacionRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="login", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class loginRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string token;
+        public string email;
         
-        public validarTokenRecuperacionRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string password;
+        
+        public loginRequest() {
         }
         
-        public validarTokenRecuperacionRequest(string token) {
-            this.token = token;
+        public loginRequest(string email, string password) {
+            this.email = email;
+            this.password = password;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="validarTokenRecuperacionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class validarTokenRecuperacionResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="loginResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class loginResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public bool @return;
         
-        public validarTokenRecuperacionResponse() {
+        public loginResponse() {
         }
         
-        public validarTokenRecuperacionResponse(bool @return) {
+        public loginResponse(bool @return) {
             this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorResetToken", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerPorResetTokenRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string token;
-        
-        public obtenerPorResetTokenRequest() {
-        }
-        
-        public obtenerPorResetTokenRequest(string token) {
-            this.token = token;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorResetTokenResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerPorResetTokenResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
-        
-        public obtenerPorResetTokenResponse() {
-        }
-        
-        public obtenerPorResetTokenResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="resetPasswordConToken", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class resetPasswordConTokenRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string token;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nuevaPassword;
-        
-        public resetPasswordConTokenRequest() {
-        }
-        
-        public resetPasswordConTokenRequest(string token, string nuevaPassword) {
-            this.token = token;
-            this.nuevaPassword = nuevaPassword;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="resetPasswordConTokenResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class resetPasswordConTokenResponse {
-        
-        public resetPasswordConTokenResponse() {
         }
     }
     
@@ -6836,141 +6772,36 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="login", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class loginRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorResetToken", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerPorResetTokenRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string email;
+        public string token;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string password;
-        
-        public loginRequest() {
+        public obtenerPorResetTokenRequest() {
         }
         
-        public loginRequest(string email, string password) {
-            this.email = email;
-            this.password = password;
+        public obtenerPorResetTokenRequest(string token) {
+            this.token = token;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="loginResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class loginResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool @return;
-        
-        public loginResponse() {
-        }
-        
-        public loginResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorCorreo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCuentaUsuarioPorCorreoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string correo;
-        
-        public obtenerCuentaUsuarioPorCorreoRequest() {
-        }
-        
-        public obtenerCuentaUsuarioPorCorreoRequest(string correo) {
-            this.correo = correo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorCorreoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCuentaUsuarioPorCorreoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorResetTokenResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerPorResetTokenResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
         
-        public obtenerCuentaUsuarioPorCorreoResponse() {
+        public obtenerPorResetTokenResponse() {
         }
         
-        public obtenerCuentaUsuarioPorCorreoResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
+        public obtenerPorResetTokenResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
             this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorUserName", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCuentaUsuarioPorUserNameRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string username;
-        
-        public obtenerCuentaUsuarioPorUserNameRequest() {
-        }
-        
-        public obtenerCuentaUsuarioPorUserNameRequest(string username) {
-            this.username = username;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorUserNameResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCuentaUsuarioPorUserNameResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
-        
-        public obtenerCuentaUsuarioPorUserNameResponse() {
-        }
-        
-        public obtenerCuentaUsuarioPorUserNameResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="solicitarRecuperacionPassword", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class solicitarRecuperacionPasswordRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string correo;
-        
-        public solicitarRecuperacionPasswordRequest() {
-        }
-        
-        public solicitarRecuperacionPasswordRequest(string correo) {
-            this.correo = correo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="solicitarRecuperacionPasswordResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class solicitarRecuperacionPasswordResponse {
-        
-        public solicitarRecuperacionPasswordResponse() {
         }
     }
     
@@ -6999,42 +6830,6 @@ namespace SoftProgWeb.SoftProgWS {
     public partial class insertarCuentaUsuarioResponse {
         
         public insertarCuentaUsuarioResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCuentaUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public obtenerCuentaUsuarioRequest() {
-        }
-        
-        public obtenerCuentaUsuarioRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerCuentaUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
-        
-        public obtenerCuentaUsuarioResponse() {
-        }
-        
-        public obtenerCuentaUsuarioResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
-            this.@return = @return;
         }
     }
     
@@ -7070,6 +6865,75 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         public eliminarCuentaUsuarioResponse(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="resetPasswordConToken", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class resetPasswordConTokenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string token;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nuevaPassword;
+        
+        public resetPasswordConTokenRequest() {
+        }
+        
+        public resetPasswordConTokenRequest(string token, string nuevaPassword) {
+            this.token = token;
+            this.nuevaPassword = nuevaPassword;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="resetPasswordConTokenResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class resetPasswordConTokenResponse {
+        
+        public resetPasswordConTokenResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCuentaUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public obtenerCuentaUsuarioRequest() {
+        }
+        
+        public obtenerCuentaUsuarioRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCuentaUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
+        
+        public obtenerCuentaUsuarioResponse() {
+        }
+        
+        public obtenerCuentaUsuarioResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
             this.@return = @return;
         }
     }
@@ -7130,6 +6994,142 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="validarTokenRecuperacion", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class validarTokenRecuperacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string token;
+        
+        public validarTokenRecuperacionRequest() {
+        }
+        
+        public validarTokenRecuperacionRequest(string token) {
+            this.token = token;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="validarTokenRecuperacionResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class validarTokenRecuperacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public validarTokenRecuperacionResponse() {
+        }
+        
+        public validarTokenRecuperacionResponse(bool @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorUserName", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCuentaUsuarioPorUserNameRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string username;
+        
+        public obtenerCuentaUsuarioPorUserNameRequest() {
+        }
+        
+        public obtenerCuentaUsuarioPorUserNameRequest(string username) {
+            this.username = username;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorUserNameResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCuentaUsuarioPorUserNameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
+        
+        public obtenerCuentaUsuarioPorUserNameResponse() {
+        }
+        
+        public obtenerCuentaUsuarioPorUserNameResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorCorreo", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCuentaUsuarioPorCorreoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string correo;
+        
+        public obtenerCuentaUsuarioPorCorreoRequest() {
+        }
+        
+        public obtenerCuentaUsuarioPorCorreoRequest(string correo) {
+            this.correo = correo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerCuentaUsuarioPorCorreoResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerCuentaUsuarioPorCorreoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.cuentaUsuario @return;
+        
+        public obtenerCuentaUsuarioPorCorreoResponse() {
+        }
+        
+        public obtenerCuentaUsuarioPorCorreoResponse(SoftProgWeb.SoftProgWS.cuentaUsuario @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="solicitarRecuperacionPassword", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class solicitarRecuperacionPasswordRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string correo;
+        
+        public solicitarRecuperacionPasswordRequest() {
+        }
+        
+        public solicitarRecuperacionPasswordRequest(string correo) {
+            this.correo = correo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="solicitarRecuperacionPasswordResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class solicitarRecuperacionPasswordResponse {
+        
+        public solicitarRecuperacionPasswordResponse() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CuentaUsuarioWSChannel : SoftProgWeb.SoftProgWS.CuentaUsuarioWS, System.ServiceModel.IClientChannel {
     }
@@ -7158,73 +7158,28 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.validarTokenRecuperacion(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request) {
-            return base.Channel.validarTokenRecuperacion(request);
+        SoftProgWeb.SoftProgWS.loginResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.login(SoftProgWeb.SoftProgWS.loginRequest request) {
+            return base.Channel.login(request);
         }
         
-        public bool validarTokenRecuperacion(string token) {
-            SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest inValue = new SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest();
-            inValue.token = token;
-            SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).validarTokenRecuperacion(inValue);
+        public bool login(string email, string password) {
+            SoftProgWeb.SoftProgWS.loginRequest inValue = new SoftProgWeb.SoftProgWS.loginRequest();
+            inValue.email = email;
+            inValue.password = password;
+            SoftProgWeb.SoftProgWS.loginResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).login(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.validarTokenRecuperacionAsync(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request) {
-            return base.Channel.validarTokenRecuperacionAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.loginResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.loginAsync(SoftProgWeb.SoftProgWS.loginRequest request) {
+            return base.Channel.loginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse> validarTokenRecuperacionAsync(string token) {
-            SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest inValue = new SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest();
-            inValue.token = token;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).validarTokenRecuperacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerPorResetToken(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request) {
-            return base.Channel.obtenerPorResetToken(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerPorResetToken(string token) {
-            SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest inValue = new SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest();
-            inValue.token = token;
-            SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerPorResetToken(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerPorResetTokenAsync(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request) {
-            return base.Channel.obtenerPorResetTokenAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse> obtenerPorResetTokenAsync(string token) {
-            SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest inValue = new SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest();
-            inValue.token = token;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerPorResetTokenAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.resetPasswordConToken(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request) {
-            return base.Channel.resetPasswordConToken(request);
-        }
-        
-        public void resetPasswordConToken(string token, string nuevaPassword) {
-            SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest inValue = new SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest();
-            inValue.token = token;
-            inValue.nuevaPassword = nuevaPassword;
-            SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).resetPasswordConToken(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.resetPasswordConTokenAsync(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request) {
-            return base.Channel.resetPasswordConTokenAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse> resetPasswordConTokenAsync(string token, string nuevaPassword) {
-            SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest inValue = new SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest();
-            inValue.token = token;
-            inValue.nuevaPassword = nuevaPassword;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).resetPasswordConTokenAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.loginResponse> loginAsync(string email, string password) {
+            SoftProgWeb.SoftProgWS.loginRequest inValue = new SoftProgWeb.SoftProgWS.loginRequest();
+            inValue.email = email;
+            inValue.password = password;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).loginAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7255,96 +7210,26 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.loginResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.login(SoftProgWeb.SoftProgWS.loginRequest request) {
-            return base.Channel.login(request);
+        SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerPorResetToken(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request) {
+            return base.Channel.obtenerPorResetToken(request);
         }
         
-        public bool login(string email, string password) {
-            SoftProgWeb.SoftProgWS.loginRequest inValue = new SoftProgWeb.SoftProgWS.loginRequest();
-            inValue.email = email;
-            inValue.password = password;
-            SoftProgWeb.SoftProgWS.loginResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).login(inValue);
+        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerPorResetToken(string token) {
+            SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest inValue = new SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest();
+            inValue.token = token;
+            SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerPorResetToken(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.loginResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.loginAsync(SoftProgWeb.SoftProgWS.loginRequest request) {
-            return base.Channel.loginAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerPorResetTokenAsync(SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest request) {
+            return base.Channel.obtenerPorResetTokenAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.loginResponse> loginAsync(string email, string password) {
-            SoftProgWeb.SoftProgWS.loginRequest inValue = new SoftProgWeb.SoftProgWS.loginRequest();
-            inValue.email = email;
-            inValue.password = password;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).loginAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorCorreo(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request) {
-            return base.Channel.obtenerCuentaUsuarioPorCorreo(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerCuentaUsuarioPorCorreo(string correo) {
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest();
-            inValue.correo = correo;
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorCorreo(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorCorreoAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request) {
-            return base.Channel.obtenerCuentaUsuarioPorCorreoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse> obtenerCuentaUsuarioPorCorreoAsync(string correo) {
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest();
-            inValue.correo = correo;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorCorreoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorUserName(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request) {
-            return base.Channel.obtenerCuentaUsuarioPorUserName(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerCuentaUsuarioPorUserName(string username) {
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest();
-            inValue.username = username;
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorUserName(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorUserNameAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request) {
-            return base.Channel.obtenerCuentaUsuarioPorUserNameAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse> obtenerCuentaUsuarioPorUserNameAsync(string username) {
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest();
-            inValue.username = username;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorUserNameAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.solicitarRecuperacionPassword(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request) {
-            return base.Channel.solicitarRecuperacionPassword(request);
-        }
-        
-        public void solicitarRecuperacionPassword(string correo) {
-            SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest inValue = new SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest();
-            inValue.correo = correo;
-            SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).solicitarRecuperacionPassword(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.solicitarRecuperacionPasswordAsync(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request) {
-            return base.Channel.solicitarRecuperacionPasswordAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse> solicitarRecuperacionPasswordAsync(string correo) {
-            SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest inValue = new SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest();
-            inValue.correo = correo;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).solicitarRecuperacionPasswordAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerPorResetTokenResponse> obtenerPorResetTokenAsync(string token) {
+            SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest inValue = new SoftProgWeb.SoftProgWS.obtenerPorResetTokenRequest();
+            inValue.token = token;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerPorResetTokenAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7370,29 +7255,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuario(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request) {
-            return base.Channel.obtenerCuentaUsuario(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerCuentaUsuario(int id) {
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuario(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request) {
-            return base.Channel.obtenerCuentaUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse> obtenerCuentaUsuarioAsync(int id) {
-            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.eliminarCuentaUsuario(SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioRequest request) {
             return base.Channel.eliminarCuentaUsuario(request);
         }
@@ -7413,6 +7275,53 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioRequest inValue = new SoftProgWeb.SoftProgWS.eliminarCuentaUsuarioRequest();
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).eliminarCuentaUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.resetPasswordConToken(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request) {
+            return base.Channel.resetPasswordConToken(request);
+        }
+        
+        public void resetPasswordConToken(string token, string nuevaPassword) {
+            SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest inValue = new SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest();
+            inValue.token = token;
+            inValue.nuevaPassword = nuevaPassword;
+            SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).resetPasswordConToken(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.resetPasswordConTokenAsync(SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest request) {
+            return base.Channel.resetPasswordConTokenAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.resetPasswordConTokenResponse> resetPasswordConTokenAsync(string token, string nuevaPassword) {
+            SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest inValue = new SoftProgWeb.SoftProgWS.resetPasswordConTokenRequest();
+            inValue.token = token;
+            inValue.nuevaPassword = nuevaPassword;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).resetPasswordConTokenAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuario(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request) {
+            return base.Channel.obtenerCuentaUsuario(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerCuentaUsuario(int id) {
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest request) {
+            return base.Channel.obtenerCuentaUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioResponse> obtenerCuentaUsuarioAsync(int id) {
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7456,6 +7365,97 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.actualizarCuentaUsuarioRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCuentaUsuarioRequest();
             inValue.cuentaUsuario = cuentaUsuario;
             return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).actualizarCuentaUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.validarTokenRecuperacion(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request) {
+            return base.Channel.validarTokenRecuperacion(request);
+        }
+        
+        public bool validarTokenRecuperacion(string token) {
+            SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest inValue = new SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest();
+            inValue.token = token;
+            SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).validarTokenRecuperacion(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.validarTokenRecuperacionAsync(SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest request) {
+            return base.Channel.validarTokenRecuperacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.validarTokenRecuperacionResponse> validarTokenRecuperacionAsync(string token) {
+            SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest inValue = new SoftProgWeb.SoftProgWS.validarTokenRecuperacionRequest();
+            inValue.token = token;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).validarTokenRecuperacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorUserName(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request) {
+            return base.Channel.obtenerCuentaUsuarioPorUserName(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerCuentaUsuarioPorUserName(string username) {
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest();
+            inValue.username = username;
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorUserName(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorUserNameAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest request) {
+            return base.Channel.obtenerCuentaUsuarioPorUserNameAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameResponse> obtenerCuentaUsuarioPorUserNameAsync(string username) {
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorUserNameRequest();
+            inValue.username = username;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorUserNameAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorCorreo(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request) {
+            return base.Channel.obtenerCuentaUsuarioPorCorreo(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.cuentaUsuario obtenerCuentaUsuarioPorCorreo(string correo) {
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest();
+            inValue.correo = correo;
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorCorreo(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.obtenerCuentaUsuarioPorCorreoAsync(SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest request) {
+            return base.Channel.obtenerCuentaUsuarioPorCorreoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoResponse> obtenerCuentaUsuarioPorCorreoAsync(string correo) {
+            SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest inValue = new SoftProgWeb.SoftProgWS.obtenerCuentaUsuarioPorCorreoRequest();
+            inValue.correo = correo;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).obtenerCuentaUsuarioPorCorreoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse SoftProgWeb.SoftProgWS.CuentaUsuarioWS.solicitarRecuperacionPassword(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request) {
+            return base.Channel.solicitarRecuperacionPassword(request);
+        }
+        
+        public void solicitarRecuperacionPassword(string correo) {
+            SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest inValue = new SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest();
+            inValue.correo = correo;
+            SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse retVal = ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).solicitarRecuperacionPassword(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse> SoftProgWeb.SoftProgWS.CuentaUsuarioWS.solicitarRecuperacionPasswordAsync(SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest request) {
+            return base.Channel.solicitarRecuperacionPasswordAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordResponse> solicitarRecuperacionPasswordAsync(string correo) {
+            SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest inValue = new SoftProgWeb.SoftProgWS.solicitarRecuperacionPasswordRequest();
+            inValue.correo = correo;
+            return ((SoftProgWeb.SoftProgWS.CuentaUsuarioWS)(this)).solicitarRecuperacionPasswordAsync(inValue);
         }
     }
     
@@ -7510,36 +7510,22 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarOrdenCompraResponse> listarOrdenCompraAsync(SoftProgWeb.SoftProgWS.listarOrdenCompraRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasReques" +
-            "t", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasRespon" +
-            "se")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechas/Fault" +
-            "/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechas/Fault" +
-            "/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "te/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "te/Fault/InterruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse consultarPedidoPorFechas(SoftProgWeb.SoftProgWS.consultarPedidoPorFechasRequest request);
+        SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse consultarOrdenCompraPorIdCliente(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasReques" +
-            "t", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasRespon" +
-            "se")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse> consultarPedidoPorFechasAsync(SoftProgWeb.SoftProgWS.consultarPedidoPorFechasRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompra/Fault/IO" +
-            "Exception", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompra/Fault/In" +
-            "terruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse desactivarOrdenCompra(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse> desactivarOrdenCompraAsync(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
+            "teResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse> consultarOrdenCompraPorIdClienteAsync(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request);
         
         // CODEGEN: Parameter 'ordenCompra' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraResponse")]
@@ -7555,19 +7541,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest request);
-        
-        // CODEGEN: Parameter 'id' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/IOEx" +
-            "ception", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/Inte" +
-            "rruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse eliminarOrdenCompra(SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest request);
         
         // CODEGEN: Parameter 'ordenCompra' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraResponse")]
@@ -7585,22 +7558,49 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse> insertarOrdenCompraAsync(SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
-            "teRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
-            "teResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
-            "te/Fault/IOException", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
-            "te/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompra/Fault/IO" +
+            "Exception", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompra/Fault/In" +
+            "terruptedException", Name="InterruptedException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse consultarOrdenCompraPorIdCliente(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request);
+        SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse desactivarOrdenCompra(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
-            "teRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdClien" +
-            "teResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse> consultarOrdenCompraPorIdClienteAsync(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse> desactivarOrdenCompraAsync(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasReques" +
+            "t", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasRespon" +
+            "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechas/Fault" +
+            "/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechas/Fault" +
+            "/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse consultarPedidoPorFechas(SoftProgWeb.SoftProgWS.consultarPedidoPorFechasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasReques" +
+            "t", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasRespon" +
+            "se")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse> consultarPedidoPorFechasAsync(SoftProgWeb.SoftProgWS.consultarPedidoPorFechasRequest request);
+        
+        // CODEGEN: Parameter 'id' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/IOEx" +
+            "ception", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/Inte" +
+            "rruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse eliminarOrdenCompra(SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7706,6 +7706,134 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarOrdenCompraPorIdCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class consultarOrdenCompraPorIdClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public consultarOrdenCompraPorIdClienteRequest() {
+        }
+        
+        public consultarOrdenCompraPorIdClienteRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarOrdenCompraPorIdClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class consultarOrdenCompraPorIdClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.ordenCompra[] @return;
+        
+        public consultarOrdenCompraPorIdClienteResponse() {
+        }
+        
+        public consultarOrdenCompraPorIdClienteResponse(SoftProgWeb.SoftProgWS.ordenCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.ordenCompra ordenCompra;
+        
+        public actualizarOrdenCompraRequest() {
+        }
+        
+        public actualizarOrdenCompraRequest(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
+            this.ordenCompra = ordenCompra;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarOrdenCompraResponse {
+        
+        public actualizarOrdenCompraResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.ordenCompra ordenCompra;
+        
+        public insertarOrdenCompraRequest() {
+        }
+        
+        public insertarOrdenCompraRequest(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
+            this.ordenCompra = ordenCompra;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarOrdenCompraResponse {
+        
+        public insertarOrdenCompraResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="desactivarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class desactivarOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public desactivarOrdenCompraRequest() {
+        }
+        
+        public desactivarOrdenCompraRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="desactivarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class desactivarOrdenCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
+        
+        public desactivarOrdenCompraResponse() {
+        }
+        
+        public desactivarOrdenCompraResponse(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="consultarPedidoPorFechas", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class consultarPedidoPorFechasRequest {
         
@@ -7752,70 +7880,6 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="desactivarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class desactivarOrdenCompraRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public desactivarOrdenCompraRequest() {
-        }
-        
-        public desactivarOrdenCompraRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="desactivarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class desactivarOrdenCompraResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public desactivarOrdenCompraResponse() {
-        }
-        
-        public desactivarOrdenCompraResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarOrdenCompraRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.ordenCompra ordenCompra;
-        
-        public actualizarOrdenCompraRequest() {
-        }
-        
-        public actualizarOrdenCompraRequest(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
-            this.ordenCompra = ordenCompra;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarOrdenCompraResponse {
-        
-        public actualizarOrdenCompraResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarOrdenCompraRequest {
         
@@ -7838,70 +7902,6 @@ namespace SoftProgWeb.SoftProgWS {
     public partial class eliminarOrdenCompraResponse {
         
         public eliminarOrdenCompraResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenCompra", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarOrdenCompraRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.ordenCompra ordenCompra;
-        
-        public insertarOrdenCompraRequest() {
-        }
-        
-        public insertarOrdenCompraRequest(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
-            this.ordenCompra = ordenCompra;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenCompraResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarOrdenCompraResponse {
-        
-        public insertarOrdenCompraResponse() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarOrdenCompraPorIdCliente", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class consultarOrdenCompraPorIdClienteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public consultarOrdenCompraPorIdClienteRequest() {
-        }
-        
-        public consultarOrdenCompraPorIdClienteRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarOrdenCompraPorIdClienteResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class consultarOrdenCompraPorIdClienteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.ordenCompra[] @return;
-        
-        public consultarOrdenCompraPorIdClienteResponse() {
-        }
-        
-        public consultarOrdenCompraPorIdClienteResponse(SoftProgWeb.SoftProgWS.ordenCompra[] @return) {
-            this.@return = @return;
         }
     }
     
@@ -8000,6 +8000,96 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.consultarOrdenCompraPorIdCliente(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request) {
+            return base.Channel.consultarOrdenCompraPorIdCliente(request);
+        }
+        
+        public SoftProgWeb.SoftProgWS.ordenCompra[] consultarOrdenCompraPorIdCliente(int id) {
+            SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest inValue = new SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).consultarOrdenCompraPorIdCliente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.consultarOrdenCompraPorIdClienteAsync(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request) {
+            return base.Channel.consultarOrdenCompraPorIdClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse> consultarOrdenCompraPorIdClienteAsync(int id) {
+            SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest inValue = new SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).consultarOrdenCompraPorIdClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.actualizarOrdenCompra(SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest request) {
+            return base.Channel.actualizarOrdenCompra(request);
+        }
+        
+        public void actualizarOrdenCompra(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
+            SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest();
+            inValue.ordenCompra = ordenCompra;
+            SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).actualizarOrdenCompra(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.actualizarOrdenCompraAsync(SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest request) {
+            return base.Channel.actualizarOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
+            SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest();
+            inValue.ordenCompra = ordenCompra;
+            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).actualizarOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.insertarOrdenCompra(SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest request) {
+            return base.Channel.insertarOrdenCompra(request);
+        }
+        
+        public void insertarOrdenCompra(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
+            SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest();
+            inValue.ordenCompra = ordenCompra;
+            SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).insertarOrdenCompra(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.insertarOrdenCompraAsync(SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest request) {
+            return base.Channel.insertarOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse> insertarOrdenCompraAsync(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
+            SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest();
+            inValue.ordenCompra = ordenCompra;
+            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).insertarOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.desactivarOrdenCompra(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request) {
+            return base.Channel.desactivarOrdenCompra(request);
+        }
+        
+        public string desactivarOrdenCompra(int id) {
+            SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).desactivarOrdenCompra(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.desactivarOrdenCompraAsync(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request) {
+            return base.Channel.desactivarOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse> desactivarOrdenCompraAsync(int id) {
+            SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).desactivarOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.consultarPedidoPorFechasResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.consultarPedidoPorFechas(SoftProgWeb.SoftProgWS.consultarPedidoPorFechasRequest request) {
             return base.Channel.consultarPedidoPorFechas(request);
         }
@@ -8027,51 +8117,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.desactivarOrdenCompra(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request) {
-            return base.Channel.desactivarOrdenCompra(request);
-        }
-        
-        public string desactivarOrdenCompra(int id) {
-            SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).desactivarOrdenCompra(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.desactivarOrdenCompraAsync(SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest request) {
-            return base.Channel.desactivarOrdenCompraAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraResponse> desactivarOrdenCompraAsync(int id) {
-            SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.desactivarOrdenCompraRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).desactivarOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.actualizarOrdenCompra(SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest request) {
-            return base.Channel.actualizarOrdenCompra(request);
-        }
-        
-        public void actualizarOrdenCompra(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
-            SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest();
-            inValue.ordenCompra = ordenCompra;
-            SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).actualizarOrdenCompra(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.actualizarOrdenCompraAsync(SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest request) {
-            return base.Channel.actualizarOrdenCompraAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarOrdenCompraResponse> actualizarOrdenCompraAsync(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
-            SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.actualizarOrdenCompraRequest();
-            inValue.ordenCompra = ordenCompra;
-            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).actualizarOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.eliminarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.eliminarOrdenCompra(SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest request) {
             return base.Channel.eliminarOrdenCompra(request);
         }
@@ -8091,51 +8136,6 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.eliminarOrdenCompraRequest();
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).eliminarOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.insertarOrdenCompra(SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest request) {
-            return base.Channel.insertarOrdenCompra(request);
-        }
-        
-        public void insertarOrdenCompra(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
-            SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest();
-            inValue.ordenCompra = ordenCompra;
-            SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).insertarOrdenCompra(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.insertarOrdenCompraAsync(SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest request) {
-            return base.Channel.insertarOrdenCompraAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarOrdenCompraResponse> insertarOrdenCompraAsync(SoftProgWeb.SoftProgWS.ordenCompra ordenCompra) {
-            SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.insertarOrdenCompraRequest();
-            inValue.ordenCompra = ordenCompra;
-            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).insertarOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.consultarOrdenCompraPorIdCliente(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request) {
-            return base.Channel.consultarOrdenCompraPorIdCliente(request);
-        }
-        
-        public SoftProgWeb.SoftProgWS.ordenCompra[] consultarOrdenCompraPorIdCliente(int id) {
-            SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest inValue = new SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).consultarOrdenCompraPorIdCliente(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.consultarOrdenCompraPorIdClienteAsync(SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest request) {
-            return base.Channel.consultarOrdenCompraPorIdClienteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteResponse> consultarOrdenCompraPorIdClienteAsync(int id) {
-            SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest inValue = new SoftProgWeb.SoftProgWS.consultarOrdenCompraPorIdClienteRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).consultarOrdenCompraPorIdClienteAsync(inValue);
         }
     }
     
@@ -8157,6 +8157,20 @@ namespace SoftProgWeb.SoftProgWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarDetalleEnvioResponse> listarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.listarDetalleEnvioRequest request);
         
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvio/Fault/IOE" +
+            "xception", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvio/Fault/Int" +
+            "erruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse obtenerDetalleEnvio(SoftProgWeb.SoftProgWS.obtenerDetalleEnvioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse> obtenerDetalleEnvioAsync(SoftProgWeb.SoftProgWS.obtenerDetalleEnvioRequest request);
+        
         // CODEGEN: Parameter 'detalleEnvio' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRequest" +
             "", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRespons" +
@@ -8176,34 +8190,6 @@ namespace SoftProgWeb.SoftProgWS {
             "e")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse> actualizarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest request);
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvio/Fault/IOE" +
-            "xception", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvio/Fault/Int" +
-            "erruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse obtenerDetalleEnvio(SoftProgWeb.SoftProgWS.obtenerDetalleEnvioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse> obtenerDetalleEnvioAsync(SoftProgWeb.SoftProgWS.obtenerDetalleEnvioRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/IO" +
-            "Exception", Name="IOException")]
-        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/In" +
-            "terruptedException", Name="InterruptedException")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse eliminarDetalleEnvio(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse")]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse> eliminarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request);
-        
         // CODEGEN: Parameter 'detalleEnvio' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvio/Fault/Js" +
@@ -8218,6 +8204,20 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.insertarDetalleEnvioResponse> insertarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.insertarDetalleEnvioRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/IO" +
+            "Exception", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/In" +
+            "terruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse eliminarDetalleEnvio(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioRequest", ReplyAction="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse> eliminarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8245,34 +8245,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         public listarDetalleEnvioResponse(SoftProgWeb.SoftProgWS.detalleEnvio[] @return) {
             this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarDetalleEnvio", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarDetalleEnvioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio;
-        
-        public actualizarDetalleEnvioRequest() {
-        }
-        
-        public actualizarDetalleEnvioRequest(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
-            this.detalleEnvio = detalleEnvio;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarDetalleEnvioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class actualizarDetalleEnvioResponse {
-        
-        public actualizarDetalleEnvioResponse() {
         }
     }
     
@@ -8315,6 +8287,62 @@ namespace SoftProgWeb.SoftProgWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarDetalleEnvio", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarDetalleEnvioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio;
+        
+        public actualizarDetalleEnvioRequest() {
+        }
+        
+        public actualizarDetalleEnvioRequest(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
+            this.detalleEnvio = detalleEnvio;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarDetalleEnvioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class actualizarDetalleEnvioResponse {
+        
+        public actualizarDetalleEnvioResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDetalleEnvio", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarDetalleEnvioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio;
+        
+        public insertarDetalleEnvioRequest() {
+        }
+        
+        public insertarDetalleEnvioRequest(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
+            this.detalleEnvio = detalleEnvio;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDetalleEnvioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarDetalleEnvioResponse {
+        
+        public insertarDetalleEnvioResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarDetalleEnvio", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarDetalleEnvioRequest {
         
@@ -8345,34 +8373,6 @@ namespace SoftProgWeb.SoftProgWS {
         
         public eliminarDetalleEnvioResponse(string @return) {
             this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDetalleEnvio", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarDetalleEnvioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio;
-        
-        public insertarDetalleEnvioRequest() {
-        }
-        
-        public insertarDetalleEnvioRequest(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
-            this.detalleEnvio = detalleEnvio;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarDetalleEnvioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarDetalleEnvioResponse {
-        
-        public insertarDetalleEnvioResponse() {
         }
     }
     
@@ -8425,28 +8425,6 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse SoftProgWeb.SoftProgWS.DetalleEnvioWS.actualizarDetalleEnvio(SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest request) {
-            return base.Channel.actualizarDetalleEnvio(request);
-        }
-        
-        public void actualizarDetalleEnvio(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
-            SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest();
-            inValue.detalleEnvio = detalleEnvio;
-            SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse retVal = ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).actualizarDetalleEnvio(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse> SoftProgWeb.SoftProgWS.DetalleEnvioWS.actualizarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest request) {
-            return base.Channel.actualizarDetalleEnvioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse> actualizarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
-            SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest();
-            inValue.detalleEnvio = detalleEnvio;
-            return ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).actualizarDetalleEnvioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoftProgWeb.SoftProgWS.obtenerDetalleEnvioResponse SoftProgWeb.SoftProgWS.DetalleEnvioWS.obtenerDetalleEnvio(SoftProgWeb.SoftProgWS.obtenerDetalleEnvioRequest request) {
             return base.Channel.obtenerDetalleEnvio(request);
         }
@@ -8470,26 +8448,25 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse SoftProgWeb.SoftProgWS.DetalleEnvioWS.eliminarDetalleEnvio(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request) {
-            return base.Channel.eliminarDetalleEnvio(request);
+        SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse SoftProgWeb.SoftProgWS.DetalleEnvioWS.actualizarDetalleEnvio(SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest request) {
+            return base.Channel.actualizarDetalleEnvio(request);
         }
         
-        public string eliminarDetalleEnvio(int id) {
-            SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest();
-            inValue.id = id;
-            SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse retVal = ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).eliminarDetalleEnvio(inValue);
-            return retVal.@return;
+        public void actualizarDetalleEnvio(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
+            SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest();
+            inValue.detalleEnvio = detalleEnvio;
+            SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse retVal = ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).actualizarDetalleEnvio(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse> SoftProgWeb.SoftProgWS.DetalleEnvioWS.eliminarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request) {
-            return base.Channel.eliminarDetalleEnvioAsync(request);
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse> SoftProgWeb.SoftProgWS.DetalleEnvioWS.actualizarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest request) {
+            return base.Channel.actualizarDetalleEnvioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse> eliminarDetalleEnvioAsync(int id) {
-            SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest();
-            inValue.id = id;
-            return ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).eliminarDetalleEnvioAsync(inValue);
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarDetalleEnvioResponse> actualizarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.detalleEnvio detalleEnvio) {
+            SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.actualizarDetalleEnvioRequest();
+            inValue.detalleEnvio = detalleEnvio;
+            return ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).actualizarDetalleEnvioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -8512,6 +8489,29 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.insertarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.insertarDetalleEnvioRequest();
             inValue.detalleEnvio = detalleEnvio;
             return ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).insertarDetalleEnvioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse SoftProgWeb.SoftProgWS.DetalleEnvioWS.eliminarDetalleEnvio(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request) {
+            return base.Channel.eliminarDetalleEnvio(request);
+        }
+        
+        public string eliminarDetalleEnvio(int id) {
+            SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse retVal = ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).eliminarDetalleEnvio(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse> SoftProgWeb.SoftProgWS.DetalleEnvioWS.eliminarDetalleEnvioAsync(SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest request) {
+            return base.Channel.eliminarDetalleEnvioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.eliminarDetalleEnvioResponse> eliminarDetalleEnvioAsync(int id) {
+            SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest inValue = new SoftProgWeb.SoftProgWS.eliminarDetalleEnvioRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.DetalleEnvioWS)(this)).eliminarDetalleEnvioAsync(inValue);
         }
     }
 }

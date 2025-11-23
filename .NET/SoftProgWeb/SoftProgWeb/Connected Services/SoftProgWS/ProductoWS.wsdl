@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/ProductoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listaProductosPorCategoria">
-    <part name="parameters" element="tns:listaProductosPorCategoria" />
+  <message name="obtenerProducto">
+    <part name="parameters" element="tns:obtenerProducto" />
   </message>
-  <message name="listaProductosPorCategoriaResponse">
-    <part name="parameters" element="tns:listaProductosPorCategoriaResponse" />
+  <message name="obtenerProductoResponse">
+    <part name="parameters" element="tns:obtenerProductoResponse" />
   </message>
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
@@ -22,12 +22,6 @@
   </message>
   <message name="eliminarProductoResponse">
     <part name="parameters" element="tns:eliminarProductoResponse" />
-  </message>
-  <message name="obtenerProducto">
-    <part name="parameters" element="tns:obtenerProducto" />
-  </message>
-  <message name="obtenerProductoResponse">
-    <part name="parameters" element="tns:obtenerProductoResponse" />
   </message>
   <message name="listarProducto">
     <part name="parameters" element="tns:listarProducto" />
@@ -56,17 +50,11 @@
   <message name="obtenerPorSkuResponse">
     <part name="parameters" element="tns:obtenerPorSkuResponse" />
   </message>
-  <message name="verificarStockSuficientePorID">
-    <part name="parameters" element="tns:verificarStockSuficientePorID" />
+  <message name="listaProductosPorCategoria">
+    <part name="parameters" element="tns:listaProductosPorCategoria" />
   </message>
-  <message name="verificarStockSuficientePorIDResponse">
-    <part name="parameters" element="tns:verificarStockSuficientePorIDResponse" />
-  </message>
-  <message name="listarfiltrarProductoPorDescuento">
-    <part name="parameters" element="tns:listarfiltrarProductoPorDescuento" />
-  </message>
-  <message name="listarfiltrarProductoPorDescuentoResponse">
-    <part name="parameters" element="tns:listarfiltrarProductoPorDescuentoResponse" />
+  <message name="listaProductosPorCategoriaResponse">
+    <part name="parameters" element="tns:listaProductosPorCategoriaResponse" />
   </message>
   <message name="listarfiltrarProductoPorMarca">
     <part name="parameters" element="tns:listarfiltrarProductoPorMarca" />
@@ -74,11 +62,11 @@
   <message name="listarfiltrarProductoPorMarcaResponse">
     <part name="parameters" element="tns:listarfiltrarProductoPorMarcaResponse" />
   </message>
-  <message name="obtenerProductosPorCategoria">
-    <part name="parameters" element="tns:obtenerProductosPorCategoria" />
+  <message name="listarfiltrarProductoPorDescuento">
+    <part name="parameters" element="tns:listarfiltrarProductoPorDescuento" />
   </message>
-  <message name="obtenerProductosPorCategoriaResponse">
-    <part name="parameters" element="tns:obtenerProductosPorCategoriaResponse" />
+  <message name="listarfiltrarProductoPorDescuentoResponse">
+    <part name="parameters" element="tns:listarfiltrarProductoPorDescuentoResponse" />
   </message>
   <message name="verificarStockSuficientePorSKU">
     <part name="parameters" element="tns:verificarStockSuficientePorSKU" />
@@ -86,11 +74,17 @@
   <message name="verificarStockSuficientePorSKUResponse">
     <part name="parameters" element="tns:verificarStockSuficientePorSKUResponse" />
   </message>
-  <message name="listarfiltrarProductoPorPrecioAlMayor">
-    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioAlMayor" />
+  <message name="verificarStockSuficientePorID">
+    <part name="parameters" element="tns:verificarStockSuficientePorID" />
   </message>
-  <message name="listarfiltrarProductoPorPrecioAlMayorResponse">
-    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioAlMayorResponse" />
+  <message name="verificarStockSuficientePorIDResponse">
+    <part name="parameters" element="tns:verificarStockSuficientePorIDResponse" />
+  </message>
+  <message name="obtenerProductosPorCategoria">
+    <part name="parameters" element="tns:obtenerProductosPorCategoria" />
+  </message>
+  <message name="obtenerProductosPorCategoriaResponse">
+    <part name="parameters" element="tns:obtenerProductosPorCategoriaResponse" />
   </message>
   <message name="listarfiltrarProductoPorPrecioRegular">
     <part name="parameters" element="tns:listarfiltrarProductoPorPrecioRegular" />
@@ -98,24 +92,24 @@
   <message name="listarfiltrarProductoPorPrecioRegularResponse">
     <part name="parameters" element="tns:listarfiltrarProductoPorPrecioRegularResponse" />
   </message>
+  <message name="listarfiltrarProductoPorPrecioAlMayor">
+    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioAlMayor" />
+  </message>
+  <message name="listarfiltrarProductoPorPrecioAlMayorResponse">
+    <part name="parameters" element="tns:listarfiltrarProductoPorPrecioAlMayorResponse" />
+  </message>
   <portType name="ProductoWS">
-    <operation name="listaProductosPorCategoria">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRequest" message="tns:listaProductosPorCategoria" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaResponse" message="tns:listaProductosPorCategoriaResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="obtenerProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProducto/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="eliminarProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoRequest" message="tns:eliminarProducto" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProductoResponse" message="tns:eliminarProductoResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProducto/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/eliminarProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="obtenerProducto">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoRequest" message="tns:obtenerProducto" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductoResponse" message="tns:obtenerProductoResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProducto/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="listarProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarProductoRequest" message="tns:listarProducto" />
@@ -142,17 +136,11 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSku/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerPorSku/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="verificarStockSuficientePorID">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequest" message="tns:verificarStockSuficientePorID" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResponse" message="tns:verificarStockSuficientePorIDResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="listarfiltrarProductoPorDescuento">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuentoRequest" message="tns:listarfiltrarProductoPorDescuento" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuentoResponse" message="tns:listarfiltrarProductoPorDescuentoResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="listaProductosPorCategoria">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaRequest" message="tns:listaProductosPorCategoria" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoriaResponse" message="tns:listaProductosPorCategoriaResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listaProductosPorCategoria/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="listarfiltrarProductoPorMarca">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarcaRequest" message="tns:listarfiltrarProductoPorMarca" />
@@ -160,11 +148,11 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarca/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorMarca/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="obtenerProductosPorCategoria">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaRequest" message="tns:obtenerProductosPorCategoria" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaResponse" message="tns:obtenerProductosPorCategoriaResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="listarfiltrarProductoPorDescuento">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuentoRequest" message="tns:listarfiltrarProductoPorDescuento" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuentoResponse" message="tns:listarfiltrarProductoPorDescuentoResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorDescuento/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="verificarStockSuficientePorSKU">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKURequest" message="tns:verificarStockSuficientePorSKU" />
@@ -172,11 +160,17 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKU/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorSKU/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="listarfiltrarProductoPorPrecioAlMayor">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayorRequest" message="tns:listarfiltrarProductoPorPrecioAlMayor" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayorResponse" message="tns:listarfiltrarProductoPorPrecioAlMayorResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayor/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayor/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="verificarStockSuficientePorID">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDRequest" message="tns:verificarStockSuficientePorID" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorIDResponse" message="tns:verificarStockSuficientePorIDResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/verificarStockSuficientePorID/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="obtenerProductosPorCategoria">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaRequest" message="tns:obtenerProductosPorCategoria" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoriaResponse" message="tns:obtenerProductosPorCategoriaResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/obtenerProductosPorCategoria/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="listarfiltrarProductoPorPrecioRegular">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioRegularRequest" message="tns:listarfiltrarProductoPorPrecioRegular" />
@@ -184,10 +178,16 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioRegular/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioRegular/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
+    <operation name="listarfiltrarProductoPorPrecioAlMayor">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayorRequest" message="tns:listarfiltrarProductoPorPrecioAlMayor" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayorResponse" message="tns:listarfiltrarProductoPorPrecioAlMayorResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayor/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/ProductoWS/listarfiltrarProductoPorPrecioAlMayor/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
   </portType>
   <binding name="ProductoWSPortBinding" type="tns:ProductoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listaProductosPorCategoria">
+    <operation name="obtenerProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -203,21 +203,6 @@
       </fault>
     </operation>
     <operation name="eliminarProducto">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="obtenerProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -295,22 +280,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="verificarStockSuficientePorID">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="listarfiltrarProductoPorDescuento">
+    <operation name="listaProductosPorCategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -340,7 +310,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="obtenerProductosPorCategoria">
+    <operation name="listarfiltrarProductoPorDescuento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -370,7 +340,22 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="listarfiltrarProductoPorPrecioAlMayor">
+    <operation name="verificarStockSuficientePorID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="obtenerProductosPorCategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -386,6 +371,21 @@
       </fault>
     </operation>
     <operation name="listarfiltrarProductoPorPrecioRegular">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarfiltrarProductoPorPrecioAlMayor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

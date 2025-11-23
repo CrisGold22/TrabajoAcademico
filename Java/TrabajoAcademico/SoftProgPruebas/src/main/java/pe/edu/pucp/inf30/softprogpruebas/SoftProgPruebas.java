@@ -319,7 +319,7 @@ public class SoftProgPruebas {
 
         empresa.setId(1);
 
-        empresa.setRUC("13212324");
+        empresa.setRuc("13212324");
         empresa.setRazonSocial("Empresa1");
         empresa.setDireccionFiscal("Av. Pacheco");
         empresa.setDepartamento("La Libertad");
@@ -338,7 +338,7 @@ public class SoftProgPruebas {
         Empresa empresaDuplicado = empresaBO.obtener(empresa.getId());
         System.out.println("El empresa se llamo al backend de manera correcta\n");
         empresaDuplicado.setId(2);
-        empresaDuplicado.setRUC("132123223");
+        empresaDuplicado.setRuc("132123223");
         empresaBO.insertar(empresaDuplicado);
         List<Empresa> listaEmpresas = empresaBO.listar();
         System.out.println("Se listo con exito todos las empresas");
@@ -349,7 +349,7 @@ public class SoftProgPruebas {
         Empresa empresa1 = new Empresa();
 
         empresa1.setId(2);
-        empresa1.setRUC("20458732109");
+        empresa1.setRuc("20458732109");
         empresa1.setRazonSocial("Inversiones Los Andes S.A.C.");
         empresa1.setDireccionFiscal("Av. Los Próceres 245, Santa Anita");
         empresa1.setDepartamento("Lima");
@@ -366,7 +366,7 @@ public class SoftProgPruebas {
         Empresa empresa2 = new Empresa();
 
         empresa2.setId(3);
-        empresa2.setRUC("20165897432");
+        empresa2.setRuc("20165897432");
         empresa2.setRazonSocial("Distribuidora El Sol E.I.R.L.");
         empresa2.setDireccionFiscal("Jr. Los Geranios 112, San Borja");
         empresa2.setDepartamento("Lima");
@@ -383,7 +383,7 @@ public class SoftProgPruebas {
         Empresa empresa3 = new Empresa();
 
         empresa3.setId(4);
-        empresa3.setRUC("20654712380");
+        empresa3.setRuc("20654712380");
         empresa3.setRazonSocial("Tecnología Global S.A.");
         empresa3.setDireccionFiscal("Av. Colonial 3050, Callao");
         empresa3.setDepartamento("Callao");
@@ -400,7 +400,7 @@ public class SoftProgPruebas {
         Empresa empresa4 = new Empresa();
 
         empresa4.setId(5);
-        empresa4.setRUC("20549876012");
+        empresa4.setRuc("20549876012");
         empresa4.setRazonSocial("Servicios Integrales del Hogar S.R.L.");
         empresa4.setDireccionFiscal("Av. Canadá 850, La Victoria");
         empresa4.setDepartamento("Lima");
@@ -417,7 +417,7 @@ public class SoftProgPruebas {
         Empresa empresa5 = new Empresa();
 
         empresa5.setId(6);
-        empresa5.setRUC("20876543219");
+        empresa5.setRuc("20876543219");
         empresa5.setRazonSocial("Alimentos del Norte S.A.C.");
         empresa5.setDireccionFiscal("Calle Los Laureles 120, Pueblo Libre");
         empresa5.setDepartamento("La Libertad");
@@ -443,7 +443,7 @@ public class SoftProgPruebas {
         for (Empresa e : listaEmpresasActivas) {
             System.out.println("ID: " + e.getId());
             System.out.println("Razón Social: " + e.getRazonSocial());
-            System.out.println("RUC: " + e.getRUC());
+            System.out.println("RUC: " + e.getRuc());
             System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
             System.out.println("Distrito: " + e.getDistrito());
             System.out.println("--------------------------------------------");
@@ -455,7 +455,7 @@ public class SoftProgPruebas {
         for (Empresa e : listaEmpresasNoActivas) {
             System.out.println("ID: " + e.getId());
             System.out.println("Razón Social: " + e.getRazonSocial());
-            System.out.println("RUC: " + e.getRUC());
+            System.out.println("RUC: " + e.getRuc());
             System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
             System.out.println("Distrito: " + e.getDistrito());
             System.out.println("--------------------------------------------");
@@ -467,7 +467,7 @@ public class SoftProgPruebas {
         for (Empresa e : listaEmpresasPorCliente) {
             System.out.println("ID: " + e.getId());
             System.out.println("Razón Social: " + e.getRazonSocial());
-            System.out.println("RUC: " + e.getRUC());
+            System.out.println("RUC: " + e.getRuc());
             System.out.println("Departamento: " + e.getDepartamento());
             System.out.println("Activo: " + e.getActivoInt());
             System.out.println("--------------------------------------------");
@@ -479,7 +479,7 @@ public class SoftProgPruebas {
         for (Empresa e : listaEmpresasPorClienteActivas) {
             System.out.println("ID: " + e.getId());
             System.out.println("Razón Social: " + e.getRazonSocial());
-            System.out.println("RUC: " + e.getRUC());
+            System.out.println("RUC: " + e.getRuc());
             System.out.println("Dirección Fiscal: " + e.getDireccionFiscal());
             System.out.println("Activo: " + e.getActivoInt());
             System.out.println("--------------------------------------------");
@@ -491,7 +491,7 @@ public class SoftProgPruebas {
         for (Empresa e : listaEmpresasPorClienteNoActivas) {
             System.out.println("ID: " + e.getId());
             System.out.println("Razón Social: " + e.getRazonSocial());
-            System.out.println("RUC: " + e.getRUC());
+            System.out.println("RUC: " + e.getRuc());
             System.out.println("Departamento: " + e.getDepartamento());
             System.out.println("Activo: " + e.getActivoInt());
             System.out.println("--------------------------------------------");
@@ -727,7 +727,7 @@ public class SoftProgPruebas {
         EmpresaBO empresaBO = new EmpresaBOImpl();
 
         empresa.setId(1);
-        empresa.setRUC("13233212324");
+        empresa.setRuc("13233212324");
         empresa.setRazonSocial("Empresa1");
         empresa.setDireccionFiscal("Av. Pacheco");
         empresa.setDepartamento("La Libertad");
@@ -746,7 +746,7 @@ public class SoftProgPruebas {
         Empresa empresaDuplicado = empresaBO.obtener(empresa.getId());
         System.out.println("El empresa se llamo al backend de manera correcta\n");
         empresaDuplicado.setId(2);
-        empresaDuplicado.setRUC("132123223");
+        empresaDuplicado.setRuc("132123223");
         empresaBO.insertar(empresaDuplicado);
         List<Empresa> listaEmpresas = empresaBO.listar();
         System.out.println("Se listo con exito todos las empresas");

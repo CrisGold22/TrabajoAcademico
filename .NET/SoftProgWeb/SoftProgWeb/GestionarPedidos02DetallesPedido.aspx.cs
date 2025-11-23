@@ -14,7 +14,7 @@ namespace SoftProgWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            servicioOrdenCompra = new OrdenCompraWSClient();
+            servicioOrdenCompra = new OrdenCompraWSClient("OrdenCompraWSPort1");
 
             pnlMensaje.Visible = false;
 
@@ -67,15 +67,22 @@ namespace SoftProgWeb
                 }
 
                 lblTotal.Text = pedido.totalFinal.ToString("C2");
-                DateTime fechaNew;
 
-                if (DateTime.TryParse(pedido.fechaCreacion, out fechaNew))
+                if (!string.IsNullOrEmpty(pedido.fechaCreacion))
                 {
-                    lblFecha.Text = fechaNew.ToString("dd/MM/yyyy");
+                    DateTime fecha;
+                    if (DateTime.TryParse(pedido.fechaCreacion, out fecha))
+                    {
+                        lblFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        lblFecha.Text = pedido.fechaCreacion;
+                    }
                 }
                 else
                 {
-                    lblFecha.Text = "Fecha inválida";
+                    lblFecha.Text = "-";
                 }
                 lblTotal.Text = pedido.totalFinal.ToString("C2");
                 lblSubtotal.Text = pedido.totalParcial.ToString("C2");
@@ -117,13 +124,8 @@ namespace SoftProgWeb
             try
             {
                 ordenCompra pedido = servicioOrdenCompra.obtenerOrdenCompra(idPedido);
+
                 pedido.lineasOrden = servicioOrdenCompra.listarLineasOrdenCompraPorIdOrdenCompra(idPedido);
-                //pedido.fechaCreacion = lblFecha.Text;
-                //pedido.totalFinal = Convert.ToDouble(lblTotal.Text.Replace("$", ""));
-                //pedido.totalParcial = Convert.ToDouble(lblSubtotal.Text.Replace("$", ""));
-                //pedido.descuentoTotal = Convert.ToDouble(lblDescuento.Text.Replace("$", ""));
-                //pedido.cliente = new ClienteWSClient().obtenerCliente(int.Parse(lblClienteID.Text));
-                //pedido.empresa = new EmpresaWSClient().obtenerEmpresa(int.Parse(lblEmpresaID.Text));
 
                 string nuevoEstadoStr = ddlEstado.SelectedValue;
                 estadoOrdenCompra nuevoEstadoEnum = (estadoOrdenCompra)Enum.Parse(typeof(estadoOrdenCompra), nuevoEstadoStr);
@@ -131,22 +133,19 @@ namespace SoftProgWeb
                 pedido.estado = nuevoEstadoEnum;
                 pedido.estadoSpecified = true;
 
+                pedido.estadoString = nuevoEstadoStr;
+
                 servicioOrdenCompra.actualizarOrdenCompra(pedido);
-                int resultado = 1;
-                if (resultado > 0)
-                {
-                    CargarDetallePedido(idPedido);
-                }
-                else
-                {
-                    MostrarError("No se pudo actualizar el estado.");
-                }
+
+                Response.Redirect(Request.RawUrl, false);
+                Context.ApplicationInstance.CompleteRequest();
             }
             catch (System.Exception ex)
             {
                 MostrarError("Error al cambiar estado: " + ex.Message);
             }
         }
+
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {

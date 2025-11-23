@@ -21,11 +21,11 @@ namespace SoftProgWeb
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            //string email = txtEmail.Text.Trim();
+            //string password = txtPassword.Text.Trim();
 
-            //string email = "admin1@example.com";
-            //string password = "admin123";
+            string email = "admin1@example.com";
+            string password = "admin123";
 
             //string email = "jperez@example.com";
             //string password = "pass123";
