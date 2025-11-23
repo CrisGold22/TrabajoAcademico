@@ -11,9 +11,13 @@ namespace SoftProgWeb
     public partial class CategoriaProducto : System.Web.UI.Page
     {
         private ProductoWSClient productoWS;
+        private LineaCarritoWSClient lineaCarritoWS;
+        private CarritoComprasWSClient carritoComprasWS;
         public CategoriaProducto()
         {
-            productoWS = new ProductoWSClient();    
+            productoWS = new ProductoWSClient();
+            lineaCarritoWS = new LineaCarritoWSClient();
+            carritoComprasWS = new CarritoComprasWSClient();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,6 +52,33 @@ namespace SoftProgWeb
                 }
             }
         }
-        
+        /*Boton para agregar productos*/
+        protected void btnAgregarCarrito_Click(object sender, EventArgs e)
+        {
+           
+            Button btnAgregar = (Button)sender; // Obtener el Button que fue clickeado
+            int productoId = Convert.ToInt32(btnAgregar.CommandArgument);// Obtener el productoId desde el CommandArgument
+
+            var producto = productoWS.obtenerProducto(productoId);// Llamar al WebService para obtener el producto usando el productoId
+
+            int idCliente = Convert.ToInt32(Session["IdCliente"]);
+            var carritoA = carritoComprasWS.obtenerCarritoDeCliente(idCliente);
+
+            if(carritoA != null)
+            {
+                lineaCarrito lineaCarrito = new lineaCarrito();
+                lineaCarrito.producto = producto;
+                lineaCarrito.cantidad = 1;
+                lineaCarrito.carritoCompras = carritoA; 
+
+                lineaCarritoWS.actualizarLineaCarrito(lineaCarrito);
+                
+            }
+
+            // Redirigir al carrito
+            Response.Redirect("~/MiCarrito.aspx");
+        }
+
+
     }
 }

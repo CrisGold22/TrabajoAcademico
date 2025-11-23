@@ -17,6 +17,12 @@
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
   </message>
+  <message name="resetPasswordConToken">
+    <part name="parameters" element="tns:resetPasswordConToken" />
+  </message>
+  <message name="resetPasswordConTokenResponse">
+    <part name="parameters" element="tns:resetPasswordConTokenResponse" />
+  </message>
   <message name="cambiarPassword">
     <part name="parameters" element="tns:cambiarPassword" />
   </message>
@@ -28,45 +34,6 @@
   </message>
   <message name="obtenerPorResetTokenResponse">
     <part name="parameters" element="tns:obtenerPorResetTokenResponse" />
-  </message>
-  <message name="insertarCuentaUsuario">
-    <part name="parameters" element="tns:insertarCuentaUsuario" />
-  </message>
-  <message name="insertarCuentaUsuarioResponse">
-    <part name="parameters" element="tns:insertarCuentaUsuarioResponse" />
-  </message>
-  <message name="JsonProcessingException">
-    <part name="fault" element="tns:JsonProcessingException" />
-  </message>
-  <message name="eliminarCuentaUsuario">
-    <part name="parameters" element="tns:eliminarCuentaUsuario" />
-  </message>
-  <message name="eliminarCuentaUsuarioResponse">
-    <part name="parameters" element="tns:eliminarCuentaUsuarioResponse" />
-  </message>
-  <message name="resetPasswordConToken">
-    <part name="parameters" element="tns:resetPasswordConToken" />
-  </message>
-  <message name="resetPasswordConTokenResponse">
-    <part name="parameters" element="tns:resetPasswordConTokenResponse" />
-  </message>
-  <message name="obtenerCuentaUsuario">
-    <part name="parameters" element="tns:obtenerCuentaUsuario" />
-  </message>
-  <message name="obtenerCuentaUsuarioResponse">
-    <part name="parameters" element="tns:obtenerCuentaUsuarioResponse" />
-  </message>
-  <message name="listarCuentaUsuario">
-    <part name="parameters" element="tns:listarCuentaUsuario" />
-  </message>
-  <message name="listarCuentaUsuarioResponse">
-    <part name="parameters" element="tns:listarCuentaUsuarioResponse" />
-  </message>
-  <message name="actualizarCuentaUsuario">
-    <part name="parameters" element="tns:actualizarCuentaUsuario" />
-  </message>
-  <message name="actualizarCuentaUsuarioResponse">
-    <part name="parameters" element="tns:actualizarCuentaUsuarioResponse" />
   </message>
   <message name="validarTokenRecuperacion">
     <part name="parameters" element="tns:validarTokenRecuperacion" />
@@ -80,17 +47,50 @@
   <message name="obtenerCuentaUsuarioPorUserNameResponse">
     <part name="parameters" element="tns:obtenerCuentaUsuarioPorUserNameResponse" />
   </message>
+  <message name="solicitarRecuperacionPassword">
+    <part name="parameters" element="tns:solicitarRecuperacionPassword" />
+  </message>
+  <message name="solicitarRecuperacionPasswordResponse">
+    <part name="parameters" element="tns:solicitarRecuperacionPasswordResponse" />
+  </message>
   <message name="obtenerCuentaUsuarioPorCorreo">
     <part name="parameters" element="tns:obtenerCuentaUsuarioPorCorreo" />
   </message>
   <message name="obtenerCuentaUsuarioPorCorreoResponse">
     <part name="parameters" element="tns:obtenerCuentaUsuarioPorCorreoResponse" />
   </message>
-  <message name="solicitarRecuperacionPassword">
-    <part name="parameters" element="tns:solicitarRecuperacionPassword" />
+  <message name="actualizarCuentaUsuario">
+    <part name="parameters" element="tns:actualizarCuentaUsuario" />
   </message>
-  <message name="solicitarRecuperacionPasswordResponse">
-    <part name="parameters" element="tns:solicitarRecuperacionPasswordResponse" />
+  <message name="actualizarCuentaUsuarioResponse">
+    <part name="parameters" element="tns:actualizarCuentaUsuarioResponse" />
+  </message>
+  <message name="JsonProcessingException">
+    <part name="fault" element="tns:JsonProcessingException" />
+  </message>
+  <message name="eliminarCuentaUsuario">
+    <part name="parameters" element="tns:eliminarCuentaUsuario" />
+  </message>
+  <message name="eliminarCuentaUsuarioResponse">
+    <part name="parameters" element="tns:eliminarCuentaUsuarioResponse" />
+  </message>
+  <message name="insertarCuentaUsuario">
+    <part name="parameters" element="tns:insertarCuentaUsuario" />
+  </message>
+  <message name="insertarCuentaUsuarioResponse">
+    <part name="parameters" element="tns:insertarCuentaUsuarioResponse" />
+  </message>
+  <message name="obtenerCuentaUsuario">
+    <part name="parameters" element="tns:obtenerCuentaUsuario" />
+  </message>
+  <message name="obtenerCuentaUsuarioResponse">
+    <part name="parameters" element="tns:obtenerCuentaUsuarioResponse" />
+  </message>
+  <message name="listarCuentaUsuario">
+    <part name="parameters" element="tns:listarCuentaUsuario" />
+  </message>
+  <message name="listarCuentaUsuarioResponse">
+    <part name="parameters" element="tns:listarCuentaUsuarioResponse" />
   </message>
   <portType name="CuentaUsuarioWS">
     <operation name="login">
@@ -98,6 +98,10 @@
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/loginResponse" message="tns:loginResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/login/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/login/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="resetPasswordConToken">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRequest" message="tns:resetPasswordConToken" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenResponse" message="tns:resetPasswordConTokenResponse" />
     </operation>
     <operation name="cambiarPassword">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/cambiarPasswordRequest" message="tns:cambiarPassword" />
@@ -107,12 +111,28 @@
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenRequest" message="tns:obtenerPorResetToken" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerPorResetTokenResponse" message="tns:obtenerPorResetTokenResponse" />
     </operation>
-    <operation name="insertarCuentaUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioRequest" message="tns:insertarCuentaUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioResponse" message="tns:insertarCuentaUsuarioResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuario/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuario/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="validarTokenRecuperacion">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionRequest" message="tns:validarTokenRecuperacion" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionResponse" message="tns:validarTokenRecuperacionResponse" />
+    </operation>
+    <operation name="obtenerCuentaUsuarioPorUserName">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserNameRequest" message="tns:obtenerCuentaUsuarioPorUserName" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserNameResponse" message="tns:obtenerCuentaUsuarioPorUserNameResponse" />
+    </operation>
+    <operation name="solicitarRecuperacionPassword">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswordRequest" message="tns:solicitarRecuperacionPassword" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswordResponse" message="tns:solicitarRecuperacionPasswordResponse" />
+    </operation>
+    <operation name="obtenerCuentaUsuarioPorCorreo">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorreoRequest" message="tns:obtenerCuentaUsuarioPorCorreo" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorreoResponse" message="tns:obtenerCuentaUsuarioPorCorreoResponse" />
+    </operation>
+    <operation name="actualizarCuentaUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuarioRequest" message="tns:actualizarCuentaUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuarioResponse" message="tns:actualizarCuentaUsuarioResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuario/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuario/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="eliminarCuentaUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuarioRequest" message="tns:eliminarCuentaUsuario" />
@@ -120,9 +140,12 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuario/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/eliminarCuentaUsuario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="resetPasswordConToken">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenRequest" message="tns:resetPasswordConToken" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/resetPasswordConTokenResponse" message="tns:resetPasswordConTokenResponse" />
+    <operation name="insertarCuentaUsuario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioRequest" message="tns:insertarCuentaUsuario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuarioResponse" message="tns:insertarCuentaUsuarioResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuario/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuario/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/insertarCuentaUsuario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="obtenerCuentaUsuario">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioRequest" message="tns:obtenerCuentaUsuario" />
@@ -135,29 +158,6 @@
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuarioResponse" message="tns:listarCuentaUsuarioResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuario/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/listarCuentaUsuario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="actualizarCuentaUsuario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuarioRequest" message="tns:actualizarCuentaUsuario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuarioResponse" message="tns:actualizarCuentaUsuarioResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuario/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuario/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/actualizarCuentaUsuario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="validarTokenRecuperacion">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionRequest" message="tns:validarTokenRecuperacion" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/validarTokenRecuperacionResponse" message="tns:validarTokenRecuperacionResponse" />
-    </operation>
-    <operation name="obtenerCuentaUsuarioPorUserName">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserNameRequest" message="tns:obtenerCuentaUsuarioPorUserName" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorUserNameResponse" message="tns:obtenerCuentaUsuarioPorUserNameResponse" />
-    </operation>
-    <operation name="obtenerCuentaUsuarioPorCorreo">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorreoRequest" message="tns:obtenerCuentaUsuarioPorCorreo" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/obtenerCuentaUsuarioPorCorreoResponse" message="tns:obtenerCuentaUsuarioPorCorreoResponse" />
-    </operation>
-    <operation name="solicitarRecuperacionPassword">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswordRequest" message="tns:solicitarRecuperacionPassword" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CuentaUsuarioWS/solicitarRecuperacionPasswordResponse" message="tns:solicitarRecuperacionPasswordResponse" />
     </operation>
   </portType>
   <binding name="CuentaUsuarioWSPortBinding" type="tns:CuentaUsuarioWS">
@@ -177,6 +177,15 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
+    <operation name="resetPasswordConToken">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="cambiarPassword">
       <soap:operation soapAction="" />
       <input>
@@ -195,7 +204,43 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarCuentaUsuario">
+    <operation name="validarTokenRecuperacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCuentaUsuarioPorUserName">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="solicitarRecuperacionPassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCuentaUsuarioPorCorreo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarCuentaUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -228,7 +273,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="resetPasswordConToken">
+    <operation name="insertarCuentaUsuario">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -236,6 +281,15 @@
       <output>
         <soap:body use="literal" />
       </output>
+      <fault name="JsonProcessingException">
+        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
+      </fault>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
     </operation>
     <operation name="obtenerCuentaUsuario">
       <soap:operation soapAction="" />
@@ -266,60 +320,6 @@
       <fault name="InterruptedException">
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
-    </operation>
-    <operation name="actualizarCuentaUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="JsonProcessingException">
-        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
-      </fault>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="validarTokenRecuperacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerCuentaUsuarioPorUserName">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerCuentaUsuarioPorCorreo">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="solicitarRecuperacionPassword">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
     </operation>
   </binding>
   <service name="CuentaUsuarioWS">
