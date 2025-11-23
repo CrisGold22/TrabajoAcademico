@@ -149,8 +149,8 @@
           <xs:element minOccurs="0" name="distrito" type="xs:string" />
           <xs:element minOccurs="0" name="email" type="xs:string" />
           <xs:element minOccurs="0" name="provincia" type="xs:string" />
-          <xs:element minOccurs="0" name="RUC" type="xs:string" />
           <xs:element minOccurs="0" name="razonSocial" type="xs:string" />
+          <xs:element minOccurs="0" name="ruc" type="xs:string" />
           <xs:element minOccurs="0" name="telefono" type="xs:string" />
         </xs:sequence>
       </xs:extension>

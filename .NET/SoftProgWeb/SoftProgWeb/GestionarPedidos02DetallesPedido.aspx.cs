@@ -116,37 +116,35 @@ namespace SoftProgWeb
 
             try
             {
+                // 1. Obtener orden completa
                 ordenCompra pedido = servicioOrdenCompra.obtenerOrdenCompra(idPedido);
-                pedido.lineasOrden = servicioOrdenCompra.listarLineasOrdenCompraPorIdOrdenCompra(idPedido);
-                //pedido.fechaCreacion = lblFecha.Text;
-                //pedido.totalFinal = Convert.ToDouble(lblTotal.Text.Replace("$", ""));
-                //pedido.totalParcial = Convert.ToDouble(lblSubtotal.Text.Replace("$", ""));
-                //pedido.descuentoTotal = Convert.ToDouble(lblDescuento.Text.Replace("$", ""));
-                //pedido.cliente = new ClienteWSClient().obtenerCliente(int.Parse(lblClienteID.Text));
-                //pedido.empresa = new EmpresaWSClient().obtenerEmpresa(int.Parse(lblEmpresaID.Text));
 
+                // 2. Re-cargar líneas
+                pedido.lineasOrden = servicioOrdenCompra.listarLineasOrdenCompraPorIdOrdenCompra(idPedido);
+
+                // 3. Asignar estado
                 string nuevoEstadoStr = ddlEstado.SelectedValue;
                 estadoOrdenCompra nuevoEstadoEnum = (estadoOrdenCompra)Enum.Parse(typeof(estadoOrdenCompra), nuevoEstadoStr);
 
                 pedido.estado = nuevoEstadoEnum;
                 pedido.estadoSpecified = true;
 
+                // 👇 **SUPER IMPORTANTE**
+                pedido.estadoString = nuevoEstadoStr;
+
+                // 4. ENVÍO COMPLETO Y CORRECTO
                 servicioOrdenCompra.actualizarOrdenCompra(pedido);
-                int resultado = 1;
-                if (resultado > 0)
-                {
-                    CargarDetallePedido(idPedido);
-                }
-                else
-                {
-                    MostrarError("No se pudo actualizar el estado.");
-                }
+
+                // 5. Recargar página
+                Response.Redirect(Request.RawUrl, false);
+                Context.ApplicationInstance.CompleteRequest();
             }
             catch (System.Exception ex)
             {
                 MostrarError("Error al cambiar estado: " + ex.Message);
             }
         }
+
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {

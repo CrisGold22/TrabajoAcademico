@@ -19,7 +19,7 @@ import static pe.edu.pucp.inf30.softprog.modelo.venta.utils.Distrito.SAN_MIGUEL;
  * @author PC
  */
 public class Empresa extends Registro{
-    private String RUC;
+    private String ruc;
     private String razonSocial;
     private String direccionFiscal;
     private String departamento;
@@ -35,7 +35,7 @@ public class Empresa extends Registro{
     }
 
     public Empresa(String RUC, String razonSocial, String direccionFiscal, String departamento, String provincia, String distrito, String telefono, String email, String codigoPostal, Cliente cliente) {
-        this.RUC = RUC;
+        this.ruc = RUC;
         this.razonSocial = razonSocial;
         this.direccionFiscal = direccionFiscal;
         this.departamento = departamento;
@@ -49,7 +49,7 @@ public class Empresa extends Registro{
 
     public Empresa(String RUC, String razonSocial, String direccionFiscal, String departamento, String provincia, String distrito, String telefono, String email, String codigoPostal, Cliente cliente, int id, boolean activo) {
         super(id, activo);
-        this.RUC = RUC;
+        this.ruc = RUC;
         this.razonSocial = razonSocial;
         this.direccionFiscal = direccionFiscal;
         this.departamento = departamento;
@@ -61,12 +61,12 @@ public class Empresa extends Registro{
         this.cliente = cliente;
     }
 
-    public String getRUC() {
-        return RUC;
+    public String getRuc() {
+        return ruc;
     }
 
-    public void setRUC(String RUC) {
-        this.RUC = RUC;
+    public void setRuc(String RUC) {
+        this.ruc = RUC;
     }
 
     public String getRazonSocial() {

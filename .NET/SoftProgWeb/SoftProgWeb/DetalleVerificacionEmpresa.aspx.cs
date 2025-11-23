@@ -40,7 +40,7 @@ namespace SoftProgWeb
                 if (emp != null)
                 {
                     lblRazonSocial.Text = emp.razonSocial;
-                    lblRUC.Text = emp.RUC;
+                    lblRUC.Text = emp.ruc;
                     lblDireccion.Text = emp.direccionFiscal;
                 }
                 else

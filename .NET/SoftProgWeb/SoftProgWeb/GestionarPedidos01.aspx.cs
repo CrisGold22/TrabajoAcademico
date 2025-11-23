@@ -44,18 +44,6 @@ namespace SoftProgWeb
 
     private void CargarPedidos()
         {
-            //try
-            //{
-            //    ordenCompra[] pedidos = servicioOrdenCompra.listarOrdenCompra();
-
-            //    gvPedidos.DataSource = pedidos.OrderBy(p => p.id).ToList();
-
-            //    gvPedidos.DataBind();
-            //}
-            //catch (System.Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine("Error al cargar pedidos: " + ex.Message);
-            //}
             try
             {
                 var lista = servicioOrdenCompra.listarOrdenCompra();

@@ -32,12 +32,13 @@ public class OrdenCompra extends Registro {
     private Cliente cliente;
     private EstadoOrdenCompra estado;
     private Empresa empresa;
+    private String estadoString;
 
     public OrdenCompra() {
         lineasOrden = new ArrayList<>();
     }
 
-    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDateTime fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, Empresa empresa) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDateTime fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, Empresa empresa, String estadoString) {
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
         this.totalParcial = totalParcial;
@@ -47,9 +48,10 @@ public class OrdenCompra extends Registro {
         this.cliente = cliente;
         this.estado = estado;
         this.empresa = empresa;
+        this.estadoString = estadoString;
     }
 
-    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDateTime fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, Empresa empresa, int id, boolean activo) {
+    public OrdenCompra(List<LineaOrdenCompra> lineasOrden, LocalDateTime fechaCreacion, double totalParcial, double totalFinal, double descuentoTotal, CarritoCompras carritoCompras, Cliente cliente, EstadoOrdenCompra estado, Empresa empresa, String estadoString, int id, boolean activo) {
         super(id, activo);
         this.lineasOrden = lineasOrden;
         this.fechaCreacion = fechaCreacion;
@@ -60,7 +62,10 @@ public class OrdenCompra extends Registro {
         this.cliente = cliente;
         this.estado = estado;
         this.empresa = empresa;
+        this.estadoString = estadoString;
     }
+
+    
 
     
     
@@ -103,46 +108,19 @@ public class OrdenCompra extends Registro {
 
     public void setEstado(EstadoOrdenCompra estado) {
         this.estado = estado;
+        // mantener sincronizado
+        this.estadoString = (estado != null ? estado.name() : null);
     }
 
     public String getEstadoString() {
-        if (this.estado == null)
-                    return null;
-                    
-        return switch (this.estado) {
-            case PAGADO ->
-                "PAGADO";
-            case EN_PREPARACION ->
-                "EN_PREPARACION";
-            case ENVIADO ->
-                "ENVIADO";
-            case ENTREGADO ->
-                "ENTREGADO";
-            case CANCELADO ->
-                "CANCELADO";
-            case REEMBOLSADO ->
-                "REEMBOLSADO";
-            case EXPIRADO ->
-                "EXPIRADO";
-        };
+        if (estado != null) return estado.name();
+        return estadoString;
     }
 
-    public void setEstadoString(String estado) {
-        switch (estado) {
-            case "PAGADO" ->
-                this.estado = EstadoOrdenCompra.PAGADO;
-            case "EN_PREPARACION" ->
-                this.estado = EstadoOrdenCompra.EN_PREPARACION;
-            case "ENVIADO" ->
-                this.estado = EstadoOrdenCompra.ENVIADO;
-            case "ENTREGADO" ->
-                this.estado = EstadoOrdenCompra.ENTREGADO;
-            case "CANCELADO" ->
-                this.estado = EstadoOrdenCompra.CANCELADO;
-            case "REEMBOLSADO" ->
-                this.estado = EstadoOrdenCompra.REEMBOLSADO;
-            case "EXPIRADO" ->
-                this.estado = EstadoOrdenCompra.EXPIRADO;
+    public void setEstadoString(String estadoString) {
+        this.estadoString = estadoString;
+        if (estadoString != null) {
+            this.estado = EstadoOrdenCompra.valueOf(estadoString);
         }
     }
 

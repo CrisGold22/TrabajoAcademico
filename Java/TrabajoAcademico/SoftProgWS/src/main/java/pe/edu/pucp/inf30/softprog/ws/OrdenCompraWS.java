@@ -91,9 +91,13 @@ public class OrdenCompraWS {
     public void actualizarOrdenCompra(@WebParam(name = "ordenCompra") OrdenCompra ordenCompra)
             throws JsonProcessingException, IOException, InterruptedException {
 
-        String json = mapper.writeValueAsString(ordenCompra);
+        // Asegúrate que el id esté bien seteado desde el front
+        System.out.println("SOAP actualizarOrdenCompra -> id=" + ordenCompra.getId()
+                + ", estado=" + ordenCompra.getEstado());
 
-        // Asegúrate de que ordenCompra.getId() tenga el ID correcto
+        String json = mapper.writeValueAsString(ordenCompra);
+        System.out.println("JSON que se envía al REST (actualizarOrdenCompra): " + json);
+
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/" + ordenCompra.getId();
 
         HttpRequest request = HttpRequest.newBuilder()

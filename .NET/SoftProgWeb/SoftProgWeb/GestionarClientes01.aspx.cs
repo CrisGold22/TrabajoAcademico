@@ -24,7 +24,7 @@ namespace SoftProgWeb
 
         private void EnlazarGrilla(IEnumerable<cliente> clientes)
         {
-            gvClientes.DataSource = clientes.OrderBy(c => c.apellidoPaterno).ToList();
+            gvClientes.DataSource = clientes.OrderBy(c => c.id).ToList();
             gvClientes.DataBind();
         }
 

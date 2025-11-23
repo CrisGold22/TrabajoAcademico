@@ -113,7 +113,7 @@ namespace SoftProgWeb
                 prod.medidaAlMayor = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
                 prod.medidaAlMayorSpecified = true;
                 prod.activo = chkActivo.Checked;
-                prod.activoInt = 1;
+                //prod.activoInt = 1;
 
 
                 int idProducto = (int)ViewState["ProductoID"];

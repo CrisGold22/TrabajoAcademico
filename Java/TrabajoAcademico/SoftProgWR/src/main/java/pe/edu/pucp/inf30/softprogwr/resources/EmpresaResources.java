@@ -49,7 +49,7 @@ public class EmpresaResources {
                     empresa.getDistrito()==null || empresa.getDistrito().isBlank()||
                     empresa.getEmail()==null || empresa.getEmail().isBlank()||
                     empresa.getProvincia()==null || empresa.getProvincia().isBlank()||
-                    empresa.getRUC()==null || empresa.getRUC().isBlank()||
+                    empresa.getRuc()==null || empresa.getRuc().isBlank()||
                     empresa.getRazonSocial()==null || empresa.getRazonSocial().isBlank()||
                     empresa.getTelefono()==null || empresa.getTelefono().isBlank()
                     ){
@@ -98,7 +98,7 @@ public class EmpresaResources {
                     empresa.getDistrito()==null || empresa.getDistrito().isBlank()||
                     empresa.getEmail()==null || empresa.getEmail().isBlank()||
                     empresa.getProvincia()==null || empresa.getProvincia().isBlank()||
-                    empresa.getRUC()==null || empresa.getRUC().isBlank()||
+                    empresa.getRuc()==null || empresa.getRuc().isBlank()||
                     empresa.getRazonSocial()==null || empresa.getRazonSocial().isBlank()||
                     empresa.getTelefono()==null || empresa.getTelefono().isBlank()
                     ){

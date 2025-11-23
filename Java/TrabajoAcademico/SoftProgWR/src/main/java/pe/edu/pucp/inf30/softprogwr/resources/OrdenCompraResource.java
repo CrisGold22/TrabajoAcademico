@@ -95,22 +95,36 @@ public class OrdenCompraResource {
 
     @PUT
     @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response actualizar(@PathParam("id") int id, OrdenCompra ordenCompra) {
-        if (ordenCompra == null || ordenCompra.getCliente() == null
-                || ordenCompra.getEstadoString() == null
-                || ordenCompra.getEstadoString().isEmpty()) {
+
+        System.out.println("REST actualizarOrdenCompra -> id=" + id
+                + ", estado=" + ordenCompra.getEstado()
+                + ", estadoString=" + ordenCompra.getEstadoString());
+
+        if (ordenCompra == null
+                || ordenCompra.getCliente() == null
+                || ordenCompra.getEstado() == null) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("La orden de compra no esta creado")
-                    .build();
-        }
-        if (this.ordenCompraBO.obtener(id) == null) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Ordencompra: " + id + ", no encontrado")
+                    .entity("La orden de compra no tiene datos completos o estado.")
                     .build();
         }
 
-        // 👇 MUY IMPORTANTE
+        OrdenCompra existente = this.ordenCompraBO.obtener(id);
+        if (existente == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("OrdenCompra: " + id + " no encontrada")
+                    .build();
+        }
+
+        // aseguramos que el id del path manda
         ordenCompra.setId(id);
+
+        // Por si por alguna razón estadoString vino null:
+        if (ordenCompra.getEstado() != null && ordenCompra.getEstadoString() == null) {
+            ordenCompra.setEstadoString(ordenCompra.getEstado().name());
+        }
 
         ordenCompraBO.actualizar(ordenCompra);
         return Response.ok(ordenCompra).build();
