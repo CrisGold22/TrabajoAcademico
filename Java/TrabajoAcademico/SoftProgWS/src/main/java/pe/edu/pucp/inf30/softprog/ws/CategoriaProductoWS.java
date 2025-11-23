@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 
 /**
  *
@@ -131,5 +132,21 @@ private final ResourceBundle config;
             return ("Fallo en el servicio. Código HTTP: " + statusCode + ". Detalle: " + response.body());
         }
         return "Operacion Completa";  
+    }
+    @WebMethod(operationName = "listarmarcaporIdcategoria")
+    public List<String> listarmarcaporIdcategoria(@WebParam(name = "idCategoria") Integer idCategoria) throws IOException, InterruptedException {
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/listarMarcasPorcategoria/" + idCategoria;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        HttpResponse<String> response
+                = client.send(request, HttpResponse.BodyHandlers.ofString());
+        String json = response.body();
+        List<String> marcas
+                = mapper.readValue(json, new TypeReference<List<String>>() {
+                });
+        return marcas;
     }
 }

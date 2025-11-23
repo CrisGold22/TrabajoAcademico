@@ -18,6 +18,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
+import pe.edu.pucp.inf30.softprog.modelo.producto.Producto;
 import pe.edu.pucp.inf30.softprog.negocio.bo.producto.CategoriaProductoBO;
 import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.CategoriaProductoBOImpl;
 
@@ -96,5 +97,10 @@ public class CategoriaProductoResource {
         // no se si esta bien
         categoriaProductoBO.actualizar(categoriaProducto);
         return Response.ok(categoriaProducto).build();
-    } 
+    }
+    @GET
+    @Path("listarMarcasPorcategoria/{idCategoria}")
+    public List<String> listarMarcasPorCategoria(@PathParam("idCategoria") Integer idCategoria) {
+        return categoriaProductoBO.obtenerMarcasPorCategoria(idCategoria);
+    }
 }
