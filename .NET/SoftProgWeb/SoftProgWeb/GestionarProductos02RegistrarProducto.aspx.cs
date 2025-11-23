@@ -109,7 +109,7 @@ namespace SoftProgWeb
                 prod.precioAlMayor = double.Parse(txtPrecioMayor.Text);
                 prod.stockDisponible = int.Parse(txtStockDisponible.Text);
                 prod.stockMaximo = int.Parse(txtStockMaximo.Text);
-                prod.categoria = _servicioCategoria.obtenerCategoriaProducto(1);
+                prod.categoria = _servicioCategoria.obtenerCategoriaProducto(ddlCategoria.SelectedIndex);
                 prod.medidaAlMayor = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
                 prod.medidaAlMayorSpecified = true;
                 prod.activo = chkActivo.Checked;
