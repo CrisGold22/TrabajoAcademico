@@ -18,6 +18,42 @@
     </div>--%>
 </div>
 
+<div class="card mb-3">
+    <div class="card-header bg-light">
+        <i class="fas fa-search"></i> <strong>Filtros de Búsqueda</strong>
+    </div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">ID del Cliente:</label>
+                <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control" TextMode="Number" placeholder="Ej: 1"></asp:TextBox>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Fecha Inicio:</label>
+                <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Fecha Fin:</label>
+                <asp:TextBox ID="txtFechaFin" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+            </div>
+
+            <div class="col-md-2 d-flex align-items-end">
+                <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" 
+                    CssClass="btn btn-primary w-100" OnClick="btnFiltrar_Click" />
+            </div>
+            <div class="col-md-12 text-end">
+                <asp:LinkButton ID="lnkLimpiar" runat="server" CssClass="text-decoration-none" OnClick="lnkLimpiar_Click">
+                    <i class="fas fa-sync"></i> Restablecer Filtros
+                </asp:LinkButton>
+            </div>
+        </div>
+    </div>
+</div>
+<asp:Panel ID="pnlMensaje" runat="server" Visible="false" CssClass="alert alert-danger alert-dismissible fade show" role="alert">
+    <asp:Literal ID="litMensajeError" runat="server"></asp:Literal>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</asp:Panel>
 
         <div class="row">
             <div class="col-md-12">

@@ -14,7 +14,7 @@ namespace SoftProgWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            servicioOrdenCompra = new OrdenCompraWSClient();
+            servicioOrdenCompra = new OrdenCompraWSClient("OrdenCompraWSPort1");
 
             pnlMensaje.Visible = false;
 
@@ -67,15 +67,22 @@ namespace SoftProgWeb
                 }
 
                 lblTotal.Text = pedido.totalFinal.ToString("C2");
-                DateTime fechaNew;
 
-                if (DateTime.TryParse(pedido.fechaCreacion, out fechaNew))
+                if (!string.IsNullOrEmpty(pedido.fechaCreacion))
                 {
-                    lblFecha.Text = fechaNew.ToString("dd/MM/yyyy");
+                    DateTime fecha;
+                    if (DateTime.TryParse(pedido.fechaCreacion, out fecha))
+                    {
+                        lblFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        lblFecha.Text = pedido.fechaCreacion;
+                    }
                 }
                 else
                 {
-                    lblFecha.Text = "Fecha inválida";
+                    lblFecha.Text = "-";
                 }
                 lblTotal.Text = pedido.totalFinal.ToString("C2");
                 lblSubtotal.Text = pedido.totalParcial.ToString("C2");
@@ -116,26 +123,20 @@ namespace SoftProgWeb
 
             try
             {
-                // 1. Obtener orden completa
                 ordenCompra pedido = servicioOrdenCompra.obtenerOrdenCompra(idPedido);
 
-                // 2. Re-cargar líneas
                 pedido.lineasOrden = servicioOrdenCompra.listarLineasOrdenCompraPorIdOrdenCompra(idPedido);
 
-                // 3. Asignar estado
                 string nuevoEstadoStr = ddlEstado.SelectedValue;
                 estadoOrdenCompra nuevoEstadoEnum = (estadoOrdenCompra)Enum.Parse(typeof(estadoOrdenCompra), nuevoEstadoStr);
 
                 pedido.estado = nuevoEstadoEnum;
                 pedido.estadoSpecified = true;
 
-                // 👇 **SUPER IMPORTANTE**
                 pedido.estadoString = nuevoEstadoStr;
 
-                // 4. ENVÍO COMPLETO Y CORRECTO
                 servicioOrdenCompra.actualizarOrdenCompra(pedido);
 
-                // 5. Recargar página
                 Response.Redirect(Request.RawUrl, false);
                 Context.ApplicationInstance.CompleteRequest();
             }
