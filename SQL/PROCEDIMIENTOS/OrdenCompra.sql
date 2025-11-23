@@ -54,23 +54,25 @@ CREATE PROCEDURE modificarOrdenCompra (
     IN p_total_final              DOUBLE,
     IN p_descuentoTotal           DOUBLE,
     IN p_Estado                   VARCHAR(45),
-    IN p_carrito_idCarrito 		  INT,
+    IN p_carrito_idCarrito        INT,
     IN p_Activo                   TINYINT, 
     IN p_Cliente                  INT,
-    IN p_Empresa				  INT
+    IN p_Empresa                  INT
 )
 BEGIN
     UPDATE OrdenCompra
-       SET fechaCreacion = p_FechaCreacion,
-           total_parcial = p_total_parcial,
-           total_final   = p_total_final,
-           descuentoTotal = p_descuentoTotal,
-           estado        = p_Estado,
-           carrito_idCarrito = p_carrito_idCarrito,
-           activo        = p_Activo,
-           cliente_idCliente = p_Cliente
+       SET fechaCreacion      = p_FechaCreacion,
+           total_parcial      = p_total_parcial,
+           total_final        = p_total_final,
+           descuentoTotal     = p_descuentoTotal,
+           estado             = p_Estado,
+           carrito_idCarrito  = p_carrito_idCarrito,
+           activo             = p_Activo,
+           cliente_idCliente  = p_Cliente,
+           empresa_idEmpresa  = p_Empresa
      WHERE idOrdenCompra = p_idOrdenCompra;
 END //
+
 
 CREATE PROCEDURE eliminarOrdenCompra (IN p_idOrdenCompra INT)
 BEGIN

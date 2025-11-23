@@ -9,6 +9,8 @@ namespace SoftProgWeb
     public partial class GestionarPedidos02DetallesPedido : System.Web.UI.Page
     {
         private OrdenCompraWSClient servicioOrdenCompra;
+        private ordenCompra pedidoActual;
+        private cliente cliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -66,19 +68,15 @@ namespace SoftProgWeb
 
                 lblTotal.Text = pedido.totalFinal.ToString("C2");
 
-                // Verificamos si el string no está vacío ni es nulo
                 if (!string.IsNullOrEmpty(pedido.fechaCreacion))
                 {
                     DateTime fecha;
-                    // Intentamos convertir el texto a fecha
                     if (DateTime.TryParse(pedido.fechaCreacion, out fecha))
                     {
-                        // Si funciona, mostramos la fecha formateada
                         lblFecha.Text = fecha.ToString("dd/MM/yyyy");
                     }
                     else
                     {
-                        // Si no es una fecha válida, mostramos el texto tal cual
                         lblFecha.Text = pedido.fechaCreacion;
                     }
                 }
@@ -86,11 +84,13 @@ namespace SoftProgWeb
                 {
                     lblFecha.Text = "-";
                 }
+                lblTotal.Text = pedido.totalFinal.ToString("C2");
+                lblSubtotal.Text = pedido.totalParcial.ToString("C2");
+                lblDescuento.Text = pedido.descuentoTotal.ToString("C2");
                 lblClienteID.Text = pedido.cliente.id.ToString();
                 lblCliente.Text = pedido.cliente.nombre + " " + pedido.cliente.apellidoPaterno + " " + pedido.cliente.apellidoMaterno;
                 lblEmpresa.Text = pedido.empresa.razonSocial;
                 lblEmpresaID.Text = pedido.empresa.id.ToString();
-
 
 
                 string estadoActual = pedido.estado.ToString();
@@ -124,6 +124,7 @@ namespace SoftProgWeb
             try
             {
                 ordenCompra pedido = servicioOrdenCompra.obtenerOrdenCompra(idPedido);
+
                 pedido.lineasOrden = servicioOrdenCompra.listarLineasOrdenCompraPorIdOrdenCompra(idPedido);
 
                 string nuevoEstadoStr = ddlEstado.SelectedValue;
@@ -132,22 +133,19 @@ namespace SoftProgWeb
                 pedido.estado = nuevoEstadoEnum;
                 pedido.estadoSpecified = true;
 
+                pedido.estadoString = nuevoEstadoStr;
+
                 servicioOrdenCompra.actualizarOrdenCompra(pedido);
-                int resultado = 1;
-                if (resultado > 0)
-                {
-                    CargarDetallePedido(idPedido);
-                }
-                else
-                {
-                    MostrarError("No se pudo actualizar el estado.");
-                }
+
+                Response.Redirect(Request.RawUrl, false);
+                Context.ApplicationInstance.CompleteRequest();
             }
             catch (System.Exception ex)
             {
                 MostrarError("Error al cambiar estado: " + ex.Message);
             }
         }
+
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {

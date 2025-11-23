@@ -88,19 +88,32 @@ public class OrdenCompraWS {
     }
 
     @WebMethod(operationName = "actualizarOrdenCompra")
-    public void actualizarOrdenCompra(@WebParam(name = "ordenCompra") OrdenCompra ordenCompra) throws JsonProcessingException, IOException, InterruptedException {
-        //ObjectMapper mapper = new ObjectMapper();
+    public void actualizarOrdenCompra(@WebParam(name = "ordenCompra") OrdenCompra ordenCompra)
+            throws JsonProcessingException, IOException, InterruptedException {
+
+        // Asegúrate que el id esté bien seteado desde el front
+        System.out.println("SOAP actualizarOrdenCompra -> id=" + ordenCompra.getId()
+                + ", estado=" + ordenCompra.getEstado());
+
         String json = mapper.writeValueAsString(ordenCompra);
-        String url;
-        HttpRequest request;
-        url = this.urlBase + "/" + this.NOMBRE_RESOURCE;
-        request = HttpRequest.newBuilder()
+        System.out.println("JSON que se envía al REST (actualizarOrdenCompra): " + json);
+
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/" + ordenCompra.getId();
+
+        HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .PUT(HttpRequest.BodyPublishers.ofString(json))
                 .build();
 
-        client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        int status = response.statusCode();
+
+        if (status != 200 && status != 204) {
+            throw new RuntimeException(
+                    "Error al actualizar OrdenCompra. HTTP " + status + " - Body: " + response.body()
+            );
+        }
     }
 
     @WebMethod(operationName = "obtenerOrdenCompra")

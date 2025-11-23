@@ -1,6 +1,7 @@
 ﻿using SoftProgWeb.SoftProgWS;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -62,7 +63,7 @@ namespace SoftProgWeb
             }
             if (string.IsNullOrEmpty(txtFechaInicio.Text) || string.IsNullOrEmpty(txtFechaFin.Text))
             {
-                MostrarError("⚠️ Debes seleccionar un rango de fechas completo.");
+                MostrarError("Debes seleccionar un rango de fechas completo.");
                 return;
             }
 
@@ -86,7 +87,7 @@ namespace SoftProgWeb
                 {
                     gvPedidos.DataSource = null;
                     gvPedidos.DataBind();
-                    MostrarError("ℹ️ No se encontraron pedidos para este cliente en esas fechas.");
+                    MostrarError("No se encontraron pedidos para este cliente en esas fechas.");
                 }
             }
             catch (System.Exception ex)

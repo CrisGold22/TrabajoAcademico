@@ -28,7 +28,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setString("p_ruc", modelo.getRUC());
+        cmd.setString("p_ruc", modelo.getRuc());
         cmd.setString("p_razonsocial", modelo.getRazonSocial());
         cmd.setString("p_direccionFiscal", modelo.getDireccionFiscal());
         cmd.setString("p_departamento", modelo.getDepartamento());
@@ -51,7 +51,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
         CallableStatement cmd = conn.prepareCall(sql);
         
         cmd.setInt("p_idEmpresa", modelo.getId());
-        cmd.setString("p_ruc", modelo.getRUC());
+        cmd.setString("p_ruc", modelo.getRuc());
         cmd.setString("p_razonsocial", modelo.getRazonSocial());
         cmd.setString("p_direccionFiscal", modelo.getDireccionFiscal());
         cmd.setString("p_departamento", modelo.getDepartamento());
@@ -103,7 +103,7 @@ public class EmpresaDAOImpl extends BaseDAO<Empresa> implements EmpresaDAO{
         Empresa empresa = new Empresa();
         
         empresa.setId(rs.getInt("idEmpresa"));
-        empresa.setRUC(rs.getString("ruc"));
+        empresa.setRuc(rs.getString("ruc"));
         empresa.setRazonSocial(rs.getString("razonSocial"));
         empresa.setDireccionFiscal(rs.getString("direccionFiscal"));
         empresa.setDepartamento(rs.getString("departamento"));
