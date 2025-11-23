@@ -12,7 +12,7 @@ namespace SoftProgWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            servicioOrdenCompra = new OrdenCompraWSClient();
+            servicioOrdenCompra = new OrdenCompraWSClient("OrdenCompraWSPort1");
 
             pnlMensaje.Visible = false;
 
@@ -65,20 +65,33 @@ namespace SoftProgWeb
                 }
 
                 lblTotal.Text = pedido.totalFinal.ToString("C2");
-                DateTime fechaNew;
 
-                if (DateTime.TryParse(pedido.fechaCreacion, out fechaNew))
+                // Verificamos si el string no está vacío ni es nulo
+                if (!string.IsNullOrEmpty(pedido.fechaCreacion))
                 {
-                    lblFecha.Text = fechaNew.ToString("dd/MM/yyyy");
+                    DateTime fecha;
+                    // Intentamos convertir el texto a fecha
+                    if (DateTime.TryParse(pedido.fechaCreacion, out fecha))
+                    {
+                        // Si funciona, mostramos la fecha formateada
+                        lblFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        // Si no es una fecha válida, mostramos el texto tal cual
+                        lblFecha.Text = pedido.fechaCreacion;
+                    }
                 }
                 else
                 {
-                    lblFecha.Text = "Fecha inválida";
+                    lblFecha.Text = "-";
                 }
                 lblClienteID.Text = pedido.cliente.id.ToString();
                 lblCliente.Text = pedido.cliente.nombre + " " + pedido.cliente.apellidoPaterno + " " + pedido.cliente.apellidoMaterno;
                 lblEmpresa.Text = pedido.empresa.razonSocial;
                 lblEmpresaID.Text = pedido.empresa.id.ToString();
+
+
 
                 string estadoActual = pedido.estado.ToString();
                 if (ddlEstado.Items.FindByValue(estadoActual) != null)
