@@ -9,6 +9,8 @@ namespace SoftProgWeb
     public partial class GestionarPedidos02DetallesPedido : System.Web.UI.Page
     {
         private OrdenCompraWSClient servicioOrdenCompra;
+        private ordenCompra pedidoActual;
+        private cliente cliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,10 +77,14 @@ namespace SoftProgWeb
                 {
                     lblFecha.Text = "Fecha inválida";
                 }
+                lblTotal.Text = pedido.totalFinal.ToString("C2");
+                lblSubtotal.Text = pedido.totalParcial.ToString("C2");
+                lblDescuento.Text = pedido.descuentoTotal.ToString("C2");
                 lblClienteID.Text = pedido.cliente.id.ToString();
                 lblCliente.Text = pedido.cliente.nombre + " " + pedido.cliente.apellidoPaterno + " " + pedido.cliente.apellidoMaterno;
                 lblEmpresa.Text = pedido.empresa.razonSocial;
                 lblEmpresaID.Text = pedido.empresa.id.ToString();
+
 
                 string estadoActual = pedido.estado.ToString();
                 if (ddlEstado.Items.FindByValue(estadoActual) != null)
@@ -112,6 +118,12 @@ namespace SoftProgWeb
             {
                 ordenCompra pedido = servicioOrdenCompra.obtenerOrdenCompra(idPedido);
                 pedido.lineasOrden = servicioOrdenCompra.listarLineasOrdenCompraPorIdOrdenCompra(idPedido);
+                //pedido.fechaCreacion = lblFecha.Text;
+                //pedido.totalFinal = Convert.ToDouble(lblTotal.Text.Replace("$", ""));
+                //pedido.totalParcial = Convert.ToDouble(lblSubtotal.Text.Replace("$", ""));
+                //pedido.descuentoTotal = Convert.ToDouble(lblDescuento.Text.Replace("$", ""));
+                //pedido.cliente = new ClienteWSClient().obtenerCliente(int.Parse(lblClienteID.Text));
+                //pedido.empresa = new EmpresaWSClient().obtenerEmpresa(int.Parse(lblEmpresaID.Text));
 
                 string nuevoEstadoStr = ddlEstado.SelectedValue;
                 estadoOrdenCompra nuevoEstadoEnum = (estadoOrdenCompra)Enum.Parse(typeof(estadoOrdenCompra), nuevoEstadoStr);

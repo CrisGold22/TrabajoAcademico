@@ -94,7 +94,6 @@ public class OrdenCompraResource {
     }
 
     @PUT
-    //si
     @Path("{id}")
     public Response actualizar(@PathParam("id") int id, OrdenCompra ordenCompra) {
         if (ordenCompra == null || ordenCompra.getCliente() == null
@@ -109,9 +108,11 @@ public class OrdenCompraResource {
                     .entity("Ordencompra: " + id + ", no encontrado")
                     .build();
         }
-        // no se si esta bien
+
+        // 👇 MUY IMPORTANTE
+        ordenCompra.setId(id);
+
         ordenCompraBO.actualizar(ordenCompra);
-        //falta guardar
         return Response.ok(ordenCompra).build();
     }
 

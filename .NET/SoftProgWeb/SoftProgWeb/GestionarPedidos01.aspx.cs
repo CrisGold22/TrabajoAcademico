@@ -1,5 +1,6 @@
 ﻿using SoftProgWeb.SoftProgWS;
 using System;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -43,12 +44,22 @@ namespace SoftProgWeb
 
     private void CargarPedidos()
         {
+            //try
+            //{
+            //    ordenCompra[] pedidos = servicioOrdenCompra.listarOrdenCompra();
+
+            //    gvPedidos.DataSource = pedidos.OrderBy(p => p.id).ToList();
+
+            //    gvPedidos.DataBind();
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    System.Diagnostics.Debug.WriteLine("Error al cargar pedidos: " + ex.Message);
+            //}
             try
             {
-                ordenCompra[] pedidos = servicioOrdenCompra.listarOrdenCompra();
-
-                gvPedidos.DataSource = pedidos.OrderBy(p => p.id).ToList();
-
+                var lista = servicioOrdenCompra.listarOrdenCompra();
+                gvPedidos.DataSource = lista;
                 gvPedidos.DataBind();
             }
             catch (System.Exception ex)
