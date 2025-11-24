@@ -29,6 +29,7 @@
                     <div class="col-md-3">
                         <asp:DropDownList ID="ddlCriterio" runat="server" CssClass="form-select">
                             <asp:ListItem Value="SKU">Buscar por SKU</asp:ListItem>
+                            <asp:ListItem Value="ID">Buscar por ID</asp:ListItem>
                             <%--<asp:ListItem Value="ID">Buscar por ID</asp:ListItem>--%>
                         </asp:DropDownList>
                     </div>
@@ -71,20 +72,18 @@
                         <asp:BoundField DataField="stockDisponible" HeaderText="Stock" />
                         
                         <asp:TemplateField HeaderText="Acciones">
-                            <ItemTemplate>
-                                <asp:Button ID="btnModificar" runat="server" 
-                                    Text="Modificar" 
-                                    CssClass="btn btn-primary btn-sm"
-                                    CommandName="Modificar"
-                                    CommandArgument='<%# Eval("id") %>' />
-                                <asp:Button ID="btnEliminar" runat="server" 
-                                    Text="Eliminar" 
-                                    CssClass="btn btn-danger btn-sm"
-                                    CommandName="Eliminar"
-                                    CommandArgument='<%# Eval("id") %>'
-                                    OnClientClick="return confirm('¿Está seguro de que desea eliminar este producto?');" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-primary btn-sm" CommandName="Modificar" CommandArgument='<%# Eval("id") %>' />
+        
+                                    <%-- NUEVO BOTÓN --%>
+                                    <asp:Button ID="btnDescuentos" runat="server" Text="% Ofertas" 
+                                                CssClass="btn btn-warning btn-sm" 
+                                                CommandName="GestionarDescuentos" 
+                                                CommandArgument='<%# Eval("id") %>' />
+                    
+                                    <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Eliminar" CommandArgument='<%# Eval("id") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                                         </Columns>
                                         <PagerSettings 
                             Mode="NumericFirstLast" 

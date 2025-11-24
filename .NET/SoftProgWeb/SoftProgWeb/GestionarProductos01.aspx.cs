@@ -13,7 +13,7 @@ namespace SoftProgWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            servicioProducto = new ProductoWSClient();
+            servicioProducto = new ProductoWSClient("ProductoWSPort1");
 
             if (!Page.IsPostBack)
             {
@@ -160,6 +160,10 @@ namespace SoftProgWeb
             if (e.CommandName == "Modificar")
             {
                 Response.Redirect(string.Format("~/GestionarProductos02RegistrarProducto.aspx?id={0}", idProducto));
+            }
+            else if (e.CommandName == "GestionarDescuentos")
+            {
+                Response.Redirect($"~/GestionarDescuentos.aspx?idProducto={idProducto}");
             }
             else if (e.CommandName == "Eliminar")
             {
