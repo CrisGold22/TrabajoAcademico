@@ -25,60 +25,73 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.persona.ClienteBOImpl;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ClienteResource {
+
     private final ClienteBO clienteBO;
-    
+
     public ClienteResource() {
         this.clienteBO = new ClienteBOImpl();
     }
+
     //Sí
     @GET
     public List<Cliente> listar() {
         return this.clienteBO.listar();
     }
+
     //sí se probó
     @GET
     @Path("{id}")
     public Response obtener(@PathParam("id") int id) {
         Cliente cliente = this.clienteBO.obtener(id);
-        
+
         if (cliente == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity(Map.of("error", "Cliente: " + id + ", no encontrado"))
                     .build();
         }
-        
+
         return Response.ok(cliente).build();
     }
+
     //si funca
     @GET
     @Path("dni/{dni}")
     public Response obtenerPorDni(@PathParam("dni") String dni) {
         Cliente cliente = this.clienteBO.buscarPorDNI(dni);
-        
+
         if (cliente == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity(Map.of("error", "Cliente: con dni = " + dni + ", no encontrado"))
                     .build();
         }
-        
+
         return Response.ok(cliente).build();
     }
-    
+
     @POST
     public Response crear(Cliente cliente) {
-        if (cliente == null || cliente.getNombre() == null || cliente.getNombre().isBlank()) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("El cliente no es valido")
+        try {
+            if (cliente == null || cliente.getNombre() == null || cliente.getNombre().isBlank()) {
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("El cliente no es válido")
+                        .build();
+            }
+
+            this.clienteBO.insertar(cliente);
+            URI location = URI.create("/SoftProgRest/api/v1/clientes/" + cliente.getId());
+
+            return Response.created(location)
+                    .entity(cliente)
+                    .build();
+
+        } catch (RuntimeException ex) {
+            ex.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error inesperado al insertar cliente: " + ex.getMessage())
                     .build();
         }
-        //falta guardarrrrrrrrrrrrrr
-        this.clienteBO.insertar(cliente);
-        URI location = URI.create("/SoftProgRest/api/v1/clientes/" + cliente.getId());
-        
-        return Response.created(location)
-                .entity(cliente)
-                .build();
     }
+
     //Sí
     @PUT
     @Path("{id}")
@@ -88,7 +101,7 @@ public class ClienteResource {
                     .entity(Map.of("error", "El cliente no es valido"))
                     .build();
         }
-        
+
         if (this.clienteBO.obtener(id) == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("cliente: " + id + ", no encontrado")
@@ -96,10 +109,10 @@ public class ClienteResource {
         }
         //falta guardar
         this.clienteBO.actualizar(cliente);
-        
+
         return Response.ok(cliente).build();
     }
-    
+
     @DELETE
     @Path("{id}")
     public Response eliminar(@PathParam("id") int id) {
@@ -109,11 +122,11 @@ public class ClienteResource {
                     .build();
         }
         this.clienteBO.eliminar(id);
-        
+
         return Response.noContent().build();
     }
-    
-   // @GET
+
+    // @GET
 //    @Path("cuenta/{cuenta}")
 //    public Response buscarPorCuenta(@PathParam("cuenta") String cuenta) {
 //        Cliente cliente = this.clienteBO.(cuenta);

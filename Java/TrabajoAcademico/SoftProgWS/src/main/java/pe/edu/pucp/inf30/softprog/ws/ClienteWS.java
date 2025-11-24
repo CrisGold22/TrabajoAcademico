@@ -66,11 +66,12 @@ public class ClienteWS {
     }
 
     @WebMethod(operationName = "insertarCliente")
-    public void insertarCliente(@WebParam(name = "cliente") Cliente cliente) throws IOException, InterruptedException {
-        String json = mapper.writeValueAsString(cliente);   // usa el mapper configurado
+    public void insertarCliente(@WebParam(name = "cliente") Cliente cliente)
+            throws IOException, InterruptedException {
 
+        String json = mapper.writeValueAsString(cliente);
         System.out.println("JSON enviado a REST (insertarCliente): " + json);
-        
+
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -80,18 +81,22 @@ public class ClienteWS {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        client.send(request, HttpResponse.BodyHandlers.ofString());
+        int status = response.statusCode();
+        System.out.println("Respuesta REST insertarCliente: HTTP " + status + " - " + response.body());
 
+        if (status != 201 && status != 200) {
+            throw new RuntimeException("Error al insertar cliente. HTTP " + status + " - " + response.body());
+        }
     }
-//    
 
+//    
     @WebMethod(operationName = "actualizarCliente")
     public void actualizarCliente(@WebParam(name = "cliente") Cliente cliente) throws JsonProcessingException, IOException, InterruptedException {
 //        ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(cliente);
-        
+
         System.out.println("JSON enviado a REST (actualizar): " + json);
-        
+
         String url;
         HttpRequest request;
         url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/" + cliente.getId();

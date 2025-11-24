@@ -578,6 +578,9 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />

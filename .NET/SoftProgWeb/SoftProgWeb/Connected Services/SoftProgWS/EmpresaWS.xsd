@@ -148,6 +148,14 @@
       <xs:element name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarEmpresasActivos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasActivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="actualizarEmpresa">
     <xs:sequence>
       <xs:element minOccurs="0" name="empresa" type="tns:empresa" />
@@ -177,18 +185,20 @@
       <xs:element minOccurs="0" name="return" type="tns:empresa" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpresasActivos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasActivosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarEmpresa">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarEmpresaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasPorCliente">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasPorClienteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
     </xs:sequence>
@@ -200,16 +210,6 @@
   </xs:complexType>
   <xs:complexType name="insertarEmpresaResponse">
     <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasPorCliente">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarEmpresasPorClienteResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresa" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="crearEmpresaValidandoCodigoPostal">
     <xs:sequence>

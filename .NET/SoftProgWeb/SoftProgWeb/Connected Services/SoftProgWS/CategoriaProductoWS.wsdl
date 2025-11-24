@@ -23,6 +23,12 @@
   <message name="insertarCategoriaProductoResponse">
     <part name="parameters" element="tns:insertarCategoriaProductoResponse" />
   </message>
+  <message name="listarmarcaporIdcategoria">
+    <part name="parameters" element="tns:listarmarcaporIdcategoria" />
+  </message>
+  <message name="listarmarcaporIdcategoriaResponse">
+    <part name="parameters" element="tns:listarmarcaporIdcategoriaResponse" />
+  </message>
   <message name="eliminarCategoriaProducto">
     <part name="parameters" element="tns:eliminarCategoriaProducto" />
   </message>
@@ -56,6 +62,12 @@
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProductoResponse" message="tns:insertarCategoriaProductoResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="listarmarcaporIdcategoria">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoriaRequest" message="tns:listarmarcaporIdcategoria" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoriaResponse" message="tns:listarmarcaporIdcategoriaResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoria/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoria/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="eliminarCategoriaProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/eliminarCategoriaProductoRequest" message="tns:eliminarCategoriaProducto" />
@@ -95,6 +107,21 @@
       </fault>
     </operation>
     <operation name="insertarCategoriaProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarmarcaporIdcategoria">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

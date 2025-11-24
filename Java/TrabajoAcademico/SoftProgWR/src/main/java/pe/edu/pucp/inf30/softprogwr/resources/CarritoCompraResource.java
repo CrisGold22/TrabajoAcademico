@@ -47,7 +47,7 @@ public class CarritoCompraResource {
                     .entity("El carrito de compras no estacreado")
                     .build();
         }
-        this.carritoComprasBO.actualizar(carritocompras);
+        this.carritoComprasBO.insertar(carritocompras);
         URI location= URI.create("/SoftProgWR/api/v1/carritocompras/" + carritocompras.getId());
         return Response.created(location)
                 .entity(carritocompras)
