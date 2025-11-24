@@ -178,7 +178,7 @@ public class ProductoWS {
         }
         return "Operacion Completa";
     }
-
+    //si sirve
     @WebMethod(operationName = "obtenerPorSku")
     public Producto obtenerPorSku(@WebParam(name = "sku") String sku) throws IOException, InterruptedException {
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/obtenerPorSku/" + sku;
@@ -193,7 +193,7 @@ public class ProductoWS {
         Producto producto = mapper.readValue(json, Producto.class);
         return producto;
     }
-
+    
     @WebMethod(operationName = "listarfiltrarProductoPorPrecioRegular")
     public List<Producto> listarfiltrarProductoPorPrecioRegular(@WebParam(name = "id") Integer id, @WebParam(name = "RangoPrecio1") double RangoPrecio1,
             @WebParam(name = "RangoPrecio2") double RangoPrecio2) throws IOException, InterruptedException {
@@ -261,7 +261,7 @@ public class ProductoWS {
 
     @WebMethod(operationName = "verificarStockSuficientePorSKU")
     public boolean verificarStockSuficientePorSKU(@WebParam(name = "sku") String sku, @WebParam(name = "cantidadSolicitada") Integer cantidadSolicitada) throws IOException, InterruptedException {
-        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/sku/" + sku + "/" + cantidadSolicitada;
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/verificarstocksuficientePorSKU/" + sku + "/" + cantidadSolicitada;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .GET()
@@ -271,7 +271,7 @@ public class ProductoWS {
                 = client.send(request, HttpResponse.BodyHandlers.ofString());
         return Boolean.parseBoolean(response.body());
     }
-
+    
     @WebMethod(operationName = "listarfiltrarProductoPorPrecioAlMayor")
     public List<Producto> listarfiltrarProductoPorPrecioAlMayor(@WebParam(name = "id") Integer id, @WebParam(name = "RangoPrecio1") double RangoPrecio1,
             @WebParam(name = "RangoPrecio2") double RangoPrecio2) throws IOException, InterruptedException {

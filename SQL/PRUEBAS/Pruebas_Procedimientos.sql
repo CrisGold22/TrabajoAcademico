@@ -82,7 +82,7 @@ CALL insertarAdministrador('GESTOR_PEDIDOS', 'PARCIAL', '65432187', 'Jorge', 'DÃ
 
 CALL insertarCategoriaProducto('Abarrotes', 'lentejas, arroz, etc', NULL, 1, @nuevo_id);
 //
-CALL insertarCategoriaProducto('Conservar y Enlatados', 'atunes, duraznos,etc', NULL, 1, @nuevo_id);
+CALL insertarCategoriaProducto('Conservas_y_Enlatados', 'atunes, duraznos,etc', NULL, 1, @nuevo_id);
 //
 CALL insertarCategoriaProducto('Lacteos', 'leches , etc', NULL, 1, @nuevo_id);
 //
@@ -90,9 +90,9 @@ CALL insertarCategoriaProducto('Bebidas', 'lentejas, arroz, etc', NULL, 1, @nuev
 //
 CALL insertarCategoriaProducto('Aperitivos', 'snacks y variados', NULL, 1, @nuevo_id);
 //
-CALL insertarCategoriaProducto('Cuidado Persona', 'limpieza personal', NULL, 1, @nuevo_id);
+CALL insertarCategoriaProducto('Cuidado_Personal', 'limpieza personal', NULL, 1, @nuevo_id);
 //
-CALL insertarCategoriaProducto('Masctota', 'comida de perros y gato', NULL, 1, @nuevo_id);
+CALL insertarCategoriaProducto('Mascota', 'comida de perros y gato', NULL, 1, @nuevo_id);
 //
 
 /*

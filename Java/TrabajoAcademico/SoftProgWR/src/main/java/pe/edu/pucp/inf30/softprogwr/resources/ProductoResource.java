@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.inf30.softprogwr.resources;
 
 import jakarta.ws.rs.Consumes;
@@ -23,7 +19,7 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.ProductoBOImpl;
 
 /**
  *
- * @author BRI
+ * @author Cristhian Horacio
  */
 @Path("producto")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -117,28 +113,28 @@ public class ProductoResource {
 
     @GET
 //    Si funciona
-    @Path("listarfiltrarProductoPorPrecioRegula/{id}/{RangoPrecio1}/{RangoPrecio2}")
+    @Path("filtrarproductoprecio/{id}/{RangoPrecio1}/{RangoPrecio2}")
     public List<Producto> listarfiltrarProductoPorPrecioRegula(@PathParam("id") Integer id, @PathParam("RangoPrecio1") double RangoPrecio1, @PathParam("RangoPrecio2") double RangoPrecio2) {
         return this.productoBO.filtrarProductoPorPrecioRegular(id, RangoPrecio1, RangoPrecio2);
     }
 
     //si funciona
     @GET
-    @Path("listarfiltrarProductoPorMarca/{id}/{marca}")
+    @Path("filtrarproductomarca/{id}/{marca}")
     public List<Producto> listarfiltrarProductoPorMarca(@PathParam("id") Integer id, @PathParam("marca") String marca) {
         return this.productoBO.filtrarProductoPorMarca(id, marca);
     }
 
     //hay error
     @GET
-    @Path("listarfiltrarProductoPorDescuento/{idCategoria}/{nombreCategoria}")
+    @Path("filtrarproductodescuento/{idCategoria}/{nombreCategoria}")
     public List<Producto> listarfiltrarProductoPorDescuento(@PathParam("idCategoria") Integer idCategoria, @PathParam("nombreCategoria") String nombreCategoria) {
         return this.productoBO.filtrarProductoPorDescuento(idCategoria, nombreCategoria);
     }
 
     @GET
     //si
-    @Path("verificarStockSuficientePorID/{id}/{cantidadSolicitada}")
+    @Path("verificarstock/{id}/{cantidadSolicitada}")
     public Response verificarStockSuficientePorID(@PathParam("id") Integer id, @PathParam("cantidadSolicitada") Integer cantidadSolicitada) {
         Boolean stocksuficienteID = this.productoBO.verificarStockSuficientePorID(id, cantidadSolicitada);
         return Response.ok(stocksuficienteID).build();
@@ -146,7 +142,7 @@ public class ProductoResource {
 
     //si funciona, solo era ingresar bien un string aunque tengo que hacer mas vadidaciones
     @GET
-    @Path("verificarStockSuficientePorSKU/{sku}/{cantidadSolicitada}")
+    @Path("verificarstocksuficientePorSKU/{sku}/{cantidadSolicitada}")
     public Response verificarStockSuficientePorSKU(@PathParam("sku") String sku, @PathParam("cantidadSolicitada") Integer cantidadSolicitada) {
         Boolean stocksuficiente = this.productoBO.verificarStockSuficientePorSKU(sku, cantidadSolicitada);
         return Response.ok(stocksuficiente).build();
@@ -167,13 +163,13 @@ public class ProductoResource {
 
     //falta implementar dos metodos
     @GET
-    @Path("listarfiltrarproductoprecioAlmayor/{id}/{RangoPrecio1}/{RangoPrecio2}")
+    @Path("filtrarproductoprecioAlmayor/{id}/{RangoPrecio1}/{RangoPrecio2}")
     public List<Producto> listarfiltrarproductoprecioAlmayor(@PathParam("id") Integer id, @PathParam("RangoPrecio1") double RangoPrecio1, @PathParam("RangoPrecio2") double RangoPrecio2) {
         return productoBO.filtrarProductoPorPrecioAlMayor(id, RangoPrecio1, RangoPrecio2);
     }
 
     @GET
-    @Path("listarobtenerProductosPorCategoria/{idCategoria}")
+    @Path("obtenerProductosPorCategoria/{idCategoria}")
     public List<Producto> listarobtenerProductosPorCategoria(@PathParam("idCategoria") Integer idCategoria) {
         return productoBO.obtenerProductosPorCategoria(idCategoria);
     }

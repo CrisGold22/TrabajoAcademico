@@ -24,7 +24,7 @@ import pe.edu.pucp.inf30.softprog.negocio.boimpl.producto.CategoriaProductoBOImp
 
 /**
  *
- * @author BRI
+ * @author Cristhian Horacio
  */
 @Path("categoriaproducto")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -102,5 +102,11 @@ public class CategoriaProductoResource {
     @Path("listarMarcasPorcategoria/{idCategoria}")
     public List<String> listarMarcasPorCategoria(@PathParam("idCategoria") Integer idCategoria) {
         return categoriaProductoBO.obtenerMarcasPorCategoria(idCategoria);
+    }
+    
+    @GET
+    @Path("obtenerCategoriaPorNombre/{nombreCategoria}")
+    public CategoriaProducto obtenerCategoriaPorNombre(@PathParam("nombreCategoria") String nombreCategoria){
+        return categoriaProductoBO.obtenerCategoriaPorNombre(nombreCategoria);
     }
 }

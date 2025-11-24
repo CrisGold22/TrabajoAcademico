@@ -118,14 +118,16 @@ public class DescuentoDAOImpl extends BaseDAO<Descuento> implements DescuentoDAO
     protected PreparedStatement comandoActualizarDescuentoPorIdProducto(Connection conn,
              Integer id, Descuento modelo) throws SQLException {
          
-        String sql = "{CALL actualizarPrecioDescuentoProducto(?,?)}";
+        String sql = "{CALL actualizarPrecioDescuentoProducto(?,?,?,?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
 
         cmd.setInt("p_idProducto", id);
         cmd.setDouble("p_nuevo_precio_desc", modelo.getPrecioPorVolumen());
+        cmd.setInt("p_cantidadMin", modelo.getCantidadMin());
+        cmd.setInt("p_cantidadMax", modelo.getCantidadMax());
         
         return cmd; 
-    }          
+    }       
     
 }

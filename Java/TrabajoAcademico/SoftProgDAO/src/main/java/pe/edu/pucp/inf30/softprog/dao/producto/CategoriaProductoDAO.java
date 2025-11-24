@@ -14,4 +14,5 @@ import pe.edu.pucp.inf30.softprog.modelo.producto.CategoriaProducto;
  */
 public interface CategoriaProductoDAO extends Persistible<CategoriaProducto, Integer> {
     List<String>obtenerMarcasPorCategoria(Integer idCategoria);
+    CategoriaProducto obtenerCategoriaPorNombre(String nombreCategoria);
 }

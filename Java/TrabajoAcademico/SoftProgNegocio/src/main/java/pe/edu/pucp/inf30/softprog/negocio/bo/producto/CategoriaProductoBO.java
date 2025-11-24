@@ -14,4 +14,5 @@ import pe.edu.pucp.inf30.softprog.negocio.bo.Gestionable;
  */
 public interface CategoriaProductoBO extends Gestionable<CategoriaProducto> {
     List<String> obtenerMarcasPorCategoria(Integer idCategoria);
+    CategoriaProducto obtenerCategoriaPorNombre(String nombreCategoria);
 }

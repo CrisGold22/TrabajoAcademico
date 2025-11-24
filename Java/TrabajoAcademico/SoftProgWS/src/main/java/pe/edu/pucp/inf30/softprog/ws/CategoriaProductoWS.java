@@ -149,4 +149,23 @@ private final ResourceBundle config;
                 });
         return marcas;
     }
+    
+    @WebMethod(operationName = "obtenerCategoriaSegunNombre")
+    public CategoriaProducto obtenerCategoriaSegunNombre(
+            @WebParam(name = "nombreCategoria") String nombreCategoria) throws  IOException, InterruptedException{
+        
+        String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/obtenerCategoriaPorNombre/" + nombreCategoria;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();     
+        
+        HttpResponse<String> response = 
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+        String json = response.body();
+        //ObjectMapper mapper= new ObjectMapper();
+        CategoriaProducto categoriaProducto = mapper.readValue(json, CategoriaProducto.class);
+        
+        return categoriaProducto;         
+    }
 }

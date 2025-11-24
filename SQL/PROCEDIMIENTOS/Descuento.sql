@@ -64,7 +64,10 @@ BEGIN
     SELECT * FROM Descuento;
 END //
 
-CREATE PROCEDURE actualizarPrecioDescuentoProducto(IN p_idProducto INT,IN p_nuevo_precio_desc DOUBLE)
+CREATE PROCEDURE actualizarPrecioDescuentoProducto(IN p_idProducto INT,
+IN p_nuevo_precio_desc DOUBLE,
+IN p_cantidadMin	INT,
+IN p_cantidadMax	INT)
 BEGIN
 
     IF NOT EXISTS (SELECT 1 FROM Producto WHERE id_Producto = p_idProducto) THEN
@@ -74,7 +77,9 @@ BEGIN
 
     IF EXISTS (SELECT 1 FROM Descuento WHERE producto_ID_Producto = p_idProducto) THEN
         UPDATE Descuento
-        SET precioPorVolumen = p_nuevo_precio_desc
+        SET precioPorVolumen = p_nuevo_precio_desc,
+			cantidadMin = p_cantidadMin,
+            cantidadMax = p_cantidadMax
         WHERE producto_ID_Producto = p_idProducto;
     END IF;
 END//

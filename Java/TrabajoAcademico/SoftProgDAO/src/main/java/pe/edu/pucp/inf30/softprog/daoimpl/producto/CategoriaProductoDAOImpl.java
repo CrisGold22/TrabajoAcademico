@@ -141,4 +141,33 @@ public class CategoriaProductoDAOImpl extends BaseDAO<CategoriaProducto> impleme
         return cmd;
     }
     
+    protected PreparedStatement comandoObtenerCategoriaPorNombre(Connection conn, 
+            String nombreCategoria)throws SQLException{
+        
+        String sql = "{CALL obtenerCategoriaPorNombre(?)}";
+        
+        CallableStatement cmd = conn.prepareCall(sql);
+        
+        cmd.setString("p_categoria", nombreCategoria);
+        
+        return cmd;
+    }
+    
+    @Override
+    public CategoriaProducto obtenerCategoriaPorNombre(String nombreCategoria) {
+        return ejecutarComando(conn -> {
+            try (PreparedStatement cmd = this.comandoObtenerCategoriaPorNombre(conn, nombreCategoria)){
+                ResultSet rs = cmd.executeQuery();
+                
+                if (!rs.next()) {
+                    System.err.println("No se encontro el registro con "
+                            + "sku: " + nombreCategoria);
+                    return null;
+                }
+                
+                return this.mapearModelo(rs);
+            }           
+        });            
+    }
+    
 }

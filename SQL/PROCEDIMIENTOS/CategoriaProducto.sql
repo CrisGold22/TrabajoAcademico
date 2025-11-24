@@ -11,6 +11,7 @@ DROP PROCEDURE IF EXISTS modificarCategoriaProducto;
 DROP PROCEDURE IF EXISTS listarCategoriaProductos;
 DROP PROCEDURE IF EXISTS buscarCategoriaProductoPorId;
 DROP PROCEDURE IF EXISTS obtenerMarcasPorCategoria;
+DROP PROCEDURE IF EXISTS obtenerCategoriaPorNombre;
 
 DELIMITER //
 
@@ -73,3 +74,9 @@ BEGIN
     AND p.activo = 1 AND c.activo = 1
     ORDER BY p.marca;
 END //
+
+CREATE PROCEDURE obtenerCategoriaPorNombre (IN p_categoria VARCHAR(45))
+BEGIN
+	SELECT * FROM CategoriaProducto
+    WHERE nombreCategoria = p_categoria;
+END//

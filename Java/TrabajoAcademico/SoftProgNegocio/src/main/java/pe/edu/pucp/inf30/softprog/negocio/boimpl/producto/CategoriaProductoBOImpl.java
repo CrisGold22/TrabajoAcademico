@@ -99,4 +99,9 @@ public class CategoriaProductoBOImpl implements CategoriaProductoBO {
         return this.categoriaProductoDAO.obtenerMarcasPorCategoria(idCategoria);
     }
     
+    
+    @Override
+    public CategoriaProducto obtenerCategoriaPorNombre(String nombreCategoria) {
+        return this.categoriaProductoDAO.obtenerCategoriaPorNombre(nombreCategoria);
+    }
 }
