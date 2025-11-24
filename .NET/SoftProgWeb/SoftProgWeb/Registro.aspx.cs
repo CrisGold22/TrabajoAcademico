@@ -262,6 +262,8 @@ namespace SoftProgWeb
 
                 carritoCompras carrito = new carritoCompras();
                 carrito.cliente = clienteConId;
+                carrito.activo = true;
+                carrito.activoInt = 1;
 
                 new CarritoComprasWSClient().insertarCarritoCompras(carrito);
                 System.Diagnostics.Debug.WriteLine($"[CARRITO INSERTADO] {DateTime.Now:HH:mm:ss.fff}");
