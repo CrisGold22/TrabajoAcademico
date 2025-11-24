@@ -166,23 +166,41 @@ public class SoftProgPruebas {
         Cliente cliente = new Cliente();
         ClienteBO clienteBO = new ClienteBOImpl();
 
-        cliente.setId(1);
-        cliente.setDni("72233478");
-        cliente.setNombre("Cristhian Horacio");
-        cliente.setApellidoMaterno("Olivares");
-        cliente.setApellidoPaterno("Gupioc");
-        cliente.setGenero(Genero.MASCULINO);
-        cliente.setFechaNacimiento(nacimientoSQL);
-        cliente.setTelefono(981429641);
-        cliente.setLineaCredito(10000);
-        cliente.setCategoria(CategoriaCliente.CATERING);
-        cliente.setNumeroPedidosHistorico(12);
-        cliente.setNumeroPedidosMensualPro(10);
-        cliente.setCuenta(cuenta);
-        cliente.setActivo(true);
+//        cliente.setId(1);
+//        cliente.setDni("72233478");
+//        cliente.setNombre("Cristhian Horacio");
+//        cliente.setApellidoMaterno("Olivares");
+//        cliente.setApellidoPaterno("Gupioc");
+//        cliente.setGenero(Genero.MASCULINO);
+//        cliente.setFechaNacimiento(nacimientoSQL);
+//        cliente.setTelefono(981429641);
+//        cliente.setLineaCredito(10000);
+//        cliente.setCategoria(CategoriaCliente.CATERING);
+//        cliente.setNumeroPedidosHistorico(12);
+//        cliente.setNumeroPedidosMensualPro(10);
+//        cliente.setCuenta(cuenta);
+//        cliente.setActivo(true);
+//
+//        clienteBO.insertar(cliente);
+//        System.out.println("Se inserto el cliente de id 1 creado exitosamente");
+        
+        clienteBO.obtener(13);
+        
+        CarritoCompras carrito = new CarritoCompras();
+        CarritoComprasBO carritoBO = new CarritoComprasBOImpl();
 
-        clienteBO.insertar(cliente);
-        System.out.println("Se inserto el cliente de id 1 creado exitosamente");
+        carrito.setId(1);
+        carrito.setSubtotal(0);
+        carrito.setDescuento(0);
+        carrito.setMontoFinal(0);
+        carrito.setCliente(cliente);
+        carrito.setActivo(true);
+        List<LineaCarrito> lineas = new ArrayList<>();
+        carrito.setLineasCarrito(lineas);
+
+        CarritoComprasDAOImpl carritoDAO = new CarritoComprasDAOImpl();
+        carritoDAO.crear(carrito);
+        
     }
     
     public static void pruebaEliminarOrdenCompra(){
