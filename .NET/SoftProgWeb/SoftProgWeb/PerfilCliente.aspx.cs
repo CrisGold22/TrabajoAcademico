@@ -4,24 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SoftProgWeb.SoftProgWS;
 
 namespace SoftProgWeb
 {
     public partial class PerfilCliente : System.Web.UI.Page
     {
+        private ClienteWSClient clienteWS = new ClienteWSClient();
+        private CuentaUsuarioWSClient cuentaUsuarioWS = new CuentaUsuarioWSClient();
+        private EmpresaWSClient empresaWS = new EmpresaWSClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //conectar con Back
-                //// Verificar si hay sesión activa
-                //if (Session["Usuario"] == null)
-                //{
-                //    Response.Redirect("Home.aspx"); //redireccion si no hay usuario
-                //    return;
-                //}
-
-                // Cargar datos del perfil
                 CargarDatosPerfil();
             }
         }
@@ -30,23 +25,49 @@ namespace SoftProgWeb
         {
             try
             {
-                // Datos de ejemplo 
-                txtNombre.Text = "Juan";
-                txtApellido.Text = "Perez Martinez";
-                txtDireccion.Text = "Mz L 20 Av argentina";
-                txtRuc.Text = "2020320030023";
-                txtTelefono.Text = "999 999 999";
-                txtPassword.Attributes["value"] = "**********";
+                if (Session["dni"] == null)
+                {
+                    Response.Redirect("InicioSesion.aspx");
+                    return;
+                }
 
-                // Registrar script para actualizar el header
-                string script = @"
-                    document.getElementById('displayName').textContent = '" + txtNombre.Text + " " + txtApellido.Text + @"';
-                    document.getElementById('displayEmail').textContent = 'JuanPerez@gmail.com';
-                    document.getElementById('emailPrincipal').textContent = 'JuanPerez@gmail.com';
-                ";
-                ScriptManager.RegisterStartupScript(this, GetType(), "updateHeader", script, true);
+                string dni = Session["dni"].ToString();
+
+                // 1. Obtener cliente por DNI desde el WS
+                cliente cli = clienteWS.buscarPorDni(dni);
+
+                if (cli == null)
+                {
+                    MostrarError("No se encontró el cliente.");
+                    return;
+                }
+
+                // 2. Mostrar datos reales
+                txtNombre.Text = cli.nombre;
+                txtApellido.Text = cli.apellidoPaterno + " " + cli.apellidoMaterno;
+                //txtRuc.Text = cli.dni;
+                txtTelefono.Text = cli.telefono.ToString();
+
+                // 3. Obtener email desde su cuenta
+                if (cli.cuenta != null)
+                {
+                    txtPassword.Attributes["value"] = "**********";
+
+                    string correo = cli.cuenta.correo;
+
+                    string script = $@"
+                document.getElementById('displayName').textContent = '{cli.nombre} {cli.apellidoPaterno}';
+                document.getElementById('displayEmail').textContent = '{correo}';
+                document.getElementById('emailPrincipal').textContent = '{correo}';";
+
+                    ScriptManager.RegisterStartupScript(this, GetType(), "updateHeader", script, true);
+                }
+                else
+                {
+                    MostrarError("No se encontró la cuenta asociada.");
+                }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 MostrarError("Error al cargar los datos del perfil: " + ex.Message);
             }
@@ -88,7 +109,7 @@ namespace SoftProgWeb
                     MostrarError("La contraseña actual no es correcta.");
                 }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 MostrarError("Error al cambiar la contraseña: " + ex.Message);
             }
@@ -98,11 +119,15 @@ namespace SoftProgWeb
         {
             try
             {
-                return true;
+                if (Session["usuario"] == null)
+                    return false;
+
+                string username = Session["usuario"].ToString();
+
+                return cuentaUsuarioWS.cambiarPassword(username, currentPassword, newPassword);
             }
-            catch (Exception ex)
+            catch
             {
-                System.Diagnostics.Debug.WriteLine($"Error en CambiarPassword: {ex.Message}");
                 return false;
             }
         }
@@ -133,12 +158,6 @@ namespace SoftProgWeb
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-                {
-                    MostrarError("La dirección es obligatoria.");
-                    return;
-                }
-
                 if (string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
                     MostrarError("El teléfono es obligatorio.");
@@ -158,7 +177,7 @@ namespace SoftProgWeb
                     MostrarError("No se pudo actualizar el perfil.");
                 }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 MostrarError("Error al guardar los cambios: " + ex.Message);
             }
@@ -168,11 +187,32 @@ namespace SoftProgWeb
         {
             try
             {
+                if (Session["dni"] == null)
+                    return false;
+
+                string dni = Session["dni"].ToString();
+
+                // Obtener cliente actual
+                cliente cli = clienteWS.buscarPorDni(dni);
+
+                if (cli == null)
+                    return false;
+
+                // Actualizar datos
+                cli.nombre = txtNombre.Text.Trim();
+                string[] partes = txtApellido.Text.Trim().Split(' ');
+                cli.apellidoPaterno = partes[0];
+                cli.apellidoMaterno = partes.Length > 1 ? partes[1] : "";
+                cli.telefono = int.Parse(txtTelefono.Text.Trim());
+
+                // Llamar WS
+                clienteWS.actualizarCliente(cli);
+
                 return true;
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error en GuardarCambiosPerfil: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
                 return false;
             }
         }
@@ -189,20 +229,145 @@ namespace SoftProgWeb
                 $"alert('{mensaje}');", true);
         }
 
-        // Método para eliminar email
-        protected void btnRemoveEmail_Click(object sender, EventArgs e)
+        private void CargarEmpresas()
         {
             try
             {
-                // Lógica para eliminar email secundario
-                // No se debe permitir eliminar el email principal
+                if (Session["dni"] == null)
+                {
+                    Response.Redirect("InicioSesion.aspx");
+                    return;
+                }
 
-                MostrarExito("Email eliminado correctamente.");
+                string dni = Session["dni"].ToString();
+
+                // Obtener cliente completo
+                cliente cli = clienteWS.buscarPorDni(dni);
+
+                if (cli == null)
+                {
+                    MostrarError("No se encontró el cliente.");
+                    return;
+                }
+
+                // Obtener lista de empresas activas del cliente
+                List<empresa> lista = empresaWS.listarEmpresasPorClienteActivas(cli.id).ToList();
+
+                if (lista != null && lista.Count > 0)
+                {
+                    repEmpresas.DataSource = lista;
+                    repEmpresas.DataBind();
+                    mensajeNoEmpresas.Visible = false;
+                }
+                else
+                {
+                    repEmpresas.DataSource = null;
+                    repEmpresas.DataBind();
+                    mensajeNoEmpresas.Visible = true;
+                }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                MostrarError("Error al eliminar el email: " + ex.Message);
+                MostrarError("Error al cargar las empresas: " + ex.Message);
             }
+        }
+
+        protected void btnRegistrarEmpresa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validación adicional en el servidor
+                if (string.IsNullOrWhiteSpace(txtRucEmp.Text) ||
+                    string.IsNullOrWhiteSpace(txtRazonEmp.Text) ||
+                    string.IsNullOrWhiteSpace(txtDirEmp.Text) ||
+                    string.IsNullOrWhiteSpace(txtDeparta.Text) ||
+                    string.IsNullOrWhiteSpace(txtProvincia.Text) ||
+                    string.IsNullOrWhiteSpace(txtDistrito.Text) ||
+                    string.IsNullOrWhiteSpace(txtTelEmp.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmailEmp.Text))
+                {
+                    MostrarError("Debe completar todos los campos obligatorios.");
+                    return;
+                }
+
+                // Validar RUC
+                if (txtRucEmp.Text.Trim().Length != 11)
+                {
+                    MostrarError("El RUC debe tener 11 dígitos.");
+                    return;
+                }
+
+                // Crear nueva empresa
+                empresa emp = new empresa();
+                emp.RUC = txtRucEmp.Text.Trim();
+                emp.razonSocial = txtRazonEmp.Text.Trim();
+                emp.direccionFiscal = txtDirEmp.Text.Trim();
+                emp.departamento = txtDeparta.Text.Trim();
+                emp.provincia = txtProvincia.Text.Trim();
+                emp.distrito = txtDistrito.Text.Trim();
+                emp.telefono = txtTelEmp.Text.Trim();
+                emp.email = txtEmailEmp.Text.Trim();
+                emp.codigoPostal = txtCodPost.Text.Trim();
+                emp.activo = true;
+
+                // Asignar cliente actual como representante legal
+                string dni = Session["dni"].ToString();
+                emp.cliente = clienteWS.buscarPorDni(dni);
+
+                // Insertar empresa en la base de datos
+                empresaWS.insertarEmpresa(emp);
+
+                // Limpiar campos
+                LimpiarCamposEmpresa();
+
+                // Recargar lista de empresas
+                CargarEmpresas();
+
+                // Cerrar modal de agregar y reabrir el principal
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                    "empresaAgregada",
+                    @"closeModalAgregarEmpresa(); 
+              setTimeout(function() { 
+                  openModalEmpresas('modalMisEmpresas'); 
+                  alert('Empresa registrada correctamente.'); 
+              }, 300);",
+                    true);
+            }
+            catch (System.Exception ex)
+            {
+                MostrarError("Error al registrar empresa: " + ex.Message);
+
+                // Mantener el modal de agregar abierto en caso de error
+                ScriptManager.RegisterStartupScript(this, GetType(),
+                    "reabrirModalAgregar",
+                    "setTimeout(function() { openModalAgregarEmpresa(); }, 100);",
+                    true);
+            }
+        }
+
+        protected void btnMisEmpresas_Click(object sender, EventArgs e)
+        {
+            CargarEmpresas();
+
+            // Abrir el modal desde el servidor
+            ScriptManager.RegisterStartupScript(this, GetType(),
+                "openEmpresasModal",
+                "openModalEmpresas('modalMisEmpresas');",
+                true);
+        }
+
+        // Método para limpiar los campos del formulario de empresa
+        private void LimpiarCamposEmpresa()
+        {
+            txtRucEmp.Text = string.Empty;
+            txtRazonEmp.Text = string.Empty;
+            txtDirEmp.Text = string.Empty;
+            txtDeparta.Text = string.Empty;
+            txtProvincia.Text = string.Empty;
+            txtDistrito.Text = string.Empty;
+            txtCodPost.Text = string.Empty;
+            txtTelEmp.Text = string.Empty;
+            txtEmailEmp.Text = string.Empty;
         }
     }
 }

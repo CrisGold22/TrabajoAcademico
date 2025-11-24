@@ -102,5 +102,10 @@ public class ClienteBOImpl implements ClienteBO{
         
         return cliente;
     }
+
+    @Override
+    public Cliente buscarPorDni(String dni) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
