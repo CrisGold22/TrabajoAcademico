@@ -9,5 +9,5 @@ package pe.edu.pucp.inf30.softprog.modelo.pago.utils;
  * @author Cristhian Horacio
  */
 public enum MetodoPago {
-    VIRTUAL, CONTRA_ENTREGA
+    VIRTUAL, CONTRA_ENTREGA, CRIPTO
 }

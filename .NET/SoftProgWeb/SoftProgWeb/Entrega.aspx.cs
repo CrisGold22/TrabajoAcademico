@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq; // Necesario para Sum y ToList
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SoftProgWeb.SoftProgWS;
+using SoftProgWeb.SoftProgWS; // Tu referencia
 
 namespace SoftProgWeb
 {
     public partial class Entrega : System.Web.UI.Page
     {
         private EmpresaWSClient empresaWS = new EmpresaWSClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IdCliente"] == null)
+            {
+                Response.Redirect("InicioSesion.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 CargarEstablecimientos();
@@ -23,32 +30,26 @@ namespace SoftProgWeb
         {
             try
             {
-                ddlEstablecimiento.Items.Clear(); // Limpiar items actuales
-                int idCliente = Convert.ToInt32(Session["idCliente"]);
+                ddlEstablecimiento.Items.Clear();
+                int idCliente = Convert.ToInt32(Session["IdCliente"]);
 
-                // Lista de empresas activas desde el WS
-                List<empresa> listaEmpresas = new List<empresa>(empresaWS.listarEmpresasPorClienteActivas(idCliente));
+                var listaEmpresas = empresaWS.listarEmpresasPorClienteActivas(idCliente);
 
-                if (listaEmpresas != null && listaEmpresas.Count > 0)
+                if (listaEmpresas != null && listaEmpresas.Length > 0)
                 {
                     foreach (var empresa in listaEmpresas)
                     {
-                        ddlEstablecimiento.Items.Add(new System.Web.UI.WebControls.ListItem(
-                            empresa.razonSocial, empresa.id.ToString()
-                        ));
+                        ddlEstablecimiento.Items.Add(new ListItem(empresa.razonSocial, empresa.id.ToString()));
                     }
                 }
                 else
                 {
-                    ddlEstablecimiento.Items.Add(new System.Web.UI.WebControls.ListItem(
-                        "No hay establecimientos disponibles", "0"));
+                    ddlEstablecimiento.Items.Add(new ListItem("No hay establecimientos disponibles", "0"));
                 }
             }
             catch (System.Exception ex)
             {
-                ddlEstablecimiento.Items.Add(new System.Web.UI.WebControls.ListItem(
-                    "Error cargando establecimientos: " + ex.Message, "0"
-                ));
+                ddlEstablecimiento.Items.Add(new ListItem("Error: " + ex.Message, "0"));
             }
         }
 
@@ -56,17 +57,70 @@ namespace SoftProgWeb
         {
             if (ddlEstablecimiento.SelectedValue == "0")
             {
-                // Mostrar mensaje o alert
                 Response.Write("<script>alert('Seleccione un establecimiento válido');</script>");
                 return;
             }
 
-            
-            Session["idEmpresaEntrega"] = ddlEstablecimiento.SelectedValue;
-            Session["fechaEntrega"] = txtFechaEntrega.Text;
+            try
+            {
+                int idCliente = (int)Session["IdCliente"];
+                int idEmpresa = int.Parse(ddlEstablecimiento.SelectedValue);
 
-            // Redirigir a Pago.aspx
-            Response.Redirect("Pago.aspx");
+                CarritoComprasWSClient carritoWS = new CarritoComprasWSClient();
+                OrdenCompraWSClient ordenWS = new OrdenCompraWSClient("OrdenCompraWSPort");
+
+                var carrito = carritoWS.obtenerCarritoDeCliente(idCliente);
+                var lineasCarrito = carritoWS.listarLineaCarritoPorIdCarrito(carrito.id);
+
+                if (lineasCarrito == null || lineasCarrito.Length == 0)
+                {
+                    Response.Write("<script>alert('Su carrito está vacío.'); window.location='MiCarrito.aspx';</script>");
+                    return;
+                }
+
+                ordenCompra nuevaOrden = new ordenCompra();
+
+                nuevaOrden.cliente = new cliente { id = idCliente };
+                nuevaOrden.empresa = new empresa { id = idEmpresa };
+                nuevaOrden.carritoCompras = new carritoCompras { id = carrito.id };
+
+                nuevaOrden.estadoString = "EN_PREPARACION";
+                nuevaOrden.fechaCreacion = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
+                nuevaOrden.activoInt = 1;
+
+                double subTotalCalculado = lineasCarrito.Sum(x => x.subTotal);
+                nuevaOrden.totalParcial = subTotalCalculado;
+                nuevaOrden.totalFinal = subTotalCalculado;
+                nuevaOrden.descuentoTotal = 0;
+
+                List<lineaOrdenCompra> listaLineasOrden = new List<lineaOrdenCompra>();
+
+                foreach (var itemCarrito in lineasCarrito)
+                {
+                    lineaOrdenCompra linea = new lineaOrdenCompra();
+                    linea.producto = itemCarrito.producto;
+                    linea.cantidad = itemCarrito.cantidad;
+                    linea.precio = itemCarrito.precio;
+                    linea.subTotal = itemCarrito.subTotal;
+                    linea.activoInt = 1;
+
+                    listaLineasOrden.Add(linea);
+                }
+
+                nuevaOrden.lineasOrden = listaLineasOrden.ToArray();
+
+                ordenWS.insertarOrdenCompra(nuevaOrden);
+
+                Session["idEmpresaEntrega"] = idEmpresa;
+                Session["fechaEntrega"] = txtFechaEntrega.Text;
+
+                Response.Redirect("Pago.aspx");
+            }
+            catch (System.Exception ex)
+            {
+                string mensajeError = ex.Message.Replace("'", "").Replace("\n", "");
+                Response.Write($"<script>alert('Error al crear la orden: {mensajeError}');</script>");
+            }
         }
     }
 }
