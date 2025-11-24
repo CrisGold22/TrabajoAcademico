@@ -10,6 +10,8 @@
   <xs:element name="consultarPedidoPorFechas" type="tns:consultarPedidoPorFechas" />
   <xs:element name="consultarPedidoPorFechasResponse" type="tns:consultarPedidoPorFechasResponse" />
   <xs:element name="desactivarOrdenCompra" type="tns:desactivarOrdenCompra" />
+  <xs:element name="desactivarOrdenCompraPorHorario" type="tns:desactivarOrdenCompraPorHorario" />
+  <xs:element name="desactivarOrdenCompraPorHorarioResponse" type="tns:desactivarOrdenCompraPorHorarioResponse" />
   <xs:element name="desactivarOrdenCompraResponse" type="tns:desactivarOrdenCompraResponse" />
   <xs:element name="eliminarOrdenCompra" type="tns:eliminarOrdenCompra" />
   <xs:element name="eliminarOrdenCompraResponse" type="tns:eliminarOrdenCompraResponse" />
@@ -286,6 +288,16 @@
   </xs:complexType>
   <xs:complexType name="eliminarOrdenCompraResponse">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="desactivarOrdenCompraPorHorario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="desactivarOrdenCompraPorHorarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="categoriaCliente">
     <xs:restriction base="xs:string">

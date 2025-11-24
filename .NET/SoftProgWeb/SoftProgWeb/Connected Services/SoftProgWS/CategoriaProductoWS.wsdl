@@ -20,6 +20,12 @@
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
   </message>
+  <message name="listarmarcaporIdcategoria">
+    <part name="parameters" element="tns:listarmarcaporIdcategoria" />
+  </message>
+  <message name="listarmarcaporIdcategoriaResponse">
+    <part name="parameters" element="tns:listarmarcaporIdcategoriaResponse" />
+  </message>
   <message name="listarCategoriaProducto">
     <part name="parameters" element="tns:listarCategoriaProducto" />
   </message>
@@ -51,6 +57,12 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="listarmarcaporIdcategoria">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoriaRequest" message="tns:listarmarcaporIdcategoria" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoriaResponse" message="tns:listarmarcaporIdcategoriaResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoria/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoria/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="listarCategoriaProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoRequest" message="tns:listarCategoriaProducto" />
@@ -90,6 +102,21 @@
       <fault name="JsonProcessingException">
         <soap:fault use="literal" name="JsonProcessingException" namespace="" />
       </fault>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarmarcaporIdcategoria">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>

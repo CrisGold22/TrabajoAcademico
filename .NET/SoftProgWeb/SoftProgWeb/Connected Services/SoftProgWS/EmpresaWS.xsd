@@ -5,6 +5,8 @@
   <xs:element name="JsonProcessingException" type="tns:JsonProcessingException" />
   <xs:element name="actualizarEmpresa" type="tns:actualizarEmpresa" />
   <xs:element name="actualizarEmpresaResponse" type="tns:actualizarEmpresaResponse" />
+  <xs:element name="crearEmpresaValidandoCodigoPostal" type="tns:crearEmpresaValidandoCodigoPostal" />
+  <xs:element name="crearEmpresaValidandoCodigoPostalResponse" type="tns:crearEmpresaValidandoCodigoPostalResponse" />
   <xs:element name="eliminarEmpresa" type="tns:eliminarEmpresa" />
   <xs:element name="eliminarEmpresaResponse" type="tns:eliminarEmpresaResponse" />
   <xs:element name="insertarEmpresa" type="tns:insertarEmpresa" />
@@ -207,6 +209,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarEmpresaResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="crearEmpresaValidandoCodigoPostal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="empresa" type="tns:empresa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crearEmpresaValidandoCodigoPostalResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarEmpresasPorClienteActivas">

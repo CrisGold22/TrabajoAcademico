@@ -80,6 +80,12 @@
   <message name="actualizarEmpresaResponse">
     <part name="parameters" element="tns:actualizarEmpresaResponse" />
   </message>
+  <message name="crearEmpresaValidandoCodigoPostal">
+    <part name="parameters" element="tns:crearEmpresaValidandoCodigoPostal" />
+  </message>
+  <message name="crearEmpresaValidandoCodigoPostalResponse">
+    <part name="parameters" element="tns:crearEmpresaValidandoCodigoPostalResponse" />
+  </message>
   <portType name="EmpresaWS">
     <operation name="listarEmpresasActivos">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest" message="tns:listarEmpresasActivos" />
@@ -148,6 +154,13 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresa/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="crearEmpresaValidandoCodigoPostal">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalRequest" message="tns:crearEmpresaValidandoCodigoPostal" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalResponse" message="tns:crearEmpresaValidandoCodigoPostalResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
   </portType>
   <binding name="EmpresaWSPortBinding" type="tns:EmpresaWS">
@@ -306,6 +319,24 @@
       </fault>
     </operation>
     <operation name="actualizarEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="JsonProcessingException">
+        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
+      </fault>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="crearEmpresaValidandoCodigoPostal">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

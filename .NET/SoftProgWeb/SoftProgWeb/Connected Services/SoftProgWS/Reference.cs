@@ -2453,6 +2453,24 @@ namespace SoftProgWeb.SoftProgWS {
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarCategoriaProductoResponse> actualizarCategoriaProductoAsync(SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategori" +
+            "aRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategori" +
+            "aResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategori" +
+            "a/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategori" +
+            "a/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse listarmarcaporIdcategoria(SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategori" +
+            "aRequest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategori" +
+            "aResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse> listarmarcaporIdcategoriaAsync(SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoR" +
             "equest", ReplyAction="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoR" +
             "esponse")]
@@ -2549,6 +2567,42 @@ namespace SoftProgWeb.SoftProgWS {
     public partial class actualizarCategoriaProductoResponse {
         
         public actualizarCategoriaProductoResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarmarcaporIdcategoria", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarmarcaporIdcategoriaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idCategoria;
+        
+        public listarmarcaporIdcategoriaRequest() {
+        }
+        
+        public listarmarcaporIdcategoriaRequest(int idCategoria) {
+            this.idCategoria = idCategoria;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarmarcaporIdcategoriaResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarmarcaporIdcategoriaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string[] @return;
+        
+        public listarmarcaporIdcategoriaResponse() {
+        }
+        
+        public listarmarcaporIdcategoriaResponse(string[] @return) {
+            this.@return = @return;
         }
     }
     
@@ -2727,6 +2781,29 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest inValue = new SoftProgWeb.SoftProgWS.actualizarCategoriaProductoRequest();
             inValue.categoriaProducto = categoriaProducto;
             return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).actualizarCategoriaProductoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse SoftProgWeb.SoftProgWS.CategoriaProductoWS.listarmarcaporIdcategoria(SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest request) {
+            return base.Channel.listarmarcaporIdcategoria(request);
+        }
+        
+        public string[] listarmarcaporIdcategoria(int idCategoria) {
+            SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest inValue = new SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest();
+            inValue.idCategoria = idCategoria;
+            SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse retVal = ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).listarmarcaporIdcategoria(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse> SoftProgWeb.SoftProgWS.CategoriaProductoWS.listarmarcaporIdcategoriaAsync(SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest request) {
+            return base.Channel.listarmarcaporIdcategoriaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse> listarmarcaporIdcategoriaAsync(int idCategoria) {
+            SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest inValue = new SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaRequest();
+            inValue.idCategoria = idCategoria;
+            return ((SoftProgWeb.SoftProgWS.CategoriaProductoWS)(this)).listarmarcaporIdcategoriaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4926,6 +5003,25 @@ namespace SoftProgWeb.SoftProgWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaRequest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresaResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.actualizarEmpresaResponse> actualizarEmpresaAsync(SoftProgWeb.SoftProgWS.actualizarEmpresaRequest request);
+        
+        // CODEGEN: Parameter 'empresa' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalR" +
+            "equest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalR" +
+            "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/" +
+            "Fault/JsonProcessingException", Name="JsonProcessingException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/" +
+            "Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/" +
+            "Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse crearEmpresaValidandoCodigoPostal(SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalR" +
+            "equest", ReplyAction="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalR" +
+            "esponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse> crearEmpresaValidandoCodigoPostalAsync(SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5284,6 +5380,34 @@ namespace SoftProgWeb.SoftProgWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="crearEmpresaValidandoCodigoPostal", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class crearEmpresaValidandoCodigoPostalRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SoftProgWeb.SoftProgWS.empresa empresa;
+        
+        public crearEmpresaValidandoCodigoPostalRequest() {
+        }
+        
+        public crearEmpresaValidandoCodigoPostalRequest(SoftProgWeb.SoftProgWS.empresa empresa) {
+            this.empresa = empresa;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="crearEmpresaValidandoCodigoPostalResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class crearEmpresaValidandoCodigoPostalResponse {
+        
+        public crearEmpresaValidandoCodigoPostalResponse() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface EmpresaWSChannel : SoftProgWeb.SoftProgWS.EmpresaWS, System.ServiceModel.IClientChannel {
     }
@@ -5554,6 +5678,28 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.actualizarEmpresaRequest inValue = new SoftProgWeb.SoftProgWS.actualizarEmpresaRequest();
             inValue.empresa = empresa;
             return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).actualizarEmpresaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse SoftProgWeb.SoftProgWS.EmpresaWS.crearEmpresaValidandoCodigoPostal(SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest request) {
+            return base.Channel.crearEmpresaValidandoCodigoPostal(request);
+        }
+        
+        public void crearEmpresaValidandoCodigoPostal(SoftProgWeb.SoftProgWS.empresa empresa) {
+            SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest inValue = new SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest();
+            inValue.empresa = empresa;
+            SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse retVal = ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).crearEmpresaValidandoCodigoPostal(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse> SoftProgWeb.SoftProgWS.EmpresaWS.crearEmpresaValidandoCodigoPostalAsync(SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest request) {
+            return base.Channel.crearEmpresaValidandoCodigoPostalAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse> crearEmpresaValidandoCodigoPostalAsync(SoftProgWeb.SoftProgWS.empresa empresa) {
+            SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest inValue = new SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalRequest();
+            inValue.empresa = empresa;
+            return ((SoftProgWeb.SoftProgWS.EmpresaWS)(this)).crearEmpresaValidandoCodigoPostalAsync(inValue);
         }
     }
     
@@ -7531,6 +7677,24 @@ namespace SoftProgWeb.SoftProgWS {
             "denCompraResponse")]
         System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
         
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorari" +
+            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorari" +
+            "oResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.IOException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorari" +
+            "o/Fault/IOException", Name="IOException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.InterruptedException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorari" +
+            "o/Fault/InterruptedException", Name="InterruptedException")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(registro))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse desactivarOrdenCompraPorHorario(SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorari" +
+            "oRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorari" +
+            "oResponse")]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse> desactivarOrdenCompraPorHorarioAsync(SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest request);
+        
         // CODEGEN: Parameter 'ordenCompra' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraRequest", ReplyAction="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompraResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(SoftProgWeb.SoftProgWS.JsonProcessingException), Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompra/Fault/Js" +
@@ -7753,6 +7917,42 @@ namespace SoftProgWeb.SoftProgWS {
         }
         
         public listarLineasOrdenCompraPorIdOrdenCompraResponse(SoftProgWeb.SoftProgWS.lineaOrdenCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="desactivarOrdenCompraPorHorario", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class desactivarOrdenCompraPorHorarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public desactivarOrdenCompraPorHorarioRequest() {
+        }
+        
+        public desactivarOrdenCompraPorHorarioRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="desactivarOrdenCompraPorHorarioResponse", WrapperNamespace="http://services.softprog.pucp.edu.pe/", IsWrapped=true)]
+    public partial class desactivarOrdenCompraPorHorarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.softprog.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
+        
+        public desactivarOrdenCompraPorHorarioResponse() {
+        }
+        
+        public desactivarOrdenCompraPorHorarioResponse(string @return) {
             this.@return = @return;
         }
     }
@@ -8026,6 +8226,29 @@ namespace SoftProgWeb.SoftProgWS {
             SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new SoftProgWeb.SoftProgWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
             inValue.id = id;
             return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).listarLineasOrdenCompraPorIdOrdenCompraAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse SoftProgWeb.SoftProgWS.OrdenCompraWS.desactivarOrdenCompraPorHorario(SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest request) {
+            return base.Channel.desactivarOrdenCompraPorHorario(request);
+        }
+        
+        public string desactivarOrdenCompraPorHorario(int id) {
+            SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest inValue = new SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest();
+            inValue.id = id;
+            SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse retVal = ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).desactivarOrdenCompraPorHorario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse> SoftProgWeb.SoftProgWS.OrdenCompraWS.desactivarOrdenCompraPorHorarioAsync(SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest request) {
+            return base.Channel.desactivarOrdenCompraPorHorarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse> desactivarOrdenCompraPorHorarioAsync(int id) {
+            SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest inValue = new SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioRequest();
+            inValue.id = id;
+            return ((SoftProgWeb.SoftProgWS.OrdenCompraWS)(this)).desactivarOrdenCompraPorHorarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

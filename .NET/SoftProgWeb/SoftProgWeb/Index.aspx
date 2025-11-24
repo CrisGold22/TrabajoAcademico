@@ -36,131 +36,33 @@
         </div>
 
         <!-- Sección de Categorías -->
-        <div class="container my-5">
-              <h2 class="text-center mb-4">¡Lo Mejor de la Semana!</h2>
-              <div class="row">
-                <!-- Producto 1 -->
-                <div class="col-md-3 mb-4">
-                  <div class="card">
-                    <img src="images/arroz_faraon.png" class="card-img-top" alt="Arroz Extra Añejo Faraon">
-                    <div class="card-body">
-                      <h5 class="card-title">Arroz Extra Añejo Faraon Saco 50 Kg</h5>
-                      <p class="card-text">Por RedCom</p>
-                      <p class="card-text">Unidad: Saco 50Kg</p>
-                      <p class="card-text"><strong>A partir de S/ 209</strong></p>
-                      <asp:Button ID="btnAgregarProducto" 
-                        CssClass="btn btn-primary button-add-1" 
-                        runat="server" 
-                        Text="Agregar" 
-                        OnClick="btnAgregarProducto_Click"
-                        CommandArgument="101" />
-
-                      <%--<a href="#" class="btn btn-primary button-add-1">Agregar</a>--%>
-
-                    </div>
-                  </div>
-                </div>
-                <!-- Producto 2 -->
-                <div class="col-md-3 mb-4">
-                  <div class="card">
-                    <img src="images/huevos_rosados_180un.png" class="card-img-top" alt="Huevo Rosado ARO">
-                    <div class="card-body">
-                      <h5 class="card-title">Huevo Rosado ARO Bandeja 180un</h5>
-                      <p class="card-text">Por Redcom</p>
-                      <p class="card-text">Unidad: Bandeja 180un</p>
-                      <p class="card-text"><strong>A partir de S/ 58</strong></p>
-                      <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Producto 3 -->
-                <div class="col-md-3 mb-4">
-                  <div class="card">
-                    <img src="images/aceite_aro_fritura_intensa_18L.png" class="card-img-top" alt="Aceite Fritura ARO">
-                    <div class="card-body">
-                      <h5 class="card-title">Aceite Fritura Intensa ARO Balde 18L</h5>
-                      <p class="card-text">Por Redcom</p>
-                      <p class="card-text">Unidad: Balde 18L</p>
-                      <p class="card-text"><strong>A partir de S/ 130</strong></p>
-                      <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Producto 4 -->
-                <div class="col-md-3 mb-4">
-                  <div class="card">
-                    <img src="images/dog_chow_21kg.png" class="card-img-top" alt="Alimento para Perro DOG CHOW">
-                    <div class="card-body">
-                      <h5 class="card-title">Alimento para Perro DOG CHOW</h5>
-                      <p class="card-text">Por Redcom</p>
-                      <p class="card-text">Unidad: Bolsa 21Kg</p>
-                      <p class="card-text"><strong>A partir de S/ 164</strong></p>
-                      <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                    </div>
-                  </div>
-                </div>
-                  <!-- Producto 5 -->
-                  <div class="col-md-3 mb-4">
-                      <div class="card">
-                        <img src="images/cerveza_pilsen_6bot.png" class="card-img-top" alt="Alimento para Perro DOG CHOW">
-                        <div class="card-body">
-                          <h5 class="card-title">Cerveza PILSEN Callao Botella 305ml Paquete 6un</h5>
-                          <p class="card-text">Por Redcom</p>
-                          <p class="card-text">Unidad: Paquete 6un</p>
-                          <p class="card-text"><strong>A partir de S/ 20</strong></p>
-                          <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                        </div>
-                      </div>
-                    </div>
-                        <!-- Producto 6 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                    <img src="images/leche_reconstruida_gloria_plancha_24_latas_390gr.png" class="card-img-top" alt="Alimento para Perro DOG CHOW">
-                    <div class="card-body">
-                        <h5 class="card-title">Leche Reconstituida Entera GLORIA Plancha 24 Lat...</h5>
-                        <p class="card-text">Por Redcom</p>
-                        <p class="card-text">Unidad: Plancha 24 Latas 390g c/u</p>
-                        <p class="card-text"><strong>A partir de S/ 87.12</strong></p>
-                        <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                    </div>
-                    </div>
-                </div>
-                          <!-- Producto 7 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                    <img src="images/leche-light-gloria-plancha-24-latas-390g-cu.png" class="card-img-top" alt="Alimento para Perro DOG CHOW">
-                    <div class="card-body">
-                        <h5 class="card-title">Leche light gloria plancha 24 latas 390g c/u</h5>
-                        <p class="card-text">Por Redcom</p>
-                        <p class="card-text">Unidad: Plancha 24 Latas 390g c/u</p>
-                        <p class="card-text"><strong>A partir de S/ 90.96</strong></p>
-                        <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                    </div>
-                    </div>
-                </div>
-                <!-- Producto 8 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card">
-                    <img src="images/agua-mineral-san-mateo-sin-gas-paquete-15-botellas-600ml-cu.png" class="card-img-top" alt="Alimento para Perro DOG CHOW">
-                    <div class="card-body">
-                        <h5 class="card-title">Agua Mineral SAN MATEO sin Gas Paquete 15 Botellas</h5>
-                        <p class="card-text">Por Redcom</p>
-                        <p class="card-text">Unidad: Paquete 15 Botellas 600ml...</p>
-                        <p class="card-text"><strong>A partir de S/ 16.50</strong></p>
-                        <a href="#" class="btn btn-primary button-add-1">Agregar</a>
-                    </div>
-                    </div>
-                </div>
-
-                <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger"></asp:Label>
-                <asp:Label ID="lblMiniCarrito" runat="server" CssClass="mini-cart"></asp:Label>
-
-
-              </div>
-              <div class="text-center">
-                <a href="#" class="btn btn-link">Ver todo</a>
-              </div>
-            </div>
+         <div class="content_2 my-5">
+             <div class="row">
+                 <asp:Repeater ID="ProductRepeater" runat="server">
+                     <ItemTemplate>
+                         <div class="col-md-3 mb-4">
+                             <div class="card">
+                                 <img src='<%# ResolveUrl("~/images/" + Eval("ImagenUrl")) %>' class="card-img-top" alt="<%# Eval("nombre") %>">
+                                 <%--<img src="<%# Eval("") %>" class="card-img-top" alt="<%# Eval("Name") %>">--%>
+                                 <div class="card-body">
+                                     <h5 class="card-title"><%# Eval("nombre") %></h5>
+                                     <p class="card-text"><%# Eval("descripcion") %></p>
+                                     <p class="card-text"><strong>A partir de S/ <%# Eval("precioRegular") %></strong></p>
+                                     <asp:Button 
+                                                 ID="btnAgregarCarrito" 
+                                                 runat="server"  
+                                                 Text="Agregar" 
+                                                 CssClass="btn btn-primary button-add-1" 
+                                                 CommandArgument='<%# Eval("id") %>' 
+                                                 OnClick="btnAgregarCarrito_Click" />
+                                 </div>
+                             </div>
+                         </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+             </div>
+         </div>
+        
            
 </div>
 

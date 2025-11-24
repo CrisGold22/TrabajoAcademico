@@ -82,7 +82,7 @@ CALL insertarAdministrador('GESTOR_PEDIDOS', 'PARCIAL', '65432187', 'Jorge', 'D�
 
 CALL insertarCategoriaProducto('Abarrotes', 'lentejas, arroz, etc', NULL, 1, @nuevo_id);
 //
-CALL insertarCategoriaProducto('Conservar y Enlatados', 'atunes, duraznos,etc', NULL, 1, @nuevo_id);
+CALL insertarCategoriaProducto('ConservasYEnlatados', 'atunes, duraznos,etc', NULL, 1, @nuevo_id);
 //
 CALL insertarCategoriaProducto('Lacteos', 'leches , etc', NULL, 1, @nuevo_id);
 //
@@ -90,42 +90,12 @@ CALL insertarCategoriaProducto('Bebidas', 'lentejas, arroz, etc', NULL, 1, @nuev
 //
 CALL insertarCategoriaProducto('Aperitivos', 'snacks y variados', NULL, 1, @nuevo_id);
 //
-CALL insertarCategoriaProducto('Cuidado Persona', 'limpieza personal', NULL, 1, @nuevo_id);
+CALL insertarCategoriaProducto('CuidadoPersonal', 'limpieza personal', NULL, 1, @nuevo_id);
 //
-CALL insertarCategoriaProducto('Masctota', 'comida de perros y gato', NULL, 1, @nuevo_id);
+CALL insertarCategoriaProducto('Mascota', 'comida de perros y gato', NULL, 1, @nuevo_id);
 //
 
-/*
-CALL insertarCategoriaProducto('Bebidas', 'Bebidas y refrescos', NULL, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Lácteos', 'Productos lácteos', NULL, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Carnes', 'Carnes y embutidos', NULL, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Frutas', 'Frutas frescas', NULL, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Verduras', 'Verduras frescas', NULL, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Bebidas Gaseosas', 'Refrescos carbonatados', 1, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Bebidas Naturales', 'Jugos y bebidas naturales', 1, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Leches', 'Leche y derivados', 2, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Quesos', 'Quesos de todo tipo', 2, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Carnes Rojas', 'Carne de res y cerdo', 3, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Carnes Blancas', 'Pollo y pavo', 3, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Frutas Tropicales', 'Frutas de clima tropical', 4, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Frutas Cítricas', 'Naranjas, limones, etc.', 4, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Verduras de Hoja', 'Lechuga, espinaca, etc.', 5, 1, @nuevo_id);
-//
-CALL insertarCategoriaProducto('Verduras de Raíz', 'Zanahoria, papa, etc.', 5, 1, @nuevo_id);
-*/
+
 
 CALL insertarProducto('Arroz Extra Añejo Premium FARAÓN Bolsa 10 Kg', 'SKU001', 'Arroz Extra Añejo FARAÓN, calidad superior para tu cocina', 'faraon5kg.png', 49.86, 47.49, 'KILOGRAMO', 100, 150, 1, 1, 'FARAON', @nuevo_id);
 CALL insertarProducto('Arroz Extra Añejo Faraon Saco 50 Kg', 'SKU002', 'Saco de Arroz FARAON, el mejor sabor y rendimiento por 50Kg', 'faraon50kg.png', 219.45, 209.00, 'KILOGRAMO', 100, 150, 1, 1, 'FARAON', @nuevo_id);
@@ -175,39 +145,7 @@ CALL insertarProducto('Jabón de Tocador PALMOLIVE Exfoliación Diaria Avena y A
 CALL insertarProducto('Comida para perros RICOCAN Adultos todas las razas multisabores Bolsa 15Kg', 'SKU037', 'Comida RICOCAN para perros adultos, multisabores y nutrición', 'dogchowcachorro21kg.png', 111.20, 105.90, 'KILOGRAMO', 100, 150, 1, 7, 'RICOCAN', @nuevo_id);
 CALL insertarProducto('Comida para Perros DOG CHOW Cachorros Grandes y Pequeños Bolsa de 21Kg', 'SKU038', 'Comida DOG CHOW para cachorros grandes y pequeños', 'ricocan15kg.png', 184.28, 175.50, 'KILOGRAMO', 100, 150, 1, 7, 'DOG CHOW', @nuevo_id);
 
-/*
-//
-CALL insertarProducto('Coca Cola 3L', 'SKU001', 'Gaseosa Coca Cola 3 litros', 12.50, 10.00, 'KILOGRAMO', 100, 500, 1, 6, 'Coca Cola', @nuevo_id);
-//
-CALL insertarProducto('Leche Gloria 1L', 'SKU002', 'Leche evaporada Gloria 1L', 8.00, 6.50, 'KILOGRAMO', 80, 400, 1, 8, 'Gloria', @nuevo_id);
-//
-CALL insertarProducto('Pechuga de Pollo', 'SKU003', 'Pechuga de pollo fresca', 18.00, 15.00, 'KILOGRAMO', 50, 200, 1, 11, 'San Fernando', @nuevo_id);
-//
-CALL insertarProducto('Mango Kent', 'SKU004', 'Mango Kent de exportación', 12.00, 9.50, 'KILOGRAMO', 60, 300, 1, 12, 'AgroExport', @nuevo_id);
-//
-CALL insertarProducto('Lechuga Americana', 'SKU005', 'Lechuga fresca americana', 6.50, 5.00, 'KILOGRAMO', 40, 150, 1, 14, 'Verduras Frescas', @nuevo_id);
-//
-CALL insertarProducto('Inca Kola 2L', 'SKU006', 'Gaseosa Inca Kola 2 litros', 10.00, 8.00, 'KILOGRAMO', 120, 600, 1, 6, 'Inca Kola', @nuevo_id);
-//
-CALL insertarProducto('Yogurt Gloria', 'SKU007', 'Yogurt bebible Gloria', 5.50, 4.50, 'KILOGRAMO', 90, 450, 1, 8, 'Gloria', @nuevo_id);
-//
-CALL insertarProducto('Lomo Fino', 'SKU008', 'Lomo fino de res', 35.00, 28.00, 'KILOGRAMO', 30, 100, 1, 10, 'Carnes Premium', @nuevo_id);
-//
-CALL insertarProducto('Naranja Valencia', 'SKU009', 'Naranja dulce Valencia', 8.00, 6.00, 'KILOGRAMO', 70, 350, 1, 13, 'Cítricos Perú', @nuevo_id);
-//
-CALL insertarProducto('Zanahoria Fresca', 'SKU010', 'Zanahoria orgánica fresca', 4.50, 3.50, 'KILOGRAMO', 55, 250, 1, 15, 'Orgánicos', @nuevo_id);
-//
-CALL insertarProducto('Sprite 2L', 'SKU011', 'Gaseosa Sprite 2 litros', 9.50, 7.50, 'KILOGRAMO', 110, 550, 1, 6, 'Sprite', @nuevo_id);
-//
-CALL insertarProducto('Queso Fresco', 'SKU012', 'Queso fresco andino', 16.00, 13.00, 'KILOGRAMO', 35, 120, 1, 9, 'Quesos Andinos', @nuevo_id);
-//
-CALL insertarProducto('Pavo Entero', 'SKU013', 'Pavo entero congelado', 45.00, 38.00, 'KILOGRAMO', 20, 80, 1, 11, 'Avícola', @nuevo_id);
-//
-CALL insertarProducto('Limón Sutil', 'SKU014', 'Limón sutil fresco', 6.00, 4.50, 'KILOGRAMO', 65, 280, 1, 13, 'Cítricos Perú', @nuevo_id);
-//
-CALL insertarProducto('Espinaca Fresca', 'SKU015', 'Espinaca orgánica fresca', 7.50, 6.00, 'KILOGRAMO', 45, 180, 1, 14, 'Orgánicos', @nuevo_id);
-//
-*/
+
 CALL insertarDescuento(9.00, 100, 50, 1, 1, @nuevo_id);
 //
 CALL insertarDescuento(5.80, 80, 40, 1, 2, @nuevo_id);

@@ -11,6 +11,8 @@
   <xs:element name="insertarCategoriaProductoResponse" type="tns:insertarCategoriaProductoResponse" />
   <xs:element name="listarCategoriaProducto" type="tns:listarCategoriaProducto" />
   <xs:element name="listarCategoriaProductoResponse" type="tns:listarCategoriaProductoResponse" />
+  <xs:element name="listarmarcaporIdcategoria" type="tns:listarmarcaporIdcategoria" />
+  <xs:element name="listarmarcaporIdcategoriaResponse" type="tns:listarmarcaporIdcategoriaResponse" />
   <xs:element name="obtenerCategoriaProducto" type="tns:obtenerCategoriaProducto" />
   <xs:element name="obtenerCategoriaProductoResponse" type="tns:obtenerCategoriaProductoResponse" />
   <xs:complexType name="listarCategoriaProducto">
@@ -94,6 +96,16 @@
   <xs:complexType name="eliminarCategoriaProductoResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarmarcaporIdcategoria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idCategoria" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarmarcaporIdcategoriaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

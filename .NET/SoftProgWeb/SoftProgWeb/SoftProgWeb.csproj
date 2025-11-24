@@ -102,13 +102,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="CategoriaAbarrotes.aspx" />
-    <Content Include="CategoriaAperitivos.aspx" />
-    <Content Include="CategoriaBebidas.aspx" />
-    <Content Include="CategoriaConservasYEnlatados.aspx" />
-    <Content Include="CategoriaCuidadoPersonal.aspx" />
-    <Content Include="CategoriaLacteos.aspx" />
-    <Content Include="CategoriaMascota.aspx" />
     <Content Include="CategoriaProducto.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -572,6 +565,15 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.actualizarDescuentoPorIdProductoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.crearEmpresaValidandoCodigoPostalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.desactivarOrdenCompraPorHorarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -587,55 +589,6 @@
     </Compile>
     <Compile Include="CambiarContrasena.aspx.designer.cs">
       <DependentUpon>CambiarContrasena.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaAbarrotes.aspx.cs">
-      <DependentUpon>CategoriaAbarrotes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaAbarrotes.aspx.designer.cs">
-      <DependentUpon>CategoriaAbarrotes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaAperitivos.aspx.cs">
-      <DependentUpon>CategoriaAperitivos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaAperitivos.aspx.designer.cs">
-      <DependentUpon>CategoriaAperitivos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaBebidas.aspx.cs">
-      <DependentUpon>CategoriaBebidas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaBebidas.aspx.designer.cs">
-      <DependentUpon>CategoriaBebidas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaConservasYEnlatados.aspx.cs">
-      <DependentUpon>CategoriaConservasYEnlatados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaConservasYEnlatados.aspx.designer.cs">
-      <DependentUpon>CategoriaConservasYEnlatados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaCuidadoPersonal.aspx.cs">
-      <DependentUpon>CategoriaCuidadoPersonal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaCuidadoPersonal.aspx.designer.cs">
-      <DependentUpon>CategoriaCuidadoPersonal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaLacteos.aspx.cs">
-      <DependentUpon>CategoriaLacteos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaLacteos.aspx.designer.cs">
-      <DependentUpon>CategoriaLacteos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriaMascota.aspx.cs">
-      <DependentUpon>CategoriaMascota.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoriaMascota.aspx.designer.cs">
-      <DependentUpon>CategoriaMascota.aspx</DependentUpon>
     </Compile>
     <Compile Include="CategoriaProducto.aspx.cs">
       <DependentUpon>CategoriaProducto.aspx</DependentUpon>
