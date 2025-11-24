@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService {
     private static final String GMAIL_APP_PASSWORD = "doeq jdxy cbvh dpkt";
 
     @Override
-    public void enviarCorreo(String para, String asunto, String cuerpoHtml) {
+    public void enviarCorreo(String correo, String asunto, String cuerpo) {
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -45,12 +45,12 @@ public class EmailServiceImpl implements EmailService {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(GMAIL_CORREO));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(para));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correo));
             message.setSubject(asunto);
-            message.setContent(cuerpoHtml, "text/html; charset=UTF-8");
+            message.setContent(cuerpo, "text/html; charset=UTF-8");
 
             Transport.send(message);
-            System.out.println("Correo enviado a: " + para);
+            System.out.println("Correo enviado a: " + correo);
 
         } catch (MessagingException e) {
             throw new RuntimeException("Error enviando correo: " + e.getMessage(), e);

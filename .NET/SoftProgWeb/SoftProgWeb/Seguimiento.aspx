@@ -26,10 +26,12 @@
                     <p><strong>Fecha de la entrega:</strong> <asp:Label ID="lblFechaEntrega" runat="server" /></p>
                     <p><strong>Hora estimada de la entrega:</strong> <asp:Label ID="lblHorarioEntrega" runat="server" /></p>
                     <p><strong>Lugar de entrega:</strong> <asp:Label ID="lblDireccion" runat="server" /></p>
-                    <p class="mb-0">
+                    <div class="mb-0 d-flex align-items-center">
                         <i class="fa-solid fa-check-circle text-success me-2"></i>
-                        <strong class="text-success">Orden pagada</strong>
-                    </p>
+                        <div class="estado-pago-container">
+                            <asp:Label ID="lblEstadoPago" runat="server" CssClass="badge"></asp:Label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Tracking -->
@@ -130,7 +132,7 @@
             setTimeout(function () {
                 document.getElementById('pantallaCancelado').classList.remove('show');
                 // Redirigir o volver al inicio
-                window.location.href  = 'Home.aspx';
+                window.location.href = 'Home.aspx';
             }, 2000);
         }
     </script>

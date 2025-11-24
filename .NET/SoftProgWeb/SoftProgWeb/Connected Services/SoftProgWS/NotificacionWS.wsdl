@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/NotificacionWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="enviarMensajeGenerico">
+    <part name="parameters" element="tns:enviarMensajeGenerico" />
+  </message>
+  <message name="enviarMensajeGenericoResponse">
+    <part name="parameters" element="tns:enviarMensajeGenericoResponse" />
+  </message>
   <message name="enviarMensajeOrdenCompra">
     <part name="parameters" element="tns:enviarMensajeOrdenCompra" />
   </message>
@@ -12,6 +18,10 @@
     <part name="parameters" element="tns:enviarMensajeOrdenCompraResponse" />
   </message>
   <portType name="NotificacionWS">
+    <operation name="enviarMensajeGenerico">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/enviarMensajeGenericoRequest" message="tns:enviarMensajeGenerico" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/enviarMensajeGenericoResponse" message="tns:enviarMensajeGenericoResponse" />
+    </operation>
     <operation name="enviarMensajeOrdenCompra">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/enviarMensajeOrdenCompraRequest" message="tns:enviarMensajeOrdenCompra" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/NotificacionWS/enviarMensajeOrdenCompraResponse" message="tns:enviarMensajeOrdenCompraResponse" />
@@ -19,6 +29,15 @@
   </portType>
   <binding name="NotificacionWSPortBinding" type="tns:NotificacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="enviarMensajeGenerico">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="enviarMensajeOrdenCompra">
       <soap:operation soapAction="" />
       <input>

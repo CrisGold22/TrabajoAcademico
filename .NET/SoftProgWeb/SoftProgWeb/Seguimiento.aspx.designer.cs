@@ -51,6 +51,15 @@ namespace SoftProgWeb
         protected global::System.Web.UI.WebControls.Label lblDireccion;
 
         /// <summary>
+        /// lblEstadoPago control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstadoPago;
+
+        /// <summary>
         /// step1 control.
         /// </summary>
         /// <remarks>

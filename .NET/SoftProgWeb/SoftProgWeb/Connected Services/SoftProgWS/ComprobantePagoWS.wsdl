@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/ComprobantePagoWS?xsd=1" namespace="http://ws.softprog.inf30.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarComprobantes">
-    <part name="parameters" element="tns:listarComprobantes" />
-  </message>
-  <message name="listarComprobantesResponse">
-    <part name="parameters" element="tns:listarComprobantesResponse" />
-  </message>
   <message name="insertarComprobantePago">
     <part name="parameters" element="tns:insertarComprobantePago" />
   </message>
   <message name="insertarComprobantePagoResponse">
     <part name="parameters" element="tns:insertarComprobantePagoResponse" />
   </message>
+  <message name="listarComprobantes">
+    <part name="parameters" element="tns:listarComprobantes" />
+  </message>
+  <message name="listarComprobantesResponse">
+    <part name="parameters" element="tns:listarComprobantesResponse" />
+  </message>
   <portType name="ComprobantePagoWS">
-    <operation name="listarComprobantes">
-      <input wsam:Action="http://ws.softprog.inf30.pucp.edu.pe/ComprobantePagoWS/listarComprobantesRequest" message="tns:listarComprobantes" />
-      <output wsam:Action="http://ws.softprog.inf30.pucp.edu.pe/ComprobantePagoWS/listarComprobantesResponse" message="tns:listarComprobantesResponse" />
-    </operation>
     <operation name="insertarComprobantePago">
       <input wsam:Action="http://ws.softprog.inf30.pucp.edu.pe/ComprobantePagoWS/insertarComprobantePagoRequest" message="tns:insertarComprobantePago" />
       <output wsam:Action="http://ws.softprog.inf30.pucp.edu.pe/ComprobantePagoWS/insertarComprobantePagoResponse" message="tns:insertarComprobantePagoResponse" />
     </operation>
+    <operation name="listarComprobantes">
+      <input wsam:Action="http://ws.softprog.inf30.pucp.edu.pe/ComprobantePagoWS/listarComprobantesRequest" message="tns:listarComprobantes" />
+      <output wsam:Action="http://ws.softprog.inf30.pucp.edu.pe/ComprobantePagoWS/listarComprobantesResponse" message="tns:listarComprobantesResponse" />
+    </operation>
   </portType>
   <binding name="ComprobantePagoWSPortBinding" type="tns:ComprobantePagoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarComprobantes">
+    <operation name="insertarComprobantePago">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarComprobantePago">
+    <operation name="listarComprobantes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

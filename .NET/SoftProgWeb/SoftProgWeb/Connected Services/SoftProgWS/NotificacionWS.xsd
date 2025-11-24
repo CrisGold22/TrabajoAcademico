@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.softprog.pucp.edu.pe/" targetNamespace="http://services.softprog.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="enviarMensajeGenerico" type="tns:enviarMensajeGenerico" />
+  <xs:element name="enviarMensajeGenericoResponse" type="tns:enviarMensajeGenericoResponse" />
   <xs:element name="enviarMensajeOrdenCompra" type="tns:enviarMensajeOrdenCompra" />
   <xs:element name="enviarMensajeOrdenCompraResponse" type="tns:enviarMensajeOrdenCompraResponse" />
+  <xs:complexType name="enviarMensajeGenerico">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="asunto" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="enviarMensajeGenericoResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="enviarMensajeOrdenCompra">
     <xs:sequence>
       <xs:element minOccurs="0" name="orden" type="tns:ordenCompra" />

@@ -45,6 +45,19 @@ namespace SoftProgWeb
             lblHorarioEntrega.Text = detalle.horarioEntrega.ToString();
             lblDireccion.Text = detalle.direccion;
 
+            // Estado de pago (texto y color)
+            if (orden.estado == estadoOrdenCompra.PAGADO)
+            {
+                // Orden YA pagada (ej: pago con cripto, ya procesado)
+                lblEstadoPago.Text = "Orden pagada";
+                lblEstadoPago.CssClass = "badge bg-success";   // verde
+            }
+            else
+            {
+                // Orden aún no pagada (ej: contraentrega)
+                lblEstadoPago.Text = "Orden a pagar";
+                lblEstadoPago.CssClass = "badge bg-warning text-dark"; // amarillo
+            }
 
             ActualizarTracking(orden.estado);
         }

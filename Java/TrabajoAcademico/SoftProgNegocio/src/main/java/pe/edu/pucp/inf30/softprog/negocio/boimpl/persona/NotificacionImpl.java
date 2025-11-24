@@ -116,8 +116,8 @@ public class NotificacionImpl implements Notificacion {
     }
 
     @Override
-    public void enviarMensajeGenerico(String asunto, String correo, String mensaje) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void enviarMensajeGenerico(String asunto, String mensaje, String correo) {
+        emailService.enviarCorreo(mensaje, asunto, correo);
     }
     
     

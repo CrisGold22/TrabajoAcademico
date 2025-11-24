@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\seguimiento.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\seguimiento.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\seguimiento.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\seguimiento.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\cambiarcontrasena.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\cambiarcontrasena.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\seguimiento.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\seguimiento.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\pago.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\pago.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\softprogweb\\cambiarcontrasena.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\cambiarcontrasena.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\pago.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\pago.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\softprogweb\\editarperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -70,32 +62,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WebForm1.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\WebForm1.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\WebForm1.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\WebForm1.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\WebForm1.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Seguimiento.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx.designer.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx.designer.cs",
+              "RelativeToolTip": "SoftProgWeb\\Seguimiento.aspx.designer.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAGEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T10:19:31.096Z",
+              "WhenOpened": "2025-11-24T11:15:16.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WebForm1.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\WebForm1.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\WebForm1.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\WebForm1.aspx",
-              "RelativeToolTip": "SoftProgWeb\\WebForm1.aspx",
+              "DocumentIndex": 3,
+              "Title": "Seguimiento.aspx",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx",
+              "RelativeToolTip": "SoftProgWeb\\Seguimiento.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T10:19:14.143Z",
+              "WhenOpened": "2025-11-24T11:14:21.404Z",
               "EditorCaption": ""
             },
             {
@@ -106,66 +98,40 @@
               "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx.cs",
               "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\Seguimiento.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAF4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T10:12:34.67Z",
+              "WhenOpened": "2025-11-24T11:14:21.866Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Pago.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Pago.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Pago.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Pago.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\Pago.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "InicioSesion.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T10:13:14.6Z",
+              "WhenOpened": "2025-11-24T10:57:45.952Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Pago.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Pago.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Pago.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Pago.aspx",
-              "RelativeToolTip": "SoftProgWeb\\Pago.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T10:11:34.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Seguimiento.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx",
-              "RelativeToolTip": "SoftProgWeb\\Seguimiento.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T10:02:52.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CambiarContrasena.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CambiarContrasena.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\CambiarContrasena.aspx.cs",
               "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CambiarContrasena.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\CambiarContrasena.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T09:14:58.643Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MiCarrito.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
@@ -173,12 +139,11 @@
               "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
               "ViewState": "AgIAAIUAAAAAAAAAAAAMwDUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:05:34.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:05:34.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "EditarPerfil.aspx",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx",
               "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx",
@@ -186,12 +151,11 @@
               "RelativeToolTip": "SoftProgWeb\\EditarPerfil.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T09:03:06.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:03:06.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "EditarPerfil.aspx.designer.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.designer.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx.designer.cs",
@@ -199,12 +163,11 @@
               "RelativeToolTip": "SoftProgWeb\\EditarPerfil.aspx.designer.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAmwFgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:03:03.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:03:03.11Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "EditarPerfil.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx.cs",
@@ -212,12 +175,11 @@
               "RelativeToolTip": "SoftProgWeb\\EditarPerfil.aspx.cs",
               "ViewState": "AgIAAFAAAAAAAAAAAAAuwHAAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:02:39.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:02:39.576Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "GestionarProductos02RegistrarProducto.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
@@ -225,12 +187,11 @@
               "RelativeToolTip": "SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAwwG0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T08:50:45.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T08:50:45.381Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "CategoriaProducto.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\CategoriaProducto.aspx.cs",
@@ -238,12 +199,11 @@
               "RelativeToolTip": "SoftProgWeb\\CategoriaProducto.aspx.cs",
               "ViewState": "AgIAAKYAAAAAAAAAAAAAAL8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T08:50:19.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T08:50:19.668Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "PerfilCliente.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx.cs",
@@ -256,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "PerfilCliente.aspx",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx",
               "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx",
@@ -264,8 +224,7 @@
               "RelativeToolTip": "SoftProgWeb\\PerfilCliente.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T08:14:38.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T08:14:38.819Z"
             }
           ]
         }

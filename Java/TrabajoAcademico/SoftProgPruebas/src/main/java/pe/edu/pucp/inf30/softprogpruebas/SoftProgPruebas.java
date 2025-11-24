@@ -88,7 +88,7 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        pruebaConexionConBaseDeDatos();
+//        pruebaConexionConBaseDeDatos();
 //        pruebasConDatos();
         
 //        pruebasConProductos();
@@ -104,11 +104,11 @@ public class SoftProgPruebas {
 //        pruebaObtenerMarcasPorCategoria();
 //        pruebaObtenerProductosPorCategoria();
 //        pruebaEliminarOrdenCompra();
-//        pruebaCuentaUsuario();
+        pruebaCuentaUsuario();
 //        pruebaLineaCarrito();
 //        hashearPasswords();
 
-        pruebaInsertarCliente();
+//        pruebaInsertarCliente();
     }
     
     public static void pruebaInsertarCliente(){
@@ -150,17 +150,39 @@ public class SoftProgPruebas {
     }
     
     public static void pruebaCuentaUsuario(){
-        CuentaUsuario usuario = new CuentaUsuarioBOImpl().obtener(5);
+        CuentaUsuario cuenta = new CuentaUsuario();
+//        
+//        cuenta.setActivo(true);
+//        cuenta.setCorreo("cristhianhoracio22@gmail.com");
+//        cuenta.setUsername("CrisGold22");
+//        cuenta.setPassword("Killzone2003");
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
+        cuenta = cuentaBO.obtenerCuentaUsuarioPorCorreo("cristhianhoracio22@gmail.com");
         
-        System.out.println(usuario.getId() + "  " + usuario.getUsername() + "  " + usuario.getCorreo() + " "  + usuario.getPassword());
+        System.out.println("OK");
         
-        if(new CuentaUsuarioBOImpl().login(usuario.getCorreo(), usuario.getPassword())){
-            System.out.println("Cuenta correcta");
-        }
-        else{
-            System.out.println("Cuenta incorrecta");
-        }
+        LocalDateTime nacimientoSQL = LocalDateTime.now();
         
+        Cliente cliente = new Cliente();
+        ClienteBO clienteBO = new ClienteBOImpl();
+
+        cliente.setId(1);
+        cliente.setDni("72233478");
+        cliente.setNombre("Cristhian Horacio");
+        cliente.setApellidoMaterno("Olivares");
+        cliente.setApellidoPaterno("Gupioc");
+        cliente.setGenero(Genero.MASCULINO);
+        cliente.setFechaNacimiento(nacimientoSQL);
+        cliente.setTelefono(981429641);
+        cliente.setLineaCredito(10000);
+        cliente.setCategoria(CategoriaCliente.CATERING);
+        cliente.setNumeroPedidosHistorico(12);
+        cliente.setNumeroPedidosMensualPro(10);
+        cliente.setCuenta(cuenta);
+        cliente.setActivo(true);
+
+        clienteBO.insertar(cliente);
+        System.out.println("Se inserto el cliente de id 1 creado exitosamente");
     }
     
     public static void pruebaEliminarOrdenCompra(){

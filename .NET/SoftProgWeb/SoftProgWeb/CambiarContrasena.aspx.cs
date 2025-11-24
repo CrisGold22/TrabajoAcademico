@@ -14,7 +14,9 @@ namespace SoftProgWeb
         {
             NotificacionWSClient notificacion = new NotificacionWSClient();
 
-            //notificacion.env
+
+
+            notificacion.enviarMensajeGenerico("Prueba", "Este es un mensaje de prueba", "cristhianhoracio22@gmail.com");
 
         }
 

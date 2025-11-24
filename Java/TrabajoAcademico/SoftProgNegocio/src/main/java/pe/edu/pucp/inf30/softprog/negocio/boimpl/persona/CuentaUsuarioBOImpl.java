@@ -167,12 +167,21 @@ public class CuentaUsuarioBOImpl implements CuentaUsuarioBO {
     }
 
     @Override
-    public boolean login(String email, String password) {
-        if (email.isEmpty() || email.isBlank() || password.isBlank() || password.isEmpty()) {
-            throw new IllegalArgumentException("Usuario o password inválido");
+    public CuentaUsuario login(String email, String password) {
+        CuentaUsuario cuenta = cuentaDAO.obtenerPorCorreo(email);
+
+        if (cuenta == null) {
+            return null; // usuario no existe
         }
 
-        return this.cuentaDAO.login(email, password);
+        String hashGuardado = cuenta.getPassword();  // lo que está en BD (BCrypt)
+
+        boolean ok = PasswordUtils.checkPassword(password, hashGuardado);
+        if (!ok) {
+            return null; // contraseña incorrecta
+        }
+
+        return cuenta; // autenticación exitosa
     }
 
     @Override

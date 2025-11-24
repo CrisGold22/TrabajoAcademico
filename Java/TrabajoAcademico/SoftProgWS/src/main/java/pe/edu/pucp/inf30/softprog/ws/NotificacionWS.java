@@ -32,5 +32,14 @@ public class NotificacionWS {
         this.notificacion.enviarMensajeOrdenCompra(orden, correo);
     }
     
+    @WebMethod(operationName = "enviarMensajeGenerico")
+    public void enviarMensajeGenerico(
+            @WebParam(name = "asunto") String asunto, 
+        @WebParam(name = "mensaje") String mensaje,
+        @WebParam(name = "correo") String correo
+        ) {
+        this.notificacion.enviarMensajeGenerico(asunto, mensaje, correo);
+    }
+    
     
 }

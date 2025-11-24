@@ -154,6 +154,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
         }
         return null;
     }
+    
 
     @Override
     public boolean actualizarPassword(int idCuentaUsuario, String nuevoPasswordHash) {

@@ -36,6 +36,20 @@ public class CuentaUsuarioWS {
     private final String NOMBRE_RESOURCE = "cuentas";
     private final ObjectMapper mapper;
 
+    public static class LoginRequestDTO {
+
+        public String email;
+        public String password;
+
+        public LoginRequestDTO() {
+        }
+
+        public LoginRequestDTO(String email, String password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+
     public CuentaUsuarioWS() {
         cuentaBO = new CuentaUsuarioBOImpl();
         this.config = ResourceBundle.getBundle("app");
@@ -121,51 +135,61 @@ public class CuentaUsuarioWS {
                 .uri(URI.create(url))
                 .DELETE()
                 .build();
-        HttpResponse<String>response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         int statusCode = response.statusCode();
-        
-        if(statusCode == 204){
+
+        if (statusCode == 204) {
             return ("LineaCarrito ID " + id + " eliminada exitosamente (HTTP 204).");
         }
         if (statusCode == 404) {
             return ("Error 404: LineaCarrito con ID " + id + " no encontrada.");
             //throw new RuntimeException(mensajeError);
-        }       
+        }
         if (statusCode >= 400) {
             return ("Fallo en el servicio. Código HTTP: " + statusCode + ". Detalle: " + response.body());
         }
-        return "Operacion Completa";        
+        return "Operacion Completa";
     }
 
     @WebMethod(operationName = "login")
-    public boolean login(
+    public CuentaUsuario login(
             @WebParam(name = "email") String email,
             @WebParam(name = "password") String password
     ) throws IOException, InterruptedException {
 
-        CuentaUsuario cuenta = new CuentaUsuario();
-        cuenta.setCorreo(email);
-        cuenta.setPassword(password);
-
-        //ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(cuenta);
+        LoginRequestDTO dto = new LoginRequestDTO(email, password);
+        String json = mapper.writeValueAsString(dto);
 
         String url = this.urlBase + "/" + this.NOMBRE_RESOURCE + "/login";
+
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
-                .header("Content-Type", "application/json")     //<----- ESTA XDDDD
+                .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
 
         HttpResponse<String> response
                 = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        if (response.statusCode() == 200) {
-            return true;
-        } else {
-            System.out.println("Error en login REST: " + response.body());
-            return false;
+        int status = response.statusCode();
+        String body = response.body();
+
+        if (status == 401 || status == 404) {
+            // credenciales inválidas o usuario no encontrado
+            return null;
         }
+
+        if (status != 200) {
+            throw new RuntimeException(
+                    "Error en login REST. HTTP " + status + " - Body: " + body
+            );
+        }
+
+        // parsear cuenta sin password
+        CuentaUsuario cuenta
+                = mapper.readValue(body, CuentaUsuario.class);
+
+        return cuenta;
     }
 
     @WebMethod(operationName = "cambiarPassword")
