@@ -88,7 +88,7 @@ public class SoftProgPruebas {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-//        pruebaConexionConBaseDeDatos();
+        pruebaConexionConBaseDeDatos();
 //        pruebasConDatos();
         
 //        pruebasConProductos();
@@ -106,7 +106,17 @@ public class SoftProgPruebas {
 //        pruebaEliminarOrdenCompra();
 //        pruebaCuentaUsuario();
 //        pruebaLineaCarrito();
-        hashearPasswords();
+//        hashearPasswords();
+
+        pruebaInsertarCliente();
+    }
+    
+    public static void pruebaInsertarCliente(){
+        Cliente cliente = new Cliente();
+        
+//        cliente.setActivo(true);
+//        cliente.setApellidoMaterno(Gu);
+//        
     }
     
     public static void hashearPasswords(){

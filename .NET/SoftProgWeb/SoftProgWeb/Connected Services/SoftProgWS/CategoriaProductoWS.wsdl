@@ -5,26 +5,23 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/CategoriaProductoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="actualizarCategoriaProducto">
-    <part name="parameters" element="tns:actualizarCategoriaProducto" />
-  </message>
-  <message name="actualizarCategoriaProductoResponse">
-    <part name="parameters" element="tns:actualizarCategoriaProductoResponse" />
-  </message>
-  <message name="JsonProcessingException">
-    <part name="fault" element="tns:JsonProcessingException" />
-  </message>
-  <message name="IOException">
-    <part name="fault" element="tns:IOException" />
-  </message>
-  <message name="InterruptedException">
-    <part name="fault" element="tns:InterruptedException" />
-  </message>
   <message name="listarCategoriaProducto">
     <part name="parameters" element="tns:listarCategoriaProducto" />
   </message>
   <message name="listarCategoriaProductoResponse">
     <part name="parameters" element="tns:listarCategoriaProductoResponse" />
+  </message>
+  <message name="InterruptedException">
+    <part name="fault" element="tns:InterruptedException" />
+  </message>
+  <message name="IOException">
+    <part name="fault" element="tns:IOException" />
+  </message>
+  <message name="insertarCategoriaProducto">
+    <part name="parameters" element="tns:insertarCategoriaProducto" />
+  </message>
+  <message name="insertarCategoriaProductoResponse">
+    <part name="parameters" element="tns:insertarCategoriaProductoResponse" />
   </message>
   <message name="eliminarCategoriaProducto">
     <part name="parameters" element="tns:eliminarCategoriaProducto" />
@@ -38,25 +35,27 @@
   <message name="obtenerCategoriaProductoResponse">
     <part name="parameters" element="tns:obtenerCategoriaProductoResponse" />
   </message>
-  <message name="insertarCategoriaProducto">
-    <part name="parameters" element="tns:insertarCategoriaProducto" />
+  <message name="actualizarCategoriaProducto">
+    <part name="parameters" element="tns:actualizarCategoriaProducto" />
   </message>
-  <message name="insertarCategoriaProductoResponse">
-    <part name="parameters" element="tns:insertarCategoriaProductoResponse" />
+  <message name="actualizarCategoriaProductoResponse">
+    <part name="parameters" element="tns:actualizarCategoriaProductoResponse" />
+  </message>
+  <message name="JsonProcessingException">
+    <part name="fault" element="tns:JsonProcessingException" />
   </message>
   <portType name="CategoriaProductoWS">
-    <operation name="actualizarCategoriaProducto">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProductoRequest" message="tns:actualizarCategoriaProducto" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProductoResponse" message="tns:actualizarCategoriaProductoResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
     <operation name="listarCategoriaProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoRequest" message="tns:listarCategoriaProducto" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoResponse" message="tns:listarCategoriaProductoResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
+    </operation>
+    <operation name="insertarCategoriaProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProductoRequest" message="tns:insertarCategoriaProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProductoResponse" message="tns:insertarCategoriaProductoResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="eliminarCategoriaProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/eliminarCategoriaProductoRequest" message="tns:eliminarCategoriaProducto" />
@@ -70,33 +69,16 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="insertarCategoriaProducto">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProductoRequest" message="tns:insertarCategoriaProducto" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProductoResponse" message="tns:insertarCategoriaProductoResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="actualizarCategoriaProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProductoRequest" message="tns:actualizarCategoriaProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProductoResponse" message="tns:actualizarCategoriaProductoResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
   </portType>
   <binding name="CategoriaProductoWSPortBinding" type="tns:CategoriaProductoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="actualizarCategoriaProducto">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="JsonProcessingException">
-        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
-      </fault>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
     <operation name="listarCategoriaProducto">
       <soap:operation soapAction="" />
       <input>
@@ -110,6 +92,21 @@
       </fault>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertarCategoriaProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
     <operation name="eliminarCategoriaProducto">
@@ -142,7 +139,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="insertarCategoriaProducto">
+    <operation name="actualizarCategoriaProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -150,6 +147,9 @@
       <output>
         <soap:body use="literal" />
       </output>
+      <fault name="JsonProcessingException">
+        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
+      </fault>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>

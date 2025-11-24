@@ -42,8 +42,7 @@ public class CarritoCompraResource {
     //falta probar
     @POST
     public Response crear(CarritoCompras carritocompras){
-        if(carritocompras==null || carritocompras.getLineasCarrito()==null 
-                || carritocompras.getLineasCarrito().isEmpty()){
+        if(carritocompras==null){
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("El carrito de compras no estacreado")
                     .build();

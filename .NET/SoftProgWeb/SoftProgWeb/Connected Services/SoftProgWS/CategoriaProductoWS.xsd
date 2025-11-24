@@ -49,6 +49,14 @@
       <xs:element minOccurs="0" name="message" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarCategoriaProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="categoriaProducto" type="tns:categoriaProducto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCategoriaProductoResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="actualizarCategoriaProducto">
     <xs:sequence>
       <xs:element minOccurs="0" name="categoriaProducto" type="tns:categoriaProducto" />
@@ -66,14 +74,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="jsonLocation">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="insertarCategoriaProducto">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="categoriaProducto" type="tns:categoriaProducto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarCategoriaProductoResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="obtenerCategoriaProducto">

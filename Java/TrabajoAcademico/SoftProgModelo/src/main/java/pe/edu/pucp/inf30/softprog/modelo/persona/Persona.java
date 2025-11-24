@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
@@ -91,7 +92,7 @@ public class Persona extends Registro {
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
-    
+
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     public LocalDateTime getFechaNacimiento() {
         return fechaNacimiento;
@@ -109,29 +110,19 @@ public class Persona extends Registro {
         this.telefono = telefono;
     }
 
+    @JsonIgnore
     public String getGeneroString() {
-        String cadena = "";
-
-        switch (this.genero) {
-            case MASCULINO ->
-                cadena = "MASCULINO";
-            case FEMENINO ->
-                cadena = "FEMENINO";
-            case NO_ESPECIFICADO ->
-                cadena = "NO_ESPECIFICADO";
+        if (this.genero == null) {
+            return null;  // o "" si prefieres cadena vacía
         }
-
-        return cadena;
+        return this.genero.name(); // "MASCULINO", "FEMENINO", etc.
     }
 
-    public void setGeneroString(String genero) {
-        switch (genero) {
-            case "MASCULINO" ->
-                this.genero = Genero.MASCULINO;
-            case "FEMENINO" ->
-                this.genero = Genero.FEMENINO;
-            case "NO_ESPECIFICADO" ->
-                this.genero = Genero.NO_ESPECIFICADO;
+    public void setGeneroString(String generoStr) {
+        if (generoStr == null || generoStr.isEmpty()) {
+            this.genero = null;
+        } else {
+            this.genero = Genero.valueOf(generoStr); // asegúrate que coincide con los nombres del enum
         }
     }
 

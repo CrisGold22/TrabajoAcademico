@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/DetalleEnvioWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="obtenerDetalleEnvio">
-    <part name="parameters" element="tns:obtenerDetalleEnvio" />
+  <message name="listarDetalleEnvio">
+    <part name="parameters" element="tns:listarDetalleEnvio" />
   </message>
-  <message name="obtenerDetalleEnvioResponse">
-    <part name="parameters" element="tns:obtenerDetalleEnvioResponse" />
+  <message name="listarDetalleEnvioResponse">
+    <part name="parameters" element="tns:listarDetalleEnvioResponse" />
   </message>
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
@@ -17,17 +17,17 @@
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
   </message>
+  <message name="obtenerDetalleEnvio">
+    <part name="parameters" element="tns:obtenerDetalleEnvio" />
+  </message>
+  <message name="obtenerDetalleEnvioResponse">
+    <part name="parameters" element="tns:obtenerDetalleEnvioResponse" />
+  </message>
   <message name="eliminarDetalleEnvio">
     <part name="parameters" element="tns:eliminarDetalleEnvio" />
   </message>
   <message name="eliminarDetalleEnvioResponse">
     <part name="parameters" element="tns:eliminarDetalleEnvioResponse" />
-  </message>
-  <message name="listarDetalleEnvio">
-    <part name="parameters" element="tns:listarDetalleEnvio" />
-  </message>
-  <message name="listarDetalleEnvioResponse">
-    <part name="parameters" element="tns:listarDetalleEnvioResponse" />
   </message>
   <message name="insertarDetalleEnvio">
     <part name="parameters" element="tns:insertarDetalleEnvio" />
@@ -45,6 +45,12 @@
     <part name="parameters" element="tns:actualizarDetalleEnvioResponse" />
   </message>
   <portType name="DetalleEnvioWS">
+    <operation name="listarDetalleEnvio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest" message="tns:listarDetalleEnvio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioResponse" message="tns:listarDetalleEnvioResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="obtenerDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest" message="tns:obtenerDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioResponse" message="tns:obtenerDetalleEnvioResponse" />
@@ -56,12 +62,6 @@
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvioResponse" message="tns:eliminarDetalleEnvioResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="listarDetalleEnvio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest" message="tns:listarDetalleEnvio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioResponse" message="tns:listarDetalleEnvioResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="insertarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioRequest" message="tns:insertarDetalleEnvio" />
@@ -80,6 +80,21 @@
   </portType>
   <binding name="DetalleEnvioWSPortBinding" type="tns:DetalleEnvioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarDetalleEnvio">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
     <operation name="obtenerDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
@@ -96,21 +111,6 @@
       </fault>
     </operation>
     <operation name="eliminarDetalleEnvio">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="listarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

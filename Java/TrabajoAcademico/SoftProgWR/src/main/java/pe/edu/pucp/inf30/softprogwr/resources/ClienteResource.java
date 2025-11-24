@@ -72,7 +72,7 @@ public class ClienteResource {
                     .build();
         }
         //falta guardarrrrrrrrrrrrrr
-        this.clienteBO.actualizar(cliente);
+        this.clienteBO.insertar(cliente);
         URI location = URI.create("/SoftProgRest/api/v1/clientes/" + cliente.getId());
         
         return Response.created(location)

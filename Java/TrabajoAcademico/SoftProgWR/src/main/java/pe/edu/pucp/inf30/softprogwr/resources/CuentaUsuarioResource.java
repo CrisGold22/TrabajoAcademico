@@ -64,7 +64,7 @@ public class CuentaUsuarioResource {
                     .build();
         }
         //falta corregir
-        this.cuentaUsuarioBO.actualizar(cuenta);
+        this.cuentaUsuarioBO.insertar(cuenta);
         URI location = 
                 URI.create("/SoftProgWR/api/v1/cuenta/" + cuenta.getId());
         

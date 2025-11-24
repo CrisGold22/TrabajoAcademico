@@ -23,41 +23,44 @@ namespace SoftProgWeb
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
+            string marcaDeTiempo = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            System.Diagnostics.Debug.WriteLine($"[BTN REGISTRAR CLICK] Ejecutado a las: {marcaDeTiempo}");
+
             try
             {
                 cuentaUsuario cuenta = new cuentaUsuario();
                 cliente cliente = new cliente();
 
-                // Validar que todos los campos estén completos
                 if (!ValidarDatos(cuenta, cliente))
                 {
+                    System.Diagnostics.Debug.WriteLine($"[VALIDACIÓN FALLÓ] {marcaDeTiempo}");
                     return;
                 }
 
-                // lógica para guardar en la base de datos
                 bool registroExitoso = RegistrarUser(cuenta, cliente);
+
+                System.Diagnostics.Debug.WriteLine($"[RegistrarUser RESULTADO={registroExitoso}] {DateTime.Now:HH:mm:ss.fff}");
 
                 if (registroExitoso)
                 {
-                    // Mostrar el modal de éxito
                     ScriptManager.RegisterStartupScript(this, GetType(), "showModal",
                         "showSuccessModal();", true);
                     LimpiarFormulario();
                 }
                 else
                 {
-                    // Mostrar mensaje de error
                     ScriptManager.RegisterStartupScript(this, GetType(), "alert",
-                        "alert('Hubo un error al registrar el usuario. Por favor, intente nuevamente.');", true);
+                        "alert('Hubo un error al registrar.');", true);
                 }
             }
-            catch (System.Exception ex)
+            catch (SystemException ex)
             {
-                // Manejo de errores
+                System.Diagnostics.Debug.WriteLine($"[ERROR btnRegistrar_Click] {DateTime.Now:HH:mm:ss.fff} — {ex}");
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert",
                     $"alert('Error: {ex.Message}');", true);
             }
         }
+
 
         private bool ValidarDatos(cuentaUsuario cuenta, cliente cliente)
         {
@@ -140,6 +143,7 @@ namespace SoftProgWeb
             cuenta.correo = txtCorreo.Text.Trim();
             cuenta.password = txtPassword.Text.Trim();
             cuenta.activo = true;
+            cuenta.activoInt = 1;
 
             //Settear los valores de Cliente
             cliente.dni = txtNumeroDocumento.Text.Trim();
@@ -147,11 +151,13 @@ namespace SoftProgWeb
             cliente.apellidoPaterno = txtApellidoPaterno.Text.Trim();
             cliente.apellidoMaterno = txtApellidoMaterno.Text.Trim();
             cliente.categoria = categoriaCliente.REVENDEDOR;
-            var prop = cliente.GetType().GetProperty("categoriaCliente");
-            if (prop != null)
-            {
-                prop.SetValue(cliente, categoriaCliente.REVENDEDOR);
-            }
+            cliente.numeroPedidosHistorico = 0;
+            cliente.numeroPedidosMensualPro = 0;
+            cliente.lineaCredito = 0;
+  
+
+            try { cliente.categoriaSpecified = true; } catch { }
+
             int telefonoInt = 0;
             if (int.TryParse(System.Text.RegularExpressions.Regex.Replace(txtTelefono.Text, @"\D", ""), out telefonoInt))
             {
@@ -162,14 +168,46 @@ namespace SoftProgWeb
                 try { cliente.telefono = 0; } catch { }
             }
 
-            string gen = ddlGenero.SelectedValue; // "M", "F", "O"
-            string generoParaWs = "NO_ESPECIFICADO";
-            if (gen == "M") generoParaWs = "MASCULINO";
-            else if (gen == "F") generoParaWs = "FEMENINO";
-            else generoParaWs = "NO_ESPECIFICADO";
-            try
-            { cliente.genero = (genero)Enum.Parse(typeof(genero), generoParaWs); }
-            catch { }
+            // Valor del combo: "M", "F", "O" (u otro)
+            string gen = ddlGenero.SelectedValue;
+
+            // Limpieza inicial
+            cliente.generoSpecified = false;
+
+            // Si no eligió nada, simplemente no mandamos género
+            if (string.IsNullOrWhiteSpace(gen))
+            {
+                // cliente.generoSpecified sigue en false
+            }
+            else
+            {
+                // Mapeamos a los nombres EXACTOS del enum generado por el servicio
+                // (ajusta NO_ESPECIFICADO/OTRO según cómo se llame en tu enum C#)
+                genero generoEnum;
+
+                switch (gen)
+                {
+                    case "M":
+                        generoEnum = genero.MASCULINO;
+                        break;
+
+                    case "F":
+                        generoEnum = genero.FEMENINO;
+                        break;
+
+                    case "O":
+                        generoEnum = genero.NO_ESPECIFICADO;
+                        break;
+
+                    default:
+                        generoEnum = genero.NO_ESPECIFICADO;
+                        break;
+                }
+
+                // Asignamos y marcamos como "presente" en el XML del SOAP
+                cliente.genero = generoEnum;
+                cliente.generoSpecified = true;
+            }
 
             DateTime fechaNacimiento;
             if (!string.IsNullOrWhiteSpace(txtFechaNacimiento.Text) && DateTime.TryParse(txtFechaNacimiento.Text, out fechaNacimiento))
@@ -178,7 +216,7 @@ namespace SoftProgWeb
             }
 
             cliente.activo = true;
-            cliente.cuenta = cuenta;
+            //cliente.cuenta = cuenta;
 
             return true;
         }
@@ -204,21 +242,39 @@ namespace SoftProgWeb
 
         private bool RegistrarUser(cuentaUsuario cuenta, cliente cliente)
         {
+            string marca = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            System.Diagnostics.Debug.WriteLine($"[RegistrarUser INICIO] {marca} — DNI={cliente.dni}");
+
             try
             {
-                clienteWS.insertarCliente(cliente);
                 cuentaUsuarioWS.insertarCuentaUsuario(cuenta);
+                System.Diagnostics.Debug.WriteLine($"[Cuenta insertada] {DateTime.Now:HH:mm:ss.fff}");
+
+                cuentaUsuario cuentaConId = cuentaUsuarioWS.obtenerCuentaUsuarioPorUserName(cuenta.username);
+                System.Diagnostics.Debug.WriteLine($"[Cuenta obtenida ID={cuentaConId.id}] {DateTime.Now:HH:mm:ss.fff}");
+
+                cliente.cuenta = cuentaConId;
+                clienteWS.insertarCliente(cliente); // ← IMPORTANTE
+                System.Diagnostics.Debug.WriteLine($"[CLIENTE INSERTADO] {DateTime.Now:HH:mm:ss.fff} — DNI={cliente.dni}");
+
+                cliente clienteConId = clienteWS.buscarPorDni(cliente.dni);
+                System.Diagnostics.Debug.WriteLine($"[CLIENTE BUSCADO] {DateTime.Now:HH:mm:ss.fff} — ID={clienteConId.id}");
+
+                carritoCompras carrito = new carritoCompras();
+                carrito.cliente = clienteConId;
+
+                new CarritoComprasWSClient().insertarCarritoCompras(carrito);
+                System.Diagnostics.Debug.WriteLine($"[CARRITO INSERTADO] {DateTime.Now:HH:mm:ss.fff}");
+
                 return true;
             }
-            catch (System.Exception ex)
+            catch (SystemException ex)
             {
-                // Log del error
-                System.Diagnostics.Debug.WriteLine($"Error en Registrar Usuario: {ex.Message}");
-                ScriptManager.RegisterStartupScript(this, GetType(), "alert",
-                    $"alert('Error al comunicarse con el servicio: {ex.Message}');", true);
+                System.Diagnostics.Debug.WriteLine($"[ERROR RegistrarUser] {DateTime.Now:HH:mm:ss.fff} — {ex}");
                 return false;
             }
         }
+
 
         private void LimpiarFormulario()
         {

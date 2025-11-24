@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Cliente (
   categoria VARCHAR(45) NOT NULL,
   numeroDePedido_Historico INT NOT NULL DEFAULT 0,
   numeroDePedido_MensualPro INT NOT NULL,
-  dni VARCHAR(45) NOT NULL UNIQUE,
+  dni VARCHAR(45) NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellidoPaterno VARCHAR(45) NOT NULL,
   apellidoMaterno VARCHAR(45) NOT NULL,
