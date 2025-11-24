@@ -33,21 +33,27 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, ComprobantePago modelo) throws SQLException {
-        String sql = "{CALL insertarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
         
-        cmd.setString("p_idComprobante", Integer.toString(modelo.getId()));
-        cmd.setDate("p_fechaEmision", (java.sql.Date) modelo.getFechaEmision());
-        cmd.setInt("p_RUC", modelo.getRUC());
-        cmd.setDouble("p_totalSinImpuestos", modelo.getTotalSinImpuestos());
-        cmd.setString("p_Impuesto", Double.toString(modelo.getImpuestos()));
-        cmd.setDouble("p_totalFinal", modelo.getTotalFinal());
-        cmd.setString("p_metodoPago", modelo.getMetodoString());
-        cmd.setDouble("p_subTotal", modelo.getTotalSinImpuestos());
-        cmd.setInt("p_activo", modelo.getActivoInt());
-        cmd.setInt("p_OrdenCompra_IdPedido", modelo.getOrdenCompra().getId());
-        cmd.registerOutParameter("p_id", Types.INTEGER);
+        cmd.setDate(1, new java.sql.Date(modelo.getFechaEmision().getTime()));
+
+        cmd.setString(2, String.valueOf(modelo.getruc())); 
+        
+        cmd.setDouble(3, modelo.getTotalSinImpuestos());
+        
+        cmd.setDouble(4, modelo.getImpuestos());
+        
+        cmd.setDouble(5, modelo.getTotalFinal());
+        
+        cmd.setString(6, modelo.getMetodoString());
+        
+        cmd.setInt(7, modelo.getActivoInt());
+        
+        cmd.setInt(8, modelo.getOrdenCompra().getId());
+        
+        cmd.registerOutParameter(9, Types.INTEGER);
         
         return cmd;
     }
@@ -60,7 +66,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         
         cmd.setString("p_idComprobante", Integer.toString(modelo.getId()));
         cmd.setDate("p_fechaEmision", (java.sql.Date) modelo.getFechaEmision());
-        cmd.setInt("p_RUC", modelo.getRUC());
+        cmd.setString("p_RUC", modelo.getruc());
         cmd.setDouble("p_totalSinImpuestos", modelo.getTotalSinImpuestos());
         cmd.setString("p_Impuesto", Double.toString(modelo.getImpuestos()));
         cmd.setDouble("p_totalFinal", modelo.getTotalFinal());
@@ -108,7 +114,7 @@ public class ComprobantePagoDAOImpl extends TransaccionalBaseDAO<ComprobantePago
         
         comprobante.setId(rs.getInt("idComprobante"));
         comprobante.setFechaEmision(rs.getDate("fechaEmision"));
-        comprobante.setRUC(rs.getInt("RUC"));
+        comprobante.setruc(rs.getString("RUC"));
         comprobante.setTotalSinImpuestos(rs.getDouble("totalSinImpuestos"));
         comprobante.setImpuestos(rs.getDouble("Impuesto"));
         comprobante.setTotalFinal(rs.getDouble("totalFinal"));

@@ -4,7 +4,6 @@
  */
 package pe.edu.pucp.inf30.softprog.modelo.persona;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
@@ -92,7 +91,7 @@ public class Persona extends Registro {
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
-
+    
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     public LocalDateTime getFechaNacimiento() {
         return fechaNacimiento;
@@ -110,19 +109,43 @@ public class Persona extends Registro {
         this.telefono = telefono;
     }
 
-    @JsonIgnore
     public String getGeneroString() {
+        // --- PROTECCIÓN CONTRA NULL ---
         if (this.genero == null) {
-            return null;  // o "" si prefieres cadena vacía
+            return null; // O devuelve "" si prefieres
         }
-        return this.genero.name(); // "MASCULINO", "FEMENINO", etc.
+        // ------------------------------
+
+        String cadena = "";
+        switch (this.genero) {
+            case MASCULINO ->
+                cadena = "MASCULINO";
+            case FEMENINO ->
+                cadena = "FEMENINO";
+            case NO_ESPECIFICADO ->
+                cadena = "NO_ESPECIFICADO";
+        }
+
+        return cadena;
     }
 
-    public void setGeneroString(String generoStr) {
-        if (generoStr == null || generoStr.isEmpty()) {
+    public void setGeneroString(String genero) {
+        // --- PROTECCIÓN CONTRA NULL ---
+        if (genero == null) {
             this.genero = null;
-        } else {
-            this.genero = Genero.valueOf(generoStr); // asegúrate que coincide con los nombres del enum
+            return; // Salimos para evitar el error
+        }
+        // ------------------------------
+
+        switch (genero) {
+            case "MASCULINO" ->
+                this.genero = Genero.MASCULINO;
+            case "FEMENINO" ->
+                this.genero = Genero.FEMENINO;
+            case "NO_ESPECIFICADO" ->
+                this.genero = Genero.NO_ESPECIFICADO;
+            default -> 
+                this.genero = null; // Opcional: para valores desconocidos
         }
     }
 

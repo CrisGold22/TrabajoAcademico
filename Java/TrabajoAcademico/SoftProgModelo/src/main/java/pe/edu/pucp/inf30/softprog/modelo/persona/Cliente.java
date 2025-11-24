@@ -85,9 +85,12 @@ public class Cliente extends Persona {
         this.numeroPedidosMensualPro = numeroPedidosMensualPro;
     }
 
-    public String getCategoriaCliente() {
-        String cadena = "";
+public String getCategoriaCliente() {
+        if (this.categoria == null) {
+            return null;
+        }
 
+        String cadena = "";
         switch (this.categoria) {
             case CATERING ->
                 cadena = "CATERING";
@@ -106,6 +109,12 @@ public class Cliente extends Persona {
     }
 
     public void setCategoriaCliente(String categoria) {
+
+        if (categoria == null) {
+            this.categoria = null; 
+            return;
+        }
+
         switch (categoria) {
             case "CATERING" ->
                 this.categoria = CategoriaCliente.CATERING;
@@ -119,6 +128,8 @@ public class Cliente extends Persona {
                 this.categoria = CategoriaCliente.GOBIERNO;
             case "DISTRIBUIDOR" ->
                 this.categoria = CategoriaCliente.DISTRIBUIDOR;
+            default -> 
+                this.categoria = null;
         }
     }
 
