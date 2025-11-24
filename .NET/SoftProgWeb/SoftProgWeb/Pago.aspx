@@ -229,7 +229,7 @@
 
         } else {
             alert("Pago contra entrega registrado.");
-            window.location.href = "Home.aspx";
+            window.location.href = "Seguimiento.aspx";
         }
     }
 

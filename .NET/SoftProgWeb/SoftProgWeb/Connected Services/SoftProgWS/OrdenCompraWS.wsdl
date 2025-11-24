@@ -5,17 +5,29 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/OrdenCompraWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="consultarPedidoPorFechas">
-    <part name="parameters" element="tns:consultarPedidoPorFechas" />
+  <message name="obtenerOrdenCompra">
+    <part name="parameters" element="tns:obtenerOrdenCompra" />
   </message>
-  <message name="consultarPedidoPorFechasResponse">
-    <part name="parameters" element="tns:consultarPedidoPorFechasResponse" />
+  <message name="obtenerOrdenCompraResponse">
+    <part name="parameters" element="tns:obtenerOrdenCompraResponse" />
   </message>
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
   </message>
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
+  </message>
+  <message name="listarOrdenCompra">
+    <part name="parameters" element="tns:listarOrdenCompra" />
+  </message>
+  <message name="listarOrdenCompraResponse">
+    <part name="parameters" element="tns:listarOrdenCompraResponse" />
+  </message>
+  <message name="consultarPedidoPorFechas">
+    <part name="parameters" element="tns:consultarPedidoPorFechas" />
+  </message>
+  <message name="consultarPedidoPorFechasResponse">
+    <part name="parameters" element="tns:consultarPedidoPorFechasResponse" />
   </message>
   <message name="desactivarOrdenCompra">
     <part name="parameters" element="tns:desactivarOrdenCompra" />
@@ -29,29 +41,11 @@
   <message name="consultarOrdenCompraPorIdClienteResponse">
     <part name="parameters" element="tns:consultarOrdenCompraPorIdClienteResponse" />
   </message>
-  <message name="desactivarOrdenCompraPorHorario">
-    <part name="parameters" element="tns:desactivarOrdenCompraPorHorario" />
+  <message name="eliminarOrdenCompra">
+    <part name="parameters" element="tns:eliminarOrdenCompra" />
   </message>
-  <message name="desactivarOrdenCompraPorHorarioResponse">
-    <part name="parameters" element="tns:desactivarOrdenCompraPorHorarioResponse" />
-  </message>
-  <message name="obtenerOrdenCompra">
-    <part name="parameters" element="tns:obtenerOrdenCompra" />
-  </message>
-  <message name="obtenerOrdenCompraResponse">
-    <part name="parameters" element="tns:obtenerOrdenCompraResponse" />
-  </message>
-  <message name="listarOrdenCompra">
-    <part name="parameters" element="tns:listarOrdenCompra" />
-  </message>
-  <message name="listarOrdenCompraResponse">
-    <part name="parameters" element="tns:listarOrdenCompraResponse" />
-  </message>
-  <message name="listarLineasOrdenCompraPorIdOrdenCompra">
-    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
-  </message>
-  <message name="listarLineasOrdenCompraPorIdOrdenCompraResponse">
-    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
+  <message name="eliminarOrdenCompraResponse">
+    <part name="parameters" element="tns:eliminarOrdenCompraResponse" />
   </message>
   <message name="insertarOrdenCompra">
     <part name="parameters" element="tns:insertarOrdenCompra" />
@@ -68,13 +62,31 @@
   <message name="actualizarOrdenCompraResponse">
     <part name="parameters" element="tns:actualizarOrdenCompraResponse" />
   </message>
-  <message name="eliminarOrdenCompra">
-    <part name="parameters" element="tns:eliminarOrdenCompra" />
+  <message name="desactivarOrdenCompraPorHorario">
+    <part name="parameters" element="tns:desactivarOrdenCompraPorHorario" />
   </message>
-  <message name="eliminarOrdenCompraResponse">
-    <part name="parameters" element="tns:eliminarOrdenCompraResponse" />
+  <message name="desactivarOrdenCompraPorHorarioResponse">
+    <part name="parameters" element="tns:desactivarOrdenCompraPorHorarioResponse" />
+  </message>
+  <message name="listarLineasOrdenCompraPorIdOrdenCompra">
+    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
+  </message>
+  <message name="listarLineasOrdenCompraPorIdOrdenCompraResponse">
+    <part name="parameters" element="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
   </message>
   <portType name="OrdenCompraWS">
+    <operation name="obtenerOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest" message="tns:obtenerOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse" message="tns:obtenerOrdenCompraResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="listarOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest" message="tns:listarOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse" message="tns:listarOrdenCompraResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="consultarPedidoPorFechas">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasRequest" message="tns:consultarPedidoPorFechas" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarPedidoPorFechasResponse" message="tns:consultarPedidoPorFechasResponse" />
@@ -93,29 +105,11 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdCliente/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/consultarOrdenCompraPorIdCliente/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="desactivarOrdenCompraPorHorario">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorarioRequest" message="tns:desactivarOrdenCompraPorHorario" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorarioResponse" message="tns:desactivarOrdenCompraPorHorarioResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorario/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="obtenerOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraRequest" message="tns:obtenerOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompraResponse" message="tns:obtenerOrdenCompraResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/obtenerOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="listarOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraRequest" message="tns:listarOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompraResponse" message="tns:listarOrdenCompraResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraRequest" message="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraResponse" message="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="eliminarOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest" message="tns:eliminarOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse" message="tns:eliminarOrdenCompraResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="insertarOrdenCompra">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/insertarOrdenCompraRequest" message="tns:insertarOrdenCompra" />
@@ -131,15 +125,51 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/actualizarOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="eliminarOrdenCompra">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraRequest" message="tns:eliminarOrdenCompra" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompraResponse" message="tns:eliminarOrdenCompraResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/eliminarOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="desactivarOrdenCompraPorHorario">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorarioRequest" message="tns:desactivarOrdenCompraPorHorario" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorarioResponse" message="tns:desactivarOrdenCompraPorHorarioResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorario/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/desactivarOrdenCompraPorHorario/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraRequest" message="tns:listarLineasOrdenCompraPorIdOrdenCompra" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompraResponse" message="tns:listarLineasOrdenCompraPorIdOrdenCompraResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompra/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/OrdenCompraWS/listarLineasOrdenCompraPorIdOrdenCompra/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
   </portType>
   <binding name="OrdenCompraWSPortBinding" type="tns:OrdenCompraWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
     <operation name="consultarPedidoPorFechas">
       <soap:operation soapAction="" />
       <input>
@@ -185,52 +215,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="desactivarOrdenCompraPorHorario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="obtenerOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="listarOrdenCompra">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
+    <operation name="eliminarOrdenCompra">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -281,7 +266,22 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="eliminarOrdenCompra">
+    <operation name="desactivarOrdenCompraPorHorario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarLineasOrdenCompraPorIdOrdenCompra">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

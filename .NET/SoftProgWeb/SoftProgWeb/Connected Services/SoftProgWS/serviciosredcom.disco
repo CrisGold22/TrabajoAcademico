@@ -12,4 +12,5 @@
   <contractRef ref="http://localhost:8080/SoftProgWS/EmpresaWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/LineaCarritoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/SoftProgWS/NotificacionWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <contractRef ref="http://localhost:8080/SoftProgWS/ComprobantePagoWS?wsdl" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
 </discovery>

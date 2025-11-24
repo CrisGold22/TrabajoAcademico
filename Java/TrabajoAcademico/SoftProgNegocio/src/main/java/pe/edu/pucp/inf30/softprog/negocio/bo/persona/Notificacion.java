@@ -12,4 +12,5 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
  */
 public interface Notificacion {
     void enviarMensajeOrdenCompra(OrdenCompra orden, String correo);
+    void enviarMensajeGenerico(String asunto, String correo, String mensaje);
 }

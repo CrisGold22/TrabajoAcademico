@@ -6,7 +6,7 @@ namespace SoftProgWeb
 {
     public partial class Seguimiento : System.Web.UI.Page
     {
-        OrdenCompraWSClient ordenWS = new OrdenCompraWSClient();
+        OrdenCompraWSClient ordenWS = new OrdenCompraWSClient("OrdenCompraWSPort1");
         DetalleEnvioWSClient detalleWS = new DetalleEnvioWSClient();
 
         protected void Page_Load(object sender, EventArgs e)

@@ -5,6 +5,18 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/CategoriaProductoWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="obtenerCategoriaSegunNombre">
+    <part name="parameters" element="tns:obtenerCategoriaSegunNombre" />
+  </message>
+  <message name="obtenerCategoriaSegunNombreResponse">
+    <part name="parameters" element="tns:obtenerCategoriaSegunNombreResponse" />
+  </message>
+  <message name="IOException">
+    <part name="fault" element="tns:IOException" />
+  </message>
+  <message name="InterruptedException">
+    <part name="fault" element="tns:InterruptedException" />
+  </message>
   <message name="actualizarCategoriaProducto">
     <part name="parameters" element="tns:actualizarCategoriaProducto" />
   </message>
@@ -14,17 +26,11 @@
   <message name="JsonProcessingException">
     <part name="fault" element="tns:JsonProcessingException" />
   </message>
-  <message name="IOException">
-    <part name="fault" element="tns:IOException" />
+  <message name="listarCategoriaProducto">
+    <part name="parameters" element="tns:listarCategoriaProducto" />
   </message>
-  <message name="InterruptedException">
-    <part name="fault" element="tns:InterruptedException" />
-  </message>
-  <message name="obtenerCategoriaSegunNombre">
-    <part name="parameters" element="tns:obtenerCategoriaSegunNombre" />
-  </message>
-  <message name="obtenerCategoriaSegunNombreResponse">
-    <part name="parameters" element="tns:obtenerCategoriaSegunNombreResponse" />
+  <message name="listarCategoriaProductoResponse">
+    <part name="parameters" element="tns:listarCategoriaProductoResponse" />
   </message>
   <message name="insertarCategoriaProducto">
     <part name="parameters" element="tns:insertarCategoriaProducto" />
@@ -37,12 +43,6 @@
   </message>
   <message name="obtenerCategoriaProductoResponse">
     <part name="parameters" element="tns:obtenerCategoriaProductoResponse" />
-  </message>
-  <message name="listarCategoriaProducto">
-    <part name="parameters" element="tns:listarCategoriaProducto" />
-  </message>
-  <message name="listarCategoriaProductoResponse">
-    <part name="parameters" element="tns:listarCategoriaProductoResponse" />
   </message>
   <message name="listarmarcaporIdcategoria">
     <part name="parameters" element="tns:listarmarcaporIdcategoria" />
@@ -57,6 +57,12 @@
     <part name="parameters" element="tns:eliminarCategoriaProductoResponse" />
   </message>
   <portType name="CategoriaProductoWS">
+    <operation name="obtenerCategoriaSegunNombre">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombreRequest" message="tns:obtenerCategoriaSegunNombre" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombreResponse" message="tns:obtenerCategoriaSegunNombreResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombre/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombre/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="actualizarCategoriaProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProductoRequest" message="tns:actualizarCategoriaProducto" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProductoResponse" message="tns:actualizarCategoriaProductoResponse" />
@@ -64,11 +70,11 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/actualizarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="obtenerCategoriaSegunNombre">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombreRequest" message="tns:obtenerCategoriaSegunNombre" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombreResponse" message="tns:obtenerCategoriaSegunNombreResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombre/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaSegunNombre/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="listarCategoriaProducto">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoRequest" message="tns:listarCategoriaProducto" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoResponse" message="tns:listarCategoriaProductoResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
     </operation>
     <operation name="insertarCategoriaProducto">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/insertarCategoriaProductoRequest" message="tns:insertarCategoriaProducto" />
@@ -81,12 +87,6 @@
       <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProductoResponse" message="tns:obtenerCategoriaProductoResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/obtenerCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="listarCategoriaProducto">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoRequest" message="tns:listarCategoriaProducto" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProductoResponse" message="tns:listarCategoriaProductoResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProducto/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarCategoriaProducto/Fault/IOException" name="IOException" message="tns:IOException" />
     </operation>
     <operation name="listarmarcaporIdcategoria">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/CategoriaProductoWS/listarmarcaporIdcategoriaRequest" message="tns:listarmarcaporIdcategoria" />
@@ -103,6 +103,21 @@
   </portType>
   <binding name="CategoriaProductoWSPortBinding" type="tns:CategoriaProductoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerCategoriaSegunNombre">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
     <operation name="actualizarCategoriaProducto">
       <soap:operation soapAction="" />
       <input>
@@ -121,7 +136,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="obtenerCategoriaSegunNombre">
+    <operation name="listarCategoriaProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -129,11 +144,11 @@
       <output>
         <soap:body use="literal" />
       </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
       <fault name="InterruptedException">
         <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
       </fault>
     </operation>
     <operation name="insertarCategoriaProducto">
@@ -164,21 +179,6 @@
       </fault>
       <fault name="InterruptedException">
         <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="listarCategoriaProducto">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
       </fault>
     </operation>
     <operation name="listarmarcaporIdcategoria">

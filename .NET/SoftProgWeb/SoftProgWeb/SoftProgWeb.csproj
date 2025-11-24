@@ -72,6 +72,7 @@
   <ItemGroup>
     <Content Include="archivoPrueba.aspx" />
     <Content Include="CambiarContrasena.aspx" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Connected Services\SoftProgWS\AdministradorSistemaWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\AdministradorSistemaWS.xsd">
       <SubType>Designer</SubType>
@@ -82,6 +83,10 @@
     <None Include="Connected Services\SoftProgWS\CategoriaProductoWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\ClienteWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\ClienteWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SoftProgWS\ComprobantePagoWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\ComprobantePagoWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SoftProgWS\EmpresaWS.wsdl" />
@@ -587,6 +592,15 @@
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCategoriaSegunNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.comprobantePago.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarComprobantePagoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarComprobantesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -825,6 +839,13 @@
     </Compile>
     <Compile Include="SoftProgInicio.Master.designer.cs">
       <DependentUpon>SoftProgInicio.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
