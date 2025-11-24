@@ -157,6 +157,7 @@
     <Content Include="Entrega.aspx" />
     <Content Include="GestionarClientes01.aspx" />
     <Content Include="GestionarClientes02HistorialPedidos.aspx" />
+    <Content Include="GestionarDescuentos.aspx" />
     <Content Include="GestionarEmpresasPendientes.aspx" />
     <Content Include="GestionarEmpresasPorCliente.aspx" />
     <Content Include="GestionarPedidos01.aspx" />
@@ -676,6 +677,12 @@
     </Compile>
     <Compile Include="GestionarClientes02HistorialPedidos.aspx.designer.cs">
       <DependentUpon>GestionarClientes02HistorialPedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarDescuentos.aspx.cs">
+      <DependentUpon>GestionarDescuentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarDescuentos.aspx.designer.cs">
+      <DependentUpon>GestionarDescuentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarEmpresasPendientes.aspx.cs">
       <DependentUpon>GestionarEmpresasPendientes.aspx</DependentUpon>
