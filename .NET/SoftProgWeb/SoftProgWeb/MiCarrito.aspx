@@ -55,7 +55,7 @@
                             <asp:TemplateField HeaderText="PRODUCTO">
                                 <ItemTemplate>
                                     <div class="d-flex align-items-center">
-                                        <img src='<%# "images/" + Eval("producto.nombre") + ".png" %>' 
+                                        <img src='<%# "images/" + Eval("producto.ImagenURL") %>' 
                                              alt='<%# Eval("producto.nombre") %>' 
                                              class="me-3" style="width: 80px; height: 80px; object-fit: contain;">
                                         <div>
