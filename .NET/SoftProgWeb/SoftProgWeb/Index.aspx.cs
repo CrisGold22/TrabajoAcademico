@@ -9,7 +9,7 @@ namespace SoftProgWeb
     {
         private CuentaUsuarioWSClient cuentaWS = new CuentaUsuarioWSClient();
         private CarritoComprasWSClient carritoWS = new CarritoComprasWSClient();
-        private ProductoWSClient productoWS = new ProductoWSClient();
+        private ProductoWSClient productoWS = new ProductoWSClient("ProductoWSPort1");
         private ClienteWSClient clienteWS = new ClienteWSClient();
         private CarritoComprasWSClient carritoComprasWS = new CarritoComprasWSClient();
         private LineaCarritoWSClient lineaCarritoWS = new LineaCarritoWSClient();

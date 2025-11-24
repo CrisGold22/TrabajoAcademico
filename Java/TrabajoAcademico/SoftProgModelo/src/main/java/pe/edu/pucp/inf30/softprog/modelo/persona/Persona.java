@@ -110,8 +110,13 @@ public class Persona extends Registro {
     }
 
     public String getGeneroString() {
-        String cadena = "";
+        // --- PROTECCIÓN CONTRA NULL ---
+        if (this.genero == null) {
+            return null; // O devuelve "" si prefieres
+        }
+        // ------------------------------
 
+        String cadena = "";
         switch (this.genero) {
             case MASCULINO ->
                 cadena = "MASCULINO";
@@ -125,6 +130,13 @@ public class Persona extends Registro {
     }
 
     public void setGeneroString(String genero) {
+        // --- PROTECCIÓN CONTRA NULL ---
+        if (genero == null) {
+            this.genero = null;
+            return; // Salimos para evitar el error
+        }
+        // ------------------------------
+
         switch (genero) {
             case "MASCULINO" ->
                 this.genero = Genero.MASCULINO;
@@ -132,6 +144,8 @@ public class Persona extends Registro {
                 this.genero = Genero.FEMENINO;
             case "NO_ESPECIFICADO" ->
                 this.genero = Genero.NO_ESPECIFICADO;
+            default -> 
+                this.genero = null; // Opcional: para valores desconocidos
         }
     }
 

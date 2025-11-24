@@ -5,17 +5,35 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/EmpresaWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarEmpresasActivos">
-    <part name="parameters" element="tns:listarEmpresasActivos" />
+  <message name="listarEmpresasPorClienteActivas">
+    <part name="parameters" element="tns:listarEmpresasPorClienteActivas" />
   </message>
-  <message name="listarEmpresasActivosResponse">
-    <part name="parameters" element="tns:listarEmpresasActivosResponse" />
+  <message name="listarEmpresasPorClienteActivasResponse">
+    <part name="parameters" element="tns:listarEmpresasPorClienteActivasResponse" />
   </message>
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
   </message>
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
+  </message>
+  <message name="listarEmpresasPorClienteNoActivas">
+    <part name="parameters" element="tns:listarEmpresasPorClienteNoActivas" />
+  </message>
+  <message name="listarEmpresasPorClienteNoActivasResponse">
+    <part name="parameters" element="tns:listarEmpresasPorClienteNoActivasResponse" />
+  </message>
+  <message name="listarEmpresa">
+    <part name="parameters" element="tns:listarEmpresa" />
+  </message>
+  <message name="listarEmpresaResponse">
+    <part name="parameters" element="tns:listarEmpresaResponse" />
+  </message>
+  <message name="obtenerEmpresa">
+    <part name="parameters" element="tns:obtenerEmpresa" />
+  </message>
+  <message name="obtenerEmpresaResponse">
+    <part name="parameters" element="tns:obtenerEmpresaResponse" />
   </message>
   <message name="listarEmpresasNoActivos">
     <part name="parameters" element="tns:listarEmpresasNoActivos" />
@@ -35,29 +53,20 @@
   <message name="validarEmpresaResponse">
     <part name="parameters" element="tns:validarEmpresaResponse" />
   </message>
-  <message name="listarEmpresasPorClienteNoActivas">
-    <part name="parameters" element="tns:listarEmpresasPorClienteNoActivas" />
+  <message name="crearEmpresaValidandoCodigoPostal">
+    <part name="parameters" element="tns:crearEmpresaValidandoCodigoPostal" />
   </message>
-  <message name="listarEmpresasPorClienteNoActivasResponse">
-    <part name="parameters" element="tns:listarEmpresasPorClienteNoActivasResponse" />
+  <message name="crearEmpresaValidandoCodigoPostalResponse">
+    <part name="parameters" element="tns:crearEmpresaValidandoCodigoPostalResponse" />
   </message>
-  <message name="listarEmpresasPorClienteActivas">
-    <part name="parameters" element="tns:listarEmpresasPorClienteActivas" />
+  <message name="JsonProcessingException">
+    <part name="fault" element="tns:JsonProcessingException" />
   </message>
-  <message name="listarEmpresasPorClienteActivasResponse">
-    <part name="parameters" element="tns:listarEmpresasPorClienteActivasResponse" />
+  <message name="listarEmpresasActivos">
+    <part name="parameters" element="tns:listarEmpresasActivos" />
   </message>
-  <message name="obtenerEmpresa">
-    <part name="parameters" element="tns:obtenerEmpresa" />
-  </message>
-  <message name="obtenerEmpresaResponse">
-    <part name="parameters" element="tns:obtenerEmpresaResponse" />
-  </message>
-  <message name="listarEmpresa">
-    <part name="parameters" element="tns:listarEmpresa" />
-  </message>
-  <message name="listarEmpresaResponse">
-    <part name="parameters" element="tns:listarEmpresaResponse" />
+  <message name="listarEmpresasActivosResponse">
+    <part name="parameters" element="tns:listarEmpresasActivosResponse" />
   </message>
   <message name="eliminarEmpresa">
     <part name="parameters" element="tns:eliminarEmpresa" />
@@ -71,27 +80,36 @@
   <message name="insertarEmpresaResponse">
     <part name="parameters" element="tns:insertarEmpresaResponse" />
   </message>
-  <message name="JsonProcessingException">
-    <part name="fault" element="tns:JsonProcessingException" />
-  </message>
   <message name="actualizarEmpresa">
     <part name="parameters" element="tns:actualizarEmpresa" />
   </message>
   <message name="actualizarEmpresaResponse">
     <part name="parameters" element="tns:actualizarEmpresaResponse" />
   </message>
-  <message name="crearEmpresaValidandoCodigoPostal">
-    <part name="parameters" element="tns:crearEmpresaValidandoCodigoPostal" />
-  </message>
-  <message name="crearEmpresaValidandoCodigoPostalResponse">
-    <part name="parameters" element="tns:crearEmpresaValidandoCodigoPostalResponse" />
-  </message>
   <portType name="EmpresaWS">
-    <operation name="listarEmpresasActivos">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest" message="tns:listarEmpresasActivos" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse" message="tns:listarEmpresasActivosResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="listarEmpresasPorClienteActivas">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRequest" message="tns:listarEmpresasPorClienteActivas" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasResponse" message="tns:listarEmpresasPorClienteActivasResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="listarEmpresasPorClienteNoActivas">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivasRequest" message="tns:listarEmpresasPorClienteNoActivas" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivasResponse" message="tns:listarEmpresasPorClienteNoActivasResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivas/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivas/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="listarEmpresa">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaRequest" message="tns:listarEmpresa" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaResponse" message="tns:listarEmpresaResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
+    <operation name="obtenerEmpresa">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaRequest" message="tns:obtenerEmpresa" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaResponse" message="tns:obtenerEmpresaResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="listarEmpresasNoActivos">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasNoActivosRequest" message="tns:listarEmpresasNoActivos" />
@@ -111,29 +129,18 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/validarEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="listarEmpresasPorClienteNoActivas">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivasRequest" message="tns:listarEmpresasPorClienteNoActivas" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivasResponse" message="tns:listarEmpresasPorClienteNoActivasResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivas/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteNoActivas/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="crearEmpresaValidandoCodigoPostal">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalRequest" message="tns:crearEmpresaValidandoCodigoPostal" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalResponse" message="tns:crearEmpresaValidandoCodigoPostalResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="listarEmpresasPorClienteActivas">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasRequest" message="tns:listarEmpresasPorClienteActivas" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivasResponse" message="tns:listarEmpresasPorClienteActivasResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasPorClienteActivas/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="obtenerEmpresa">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaRequest" message="tns:obtenerEmpresa" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresaResponse" message="tns:obtenerEmpresaResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/obtenerEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="listarEmpresa">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaRequest" message="tns:listarEmpresa" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresaResponse" message="tns:listarEmpresaResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="listarEmpresasActivos">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosRequest" message="tns:listarEmpresasActivos" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivosResponse" message="tns:listarEmpresasActivosResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/listarEmpresasActivos/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="eliminarEmpresa">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/eliminarEmpresaRequest" message="tns:eliminarEmpresa" />
@@ -155,17 +162,55 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresa/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/actualizarEmpresa/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="crearEmpresaValidandoCodigoPostal">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalRequest" message="tns:crearEmpresaValidandoCodigoPostal" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostalResponse" message="tns:crearEmpresaValidandoCodigoPostalResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/EmpresaWS/crearEmpresaValidandoCodigoPostal/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
   </portType>
   <binding name="EmpresaWSPortBinding" type="tns:EmpresaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarEmpresasActivos">
+    <operation name="listarEmpresasPorClienteActivas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarEmpresasPorClienteNoActivas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listarEmpresa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="obtenerEmpresa">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -225,7 +270,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="listarEmpresasPorClienteNoActivas">
+    <operation name="crearEmpresaValidandoCodigoPostal">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -233,6 +278,9 @@
       <output>
         <soap:body use="literal" />
       </output>
+      <fault name="JsonProcessingException">
+        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
+      </fault>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>
@@ -240,37 +288,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="listarEmpresasPorClienteActivas">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="obtenerEmpresa">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="listarEmpresa">
+    <operation name="listarEmpresasActivos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -319,24 +337,6 @@
       </fault>
     </operation>
     <operation name="actualizarEmpresa">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="JsonProcessingException">
-        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
-      </fault>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
-    <operation name="crearEmpresaValidandoCodigoPostal">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

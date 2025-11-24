@@ -118,51 +118,40 @@ public class Producto extends Registro {
     }
 
     public String getMedidaAlMayorString() {
-        String cadena = "";
+        if (this.medidaAlMayor == null) return null; // Protección
 
+        String cadena = "";
         switch (this.medidaAlMayor) {
-            case BOTELLA ->
-                cadena = "BOTELLA";
-            case CAJA ->
-                cadena = "CAJA";
-            case GALON ->
-                cadena = "GALON";
-            case KILOGRAMO ->
-                cadena = "KILOGRAMO";
-            case LITRO ->
-                cadena = "LITRO";
-            case PACK ->
-                cadena = "PACK";
-            case PAQUETE ->
-                cadena = "PAQUETE";
-            case SACO ->
-                cadena = "SACO";
-            case UNIDAD ->
-                cadena = "UNIDAD";  
+            case BOTELLA -> cadena = "BOTELLA";
+            case CAJA -> cadena = "CAJA";
+            case GALON -> cadena = "GALON";
+            case KILOGRAMO -> cadena = "KILOGRAMO";
+            case LITRO -> cadena = "LITRO";
+            case PACK -> cadena = "PACK";
+            case PAQUETE -> cadena = "PAQUETE";
+            case SACO -> cadena = "SACO";
+            case UNIDAD -> cadena = "UNIDAD";  
         }
         return cadena;
     }
 
     public void setMedidaAlMayorString(String medida) {
+        if (medida == null) { // Protección
+            this.medidaAlMayor = null;
+            return;
+        }
+
         switch (medida) {
-            case "BOTELLA" ->
-                this.medidaAlMayor = UnidadMedida.BOTELLA;
-            case "CAJA" ->
-                this.medidaAlMayor = UnidadMedida.CAJA;
-            case "GALON" ->
-                this.medidaAlMayor = UnidadMedida.GALON;
-            case "KILOGRAMO" ->
-                this.medidaAlMayor = UnidadMedida.KILOGRAMO;
-            case "LITRO" ->
-                this.medidaAlMayor = UnidadMedida.LITRO;
-            case "PACK" ->
-                this.medidaAlMayor = UnidadMedida.PACK;
-            case "PAQUETE" ->
-                this.medidaAlMayor = UnidadMedida.PAQUETE;
-            case "SACO" ->
-                this.medidaAlMayor = UnidadMedida.SACO;
-            case "UNIDAD" ->
-                this.medidaAlMayor = UnidadMedida.UNIDAD;
+            case "BOTELLA" -> this.medidaAlMayor = UnidadMedida.BOTELLA;
+            case "CAJA" -> this.medidaAlMayor = UnidadMedida.CAJA;
+            case "GALON" -> this.medidaAlMayor = UnidadMedida.GALON;
+            case "KILOGRAMO" -> this.medidaAlMayor = UnidadMedida.KILOGRAMO;
+            case "LITRO" -> this.medidaAlMayor = UnidadMedida.LITRO;
+            case "PACK" -> this.medidaAlMayor = UnidadMedida.PACK;
+            case "PAQUETE" -> this.medidaAlMayor = UnidadMedida.PAQUETE;
+            case "SACO" -> this.medidaAlMayor = UnidadMedida.SACO;
+            case "UNIDAD" -> this.medidaAlMayor = UnidadMedida.UNIDAD;
+            default -> this.medidaAlMayor = null;
         }
     }
 

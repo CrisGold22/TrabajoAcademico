@@ -28,19 +28,17 @@ public class LineaComprobantePagoDAOImpl extends TransaccionalBaseDAO<LineaCompr
 
     @Override
     protected PreparedStatement comandoCrear(Connection conn, LineaComprobantePago modelo) throws SQLException {
-        String sql = "{CALL insertarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{CALL insertarLineaComprobantePago(?, ?, ?, ?, ?, ?, ?, ?)}";
         
         CallableStatement cmd = conn.prepareCall(sql);
-        
-        cmd.setInt("p_idLineaComprobantePago", modelo.getId());
-        cmd.setDouble("p_montoPagado", modelo.getMontoPagado());
-        cmd.setDouble("p_montoImpuesto", modelo.getMontoImpuesto());
-        cmd.setInt("p_activo", modelo.getActivoInt());
-        cmd.setInt("p_ComprobantePago_idComprobante", modelo.getComprobantePago().getId());
-        cmd.setInt("p_codigo", modelo.getCodigo());
-        cmd.setInt("p_cantidad", modelo.getCantidad());
-        cmd.setDouble("p_subtotal", modelo.getSubTotal());
-        cmd.registerOutParameter("p_id", Types.INTEGER);
+        cmd.setDouble(1, modelo.getMontoPagado());        
+        cmd.setDouble(2, modelo.getMontoImpuesto());       
+        cmd.setInt(3, modelo.getCodigo());       
+        cmd.setInt(4, modelo.getCantidad());      
+        cmd.setDouble(5, modelo.getSubTotal());      
+        cmd.setInt(6, modelo.getActivoInt());       
+        cmd.setInt(7, modelo.getComprobantePago().getId());       
+        cmd.registerOutParameter(8, Types.INTEGER);
         
         return cmd;
     }

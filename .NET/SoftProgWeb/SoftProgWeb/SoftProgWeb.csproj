@@ -83,6 +83,10 @@
     <None Include="Connected Services\SoftProgWS\ClienteWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SoftProgWS\ComprobantePagoWS.wsdl" />
+    <None Include="Connected Services\SoftProgWS\ComprobantePagoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SoftProgWS\EmpresaWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\EmpresaWS.xsd">
       <SubType>Designer</SubType>
@@ -573,6 +577,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.comprobantePago.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.insertarComprobantePagoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarComprobantesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />

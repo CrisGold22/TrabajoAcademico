@@ -19,7 +19,7 @@ import pe.edu.pucp.inf30.softprog.modelo.venta.OrdenCompra;
 public class ComprobantePago extends Registro{
     private List<LineaComprobantePago> lineasComprobantes;
     private Date fechaEmision;
-    private int RUC;
+    private String ruc;
     private double totalSinImpuestos;
     private double impuestos;
     private double totalFinal;
@@ -30,10 +30,10 @@ public class ComprobantePago extends Registro{
         lineasComprobantes = new ArrayList<>();
     }
 
-    public ComprobantePago(List<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, OrdenCompra ordenCompra) {
+    public ComprobantePago(List<LineaComprobantePago> lineasComprobantes, Date fechaEmision, String ruc, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, OrdenCompra ordenCompra) {
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
-        this.RUC = RUC;
+        this.ruc = ruc;
         this.totalSinImpuestos = totalSinImpuestos;
         this.impuestos = impuestos;
         this.totalFinal = totalFinal;
@@ -41,11 +41,11 @@ public class ComprobantePago extends Registro{
         this.ordenCompra = ordenCompra;
     }
 
-    public ComprobantePago(List<LineaComprobantePago> lineasComprobantes, Date fechaEmision, int RUC, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, OrdenCompra ordenCompra, int id, boolean activo) {
+    public ComprobantePago(List<LineaComprobantePago> lineasComprobantes, Date fechaEmision, String ruc, double totalSinImpuestos, double impuestos, double totalFinal, MetodoPago metodoPago, OrdenCompra ordenCompra, int id, boolean activo) {
         super(id, activo);
         this.lineasComprobantes = lineasComprobantes;
         this.fechaEmision = fechaEmision;
-        this.RUC = RUC;
+        this.ruc = ruc;
         this.totalSinImpuestos = totalSinImpuestos;
         this.impuestos = impuestos;
         this.totalFinal = totalFinal;
@@ -71,12 +71,12 @@ public class ComprobantePago extends Registro{
         this.fechaEmision = fechaEmision;
     }
 
-    public int getRUC() {
-        return RUC;
+    public String getruc() {
+        return ruc;
     }
 
-    public void setRUC(int RUC) {
-        this.RUC = RUC;
+    public void setruc(String ruc) {
+        this.ruc = ruc;
     }
 
     public double getTotalSinImpuestos() {
@@ -111,22 +111,30 @@ public class ComprobantePago extends Registro{
         this.metodoPago = metodoPago;
     }
     
-    public String getMetodoString(){
-        String cadena = "";
-        
-        switch(this.metodoPago){
-            case CONTRA_ENTREGA -> cadena = "CONTRA_ENTREGA";
-            case VIRTUAL -> cadena = "VIRTUAL";
+    public String getMetodoString() {
+            if (this.metodoPago == null) return null;
+
+            String cadena = "";
+            switch(this.metodoPago){
+                case CONTRA_ENTREGA -> cadena = "CONTRA_ENTREGA";
+                case VIRTUAL -> cadena = "VIRTUAL";
+                case CRIPTO -> cadena = "CRIPTO";
+            }
+            return cadena;
         }
-        
-        return cadena;
-    }
-    
-    public void setMetodoString(String metodo) {
-        switch (metodo) {
-            case "CONTRA_ENTREGA" -> this.metodoPago = MetodoPago.CONTRA_ENTREGA;
-            case "VIRTUAL" -> this.metodoPago = MetodoPago.VIRTUAL;
-        }
+
+        public void setMetodoString(String metodo) {
+            if (metodo == null) {
+                this.metodoPago = null;
+                return;
+            }
+
+            switch (metodo) {
+                case "CONTRA_ENTREGA" -> this.metodoPago = MetodoPago.CONTRA_ENTREGA;
+                case "VIRTUAL" -> this.metodoPago = MetodoPago.VIRTUAL;
+                case "CRIPTO" -> this.metodoPago = MetodoPago.CRIPTO;
+                default -> this.metodoPago = null;
+            }
     }
 
     public OrdenCompra getOrdenCompra() {
