@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS Descuento (
 CREATE TABLE IF NOT EXISTS CarritoDeCompras (
     idCarritoDeCompras INT NOT NULL AUTO_INCREMENT,
     cliente_idCliente INT NOT NULL,
-    subtotal DOUBLE DEFAULT 0,o
+    subtotal DOUBLE DEFAULT 0,
     descuento DOUBLE DEFAULT 0,
     montoFinal DOUBLE DEFAULT 0,
     activo TINYINT(1) DEFAULT 1,   -- 1 = en proceso / activo, 0 = cerrado o limpiado
