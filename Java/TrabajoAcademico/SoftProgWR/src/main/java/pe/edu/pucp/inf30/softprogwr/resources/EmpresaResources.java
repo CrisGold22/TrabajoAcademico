@@ -79,12 +79,14 @@ public class EmpresaResources {
     @DELETE
     @Path("{id}")
     public Response eliminar(@PathParam("id")int id){
-        if (this.empresaBO.obtener(id) == null) {
+        Empresa empresa = empresaBO.obtener(id);
+        if (empresa == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("detalle: " + id + ", no encontrada")
                     .build();
         }
-        this.empresaBO.eliminar(id);
+        empresa.setActivo(false);
+        this.empresaBO.actualizar(empresa);
         
         return Response.noContent().build();
     }

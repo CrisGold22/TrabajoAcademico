@@ -1,70 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\",
+  "WorkspaceRootPath": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\downloads\\trabajoacademico-proyecto2\\trabajoacademico-proyecto2\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\micarrito.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\editarperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\editarperfil.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\categoriaproducto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\categoriaproducto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\editarperfil.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\editarperfil.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\downloads\\trabajoacademico-proyecto2\\trabajoacademico-proyecto2\\.net\\softprogweb\\softprogweb\\archivoprueba.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\archivoprueba.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\editarperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\editarperfil.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\categoriaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\perfilcliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\perfilcliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\softprogweb\\gestionarproductos02registrarproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarproductos02registrarproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\softprogweb\\categoriaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\categoriaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\content\\estilo3.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\content\\estilo3.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\iniciosesion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\iniciosesion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\gestionarproductos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarproductos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\softprog.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\softprog.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\home.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\home.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\gestionarpedidos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarpedidos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\perfilcliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\softprogweb\\perfilcliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\perfilcliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\softprogweb\\perfilcliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\perfilcliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,204 +42,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "archivoPrueba.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\archivoPrueba.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\archivoPrueba.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\archivoPrueba.aspx",
-              "RelativeToolTip": "SoftProgWeb\\archivoPrueba.aspx",
+              "DocumentIndex": 0,
+              "Title": "MiCarrito.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAADgvzUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T09:05:34.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditarPerfil.aspx",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx",
+              "RelativeToolTip": "SoftProgWeb\\EditarPerfil.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T06:39:06.149Z",
+              "WhenOpened": "2025-11-24T09:03:06.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditarPerfil.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.designer.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.designer.cs",
+              "RelativeToolTip": "SoftProgWeb\\EditarPerfil.aspx.designer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAmwFgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T09:03:03.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EditarPerfil.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\EditarPerfil.aspx.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAuwHAAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T09:02:39.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "estilo3.css",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Content\\estilo3.css",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Content\\estilo3.css",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Content\\estilo3.css",
-              "RelativeToolTip": "SoftProgWeb\\Content\\estilo3.css",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAAAH8AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-24T05:27:26.908Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoriaProducto.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\CategoriaProducto.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx",
-              "RelativeToolTip": "SoftProgWeb\\CategoriaProducto.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T05:26:42.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Index.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx",
-              "RelativeToolTip": "SoftProgWeb\\Index.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T05:06:20.598Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MiCarrito.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx",
-              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T04:47:10.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MiCarrito.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAqwCoAAAA/AAAAAAAAAA==",
+              "Title": "GestionarProductos02RegistrarProducto.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAwwG0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T04:45:58.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CategoriaProducto.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\CategoriaProducto.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\CategoriaProducto.aspx.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAtwMkAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T05:26:59.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "InicioSesion.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx",
-              "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T05:06:26.424Z"
+              "WhenOpened": "2025-11-24T08:50:45.381Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "InicioSesion.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
+              "Title": "CategoriaProducto.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\CategoriaProducto.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\CategoriaProducto.aspx.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAAAL8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T05:06:29.169Z"
+              "WhenOpened": "2025-11-24T08:50:19.668Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GestionarProductos01.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos01.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarProductos01.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos01.aspx",
-              "RelativeToolTip": "SoftProgWeb\\GestionarProductos01.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T05:26:39.653Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Index.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Index.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\Index.aspx.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "PerfilCliente.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\PerfilCliente.aspx.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAawN0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T05:06:21.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SoftProg.Master",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\SoftProg.Master",
-              "RelativeDocumentMoniker": "SoftProgWeb\\SoftProg.Master",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\SoftProg.Master",
-              "RelativeToolTip": "SoftProgWeb\\SoftProg.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T04:55:12.812Z",
+              "WhenOpened": "2025-11-24T08:21:08.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Home.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Home.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\Home.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\Home.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\Home.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T04:23:44.091Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "PerfilCliente.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx",
               "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx",
               "RelativeToolTip": "SoftProgWeb\\PerfilCliente.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T03:15:34.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "PerfilCliente.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx.cs",
-              "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx.cs",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx.cs",
-              "RelativeToolTip": "SoftProgWeb\\PerfilCliente.aspx.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowDoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T03:15:36.595Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GestionarPedidos01.aspx",
-              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarPedidos01.aspx",
-              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarPedidos01.aspx",
-              "ToolTip": "C:\\Users\\Cristhian Horacio\\Downloads\\TrabajoAcademico-proyecto2\\TrabajoAcademico-proyecto2\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarPedidos01.aspx*",
-              "RelativeToolTip": "SoftProgWeb\\GestionarPedidos01.aspx*",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-11-24T05:03:51.537Z"
+              "WhenOpened": "2025-11-24T08:14:38.819Z"
             }
           ]
         }

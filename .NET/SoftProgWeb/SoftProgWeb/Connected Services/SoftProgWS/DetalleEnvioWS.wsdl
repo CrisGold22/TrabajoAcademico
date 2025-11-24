@@ -5,6 +5,18 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/DetalleEnvioWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="listarDetalleEnvio">
+    <part name="parameters" element="tns:listarDetalleEnvio" />
+  </message>
+  <message name="listarDetalleEnvioResponse">
+    <part name="parameters" element="tns:listarDetalleEnvioResponse" />
+  </message>
+  <message name="IOException">
+    <part name="fault" element="tns:IOException" />
+  </message>
+  <message name="InterruptedException">
+    <part name="fault" element="tns:InterruptedException" />
+  </message>
   <message name="insertarDetalleEnvio">
     <part name="parameters" element="tns:insertarDetalleEnvio" />
   </message>
@@ -13,18 +25,6 @@
   </message>
   <message name="JsonProcessingException">
     <part name="fault" element="tns:JsonProcessingException" />
-  </message>
-  <message name="IOException">
-    <part name="fault" element="tns:IOException" />
-  </message>
-  <message name="InterruptedException">
-    <part name="fault" element="tns:InterruptedException" />
-  </message>
-  <message name="actualizarDetalleEnvio">
-    <part name="parameters" element="tns:actualizarDetalleEnvio" />
-  </message>
-  <message name="actualizarDetalleEnvioResponse">
-    <part name="parameters" element="tns:actualizarDetalleEnvioResponse" />
   </message>
   <message name="obtenerDetalleEnvio">
     <part name="parameters" element="tns:obtenerDetalleEnvio" />
@@ -38,26 +38,25 @@
   <message name="eliminarDetalleEnvioResponse">
     <part name="parameters" element="tns:eliminarDetalleEnvioResponse" />
   </message>
-  <message name="listarDetalleEnvio">
-    <part name="parameters" element="tns:listarDetalleEnvio" />
+  <message name="actualizarDetalleEnvio">
+    <part name="parameters" element="tns:actualizarDetalleEnvio" />
   </message>
-  <message name="listarDetalleEnvioResponse">
-    <part name="parameters" element="tns:listarDetalleEnvioResponse" />
+  <message name="actualizarDetalleEnvioResponse">
+    <part name="parameters" element="tns:actualizarDetalleEnvioResponse" />
   </message>
   <portType name="DetalleEnvioWS">
+    <operation name="listarDetalleEnvio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest" message="tns:listarDetalleEnvio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioResponse" message="tns:listarDetalleEnvioResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="insertarDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioRequest" message="tns:insertarDetalleEnvio" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvioResponse" message="tns:insertarDetalleEnvioResponse" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvio/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/insertarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
-    <operation name="actualizarDetalleEnvio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRequest" message="tns:actualizarDetalleEnvio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioResponse" message="tns:actualizarDetalleEnvioResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvio/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
     <operation name="obtenerDetalleEnvio">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/obtenerDetalleEnvioRequest" message="tns:obtenerDetalleEnvio" />
@@ -71,16 +70,17 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/eliminarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
-    <operation name="listarDetalleEnvio">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioRequest" message="tns:listarDetalleEnvio" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvioResponse" message="tns:listarDetalleEnvioResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/listarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    <operation name="actualizarDetalleEnvio">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioRequest" message="tns:actualizarDetalleEnvio" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvioResponse" message="tns:actualizarDetalleEnvioResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvio/Fault/JsonProcessingException" name="JsonProcessingException" message="tns:JsonProcessingException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvio/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/DetalleEnvioWS/actualizarDetalleEnvio/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
   </portType>
   <binding name="DetalleEnvioWSPortBinding" type="tns:DetalleEnvioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarDetalleEnvio">
+    <operation name="listarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -88,9 +88,6 @@
       <output>
         <soap:body use="literal" />
       </output>
-      <fault name="JsonProcessingException">
-        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
-      </fault>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>
@@ -98,7 +95,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="actualizarDetalleEnvio">
+    <operation name="insertarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -146,7 +143,7 @@
         <soap:fault use="literal" name="InterruptedException" namespace="" />
       </fault>
     </operation>
-    <operation name="listarDetalleEnvio">
+    <operation name="actualizarDetalleEnvio">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -154,6 +151,9 @@
       <output>
         <soap:body use="literal" />
       </output>
+      <fault name="JsonProcessingException">
+        <soap:fault use="literal" name="JsonProcessingException" namespace="" />
+      </fault>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>

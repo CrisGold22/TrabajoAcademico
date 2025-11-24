@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SoftProgWeb.SoftProgWS;
@@ -76,7 +77,6 @@ namespace SoftProgWeb
                     lineaCompleta.precio = linea.producto.precioRegular;
                 }
 
-                  
                 lineaCompleta.subTotal = lineaCompleta.cantidad * lineaCompleta.precio;
 
                 // Actualizar en BD 
@@ -107,8 +107,17 @@ namespace SoftProgWeb
 
         private void ActualizarTotal()
         {
-            double subtotal = lineasCarrito.Sum(l => l.subTotal);
-            double descuento = subtotal * 0.01;
+            double subtotal = 0;
+            double montoRegular = 0;
+
+            foreach (var linea in lineasCarrito)
+            {
+                subtotal += linea.subTotal;
+                montoRegular += linea.cantidad * linea.producto.precioRegular;
+            }
+
+            //double subtotal = lineasCarrito.Sum(l => l.subTotal);
+            double descuento = montoRegular - subtotal;
             double total = subtotal - descuento;
 
             lblSubtotal.Text = $"S/ {subtotal:0.00}";

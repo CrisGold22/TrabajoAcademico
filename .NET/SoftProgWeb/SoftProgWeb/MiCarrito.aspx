@@ -68,7 +68,7 @@
                             </asp:TemplateField>
 
                             <%-- PRECIO --%>
-                            <asp:BoundField HeaderText="PRECIO" DataField="producto.precioRegular"
+                            <asp:BoundField HeaderText="PRECIO" DataField="precio"
                                             DataFormatString="S/ {0:F2}" ItemStyle-HorizontalAlign="Center" />
 
                             <%-- CANTIDAD CON BOTONES FUNCIONALES --%>
@@ -110,7 +110,7 @@
                                     <asp:LinkButton ID="btnEliminar" runat="server"
                                         CssClass="btn btn-outline-danger"
                                         CommandName="Eliminar"
-                                        CommandArgument='<%# Eval("id") %>'
+                                        CommandArgument="<%# Container.DataItemIndex %>"
                                         OnClientClick="return confirm('¿Seguro que quieres eliminar este producto?');">
                                         <i class="fas fa-trash"></i>
                                     </asp:LinkButton>

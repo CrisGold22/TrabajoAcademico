@@ -76,7 +76,14 @@ namespace SoftProgWeb
                     txtStockMaximo.Text = prod.stockMaximo.ToString();
                     ddlCategoria.SelectedValue = prod.categoria.id.ToString();
                     ddlUnidadMedida.SelectedValue = prod.medidaAlMayor.ToString();
-                    chkActivo.Checked = prod.activo;
+                    if (prod.activoInt == 1)
+                    {
+                        chkActivo.Checked = prod.activo;
+                    }
+                    else
+                    {
+                        chkActivo.Checked = false;
+                    }
                 }
             }
             catch (System.Exception ex)
@@ -113,7 +120,7 @@ namespace SoftProgWeb
                 prod.medidaAlMayor = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
                 prod.medidaAlMayorSpecified = true;
                 prod.activo = chkActivo.Checked;
-                //prod.activoInt = 1;
+                prod.activoInt = 1;
 
 
                 int idProducto = (int)ViewState["ProductoID"];
