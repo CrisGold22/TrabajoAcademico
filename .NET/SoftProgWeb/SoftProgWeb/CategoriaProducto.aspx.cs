@@ -64,14 +64,22 @@ namespace SoftProgWeb
             int idCliente = Convert.ToInt32(Session["IdCliente"]);
             var carritoA = carritoComprasWS.obtenerCarritoDeCliente(idCliente);
 
+            
             if(carritoA != null)
             {
                 lineaCarrito lineaCarrito = new lineaCarrito();
-                lineaCarrito.producto = producto;
+                
                 lineaCarrito.cantidad = 1;
-                lineaCarrito.carritoCompras = carritoA; 
+                lineaCarrito.precio = producto.precioRegular;
+                lineaCarrito.subTotal = 1 * producto.precioRegular;
+                lineaCarrito.carritoCompras = carritoA;
+                lineaCarrito.activo = true;
+                lineaCarrito.activoInt = 1;
+                lineaCarrito.producto = producto;
+                lineaCarritoWS.insertarLineaCarrito(lineaCarrito);
 
-                lineaCarritoWS.actualizarLineaCarrito(lineaCarrito);
+
+                
                 
             }
 
