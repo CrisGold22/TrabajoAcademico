@@ -44,11 +44,11 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Abarrotes") %>'>Abarrotes</a></li>
-                                <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=ConservasYEnlatados") %>'>Conservas y Enlatados</a></li>
+                                <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Conservas_Y_Enlatados") %>'>Conservas y Enlatados</a></li>
                                 <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Lacteos") %>'>Lácteos</a></li>
                                 <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Bebidas") %>'>Bebidas</a></li>
                                 <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Aperitivos") %>'>Aperitivos</a></li>
-                                <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=CuidadoPersonal") %>'>Cuidado Personal</a></li>
+                                <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Cuidado_Personal") %>'>Cuidado Personal</a></li>
                                 <li><a class="dropdown-item" href='<%= ResolveUrl("~/CategoriaProducto.aspx?category=Mascota") %>'>Mascota</a></li>
                             </ul>
                         </div>
@@ -85,66 +85,7 @@
         </nav>
     </div>
 
-    <%--<div>
-        <nav class="navbar navbar-dark bg-rojo px-3" >
-            <div class="container-fluid d-flex align-items-center justify-content-between">
-                <!-- Logo -->
-                <div class="d-flex align-items-center">
-                    <a class="navbar-brand" href='<%= ResolveUrl("~/Home.aspx") %>'>
-                        <img src="images/logo.png" alt="Logo" height="50" class="me-2">--%>
-                        <%--<i class="fa-solid fa-bars me-5"></i>
-                    </a>
 
-                     <!--boton de menu-->
-                   <form class="d-flex mx-auto" action="menu" method="post" style="max-width: 700px">
-                        <div class="dropdown">
-                            <!-- Usamos btn-secondary para el estilo predeterminado de Bootstrap -->
-                            <button class="btn btn-secondary dropdown-toggle button-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item " href="#">Abarrotes</a></li>
-                                <li><a class="dropdown-item" href="#">Bebidas</a></li>
-                                <li><a class="dropdown-item" href="#">Congelados</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                    </form>
-
-                    <!-- Barra de búsqueda -->
-                   
-                        <div>
-                            <form class="d-flex" role="search">
-                              <input class="form-control me-2" type="search" placeholder="Buscar productos..."" aria-label="Search">
-                              <button class="btn btn-outline-success " type="submit">Buscar</button>
-                            </form>
-                        </div>
-                    
-                  
-                    
-                    
-                
-                <div class="d-flex justify-content-end m-3">
-                    <div id="pnlPerfilLinks" runat="server" class="dropdown">
-                        <button class="btn btn-icone dropdown-toggle me-5" id="btnUsuario" data-bs-toggle="dropdown" type="button" aria-expanded="false">
-                            <i class="fas fa-user me-2"></i><asp:Label ID="lblCuenta" runat="server"></asp:Label>
-                            Mi cuenta
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnUsuario">
-                            <li id="lnkPerfilCliente" runat="server"><a class="dropdown-item" href='<%= ResolveUrl("~/PerfilCliente.aspx") %>'>Perfil</a></li>
-                            <li id="lnkCambiarContrasena" runat="server"><a class="dropdown-item" href='<%= ResolveUrl("~/CambiarContrasena.aspx") %>'>Cambiar Contraseña</a></li>
-                            <li id="lnkLogout" runat="server"><a class="dropdown-item" href='<%= ResolveUrl("~/Home.aspx") %>'>Cerrar Sesión</a></li>
-                        </ul>
-                        <button class="bttn btn-icone me-4" id="btnCarrito" type="button" onclick="window.location.href='MiCarrito.aspx'">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>--%>
-    <!-- Contenido -->
     <div class="p-4">
         <form runat="server">
             <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>

@@ -68,7 +68,15 @@ namespace SoftProgWeb
                 else if (e.CommandName == "Decrementar" && lineaCompleta.cantidad > 1)
                     lineaCompleta.cantidad--;
 
-                // Recalcular subtotal
+                if(lineaCompleta.cantidad > 5)
+                {
+                    lineaCompleta.precio = linea.producto.precioAlMayor;
+                }
+                else {
+                    lineaCompleta.precio = linea.producto.precioRegular;
+                }
+
+                  
                 lineaCompleta.subTotal = lineaCompleta.cantidad * lineaCompleta.precio;
 
                 // Actualizar en BD 

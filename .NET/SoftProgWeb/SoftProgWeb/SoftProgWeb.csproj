@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="archivoPrueba.aspx" />
     <Content Include="CambiarContrasena.aspx" />
     <None Include="Connected Services\SoftProgWS\AdministradorSistemaWS.wsdl" />
     <None Include="Connected Services\SoftProgWS\AdministradorSistemaWS.xsd">
@@ -579,6 +580,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.listarmarcaporIdcategoriaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\SoftProgWS\SoftProgWeb.SoftProgWS.obtenerCategoriaSegunNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />

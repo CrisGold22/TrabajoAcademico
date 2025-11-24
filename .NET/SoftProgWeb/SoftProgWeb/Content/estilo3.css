@@ -12,14 +12,14 @@
 
     /* Efecto al pasar el mouse por encima (hover) */
     .button-menu:hover {
-        background-color: #DE2C2C; 
-        border-color: #DE2C2C; 
+        background-color: #DE2C2C;
+        border-color: #DE2C2C;
     }
 
 
 /* Estilo de los elementos dentro del menú desplegable */
 .dropdown-menu {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     color: black; /* Texto blanco */
 }
 
@@ -31,19 +31,21 @@
     /* Estilo para los elementos activos (seleccionados) */
     .dropdown-item.active, .dropdown-item:active {
         background-color: #DE2C2C;
-        color: white; 
+        color: white;
     }
 
     /* Estilo para los elementos del menú cuando el mouse pasa por encima (hover) */
     .dropdown-item:hover {
-        background-color: #DE2C2C; 
-        color: white; 
+        background-color: #DE2C2C;
+        color: white;
     }
+
 .button-menu:focus, .button-menu:active {
     background-color: #DE2C2C; /* Fondo rojo cuando está en foco o activo */
     border-color: #DE2C2C; /* Borde rojo cuando está en foco o activo */
     color: white; /* Texto blanco cuando está en foco o activo */
 }
+
 .button-menu:hover {
     background-color: #DE2C2C; /* Fondo rojo en hover */
     border-color: #DE2C2C; /* Borde rojo en hover */
@@ -53,21 +55,21 @@
 
 
 button.btn-outline-success {
-    
     background-color: #28a745; /* Fondo verde */
-    color: white;              /* Texto blanco */
-    border: none;              /* Sin borde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
 }
 
-button.btn-outline-success:hover {
-    background-color: #218838; /* Fondo verde más oscuro al pasar el mouse */
-}
+    button.btn-outline-success:hover {
+        background-color: #218838; /* Fondo verde más oscuro al pasar el mouse */
+    }
 
 
 .button-add-1 {
     border-color: #DE2C2C;
     background-color: #DE2C2C !important;
 }
+
     .button-add-1:hover {
         border-color: #D61111;
         background-color: #D61111;
@@ -84,6 +86,7 @@ button.btn-outline-success:hover {
     flex-direction: column;
     justify-content: space-between; /* Esto garantiza que el botón esté al final */
 }
+
 .card-img-top {
     margin-top: 10px;
     max-height: 200px;
@@ -92,13 +95,14 @@ button.btn-outline-success:hover {
     margin-left: auto !important; /* Centra la imagen horizontalmente */
     margin-right: auto !important; /* Centra la imagen horizontalmente */
 }
+
 .card {
     height: 100%; /* Hace que todas las tarjetas tengan la misma altura */
     display: flex;
     flex-direction: column;
 }
 
-.container-right{
+.container-right {
     display: flex;
     justify-content: flex-end;
 }
@@ -112,8 +116,8 @@ button.btn-outline-success:hover {
     padding: 20px;
     border-right: 1px solid #ddd;
     margin-right: 30px; /* Margen a la derecha para espacio */
-    margin-top:20px;
-    border-radius:10px;
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
     .sidebar h4 {
@@ -145,4 +149,8 @@ button.btn-outline-success:hover {
     .content {
         margin-left: 0; /* El contenido ocupa todo el ancho disponible */
     }
+}
+
+.cajita3 {
+    margin-top: 20px;
 }

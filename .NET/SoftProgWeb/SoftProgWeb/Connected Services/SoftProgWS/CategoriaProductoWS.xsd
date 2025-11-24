@@ -15,6 +15,8 @@
   <xs:element name="listarmarcaporIdcategoriaResponse" type="tns:listarmarcaporIdcategoriaResponse" />
   <xs:element name="obtenerCategoriaProducto" type="tns:obtenerCategoriaProducto" />
   <xs:element name="obtenerCategoriaProductoResponse" type="tns:obtenerCategoriaProductoResponse" />
+  <xs:element name="obtenerCategoriaSegunNombre" type="tns:obtenerCategoriaSegunNombre" />
+  <xs:element name="obtenerCategoriaSegunNombreResponse" type="tns:obtenerCategoriaSegunNombreResponse" />
   <xs:complexType name="listarCategoriaProducto">
     <xs:sequence />
   </xs:complexType>
@@ -49,6 +51,16 @@
   <xs:complexType name="IOException">
     <xs:sequence>
       <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCategoriaSegunNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreCategoria" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCategoriaSegunNombreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:categoriaProducto" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarCategoriaProducto">

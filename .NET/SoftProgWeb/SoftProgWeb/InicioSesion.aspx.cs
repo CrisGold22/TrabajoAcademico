@@ -24,11 +24,11 @@ namespace SoftProgWeb
             //string email = txtEmail.Text.Trim();
             //string password = txtPassword.Text.Trim();
 
-            string email = "admin1@example.com";
-            string password = "admin123";
+            //string email = "admin1@example.com";
+            //string password = "admin123";
 
-            //string email = "jperez@example.com";
-            //string password = "pass123";
+            string email = "jperez@example.com";
+            string password = "pass123";
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
@@ -57,6 +57,7 @@ namespace SoftProgWeb
             {
                 Session["IdCliente"] = cliente.id;
                 Session["NombreCliente"] = cliente.nombre + " " + cliente.apellidoPaterno;
+                Session["dni"] = cliente.dni;
                 Response.Redirect("Index.aspx");
                 return;
             }
