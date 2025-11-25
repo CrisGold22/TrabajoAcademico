@@ -46,7 +46,7 @@ public class ReporteOrdenCompra extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/pdf");
         InputStream reporte = getClass().getClassLoader().getResourceAsStream(NOMBRE_REPORTE);
         if (reporte == null) {
             throw new FileNotFoundException("No se encontro el reporte: " + NOMBRE_REPORTE);

@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\gestionarpedidos01.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarpedidos01.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\gestionarproductos01.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarproductos01.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\gestionarproductos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarproductos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\gestionarpedidos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\gestionarpedidos01.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|c:\\users\\cristhian horacio\\documents\\netbeansprojects\\proyecto\\.net\\softprogweb\\softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1ACE6B1-1DFE-46E4-9C86-2271CB15AC73}|SoftProgWeb\\SoftProgWeb.csproj|solutionrelative:softprogweb\\micarrito.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,11 +78,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "GestionarProductos01.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos01.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarProductos01.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos01.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\GestionarProductos01.aspx.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwGQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T11:56:30.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GestionarProductos01.aspx",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos01.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarProductos01.aspx",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos01.aspx",
+              "RelativeToolTip": "SoftProgWeb\\GestionarProductos01.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-24T11:56:24.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GestionarPedidos01.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarPedidos01.aspx.cs",
+              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarPedidos01.aspx.cs",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarPedidos01.aspx.cs",
+              "RelativeToolTip": "SoftProgWeb\\GestionarPedidos01.aspx.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAmwJ4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T11:56:18.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GestionarPedidos01.aspx",
+              "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarPedidos01.aspx",
+              "RelativeDocumentMoniker": "SoftProgWeb\\GestionarPedidos01.aspx",
+              "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarPedidos01.aspx*",
+              "RelativeToolTip": "SoftProgWeb\\GestionarPedidos01.aspx*",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-11-24T11:56:01.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Seguimiento.aspx",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx",
               "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx",
@@ -78,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Seguimiento.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx.cs",
@@ -90,19 +158,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "InicioSesion.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\InicioSesion.aspx.cs",
               "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\InicioSesion.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\InicioSesion.aspx.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA5wBYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T10:57:45.952Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "CambiarContrasena.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CambiarContrasena.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\CambiarContrasena.aspx.cs",
@@ -114,20 +182,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "MiCarrito.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\MiCarrito.aspx.cs",
               "ToolTip": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\MiCarrito.aspx.cs",
               "RelativeToolTip": "SoftProgWeb\\MiCarrito.aspx.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAWwIgAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAADgv3QAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-24T09:05:34.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Seguimiento.aspx.designer.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\Seguimiento.aspx.designer.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\Seguimiento.aspx.designer.cs",
@@ -139,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "EditarPerfil.aspx",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx",
               "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx",
@@ -151,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "EditarPerfil.aspx.designer.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.designer.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx.designer.cs",
@@ -163,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "EditarPerfil.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\EditarPerfil.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\EditarPerfil.aspx.cs",
@@ -175,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "GestionarProductos02RegistrarProducto.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\GestionarProductos02RegistrarProducto.aspx.cs",
@@ -187,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "CategoriaProducto.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\CategoriaProducto.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\CategoriaProducto.aspx.cs",
@@ -199,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "PerfilCliente.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx.cs",
               "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx.cs",
@@ -211,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "PerfilCliente.aspx",
               "DocumentMoniker": "C:\\Users\\Cristhian Horacio\\Documents\\NetBeansProjects\\Proyecto\\.NET\\SoftProgWeb\\SoftProgWeb\\PerfilCliente.aspx",
               "RelativeDocumentMoniker": "SoftProgWeb\\PerfilCliente.aspx",

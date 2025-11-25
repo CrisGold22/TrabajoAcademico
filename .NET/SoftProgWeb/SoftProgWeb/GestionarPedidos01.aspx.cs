@@ -151,7 +151,10 @@ namespace SoftProgWeb
             }
         }
 
-
+        protected void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:8080/SoftProgReportes/ReporteOrdenCompra?id=1");
+        }
 
 
     }
