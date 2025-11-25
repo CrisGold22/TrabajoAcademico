@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/SoftProgWS/AdministradorSistemaWS?xsd=1" namespace="http://services.softprog.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="eliminarAdministradorPorId">
-    <part name="parameters" element="tns:eliminarAdministradorPorId" />
+  <message name="obtenerAdministradorPorId">
+    <part name="parameters" element="tns:obtenerAdministradorPorId" />
   </message>
-  <message name="eliminarAdministradorPorIdResponse">
-    <part name="parameters" element="tns:eliminarAdministradorPorIdResponse" />
+  <message name="obtenerAdministradorPorIdResponse">
+    <part name="parameters" element="tns:obtenerAdministradorPorIdResponse" />
   </message>
   <message name="IOException">
     <part name="fault" element="tns:IOException" />
   </message>
   <message name="InterruptedException">
     <part name="fault" element="tns:InterruptedException" />
-  </message>
-  <message name="obtenerAdministradorPorId">
-    <part name="parameters" element="tns:obtenerAdministradorPorId" />
-  </message>
-  <message name="obtenerAdministradorPorIdResponse">
-    <part name="parameters" element="tns:obtenerAdministradorPorIdResponse" />
   </message>
   <message name="listarTodosAdminstradores">
     <part name="parameters" element="tns:listarTodosAdminstradores" />
@@ -38,6 +32,12 @@
   <message name="JsonProcessingException">
     <part name="fault" element="tns:JsonProcessingException" />
   </message>
+  <message name="eliminarAdministradorPorId">
+    <part name="parameters" element="tns:eliminarAdministradorPorId" />
+  </message>
+  <message name="eliminarAdministradorPorIdResponse">
+    <part name="parameters" element="tns:eliminarAdministradorPorIdResponse" />
+  </message>
   <message name="actualizarAdministradorPorId">
     <part name="parameters" element="tns:actualizarAdministradorPorId" />
   </message>
@@ -45,12 +45,6 @@
     <part name="parameters" element="tns:actualizarAdministradorPorIdResponse" />
   </message>
   <portType name="AdministradorSistemaWS">
-    <operation name="eliminarAdministradorPorId">
-      <input wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorIdRequest" message="tns:eliminarAdministradorPorId" />
-      <output wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorIdResponse" message="tns:eliminarAdministradorPorIdResponse" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorId/Fault/IOException" name="IOException" message="tns:IOException" />
-      <fault wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorId/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
-    </operation>
     <operation name="obtenerAdministradorPorId">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorPorIdRequest" message="tns:obtenerAdministradorPorId" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/obtenerAdministradorPorIdResponse" message="tns:obtenerAdministradorPorIdResponse" />
@@ -70,6 +64,12 @@
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/insertarAdministrador/Fault/IOException" name="IOException" message="tns:IOException" />
       <fault wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/insertarAdministrador/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
     </operation>
+    <operation name="eliminarAdministradorPorId">
+      <input wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorIdRequest" message="tns:eliminarAdministradorPorId" />
+      <output wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorIdResponse" message="tns:eliminarAdministradorPorIdResponse" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorId/Fault/IOException" name="IOException" message="tns:IOException" />
+      <fault wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/eliminarAdministradorPorId/Fault/InterruptedException" name="InterruptedException" message="tns:InterruptedException" />
+    </operation>
     <operation name="actualizarAdministradorPorId">
       <input wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/actualizarAdministradorPorIdRequest" message="tns:actualizarAdministradorPorId" />
       <output wsam:Action="http://services.softprog.pucp.edu.pe/AdministradorSistemaWS/actualizarAdministradorPorIdResponse" message="tns:actualizarAdministradorPorIdResponse" />
@@ -80,21 +80,6 @@
   </portType>
   <binding name="AdministradorSistemaWSPortBinding" type="tns:AdministradorSistemaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarAdministradorPorId">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-      <fault name="IOException">
-        <soap:fault use="literal" name="IOException" namespace="" />
-      </fault>
-      <fault name="InterruptedException">
-        <soap:fault use="literal" name="InterruptedException" namespace="" />
-      </fault>
-    </operation>
     <operation name="obtenerAdministradorPorId">
       <soap:operation soapAction="" />
       <input>
@@ -136,6 +121,21 @@
       <fault name="JsonProcessingException">
         <soap:fault use="literal" name="JsonProcessingException" namespace="" />
       </fault>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+      <fault name="InterruptedException">
+        <soap:fault use="literal" name="InterruptedException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="eliminarAdministradorPorId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
       <fault name="IOException">
         <soap:fault use="literal" name="IOException" namespace="" />
       </fault>
