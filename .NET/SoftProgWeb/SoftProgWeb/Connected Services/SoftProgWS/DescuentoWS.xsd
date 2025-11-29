@@ -94,16 +94,6 @@
       <xs:element name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminarDescuento">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarDescuentoResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="actualizarDescuento">
     <xs:sequence>
       <xs:element minOccurs="0" name="descuento" type="tns:descuento" />
@@ -122,6 +112,16 @@
   </xs:complexType>
   <xs:complexType name="jsonLocation">
     <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="eliminarDescuento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarDescuentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerDescuento">
     <xs:sequence>

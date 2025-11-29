@@ -2,6 +2,8 @@
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Linq;
 
 namespace SoftProgWeb
 {
@@ -69,7 +71,15 @@ namespace SoftProgWeb
                     txtSKU.Text = prod.sku;
                     txtMarca.Text = prod.marca;
                     txtDescripcion.Text = prod.descripcion;
-                    txtUrlImagen.Text = prod.imagenURL;
+                    //txtUrlImagen.Text = prod.imagenURL;
+                    hfImagenActual.Value = prod.imagenURL;
+
+                    if (!string.IsNullOrEmpty(prod.imagenURL))
+                    {
+                        imgPreview.ImageUrl = prod.imagenURL;
+                        imgPreview.Visible = true;
+                    }
+
                     txtPrecioRegular.Text = prod.precioRegular.ToString();
                     txtPrecioMayor.Text = prod.precioAlMayor.ToString();
                     txtStockDisponible.Text = prod.stockDisponible.ToString();
@@ -101,6 +111,42 @@ namespace SoftProgWeb
         {
             try
             {
+                bool esNuevo = lblProductoID.Text == "Nuevo";
+
+                string rutaImagen = hfImagenActual.Value;
+
+                if (esNuevo && !fuImagen.HasFile && string.IsNullOrEmpty(rutaImagen))
+                {
+                    MostrarError("Debe adjuntar una imagen para el producto nuevo.");
+                    return;
+                }
+
+                if (fuImagen.HasFile)
+                {
+                    string extension = Path.GetExtension(fuImagen.FileName).ToLower();
+                    string[] extensionesPermitidas = { ".jpg", ".jpeg", ".png", ".gif" };
+
+                    if (!extensionesPermitidas.Contains(extension))
+                    {
+                        MostrarError("Solo se permiten imágenes con extensión .jpg, .jpeg, .png o .gif.");
+                        return;
+                    }
+
+                    string carpetaVirtual = "~/images/";
+                    string nombreArchivo = Guid.NewGuid().ToString() + extension;
+                    string rutaVirtual = carpetaVirtual + nombreArchivo;
+                    string rutaFisica = Server.MapPath(rutaVirtual);
+
+                    string carpetaFisica = Path.GetDirectoryName(rutaFisica);
+                    if (!Directory.Exists(carpetaFisica))
+                        Directory.CreateDirectory(carpetaFisica);
+
+                    fuImagen.SaveAs(rutaFisica);
+
+                    rutaImagen = nombreArchivo;
+                }
+
+                // 2. Crear objeto producto y asignar valores
                 producto prod = new producto();
                 
                 if(lblProductoID.Text != "Nuevo")
@@ -111,7 +157,7 @@ namespace SoftProgWeb
                 prod.sku = txtSKU.Text;
                 prod.marca = txtMarca.Text;
                 prod.descripcion = txtDescripcion.Text;
-                prod.imagenURL = txtUrlImagen.Text;
+                prod.imagenURL = rutaImagen;   // <--- AQUÍ VA LA RUTA DE LA IMAGEN
                 prod.precioRegular = double.Parse(txtPrecioRegular.Text);
                 prod.precioAlMayor = double.Parse(txtPrecioMayor.Text);
                 prod.stockDisponible = int.Parse(txtStockDisponible.Text);
@@ -120,9 +166,16 @@ namespace SoftProgWeb
                 prod.medidaAlMayor = (unidadMedida)Enum.Parse(typeof(unidadMedida), ddlUnidadMedida.SelectedValue);
                 prod.medidaAlMayorSpecified = true;
                 prod.activo = chkActivo.Checked;
-                prod.activoInt = 1;
-
-
+                if(chkActivo.Checked == true)
+                {
+                    prod.activoInt = 1;
+                }
+                else
+                {
+                    prod.activoInt = 0;
+                }
+                    
+                
                 int idProducto = (int)ViewState["ProductoID"];
                 int resultado = 0;
 

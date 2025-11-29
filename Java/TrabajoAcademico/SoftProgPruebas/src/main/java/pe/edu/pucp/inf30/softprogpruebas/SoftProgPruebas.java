@@ -108,15 +108,56 @@ public class SoftProgPruebas {
 //        pruebaLineaCarrito();
 //        hashearPasswords();
 
-//        pruebaInsertarCliente();
+//        pruebaInsertarAdmin();
+//        pruebaContrasena();
     }
     
-    public static void pruebaInsertarCliente(){
-        Cliente cliente = new Cliente();
+    public static void pruebaContrasena(){
+        CuentaUsuario cuenta = new CuentaUsuarioBOImpl().login("cristhiahoracio21@gmail.com", "Killzone2003");
+    
+        if(cuenta == null){
+            System.out.println("La cuenta existe");
+        }
+        else{
+            System.out.println("La cuenta no existe :(");
+        }
+    
+    }
+    
+    public static void pruebaInsertarAdmin(){
+        AdministradorSistema admin = new AdministradorSistema();
+        AdministradorSistemaBO adminBO = new AdministradorSistemaBOImpl();
+        LocalDateTime nacimientoSQL = LocalDateTime.now();
+
+        CuentaUsuario cuenta = new CuentaUsuario();
+        CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
         
-//        cliente.setActivo(true);
-//        cliente.setApellidoMaterno(Gu);
-//        
+        cuenta.setActivo(true);
+        cuenta.setPassword("Killzone2003");
+        cuenta.setUsername("CrisGold21");
+        cuenta.setCorreo("cristhiahoracio21@gmail.com");
+        cuentaBO.insertar(cuenta);
+        
+        int idCuenta = cuentaBO.obtenerCuentaUsuarioPorCorreo(cuenta.getCorreo()).getId();
+        cuenta.setId(idCuenta);
+        
+        admin.setId(1);
+        admin.setCargo(Cargo.ADMINISTRADOR);
+        admin.setJerarquia(Jerarquia.PARCIAL);
+        admin.setDni("72233478");
+        admin.setNombre("Cristhian Horacio");
+        admin.setApellidoMaterno("Olivares");
+        admin.setApellidoPaterno("Gupioc");
+        admin.setGenero(Genero.MASCULINO);
+        admin.setFechaNacimiento(nacimientoSQL);
+        admin.setTelefono(981429641);
+        admin.setSueldo(5000);
+        admin.setActivo(true);
+        admin.setCuenta(cuenta);
+
+        adminBO.insertar(admin);
+        
+        System.out.println("Proceso completado");
     }
     
     public static void hashearPasswords(){
@@ -152,10 +193,10 @@ public class SoftProgPruebas {
     public static void pruebaCuentaUsuario(){
         CuentaUsuario cuenta = new CuentaUsuario();
 //        
-//        cuenta.setActivo(true);
-//        cuenta.setCorreo("cristhianhoracio22@gmail.com");
-//        cuenta.setUsername("CrisGold22");
-//        cuenta.setPassword("Killzone2003");
+        cuenta.setActivo(true);
+        cuenta.setCorreo("cristhianhoracio22@gmail.com");
+        cuenta.setUsername("CrisGold22");
+        cuenta.setPassword("Killzone2003");
         CuentaUsuarioBO cuentaBO = new CuentaUsuarioBOImpl();
         cuenta = cuentaBO.obtenerCuentaUsuarioPorCorreo("cristhianhoracio22@gmail.com");
         
@@ -166,23 +207,23 @@ public class SoftProgPruebas {
         Cliente cliente = new Cliente();
         ClienteBO clienteBO = new ClienteBOImpl();
 
-//        cliente.setId(1);
-//        cliente.setDni("72233478");
-//        cliente.setNombre("Cristhian Horacio");
-//        cliente.setApellidoMaterno("Olivares");
-//        cliente.setApellidoPaterno("Gupioc");
-//        cliente.setGenero(Genero.MASCULINO);
-//        cliente.setFechaNacimiento(nacimientoSQL);
-//        cliente.setTelefono(981429641);
-//        cliente.setLineaCredito(10000);
-//        cliente.setCategoria(CategoriaCliente.CATERING);
-//        cliente.setNumeroPedidosHistorico(12);
-//        cliente.setNumeroPedidosMensualPro(10);
-//        cliente.setCuenta(cuenta);
-//        cliente.setActivo(true);
-//
-//        clienteBO.insertar(cliente);
-//        System.out.println("Se inserto el cliente de id 1 creado exitosamente");
+        cliente.setId(1);
+        cliente.setDni("72233478");
+        cliente.setNombre("Cristhian Horacio");
+        cliente.setApellidoMaterno("Olivares");
+        cliente.setApellidoPaterno("Gupioc");
+        cliente.setGenero(Genero.MASCULINO);
+        cliente.setFechaNacimiento(nacimientoSQL);
+        cliente.setTelefono(981429641);
+        cliente.setLineaCredito(10000);
+        cliente.setCategoria(CategoriaCliente.CATERING);
+        cliente.setNumeroPedidosHistorico(12);
+        cliente.setNumeroPedidosMensualPro(10);
+        cliente.setCuenta(cuenta);
+        cliente.setActivo(true);
+
+        clienteBO.insertar(cliente);
+        System.out.println("Se inserto el cliente de id 1 creado exitosamente");
         
         clienteBO.obtener(13);
         

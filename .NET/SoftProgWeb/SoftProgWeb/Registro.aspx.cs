@@ -248,17 +248,13 @@ namespace SoftProgWeb
             try
             {
                 cuentaUsuarioWS.insertarCuentaUsuario(cuenta);
-                System.Diagnostics.Debug.WriteLine($"[Cuenta insertada] {DateTime.Now:HH:mm:ss.fff}");
 
                 cuentaUsuario cuentaConId = cuentaUsuarioWS.obtenerCuentaUsuarioPorUserName(cuenta.username);
-                System.Diagnostics.Debug.WriteLine($"[Cuenta obtenida ID={cuentaConId.id}] {DateTime.Now:HH:mm:ss.fff}");
 
                 cliente.cuenta = cuentaConId;
                 clienteWS.insertarCliente(cliente); // ← IMPORTANTE
-                System.Diagnostics.Debug.WriteLine($"[CLIENTE INSERTADO] {DateTime.Now:HH:mm:ss.fff} — DNI={cliente.dni}");
 
                 cliente clienteConId = clienteWS.buscarPorDni(cliente.dni);
-                System.Diagnostics.Debug.WriteLine($"[CLIENTE BUSCADO] {DateTime.Now:HH:mm:ss.fff} — ID={clienteConId.id}");
 
                 carritoCompras carrito = new carritoCompras();
                 carrito.cliente = clienteConId;
@@ -266,7 +262,6 @@ namespace SoftProgWeb
                 carrito.activoInt = 1;
 
                 new CarritoComprasWSClient().insertarCarritoCompras(carrito);
-                System.Diagnostics.Debug.WriteLine($"[CARRITO INSERTADO] {DateTime.Now:HH:mm:ss.fff}");
 
 
 

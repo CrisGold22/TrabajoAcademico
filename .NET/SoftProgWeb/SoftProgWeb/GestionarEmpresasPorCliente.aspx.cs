@@ -12,6 +12,7 @@ namespace SoftProgWeb
     {
         private ClienteWSClient _servicioCliente;
         private EmpresaWSClient _servicioEmpresa;
+        private cliente cliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace SoftProgWeb
                 }
 
                 int idCliente = Convert.ToInt32(Request.QueryString["id"]);
+                cliente = _servicioCliente.obtenerCliente(idCliente);
                 CargarDetallesCliente(idCliente);
             }
         }
@@ -85,6 +87,12 @@ namespace SoftProgWeb
         {
             pnlMensaje.Visible = true;
             litMensajeError.Text = mensaje;
+        }
+
+        protected void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            int id = 2;
+            Response.Redirect("http://localhost:8080/SoftProgReportes/ReporteOrdenCompra?id=" + id);
         }
     }
 }

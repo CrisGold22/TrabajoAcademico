@@ -138,7 +138,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     public CuentaUsuario obtenerPorUsername(String username) {
-        String sql = "SELECT * FROM cuentausuario WHERE username = ?";
+        String sql = "SELECT * FROM CuentaUsuario WHERE username = ?";
         DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, username);
@@ -158,7 +158,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     public boolean actualizarPassword(int idCuentaUsuario, String nuevoPasswordHash) {
-        String sql = "UPDATE cuentausuario SET password = ? WHERE idCuentaUsuario = ?";
+        String sql = "UPDATE CuentaUsuario SET password = ? WHERE idCuentaUsuario = ?";
         DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, nuevoPasswordHash);
@@ -175,7 +175,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     public CuentaUsuario obtenerPorResetToken(String token) {
-        String sql = "SELECT * FROM cuentausuario WHERE reset_token = ?";
+        String sql = "SELECT * FROM CuentaUsuario WHERE reset_token = ?";
         DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, token);
@@ -195,7 +195,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
     @Override
     public boolean actualizarTokenRecuperacion(int idCuentaUsuario, String token, Timestamp expira) {
         DBManager dbManager = DBFactoryProvider.getManager();
-        String sql = "UPDATE cuentausuario SET reset_token = ?, reset_token_expira = ? WHERE idCuentaUsuario = ?";
+        String sql = "UPDATE CuentaUsuario SET reset_token = ?, reset_token_expira = ? WHERE idCuentaUsuario = ?";
         try (Connection conn = dbManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, token);
             ps.setTimestamp(2, expira);
@@ -211,7 +211,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     public boolean actualizarPasswordYLimpiarToken(int idCuentaUsuario, String hash) {
-        String sql = "UPDATE cuentausuario "
+        String sql = "UPDATE CuentaUsuario "
                 + "SET password = ?, reset_token = NULL, reset_token_expira = NULL "
                 + "WHERE idCuentaUsuario = ?";
         DBManager dbManager = DBFactoryProvider.getManager();
@@ -229,7 +229,7 @@ public class CuentaUsuarioDAOImpl extends BaseDAO<CuentaUsuario> implements Cuen
 
     @Override
     public CuentaUsuario obtenerPorCorreo(String correo) {
-        String sql = "SELECT * FROM cuentausuario WHERE correo = ?";
+        String sql = "SELECT * FROM CuentaUsuario WHERE correo = ?";
         DBManager dbManager = DBFactoryProvider.getManager();
         try (Connection conn = dbManager.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, correo);

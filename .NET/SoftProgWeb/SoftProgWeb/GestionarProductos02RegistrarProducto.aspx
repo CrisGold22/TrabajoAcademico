@@ -64,8 +64,12 @@
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>URL de la Imagen:</label>
-                                    <asp:TextBox ID="txtUrlImagen" runat="server" CssClass="form-control" />
+                                    <label>Adjuntar imagen:</label>
+                                    <asp:HiddenField ID="hfImagenActual" runat="server" />
+
+                                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control mt-2" />
+                                
+                                    <asp:Image ID="imgPreview" runat="server" CssClass="img-thumbnail mt-2" Width="150px" Visible="false"/>
                                 </div>
                             </div>
                         </div>
